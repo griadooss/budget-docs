@@ -23,7 +23,7 @@
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://zimpics.com"
   },
   "tabs": [
     {
@@ -51,11 +51,11 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
+      "pages": ["introduction"]
+    },
+    {
+      "group": "Prompts",
+      "pages": ["/budget-app/prompts/reconcilliation"]
     },
     {
       "group": "Essentials",
@@ -70,9 +70,7 @@
     },
     {
       "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
+      "pages": ["api-reference/introduction"]
     },
     {
       "group": "Endpoint Examples",
