@@ -69,6 +69,12 @@
       ]
     },
     {
+      "group": "Gotchas",
+      "pages": [
+        "budget-app/Gotchas"
+      ]
+    },
+    {
       "group": "API Documentation",
       "pages": ["api-reference/introduction"]
     },
