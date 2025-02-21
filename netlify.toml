@@ -1,23 +1,11 @@
 [build]
   publish = "."
-  command = ""  # Empty command as Mintlify handles the build
+  command = "npx mintlify build"
 
 [build.environment]
   NODE_VERSION = "18"
-
-[build.processing]
-  skip_processing = false
-
-[build.processing.html]
-  pretty_urls = true
-
-[[plugins]]
-  package = "@netlify/plugin-mintlify"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[context.production]
-  command = "npx mintlify dev"
