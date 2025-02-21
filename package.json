@@ -4,23 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "mintlify dev",
+    "build": "mintlify build",
     "start": "mintlify dev"
   },
   "dependencies": {
     "@mintlify/cli": "^3.0.97"
-  },
-  "description": "Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/griadooss/budget-docs.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/griadooss/budget-docs/issues"
-  },
-  "homepage": "https://github.com/griadooss/budget-docs#readme"
+  }
 }

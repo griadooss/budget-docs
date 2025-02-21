@@ -1,6 +1,7 @@
 [build]
-  publish = "."
-  command = "npx mintlify build"
+  base = "/"
+  publish = "dist"
+  command = "npm ci && npx mintlify build"
 
 [build.environment]
   NODE_VERSION = "18"
