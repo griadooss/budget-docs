@@ -1,36 +1,8 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Budget System",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
-  "favicon": "/favicon.svg",
-  "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
-    "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
-    }
-  },
-  "topbarLinks": [
-    {
-      "name": "Help",
-      "url": "guides/troubleshooting/using-ai-help"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Open Budget",
-    "url": "YOUR_SPREADSHEET_URL"
-  },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
   "anchors": [
     {
       "name": "Quick Start",
@@ -38,14 +10,9 @@
       "url": "quickstart"
     },
     {
-      "name": "Daily Tasks",
-      "icon": "calendar-day",
-      "url": "guides/daily-tasks/importing"
-    },
-    {
-      "name": "Help",
-      "icon": "question-circle",
-      "url": "guides/troubleshooting/common-issues"
+      "name": "User Guide",
+      "icon": "book-open",
+      "url": "guides"
     }
   ],
   "navigation": [
@@ -75,6 +42,5 @@
         "guides/troubleshooting/using-ai-help"
       ]
     }
-  ],
-  "footerSocials": {}
+  ]
 }
