@@ -74,6 +74,14 @@
         "guides/troubleshooting/common-issues",
         "guides/troubleshooting/using-ai-help"
       ]
+    },
+    {
+      "group": "User Manual",
+      "pages": [
+        "guides/user-manual/getting-started",
+        "guides/user-manual/menu-reference",
+        "guides/user-manual/basic-operations"
+      ]
     }
   ],
   "footerSocials": {}
