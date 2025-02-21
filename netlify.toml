@@ -1,12 +1,12 @@
 [build]
-  publish = "."
-  command = "npm install"
+  command = "npx mintlify build"
+  publish = "_site"
 
 [build.environment]
-  NODE_VERSION = "16"
+  NODE_VERSION = "18"
 
 [[plugins]]
-  package = "@mintlify/connector"
+  package = "@netlify/plugin-nextjs"
 
 [[redirects]]
   from = "/*"
