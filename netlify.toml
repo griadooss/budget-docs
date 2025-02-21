@@ -1,9 +1,17 @@
 [build]
-  command = "npx mintlify build"
-  publish = "_site"
+  command = "npx mintlify dev"
+  publish = "."
+  framework = "next"
 
 [build.environment]
   NODE_VERSION = "18"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
@@ -12,3 +20,6 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[context.production]
+  command = "npx mintlify dev"

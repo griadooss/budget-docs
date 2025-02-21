@@ -1,0 +1,5 @@
+build:
+  command: npx mintlify dev
+  publish: .
+  environment:
+    NODE_VERSION: 18
