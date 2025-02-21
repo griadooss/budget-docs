@@ -42,3 +42,7 @@ Thumbs.db
 
 # OP Files
 docs_OP/
+
+# Lock Files
+package-lock.json
+yarn.lock

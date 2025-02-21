@@ -1,0 +1,14 @@
+[build]
+  publish = "."
+  command = "npm install"
+
+[build.environment]
+  NODE_VERSION = "16"
+
+[[plugins]]
+  package = "@mintlify/connector"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
