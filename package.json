@@ -6,7 +6,7 @@
     "dev": "mintlify dev",
     "start": "mintlify dev"
   },
-  "dependencies": {
-    "@mintlify/cli": "^3.0.97"
+  "devDependencies": {
+    "@mintlify/cli": "^4.0.0"
   }
 }

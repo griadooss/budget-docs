@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Budget System",
+  "name": "ZimpicSoft Budget System",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -23,14 +23,9 @@
   ],
   "topbarCtaButton": {
     "name": "Open Budget",
-    "url": "YOUR_SPREADSHEET_URL"
+    "url": "https://docs.google.com/spreadsheets/d/1G8B1DcYH2hITectqeFYSKbz2Ln8BQfyzIUGpk_wdi1Y/edit?gid=1450817533#gid=1450817533"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
+
   "anchors": [
     {
       "name": "Quick Start",
@@ -76,12 +71,8 @@
       ]
     },
     {
-      "group": "User Manual",
-      "pages": [
-        "guides/user-manual/getting-started",
-        "guides/user-manual/menu-reference",
-        "guides/user-manual/basic-operations"
-      ]
+      "group": "System Information",
+      "pages": ["guides/system/version", "guides/system/changelog"]
     }
   ],
   "footerSocials": {}
