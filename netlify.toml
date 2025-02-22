@@ -1,7 +1,6 @@
 [build]
-  base = "/"
-  publish = "dist"
-  command = "npm install && npm run build"
+  command = "npm install && mintlify install"
+  publish = "."
 
 [build.environment]
   NODE_VERSION = "18"

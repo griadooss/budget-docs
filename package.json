@@ -4,11 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "mintlify dev",
-    "build": "mintlify build",
+    "build": "mintlify install",
     "start": "mintlify dev"
   },
   "dependencies": {
-    "@mintlify/cli": "^3.0.97",
-    "mintlify": "^3.0.0"
+    "@mintlify/cli": "^3.0.97"
   }
 }
