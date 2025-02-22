@@ -1,5 +1,18 @@
-# Node.js dependencies
+# Dependencies
 node_modules/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Node.js dependencies
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -7,7 +20,6 @@ pnpm-debug.log*
 
 # Logs
 logs/
-*.log
 *.log.*
 
 # Build output
@@ -24,13 +36,7 @@ build/
 .env.local
 .env.*.local
 
-# System files
-.DS_Store
-Thumbs.db
-
 # IDE/Editor files
-.vscode/
-.idea/
 *.swp
 *.swo
 
