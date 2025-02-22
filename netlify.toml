@@ -1,9 +1,12 @@
 [build]
-  command = "npm install && mintlify install"
+  command = "npm install"
   publish = "."
 
 [build.environment]
   NODE_VERSION = "18"
+
+[[plugins]]
+  package = "netlify-plugin-minify-html"
 
 [[redirects]]
   from = "/*"
