@@ -28,6 +28,11 @@
 
   "anchors": [
     {
+      "name": "Summary",
+      "icon": "rocket",
+      "url": "guides/user-manual/basic-overview"
+    },
+    {
       "name": "Quick Start",
       "icon": "rocket",
       "url": "quickstart"
@@ -51,6 +56,7 @@
     {
       "group": "Daily Tasks",
       "pages": [
+        "guides/user-manual/basic-overview",
         "guides/daily-tasks/importing",
         "guides/daily-tasks/categorizing",
         "guides/daily-tasks/reconciling"
