@@ -70,6 +70,14 @@
       ]
     },
     {
+      "group": "End of Year Process",
+      "pages": [
+        "guides/user-manual/eoy-process/overview",
+        "guides/user-manual/eoy-process/preparation",
+        "guides/user-manual/eoy-process/copy-creation"
+      ]
+    },
+    {
       "group": "Troubleshooting",
       "pages": [
         "guides/troubleshooting/common-issues",
