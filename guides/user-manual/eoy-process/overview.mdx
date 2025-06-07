@@ -43,12 +43,19 @@ The EOY process consists of several key steps:
 
 ## Accessing the Process
 
-To start the EOY process:
+The EOY process menu item behaves differently depending on whether you're in the original spreadsheet or a copy:
 
-1. Open your current budget spreadsheet
-2. Navigate to the "Period Processing" menu
-3. Click "End of Year Process"
-4. Follow the instructions in the help dialog
+### In Original Spreadsheet
+
+1. Navigate to the "Period Processing" menu
+2. Click "End of Year Process"
+3. Follow the instructions in the help dialog to create a copy
+
+### In New Copy
+
+1. Navigate to the "Period Processing" menu
+2. Click "Run End of Year Setup"
+3. Follow the setup wizard to configure your new budget
 
 ## Important Notes
 
@@ -56,12 +63,65 @@ To start the EOY process:
 - Don't delete any sheets in the new copy
 - Test all menu functions after setup
 - Ensure you have sufficient permissions to create spreadsheet copies
+- You must authorize the script in the new copy before proceeding
+
+## Authorization Process
+
+When you first open menu items in the new copy:
+
+1. You'll see an "Authorization Required" dialog
+2. Click "OK" to proceed
+3. Select your Google account
+4. Review the permissions
+5. Click "Allow" to grant access
+6. Wait for the authorization to complete
 
 ## Next Steps
 
-After viewing the help dialog, you'll be guided through:
+After viewing the help dialog:
 
-1. Creating a new copy of your budget
-2. Setting up the new year's configuration
-3. Verifying the setup
-4. Completing the transition
+1. Create a new copy of your budget
+2. Authorize the scripts in the new copy
+3. Run the EOY setup process
+4. Complete the configuration
+5. Verify the setup
+
+## Development and Testing Workflow
+
+When developing and testing the EOY process, follow these steps to ensure you're always testing with the latest code:
+
+### During Development
+
+1. Make script changes to the MASTER spreadsheet
+2. Push changes using `clasp push` to update MASTER's scripts
+3. Delete any existing test copies of the spreadsheet
+4. Make a fresh copy of MASTER for testing
+5. Test the EOY process in the new copy
+6. Repeat steps 1-5 as needed during development
+
+### Important Notes
+
+- Always delete old test copies before making a new one
+- Each copy gets its own Apps Script project
+- Using old copies may test outdated code
+- Fresh copies ensure you're testing the latest changes
+
+### Testing Checklist
+
+1. Before testing:
+
+   - Ensure all changes are pushed to MASTER
+   - Delete any existing test copies
+   - Make a fresh copy
+
+2. During testing:
+
+   - Use the fresh copy
+   - Document any issues found
+   - Note any needed script changes
+
+3. After finding issues:
+   - Make fixes in MASTER
+   - Push changes to MASTER
+   - Delete test copy
+   - Make new copy for next round of testing
