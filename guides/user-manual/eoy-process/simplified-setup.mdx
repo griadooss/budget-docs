@@ -1,1 +1,243 @@
- 
+---
+title: 'Simplified EOY Budget Setup'
+description: 'Detailed guide for the simplified End of Year budget setup process'
+---
+
+# Simplified EOY Budget Setup
+
+This guide provides comprehensive instructions for the simplified End of Year (EOY) budget process. You can refer to this documentation at any point during the process for detailed guidance.
+
+## Overview of the Simplified Process
+
+The simplified EOY process follows these main steps:
+
+1. **Initial Setup** (in original spreadsheet)
+
+   - Export properties
+   - Create a copy of the spreadsheet
+
+2. **Configuration** (in new copy)
+
+   - Authorize scripts
+   - Run EOY Setup
+   - Configure budget dates and settings
+
+3. **Manual Budget Update**
+
+   - Review last year's actuals
+   - Update budget amounts
+   - Balance the budget
+
+4. **Continue EOY Setup**
+
+   - Copy bank balances
+   - Update monthly headers
+   - Clear transaction sheets
+
+5. **Finalize EOY Setup**
+   - Verify all requirements
+   - Register as the new master
+
+## Pre-EOY Checks
+
+Before beginning the EOY process, ensure:
+
+1. **All accounts are reconciled**
+
+   - The LastReconciliationDate should be at or near the end of the financial year (June 30)
+   - All transactions should be properly categorized and reconciled
+
+2. **Balanced sheets**
+   - Banks sheet should have a zero balance in cell C30
+   - Annual Budget sheet should have a zero balance in cell B106
+   - Maintain Budget sheet should have a zero balance in cell E120
+
+If any of these conditions aren't met, you should complete your reconciliation process before proceeding with EOY.
+
+> **Note:** The system does not currently perform automatic checks for these conditions at the start of the EOY process. It's the user's responsibility to verify that these conditions are met before proceeding. A future enhancement may include automatic verification of these pre-conditions.
+
+## Initial Setup in Original Spreadsheet
+
+When you run "Period Processing > End of Year Process" in your original spreadsheet:
+
+### 1. Export Properties
+
+1. When prompted to export properties, click **YES**
+2. This saves critical settings to a hidden sheet that will be copied with the spreadsheet
+3. You'll see a confirmation message when the export is complete
+
+### 2. Create a Copy
+
+1. In Google Sheets, click **File > Make a copy**
+2. Name it "Budget-YYYY" (e.g., "Budget-2025")
+3. Select a destination folder
+4. Click **Make a copy**
+
+## Configuration in New Copy
+
+After creating a copy, you'll configure it for the new year:
+
+### 1. Authorize Scripts
+
+1. Open the new copy
+2. Navigate to **Period Processing > Run End of Year Setup**
+3. If prompted for authorization:
+   - Click **Continue**
+   - Select your Google account
+   - You will see the Google account that owns the spreadsheet (this might be your account or another account if the spreadsheet is shared with you)
+   - Click **Advanced** at the bottom left
+   - Click **Go to Budget App Scripts (unsafe)**
+   - Select the **Select all** checkbox to grant all required permissions
+   - Click **Continue** at the bottom
+   - Review the permissions and click **Allow**
+
+If authorization fails for any reason, try refreshing the page and attempting the process again. If problems persist, contact the spreadsheet administrator.
+
+### 2. Verification Process
+
+After authorization, the system automatically runs verification checks:
+
+1. Verifies all required sheets are present
+2. Confirms named ranges are properly configured
+3. Checks that budget formulas are valid
+
+If verification fails:
+
+- You'll see specific error messages indicating what needs to be fixed
+- Common issues include missing sheets, incorrectly named ranges, or formula errors
+- Fix the reported issues and try running the setup again
+
+If the verification passes, you'll see a "Verification Passed" message and can proceed with the next steps.
+
+> **Note:** The "Period Processing > Verify Setup" function is automatically run as part of the EOY setup process. You don't need to run it separately unless you want to troubleshoot potential issues before starting the EOY process.
+
+### 3. Configure Budget Settings
+
+1. In the confirmation dialog, click **YES** to proceed
+2. In the configuration dialog:
+   - Verify the Budget Start Date (should be set to July 1 of the new fiscal year)
+   - Set the Weekly Shopping Day
+   - Configure other payment dates
+   - Click **Save**
+
+## Manual Budget Update
+
+After configuring settings, you'll need to manually update your budget:
+
+### 1. Navigate to Maintain Budget Sheet
+
+The system will automatically:
+
+- Activate the Maintain Budget sheet
+- Scroll to the income section
+- Display the "Budget Setup Instructions" dialog with guidance on how to proceed
+
+> **Important:** This step is critical. You need to manually update your budget amounts based on last year's actuals and ensure your budget is balanced before continuing with the EOY process.
+
+### 2. Review and Update Income Sources
+
+1. Locate the "INCOME BUDGET" section
+2. For each income source:
+   - Review last year's actuals in Column D
+   - Update budget amounts in Column E
+   - Adjust frequencies in Column F if needed (12 for monthly, 1 for annual)
+   - Ensure the "Include" checkbox in Column I is checked for active items
+
+### 3. Review and Update Expense Categories
+
+1. Locate the "EXPENSE BUDGET" section
+2. For each expense category:
+   - Review last year's actuals in Column D
+   - Update budget amounts in Column E
+   - Adjust frequencies in Column F if needed (12 for monthly, 1 for annual)
+   - Ensure the "Include" checkbox in Column I is checked for active items
+
+### 4. Balance Your Budget
+
+1. Locate the "BUDGET BALANCED" cell (E120)
+2. Continue adjusting income and expenses until this cell shows zero
+3. This indicates your budget is balanced for the new year
+
+### 5. Refresh Budget Calculations
+
+1. Locate and click the **REFRESH** button at the bottom of the configuration section
+2. This calculates monthly distributions based on your frequencies
+
+## Continue EOY Setup
+
+After manually updating your budget:
+
+### 1. Start the Continuation Process
+
+1. Navigate to **Period Processing > Continue EOY Setup**
+2. If your budget isn't balanced, you'll be prompted to fix it first
+3. When ready, click **YES** to continue
+
+### 2. System Processes
+
+The system will automatically:
+
+1. Copy current bank balances to opening positions
+2. Update monthly headers for the new year
+3. Clear the Cash Flow and Bank Records sheets
+
+### 3. Completion
+
+1. The Annual Budget sheet will be activated to show the changes
+2. A completion message will appear
+3. Follow the instructions to proceed to the next step
+
+## Finalize EOY Setup
+
+The final step is to verify everything and mark this as your new master spreadsheet:
+
+### 1. Start Finalization
+
+1. Navigate to **Period Processing > Finalize EOY Setup**
+2. The system will verify all completion criteria
+
+### 2. Verification Checks
+
+The system checks that:
+
+1. Banks sheet is balanced (cell C30 = 0)
+2. Annual Budget sheet is balanced (cell B106 = 0)
+3. Maintain Budget sheet is balanced (cell E120 = 0)
+4. All budget items have their "Include" checkboxes properly set
+
+### 3. Complete the Process
+
+1. Click **YES** to finalize
+2. The system will:
+   - Initialize month statuses for the new year
+   - Mark this spreadsheet as the new master
+   - Show a completion message
+
+## Troubleshooting Common Issues
+
+### Budget Not Balancing
+
+1. Check that all income and expense totals match
+2. Look for missing items or incorrect values
+3. Verify that frequencies are set correctly
+
+### Bank Balances Not Copying Correctly
+
+1. Make sure the Banks sheet is properly structured
+2. Verify that bank account names match
+3. Check that current balances are correct
+
+### Monthly Headers Not Updating
+
+1. Ensure the Budget Start Date is set correctly
+2. Verify that the Annual Budget sheet exists
+3. Check for any error messages in the dialog
+
+## Next Steps After Completion
+
+After completing the EOY process:
+
+1. Verify that monthly processing works correctly
+2. Test importing transactions
+3. Save the original spreadsheet for historical records
+4. Begin using your new budget spreadsheet
