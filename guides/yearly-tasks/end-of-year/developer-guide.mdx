@@ -1,0 +1,75 @@
+---
+title: 'EOY Process Developer Guide'
+description: 'Technical information for developers working on the End of Year process'
+---
+
+# EOY Process Developer Guide
+
+This guide contains technical information for developers who are maintaining or enhancing the End of Year (EOY) process. End users should refer to the [End of Year Process Overview](/guides/yearly-tasks/end-of-year/overview) and [EOY Budget Setup](/guides/yearly-tasks/end-of-year/setup) guides instead.
+
+## Development and Testing Workflow
+
+When developing and testing the EOY process, follow these steps to ensure you're always testing with the latest code:
+
+### During Development
+
+1. Make script changes to the MASTER spreadsheet
+2. Push changes using `clasp push` to update MASTER's scripts
+3. Delete any existing test copies of the spreadsheet
+4. Make a fresh copy of MASTER for testing
+5. Test the EOY process in the new copy
+6. Repeat steps 1-5 as needed during development
+
+### Important Notes
+
+- Always delete old test copies before making a new one
+- Each copy gets its own Apps Script project
+- Using old copies may test outdated code
+- Fresh copies ensure you're testing the latest changes
+
+### Testing Checklist
+
+1. Before testing:
+
+   - Ensure all changes are pushed to MASTER
+   - Delete any existing test copies
+   - Make a fresh copy
+
+2. During testing:
+
+   - Use the fresh copy
+   - Document any issues found
+   - Note any needed script changes
+
+3. After finding issues:
+   - Make fixes in MASTER
+   - Push changes to MASTER
+   - Delete test copy
+   - Make new copy for next round of testing
+
+## Code Structure
+
+The EOY process is implemented in the `yearEndBudget.js` file and includes several key functions:
+
+- `setupNewYearBudget()` - Main entry point for the EOY process
+- `showManualBudgetInstructions()` - Displays the instructions dialog
+- `continueEOYSetup()` - Handles the second phase of the EOY process
+- `finalizeEOYSetup()` - Completes the EOY process
+
+## Key Technical Considerations
+
+1. **Property Management**
+   - Properties are exported from the original spreadsheet and imported into the new copy
+   - The `exportPropertiesToSheet()` and `importPropertiesFromSheet()` functions handle this
+
+2. **Sheet Verification**
+   - The `verifyBudgetSetup()` function checks that all required sheets and named ranges exist
+
+3. **Date Handling**
+   - The EOY process is sensitive to date formats and timezones
+   - Australian date format (dd/mm/yyyy) is used throughout
+   - The fiscal year runs from July to June
+
+4. **Month Status Tracking**
+   - The `MONTH_STATUSES` property tracks which month is current
+   - The `initializeMonthStatuses()` function sets up the initial state
