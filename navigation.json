@@ -38,10 +38,9 @@
     {
       "group": "End of Year Process",
       "pages": [
-        "guides/user-manual/eoy-process/overview",
-        "guides/user-manual/eoy-process/preparation",
-        "guides/user-manual/eoy-process/copy-creation",
-        "guides/user-manual/eoy-process/simplified-setup"
+        "guides/yearly-tasks/end-of-year/overview",
+        "guides/yearly-tasks/end-of-year/setup",
+        "guides/yearly-tasks/end-of-year/developer-guide"
       ]
     },
     {

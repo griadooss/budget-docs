@@ -15,7 +15,7 @@ The EOY process should be initiated when:
 - All transactions for the current year have been reconciled
 - You're ready to start planning for the next financial year
 
-## Process Overview
+## Process Summary
 
 The EOY process consists of several key steps:
 
@@ -31,15 +31,34 @@ The EOY process consists of several key steps:
    - Set up the new financial year
    - Configure new year settings
 
-3. **Setup and Verification**
+3. **Manual Budget Update**
 
    - Update budget categories
    - Set new year budget amounts
-   - Verify all configurations
+   - Balance your budget
 
 4. **Finalization**
-   - Archive the previous year's budget
-   - Complete the transition to the new year
+   - Copy bank balances
+   - Clear transaction sheets
+   - Register as the new master
+
+## Pre-EOY Checks
+
+Before beginning the EOY process, ensure:
+
+1. **All accounts are reconciled**
+
+   - The LastReconciliationDate should be at or near the end of the financial year (June 30)
+   - All transactions should be properly categorized and reconciled
+
+2. **Balanced sheets**
+   - Banks sheet should have a zero balance in cell C30
+   - Annual Budget sheet should have a zero balance in cell B106
+   - Maintain Budget sheet should have a zero balance in cell E120
+
+## Ready to Begin?
+
+For the complete, step-by-step instructions, please continue to the [EOY Budget Setup](/guides/yearly-tasks/end-of-year/setup) guide.
 
 ## Accessing the Process
 
@@ -75,53 +94,3 @@ When you first open menu items in the new copy:
 4. Review the permissions
 5. Click "Allow" to grant access
 6. Wait for the authorization to complete
-
-## Next Steps
-
-After viewing the help dialog:
-
-1. Create a new copy of your budget
-2. Authorize the scripts in the new copy
-3. Run the EOY setup process
-4. Complete the configuration
-5. Verify the setup
-
-## Development and Testing Workflow
-
-When developing and testing the EOY process, follow these steps to ensure you're always testing with the latest code:
-
-### During Development
-
-1. Make script changes to the MASTER spreadsheet
-2. Push changes using `clasp push` to update MASTER's scripts
-3. Delete any existing test copies of the spreadsheet
-4. Make a fresh copy of MASTER for testing
-5. Test the EOY process in the new copy
-6. Repeat steps 1-5 as needed during development
-
-### Important Notes
-
-- Always delete old test copies before making a new one
-- Each copy gets its own Apps Script project
-- Using old copies may test outdated code
-- Fresh copies ensure you're testing the latest changes
-
-### Testing Checklist
-
-1. Before testing:
-
-   - Ensure all changes are pushed to MASTER
-   - Delete any existing test copies
-   - Make a fresh copy
-
-2. During testing:
-
-   - Use the fresh copy
-   - Document any issues found
-   - Note any needed script changes
-
-3. After finding issues:
-   - Make fixes in MASTER
-   - Push changes to MASTER
-   - Delete test copy
-   - Make new copy for next round of testing
