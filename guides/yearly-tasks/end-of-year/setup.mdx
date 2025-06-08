@@ -88,8 +88,6 @@ After creating a copy, you'll configure it for the new year:
    - Click **Advanced** at the bottom left
    - Click **Go to Budget App Scripts (unsafe)**
    - Select the **Select all** checkbox to grant all required permissions
-   - Click **Continue** at the bottom
-   - Review the permissions and click **Allow**
 
 If authorization fails for any reason, try refreshing the page and attempting the process again. If problems persist, contact the spreadsheet administrator.
 
@@ -100,6 +98,7 @@ After authorization, the system automatically runs verification checks:
 1. Verifies all required sheets are present
 2. Confirms named ranges are properly configured
 3. Checks that budget formulas are valid
+4. Verifies the TimeZone settings
 
 If verification fails:
 
@@ -111,10 +110,12 @@ If the verification passes, you'll see a "Verification Passed" message and can p
 
 > **Note:** The "Period Processing > Verify Setup" function is automatically run as part of the EOY setup process. You don't need to run it separately unless you want to troubleshoot potential issues before starting the EOY process.
 
-### 3. Configure Budget Settings
+### 3. New Year Budget Setup
 
 1. In the confirmation dialog, click **YES** to proceed
-2. In the configuration dialog:
+2. The system will import settings from the original spreadsheet
+   - Note: The IS_MASTER flag will initially be imported as TRUE but should be FALSE until the EOY process is complete
+3. In the New Year Budget Setup dialog:
    - Verify the Budget Start Date (should be set to July 1 of the new fiscal year)
    - Set the Weekly Shopping Day
    - Configure other payment dates
@@ -137,7 +138,9 @@ After configuring settings and clicking Save, the system will:
    - Review last year's actuals in Column D
    - Update budget amounts in Column E
    - Adjust frequencies in Column F if needed (12 for monthly, 1 for annual)
-   - Ensure the "Include" checkbox in Column I is checked for active items
+   - The checkbox in Column I indicates whether the income has been distributed to the Annual Budget sheet
+
+> **Note:** Currently, when the Frequency (F) or Budget (E) values are changed for income items, the distribute flag is not automatically reset.
 
 ### 2. Review and Update Expense Categories
 
@@ -146,7 +149,8 @@ After configuring settings and clicking Save, the system will:
    - Review last year's actuals in Column D
    - Update budget amounts in Column E
    - Adjust frequencies in Column F if needed (12 for monthly, 1 for annual)
-   - Ensure the "Include" checkbox in Column I is checked for active items
+   - The checkbox in Column I indicates whether the expense has been distributed to the Annual Budget sheet
+   - When you update the frequency or budget amount, this flag will automatically reset
 
 ### 3. Balance Your Budget
 
@@ -199,14 +203,14 @@ The system checks that:
 1. Banks sheet is balanced (cell C30 = 0)
 2. Annual Budget sheet is balanced (cell B106 = 0)
 3. Maintain Budget sheet is balanced (cell E120 = 0)
-4. All budget items have their "Include" checkboxes properly set
+4. All budget items have their distribution checkboxes properly set in Column I
 
 ### 3. Complete the Process
 
 1. Click **YES** to finalize
 2. The system will:
    - Initialize month statuses for the new year
-   - Mark this spreadsheet as the new master
+   - Mark this spreadsheet as the new master (setting IS_MASTER to TRUE)
    - Show a completion message
 
 ## Troubleshooting Common Issues
