@@ -41,6 +41,7 @@ The EOY process consists of several key steps:
    - Copy bank balances
    - Clear transaction sheets
    - Register as the new master
+   - Automatically archive the legacy master
 
 ## Pre-EOY Checks
 
@@ -76,6 +77,16 @@ The EOY process menu item behaves differently depending on whether you're in the
 2. Click "Run End of Year Setup"
 3. Follow the setup wizard to configure your new budget
 
+## Legacy Master Archiving
+
+When you finalize the EOY process in the new copy, the system will automatically:
+
+1. Mark the new spreadsheet as the master
+2. Rename the original master spreadsheet to include "\_ARCHIVED_FY{year}"
+3. Add a hidden "\_Archive" sheet with metadata to the original spreadsheet
+
+This archiving process helps maintain a clear distinction between your active budget and historical records while preserving all your previous data.
+
 ## Important Notes
 
 - Keep your original budget spreadsheet for historical records
@@ -83,6 +94,7 @@ The EOY process menu item behaves differently depending on whether you're in the
 - Test all menu functions after setup
 - Ensure you have sufficient permissions to create spreadsheet copies
 - You must authorize the script in the new copy before proceeding
+- The archived master will still have its script properties intact, so avoid using it for active budgeting
 
 ## Authorization Process
 
