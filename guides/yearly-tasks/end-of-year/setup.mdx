@@ -37,6 +37,7 @@ The EOY process follows these main steps:
 5. **Finalize EOY Setup**
    - Verify all requirements
    - Register as the new master
+   - Automatically archive the legacy master
 
 ## Pre-EOY Checks
 
@@ -211,7 +212,20 @@ The system checks that:
 2. The system will:
    - Initialize month statuses for the new year
    - Mark this spreadsheet as the new master (setting IS_MASTER to TRUE)
+   - Automatically archive the legacy master spreadsheet (rename and mark as archived)
    - Show a completion message
+
+### 4. Legacy Master Archiving
+
+When you finalize the EOY setup, the system will automatically archive your previous master spreadsheet by:
+
+1. Renaming it to include "\_ARCHIVED_FY{year}" suffix (e.g., "Budget_MASTER_ARCHIVED_FY2024")
+2. Adding a hidden "\_Archive" sheet with metadata including:
+   - The date of archiving
+   - A marker indicating it was the former master
+   - The ID of the new master spreadsheet
+
+> **Important Note:** Due to Google Apps Script limitations, the archived spreadsheet will still have its script properties set as if it were the master (IS_MASTER = true). This is a technical limitation that cannot be resolved without complex workarounds. If you open the archived spreadsheet, it may still show the "MASTER" indicator and have full functionality, but you should not use it for active budgeting.
 
 ## Troubleshooting Common Issues
 
@@ -232,6 +246,17 @@ The system checks that:
 1. Ensure the Budget Start Date is set correctly
 2. Verify that the Annual Budget sheet exists
 3. Check for any error messages in the dialog
+
+### Archived Master Issues
+
+1. If the original master is not properly archived (renamed):
+
+   - You can manually rename it to include "\_ARCHIVED_FY{year}"
+   - This is purely cosmetic and won't affect functionality
+
+2. If you accidentally open and use the archived spreadsheet:
+   - You should switch back to the new master spreadsheet
+   - The archived spreadsheet should be considered read-only
 
 ## Next Steps After Completion
 

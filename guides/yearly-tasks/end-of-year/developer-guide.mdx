@@ -55,17 +55,22 @@ The EOY process is implemented in the `yearEndBudget.js` file and includes sever
 - `showManualBudgetInstructions()` - Displays the instructions dialog
 - `continueEOYSetup()` - Handles the second phase of the EOY process
 - `finalizeEOYSetup()` - Completes the EOY process
+- `archiveLegacyMaster()` - Archives the old master spreadsheet
+- `testArchiveMaster()` - Test function for the archiving process
 
 ## Key Technical Considerations
 
 1. **Property Management**
+
    - Properties are exported from the original spreadsheet and imported into the new copy
    - The `exportPropertiesToSheet()` and `importPropertiesFromSheet()` functions handle this
 
 2. **Sheet Verification**
+
    - The `verifyBudgetSetup()` function checks that all required sheets and named ranges exist
 
 3. **Date Handling**
+
    - The EOY process is sensitive to date formats and timezones
    - Australian date format (dd/mm/yyyy) is used throughout
    - The fiscal year runs from July to June
@@ -73,3 +78,79 @@ The EOY process is implemented in the `yearEndBudget.js` file and includes sever
 4. **Month Status Tracking**
    - The `MONTH_STATUSES` property tracks which month is current
    - The `initializeMonthStatuses()` function sets up the initial state
+
+## Legacy Master Archiving
+
+The EOY process now includes automatic archiving of the previous master spreadsheet once the new spreadsheet is fully set up. This section explains the technical implementation and limitations.
+
+### Implementation Details
+
+1. **Process Flow**
+
+   - During `finalizeEOYSetup()`, the system first stores the current master ID: `VersionControl.getCurrentSpreadsheetId()`
+   - It saves this ID as a script property: `PREVIOUS_MASTER_ID`
+   - After marking the new spreadsheet as master, it calls `archiveLegacyMaster()` with the stored ID
+
+2. **Archiving Function**
+
+   - `archiveLegacyMaster(spreadsheetId, testMode)` handles the archiving process
+   - It opens the specified spreadsheet using `SpreadsheetApp.openById()`
+   - It determines the fiscal year using `getFiscalYearFromSpreadsheet()`
+   - It renames the spreadsheet to include "\_ARCHIVED_FY{year}"
+   - It creates a hidden "\_Archive" sheet with metadata
+
+3. **Test Mode**
+   - The function includes a test mode parameter that creates a copy instead of modifying the original
+   - Test mode is useful for verifying the archiving logic without affecting production spreadsheets
+   - Use `testArchiveMaster()` to safely test the archiving process
+
+### Technical Limitations
+
+1. **Script Properties**
+
+   - Due to Google Apps Script's security model, you cannot directly modify script properties of another spreadsheet
+   - This means the archived spreadsheet will still have `IS_MASTER = true` in its script properties
+   - To users, the archived spreadsheet might still appear to be a master
+
+2. **Potential Solutions**
+
+   - Creating a standalone web app that runs in the context of the archived spreadsheet
+   - Using the Sheets API instead of SpreadsheetApp (requires additional permissions)
+   - Instructing users to not use the archived spreadsheet for active budgeting
+
+3. **Current Implementation**
+   - We use a hidden sheet with metadata as the primary marker of archived status
+   - We include clear documentation for users about this limitation
+   - The renamed spreadsheet title provides a visual indicator that it's archived
+
+### Testing the Archiving Feature
+
+To test the archiving feature without affecting production data:
+
+1. Open the script editor in your spreadsheet
+2. Run the `testArchiveMaster()` function
+3. When prompted, leave the spreadsheet ID blank to use the current spreadsheet
+4. This will create a test copy with "\_ARCHIVED_TEST" suffix
+5. Examine the test copy to confirm it has the hidden "\_Archive" sheet with metadata
+
+This approach allows safe testing of the archiving mechanism without renaming or modifying your original spreadsheet.
+
+## Future Enhancements
+
+Potential improvements to the EOY process that could be implemented in the future:
+
+1. **Automated Pre-EOY Checks**
+
+   - Verify all accounts are reconciled
+   - Check that sheets are balanced
+   - Ensure all budget items are properly distributed
+
+2. **Improved Script Property Handling**
+
+   - Develop a method to modify script properties in the archived spreadsheet
+   - Research potential API-based solutions
+
+3. **Enhanced User Guidance**
+   - Step-by-step wizard interface for the EOY process
+   - Progress tracking across multiple sessions
+   - More detailed error messages and recovery options
