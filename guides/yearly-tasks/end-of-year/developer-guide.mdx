@@ -7,150 +7,416 @@ description: 'Technical information for developers working on the End of Year pr
 
 This guide contains technical information for developers who are maintaining or enhancing the End of Year (EOY) process. End users should refer to the [End of Year Process Overview](/guides/yearly-tasks/end-of-year/overview) and [EOY Budget Setup](/guides/yearly-tasks/end-of-year/setup) guides instead.
 
+## Current Implementation Overview
+
+The EOY process has been significantly improved from the original design and now features:
+
+### Key Architectural Features
+- **Month-Restricted Access** - Process only available in June (final fiscal month)
+- **State-Driven Menu System** - Menus adapt based on EOY completion status
+- **Three-Step Progressive Workflow** - Clear progression through setup phases
+- **Automated Master Archiving** - Previous master automatically archived on completion
+- **Comprehensive Verification** - Multiple validation checkpoints throughout process
+
+### Core Functions and Files
+The EOY implementation is primarily contained in `src/utility/yearEndBudget.js`:
+
+- **Main Entry Points:**
+  - `showYearEndHelp()` - Initial help dialog in master spreadsheet
+  - `setupNewYearBudget()` - Step 1: Initial EOY setup
+  - `continueEOYSetup()` - Step 2: Continue configuration and budget update
+  - `finalizeEOYSetup()` - Step 3: Finalization and master archiving
+
+- **Supporting Functions:**
+  - `exportPropertiesToSheet()` / `importPropertiesFromSheet()` - Property management
+  - `clearTransactionSheets()` - Clean Cash Flow and Bank Records sheets
+  - `copyBankBalancesToOpeningPositions()` - Transfer bank balances
+  - `updateMonthlyHeaders()` - Update fiscal year headers across sheets
+  - `archiveLegacyMaster()` - Automatic master archiving
+
 ## Development and Testing Workflow
 
-When developing and testing the EOY process, follow these steps to ensure you're always testing with the latest code:
+### Critical Development Process
 
-### During Development
+When developing and testing the EOY process, you **must** follow this workflow to ensure you're testing the latest code:
 
-1. Make script changes to the MASTER spreadsheet
-2. Push changes using `clasp push` to update MASTER's scripts
-3. Delete any existing test copies of the spreadsheet
-4. Make a fresh copy of MASTER for testing
-5. Test the EOY process in the new copy
-6. Repeat steps 1-5 as needed during development
+1. **Development Phase:**
+   - Make all script changes in the **MASTER** spreadsheet
+   - Test individual functions using Apps Script editor
+   - Push changes using `clasp push` to update MASTER's script project
 
-### Important Notes
+2. **Testing Phase:**
+   - **Always delete existing test copies** before creating new ones
+   - Make a **fresh copy** of MASTER for each test cycle
+   - Each copy gets its own Apps Script project with the current code
+   - Test the complete EOY process in the fresh copy
 
-- Always delete old test copies before making a new one
-- Each copy gets its own Apps Script project
-- Using old copies may test outdated code
-- Fresh copies ensure you're testing the latest changes
+3. **Issue Resolution:**
+   - Document any issues found during testing
+   - Make fixes in the **MASTER** spreadsheet
+   - Push changes to MASTER using `clasp push`
+   - Delete test copy and create a new one for retesting
 
-### Testing Checklist
+<Warning>
+**Critical:** Never use old test copies. Each copy has its own script project, and using an old copy will test outdated code, leading to false results and wasted development time.
+</Warning>
 
-1. Before testing:
+### Month Restriction Testing
 
-   - Ensure all changes are pushed to MASTER
-   - Delete any existing test copies
-   - Make a fresh copy
+The EOY process includes month validation that restricts access to June only:
 
-2. During testing:
+```javascript
+// In setupNewYearBudget() and showYearEndHelp()
+const currentMonth = getCurrentMonth();
+if (currentMonth && currentMonth.month !== 6) {
+  // Block access with user-friendly message
+  ui.alert("Process Not Available",
+           "The 'Start End of Year Process' is only available in June...");
+  return;
+}
+```
 
-   - Use the fresh copy
-   - Document any issues found
-   - Note any needed script changes
+**Testing Considerations:**
+- **Production:** Process only works in June
+- **Development:** You may need to temporarily bypass month checking for testing
+- **Test Mode:** Use `testMode` parameters in functions where available
 
-3. After finding issues:
-   - Make fixes in MASTER
-   - Push changes to MASTER
-   - Delete test copy
-   - Make new copy for next round of testing
+## State Management and Menu System
 
-## Code Structure
+### EOY State Tracking
 
-The EOY process is implemented in the `yearEndBudget.js` file and includes several key functions:
+The system uses script properties to track EOY progress:
 
-- `setupNewYearBudget()` - Main entry point for the EOY process
-- `showManualBudgetInstructions()` - Displays the instructions dialog
-- `continueEOYSetup()` - Handles the second phase of the EOY process
-- `finalizeEOYSetup()` - Completes the EOY process
-- `archiveLegacyMaster()` - Archives the old master spreadsheet
-- `testArchiveMaster()` - Test function for the archiving process
+```javascript
+// Key properties for state management
+- IS_MASTER: "true"/"false" - Whether spreadsheet is the active master
+- EOY_SETUP_COMPLETE: "true"/"false" - Whether EOY setup is finished
+- EOY_READY_FOR_EOM: "true"/"false" - Intermediate state during setup
+- CURRENT_SPREADSHEET_ID: "{id}" - Current spreadsheet identifier
+- MASTER_SPREADSHEET_ID: "{id}" - ID of the master spreadsheet
+```
 
-## Key Technical Considerations
+### Menu State Logic
 
-1. **Property Management**
+The menu system in `onOpen.js` adapts based on these states:
 
-   - Properties are exported from the original spreadsheet and imported into the new copy
-   - The `exportPropertiesToSheet()` and `importPropertiesFromSheet()` functions handle this
+```javascript
+// In createBasicMenus()
+if (!isMaster && !eoySetupComplete && !eoyReadyForEom) {
+  // Fresh copy - show only EOY setup options
+  periodMenu.addSubMenu(
+    ui.createMenu("End of Year Setup")
+      .addItem("1. Run Initial EOY Setup", "setupNewYearBudget")
+      .addItem("2. Continue EOY Setup", "continueEOYSetup")
+      .addItem("3. Finalize EOY Setup", "finalizeEOYSetup")
+  );
+}
+```
 
-2. **Sheet Verification**
+### State Transitions
 
-   - The `verifyBudgetSetup()` function checks that all required sheets and named ranges exist
+1. **Fresh Copy Creation:**
+   - `IS_MASTER = false` (imported from master)
+   - `EOY_SETUP_COMPLETE = false`
+   - `EOY_READY_FOR_EOM = false`
+   - Menu shows only EOY setup options
 
-3. **Date Handling**
+2. **After Initial Setup:**
+   - Properties updated to reflect progress
+   - Menu options remain EOY-focused
 
-   - The EOY process is sensitive to date formats and timezones
-   - Australian date format (dd/mm/yyyy) is used throughout
-   - The fiscal year runs from July to June
+3. **After Finalization:**
+   - `IS_MASTER = true`
+   - `EOY_SETUP_COMPLETE = true`
+   - Menu shows normal operational options
 
-4. **Month Status Tracking**
-   - The `MONTH_STATUSES` property tracks which month is current
-   - The `initializeMonthStatuses()` function sets up the initial state
+## Technical Implementation Details
 
-## Legacy Master Archiving
+### Property Export/Import System
 
-The EOY process now includes automatic archiving of the previous master spreadsheet once the new spreadsheet is fully set up. This section explains the technical implementation and limitations.
+The property management system ensures continuity between master and copy:
 
-### Implementation Details
+```javascript
+// Export from master to hidden sheet
+function exportPropertiesToSheet() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName("_Properties");
 
-1. **Process Flow**
+  if (!sheet) {
+    sheet = ss.insertSheet("_Properties");
+    sheet.hideSheet();
+  }
 
-   - During `finalizeEOYSetup()`, the system first stores the current master ID: `VersionControl.getCurrentSpreadsheetId()`
-   - It saves this ID as a script property: `PREVIOUS_MASTER_ID`
-   - After marking the new spreadsheet as master, it calls `archiveLegacyMaster()` with the stored ID
+  const props = PropertiesService.getScriptProperties().getProperties();
+  // Write properties to sheet for copying
+}
 
-2. **Archiving Function**
+// Import from hidden sheet in new copy
+function importPropertiesFromSheet() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName("_Properties");
 
-   - `archiveLegacyMaster(spreadsheetId, testMode)` handles the archiving process
-   - It opens the specified spreadsheet using `SpreadsheetApp.openById()`
-   - It determines the fiscal year using `getFiscalYearFromSpreadsheet()`
-   - It renames the spreadsheet to include "\_ARCHIVED_FY{year}"
-   - It creates a hidden "\_Archive" sheet with metadata
+  if (sheet) {
+    // Read properties from sheet and set in new copy
+    // Adjust IS_MASTER to false for new copy
+  }
+}
+```
 
-3. **Test Mode**
-   - The function includes a test mode parameter that creates a copy instead of modifying the original
-   - Test mode is useful for verifying the archiving logic without affecting production spreadsheets
-   - Use `testArchiveMaster()` to safely test the archiving process
+### Verification System
 
-### Technical Limitations
+Multiple verification points ensure system integrity:
 
-1. **Script Properties**
+1. **Sheet Structure Verification** (`validateSheets()`)
+   - Verifies all required sheets exist
+   - Checks sheet naming conventions
+   - Validates critical named ranges
 
-   - Due to Google Apps Script's security model, you cannot directly modify script properties of another spreadsheet
-   - This means the archived spreadsheet will still have `IS_MASTER = true` in its script properties
-   - To users, the archived spreadsheet might still appear to be a master
+2. **Budget Formula Verification** (`verifyBudgetSetup()`)
+   - Checks Annual Budget formulas
+   - Validates Maintain Budget structure
+   - Ensures proper formula references
 
-2. **Potential Solutions**
+3. **Balance Verification** (in `finalizeEOYSetup()`)
+   - Banks sheet: Cell C30 = 0
+   - Annual Budget: Cell B106 = 0
+   - Maintain Budget: Cell E120 = 0
 
-   - Creating a standalone web app that runs in the context of the archived spreadsheet
-   - Using the Sheets API instead of SpreadsheetApp (requires additional permissions)
-   - Instructing users to not use the archived spreadsheet for active budgeting
+### Automatic Master Archiving
 
-3. **Current Implementation**
-   - We use a hidden sheet with metadata as the primary marker of archived status
-   - We include clear documentation for users about this limitation
-   - The renamed spreadsheet title provides a visual indicator that it's archived
+The archiving system provides automatic legacy master management:
 
-### Testing the Archiving Feature
+```javascript
+function archiveLegacyMaster(spreadsheetId, testMode = false) {
+  try {
+    const targetSS = SpreadsheetApp.openById(spreadsheetId);
+    const fiscalYear = getFiscalYearFromSpreadsheet(targetSS);
 
-To test the archiving feature without affecting production data:
+    if (testMode) {
+      // Create test copy for verification
+      return targetSS.copy(`${targetSS.getName()}_ARCHIVED_TEST`);
+    }
 
-1. Open the script editor in your spreadsheet
-2. Run the `testArchiveMaster()` function
-3. When prompted, leave the spreadsheet ID blank to use the current spreadsheet
-4. This will create a test copy with "\_ARCHIVED_TEST" suffix
-5. Examine the test copy to confirm it has the hidden "\_Archive" sheet with metadata
+    // Rename with archived suffix
+    const newName = `${targetSS.getName()}_ARCHIVED_FY${fiscalYear}`;
+    targetSS.rename(newName);
 
-This approach allows safe testing of the archiving mechanism without renaming or modifying your original spreadsheet.
+    // Add hidden archive metadata sheet
+    const archiveSheet = targetSS.insertSheet("_Archive");
+    archiveSheet.hideSheet();
 
-## Future Enhancements
+    // Set archive metadata
+    archiveSheet.getRange("A1").setValue("ARCHIVED_DATE");
+    archiveSheet.getRange("B1").setValue(new Date());
+    archiveSheet.getRange("A2").setValue("FORMER_MASTER");
+    archiveSheet.getRange("B2").setValue(true);
 
-Potential improvements to the EOY process that could be implemented in the future:
+  } catch (error) {
+    console.error("Error archiving legacy master:", error);
+    throw error;
+  }
+}
+```
 
-1. **Automated Pre-EOY Checks**
+## Known Technical Limitations
 
-   - Verify all accounts are reconciled
-   - Check that sheets are balanced
-   - Ensure all budget items are properly distributed
+### Script Property Isolation
 
-2. **Improved Script Property Handling**
+**Issue:** Google Apps Script security model prevents modifying script properties of other spreadsheets.
 
-   - Develop a method to modify script properties in the archived spreadsheet
-   - Research potential API-based solutions
+**Impact:** Archived masters retain `IS_MASTER = true` in their script properties.
 
-3. **Enhanced User Guidance**
-   - Step-by-step wizard interface for the EOY process
-   - Progress tracking across multiple sessions
-   - More detailed error messages and recovery options
+**Mitigation Strategies:**
+1. **Renamed Title** - Archived spreadsheets have clear "\_ARCHIVED_FY{year}" suffix
+2. **Archive Metadata** - Hidden "\_Archive" sheet marks archival status
+3. **User Documentation** - Clear guidance to avoid using archived spreadsheets
+
+### Google Authorization User Experience
+
+**Issue:** Google shows intimidating "unsafe" warnings for all custom spreadsheet scripts.
+
+**Impact:** Users may be reluctant to continue authorization due to scary warning language.
+
+**User Experience Challenges:**
+- "Google hasn't verified this app" warning appears threatening
+- "Go to Budget App Scripts (unsafe)" button seems dangerous
+- Users may abandon the process thinking something is wrong
+
+**Mitigation Strategies:**
+1. **Clear Documentation** - Detailed explanation that warnings are normal
+2. **Step-by-Step Instructions** - Specific guidance through each authorization step
+3. **Reassurance** - Explicit statements that the process is safe and expected
+
+## Testing and Quality Assurance
+
+### Comprehensive Testing Checklist
+
+#### Before Testing Session
+- [ ] All changes pushed to MASTER spreadsheet
+- [ ] Old test copies deleted
+- [ ] Fresh copy created from MASTER
+- [ ] Test environment prepared
+
+#### During Testing - Step 1 (Initial Setup)
+- [ ] Month restriction working (if testing in non-June month)
+- [ ] Help dialog displays correctly with documentation links
+- [ ] Property export completes successfully
+- [ ] New copy creation process works
+- [ ] Menu system shows only EOY options in new copy
+
+#### During Testing - Step 2 (Configuration)
+- [ ] Authorization process works smoothly
+- [ ] Verification checks pass for valid setup
+- [ ] Configuration dialog accepts valid inputs
+- [ ] Manual budget update process functions
+- [ ] Budget balance validation works
+- [ ] Continue setup processes correctly
+
+#### During Testing - Step 3 (Finalization)
+- [ ] Final verification checks function properly
+- [ ] Master archiving completes without errors
+- [ ] New copy marked as master successfully
+- [ ] Menu system updates to normal operational mode
+- [ ] All transaction sheets properly cleared
+
+#### Post-Testing Verification
+- [ ] Master functionality works in new spreadsheet
+- [ ] Archived master properly renamed and marked
+- [ ] Historical data preserved in archived master
+- [ ] No script errors in new master
+- [ ] Documentation links work correctly
+
+### Testing Functions
+
+Several helper functions support testing:
+
+```javascript
+// Test archiving without affecting production
+function testArchiveMaster() {
+  const currentId = SpreadsheetApp.getActiveSpreadsheet().getId();
+  return archiveLegacyMaster(currentId, true); // testMode = true
+}
+
+// Test EOY process with safety checks
+function testEOYProcess() {
+  console.log("Starting EOY test process...");
+  return setupNewYearBudget(true); // testMode = true
+}
+
+// Safe refresh function for testing
+function runRefreshSafely() {
+  try {
+    SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Annual Budget");
+    // Additional safety checks
+  } catch (error) {
+    console.error("Refresh safety check failed:", error);
+  }
+}
+```
+
+## Performance Considerations
+
+### Optimization Strategies
+
+1. **Minimal Sheet Operations:**
+   - Batch range operations where possible
+   - Avoid excessive individual cell operations
+   - Use getValues()/setValues() for bulk operations
+
+2. **Property Management:**
+   - Cache frequently accessed properties
+   - Minimize property service calls
+   - Use batch property operations
+
+3. **Verification Efficiency:**
+   - Combine multiple checks into single functions
+   - Early exit on validation failures
+   - Provide specific error messages for quick resolution
+
+### Resource Management
+
+```javascript
+// Example of efficient batch operations
+function updateMonthlyHeaders() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet()
+                             .getSheetByName("Annual Budget");
+
+  // Get all headers in one operation
+  const headerRange = sheet.getRange(1, 1, 1, sheet.getLastColumn());
+  const headers = headerRange.getValues()[0];
+
+  // Process headers in memory
+  const updatedHeaders = headers.map(header => {
+    // Update logic here
+    return processHeader(header);
+  });
+
+  // Write all headers back in one operation
+  headerRange.setValues([updatedHeaders]);
+}
+```
+
+## Future Enhancement Opportunities
+
+### Planned Improvements
+
+1. **Enhanced Pre-EOY Validation:**
+   - Automatic verification of balance requirements
+   - Account reconciliation status checking
+   - Data integrity validation before process start
+
+2. **Improved Error Recovery:**
+   - Process checkpoint system for resuming interrupted operations
+   - Better error messages with specific resolution steps
+   - Automatic retry mechanisms for transient failures
+
+3. **Advanced State Management:**
+   - More granular progress tracking
+   - Session persistence across browser refreshes
+   - Better handling of concurrent user access
+
+### Technical Debt Reduction
+
+1. **Script Property Limitation Resolution:**
+   - Research Google Workspace APIs for property management
+   - Implement alternative master tracking systems
+   - Develop more robust archiving mechanisms
+
+2. **Code Organization:**
+   - Modularize large functions for better maintainability
+   - Implement consistent error handling patterns
+   - Add comprehensive inline documentation
+
+3. **Testing Infrastructure:**
+   - Automated testing framework for EOY process
+   - Mock data generation for consistent testing
+   - Performance benchmarking tools
+
+## Security and Access Considerations
+
+### Permission Requirements
+
+The EOY process requires specific permissions:
+- **Script execution** in both master and new copy
+- **Spreadsheet access** for reading/writing operations
+- **File creation** for making copies
+- **Property management** for state tracking
+
+### Security Best Practices
+
+1. **Property Validation:**
+   - Validate all imported properties
+   - Sanitize user inputs in configuration dialogs
+   - Check property values before using in operations
+
+2. **Error Information Exposure:**
+   - Avoid exposing sensitive system information in error messages
+   - Log detailed errors for developers without showing to users
+   - Provide user-friendly error messages with actionable guidance
+
+3. **State Consistency:**
+   - Verify state transitions are atomic where possible
+   - Implement rollback mechanisms for critical operations
+   - Validate system state before proceeding with operations
+
+This developer guide provides the technical foundation for maintaining and enhancing the EOY process. For implementation details of specific functions, refer to the source code in `src/utility/yearEndBudget.js` and related files.

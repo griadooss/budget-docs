@@ -11,98 +11,145 @@ The End of Year (EOY) process helps you transition from one financial year to th
 
 The EOY process should be initiated when:
 
-- You're approaching the end of your financial year (June 30th)
+- **You're in the final month of your financial year (June)** - The system restricts EOY setup to June only
 - All transactions for the current year have been reconciled
 - You're ready to start planning for the next financial year
 
+<Note>
+**Important:** The EOY process can only be started during June (the final month of the fiscal year). If you try to access it in other months, the system will display a restriction message and block the process.
+</Note>
+
 ## Process Summary
 
-The EOY process consists of several key steps:
+The EOY process consists of **three main phases** with clear menu-driven progression:
 
-1. **Preparation**
+### 1. **Initial Setup** (in Master Spreadsheet)
+   - **Menu Item:** "Start End of Year Process"
+   - Export critical properties to ensure smooth transition
+   - Create a copy of your current budget spreadsheet
+   - The master spreadsheet remains unchanged during this phase
 
-   - Verify final month reconciliation
-   - Check budget setup
-   - Ensure all required data is in place
+### 2. **Configuration & Setup** (in New Copy)
+   - **Menu Item:** "1. Run Initial EOY Setup"
+   - Authorize scripts in the new copy
+   - Run automated verification checks
+   - Configure new year settings (dates, payment schedules)
+   - **Manual budget update** - Review and update all income and expense amounts
+   - **Menu Item:** "2. Continue EOY Setup" - Copy bank balances and clear transaction sheets
+   - **Menu Item:** "Run End of Month Process" - Complete final month processing for fiscal year
 
-2. **Create New Budget**
+### 3. **Finalization** (in New Copy)
+   - **Menu Item:** "3. Finalize EOY Setup"
+   - Verify all completion criteria are met
+   - Register the new copy as the active master spreadsheet
+   - **Automatically archive the previous master** with "\_ARCHIVED_FY{year}" suffix
 
-   - Create a copy of your current budget
-   - Set up the new financial year
-   - Configure new year settings
+## State-Driven Menu System
 
-3. **Manual Budget Update**
+The EOY process uses an intelligent menu system that adapts based on your progress:
 
-   - Update budget categories
-   - Set new year budget amounts
-   - Balance your budget
+### In Master Spreadsheet (June only)
+- **Period Processing** → **Start End of Year Process** - Begin the EOY workflow
 
-4. **Finalization**
-   - Copy bank balances
-   - Clear transaction sheets
-   - Register as the new master
-   - Automatically archive the legacy master
+### In Fresh Copy (Before Setup)
+- **Period Processing** shows only EOY Setup options:
+  - **1. Run Initial EOY Setup** - Start configuration
+  - **2. Continue EOY Setup** - Available after initial setup
+  - **3. Finalize EOY Setup** - Available after continuation
 
-## Pre-EOY Checks
+### In Fresh Copy (After Setup Complete)
+- **Period Processing** shows normal menu:
+  - **Run End of Month Process** - Normal monthly operations
+  - **Start End of Year Process** - For next year's EOY
 
-Before beginning the EOY process, ensure:
+<Note>
+The menu system automatically adapts based on your EOY completion status, ensuring you always see the appropriate options for your current stage.
+</Note>
 
-1. **All accounts are reconciled**
+## Pre-EOY Requirements
 
-   - The LastReconciliationDate should be at or near the end of the financial year (June 30)
-   - All transactions should be properly categorized and reconciled
+Before beginning the EOY process, ensure these conditions are met:
 
-2. **Balanced sheets**
-   - Banks sheet should have a zero balance in cell C30
-   - Annual Budget sheet should have a zero balance in cell B106
-   - Maintain Budget sheet should have a zero balance in cell E120
+### 1. **Month Restriction**
+- Must be June (final fiscal month)
+- System automatically validates this requirement
 
-## Ready to Begin?
+### 2. **Account Reconciliation**
+- LastReconciliationDate should be at or near June 30
+- All transactions properly categorized and reconciled
 
-For the complete, step-by-step instructions, please continue to the [EOY Budget Setup](/guides/yearly-tasks/end-of-year/setup) guide.
+### 3. **Balanced Sheets**
+- **Banks sheet:** Zero balance in cell C30
+- **Annual Budget sheet:** Zero balance in cell B106
+- **Maintain Budget sheet:** Zero balance in cell E120
 
-## Accessing the Process
+<Warning>
+While the system checks some requirements automatically, it's your responsibility to ensure all accounts are properly reconciled before starting the EOY process.
+</Warning>
 
-The EOY process menu item behaves differently depending on whether you're in the original spreadsheet or a copy:
+## Automated Master Archiving
 
-### In Original Spreadsheet
+One of the key improvements in the current EOY process is **automatic archiving** of your previous master spreadsheet:
 
-1. Navigate to the "Period Processing" menu
-2. Click "End of Year Process"
-3. Follow the instructions in the help dialog to create a copy
+### What Happens Automatically
+When you complete "3. Finalize EOY Setup":
 
-### In New Copy
+1. **New copy becomes the master** - Marked with `IS_MASTER = true`
+2. **Previous master is automatically renamed** - Gets "\_ARCHIVED_FY{year}" suffix
+3. **Archive metadata is added** - Hidden "\_Archive" sheet with archival information
+4. **Clear separation** - No confusion about which spreadsheet to use
 
-1. Navigate to the "Period Processing" menu
-2. Click "Run End of Year Setup"
-3. Follow the setup wizard to configure your new budget
-
-## Legacy Master Archiving
-
-When you finalize the EOY process in the new copy, the system will automatically:
-
-1. Mark the new spreadsheet as the master
-2. Rename the original master spreadsheet to include "\_ARCHIVED_FY{year}"
-3. Add a hidden "\_Archive" sheet with metadata to the original spreadsheet
-
-This archiving process helps maintain a clear distinction between your active budget and historical records while preserving all your previous data.
-
-## Important Notes
-
-- Keep your original budget spreadsheet for historical records
-- Don't delete any sheets in the new copy
-- Test all menu functions after setup
-- Ensure you have sufficient permissions to create spreadsheet copies
-- You must authorize the script in the new copy before proceeding
-- The archived master will still have its script properties intact, so avoid using it for active budgeting
+### Benefits
+- **No manual archiving required** - System handles it automatically
+- **Clear naming convention** - Archived spreadsheets are easily identifiable
+- **Preserved history** - All previous data remains intact and accessible
+- **Reduced errors** - No risk of accidentally using the wrong spreadsheet
 
 ## Authorization Process
 
-When you first open menu items in the new copy:
+When working with a new copy, you'll need to authorize the scripts. **Don't worry - this is normal and safe:**
 
-1. You'll see an "Authorization Required" dialog
-2. Click "OK" to proceed
-3. Select your Google account
-4. Review the permissions
-5. Click "Allow" to grant access
-6. Wait for the authorization to complete
+1. **Initial Prompt** - "Authorization Required" dialog appears
+2. **Google Authorization** - Select your account
+3. **Security Warning** - Google will show a warning that looks scary but is normal:
+   - You'll see "Google hasn't verified this app"
+   - You'll see "The app is requesting access to sensitive info"
+   - **This is expected** - Google shows this for all custom spreadsheet scripts
+4. **Continue Despite Warning:**
+   - Click **"Advanced"** (bottom left of the dialog)
+   - Click **"Go to Budget App Scripts (unsafe)"** - *this is safe, just Google's standard warning*
+   - **Check "Select all"** to grant required permissions
+   - Click **"Allow"**
+5. **Verification** - System automatically validates setup
+
+<Warning>
+**About the "Unsafe" Warning:** Google shows this warning for ALL custom spreadsheet scripts, not because there's actually a problem. The budget system is safe to authorize - it only accesses your budget spreadsheet data and nothing else.
+</Warning>
+
+<Tip>
+If authorization fails, refresh the page and try again. The system includes retry logic for common authorization issues.
+</Tip>
+
+## Getting Started
+
+### From Master Spreadsheet (June only)
+1. Navigate to **Period Processing** → **Start End of Year Process**
+2. Follow the guided instructions in the help dialog
+3. Export properties when prompted
+4. Create a copy of your spreadsheet
+
+### From New Copy
+1. Open the new copy
+2. Navigate to **Period Processing** → **1. Run Initial EOY Setup**
+3. **Complete authorization when prompted** - Google will show scary warnings but this is normal and safe
+4. Follow the three-step process through to finalization
+
+## Documentation and Support
+
+- **Step-by-step instructions:** [EOY Budget Setup](/guides/yearly-tasks/end-of-year/setup)
+- **Technical details:** [Developer Guide](/guides/yearly-tasks/end-of-year/developer-guide)
+- **Troubleshooting:** [Common Issues](/guides/troubleshooting/common-issues)
+
+<Note>
+The complete documentation is accessible at any time during the EOY process through menu links and help dialogs. You don't need to complete the process in one session - you can refer back to the documentation as needed.
+</Note>
