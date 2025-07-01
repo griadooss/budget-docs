@@ -78,13 +78,21 @@ Before beginning the EOY process, ensure these conditions are met:
 - LastReconciliationDate should be at or near June 30
 - All transactions properly categorized and reconciled
 
-### 3. **Balanced Sheets**
+### 3. **Balanced Sheets** (CRITICAL - Strictly Enforced)
 - **Banks sheet:** Zero balance in cell C30
 - **Annual Budget sheet:** Zero balance in cell B106
 - **Maintain Budget sheet:** Zero balance in cell E120
 
 <Warning>
-While the system checks some requirements automatically, it's your responsibility to ensure all accounts are properly reconciled before starting the EOY process.
+**🚨 CRITICAL REQUIREMENT:** The system now **strictly enforces** balance checking and will **block the EOY process** if any sheet is unbalanced.
+
+**Why This Matters:** The EOY process copies current bank balances to become opening balances for the new fiscal year. If these are incorrect, your entire new year will start with wrong foundation data.
+
+**❌ No Override Available:** Unlike End of Month processing, there is no "proceed anyway" option for EOY to prevent catastrophic data issues.
+
+**💡 Solution:**
+1. **First** - Update ALL bank balances to be accurate as at June 30 (banks often apply monthly interest as final transaction)
+2. **Second** - Use 'Reconciliation Dashboard' to resolve any Cash Flow transaction issues (missing, extra, or unreconciled transactions)
 </Warning>
 
 ## Automated Master Archiving

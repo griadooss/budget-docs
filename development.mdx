@@ -1,106 +1,172 @@
 ---
-title: 'Zimpicsoft Development'
-description: 'Preview changes locally to update your docs'
+title: 'Development Updates'
+description: 'Recent improvements and changes to the budget system'
 ---
 
-<Info>
-  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding.
-</Info>
+# Development Updates
 
-Follow these steps to install and run Mintlify on your operating system:
+This page tracks recent improvements and changes to the budget system.
 
-**Step 1**: Install Mintlify:
+## 2024 Balance Checking Enhancement
 
-<CodeGroup>
+**Date:** December 2024
+**Branch:** `fix/incidentals`
+**Issue:** EOY process allowing users to proceed with unbalanced system
 
-  ```bash npm
-  npm i -g mintlify
+### Problem Identified
+
+The End of Year (EOY) process had a critical flaw where users could bypass balance checking with a "proceed anyway" option. This was dangerous because:
+
+1. **End of Month Issues** (Low Risk): Unbalanced transactions can be fixed in subsequent months
+2. **End of Year Issues** (HIGH RISK): Wrong bank balances get copied to opening positions for new fiscal year, corrupting the entire year's foundation
+
+### Changes Made
+
+#### 1. Refactored Balance Checking System
+- **Before:** Mixed approach with hardcoded cell references and inconsistent checking
+- **After:** Unified `checkAllBalances()` function using named ranges exclusively
+- **Benefits:**
+  - Robust against sheet structure changes
+  - Consistent behavior across all processes
+  - Proper fallback handling
+
+#### 2. Strict EOY Balance Enforcement
+- **Before:** EOY processes allowed "proceed anyway" option
+- **After:** EOY processes completely blocked if system unbalanced
+- **New Error Message:**
+  ```
+  🚨 Balance Check Failed - EOY Process Blocked
+
+  Critical balance issues found:
+  • Banks sheet is not balanced (X.XX)
+
+  🔴 CRITICAL: The End of Year process copies current bank
+  balances to become opening balances for the new fiscal year.
+
+    ❌ EOY process cannot proceed until all balances are zero.
+
+  💡 Tip:
+  1. First - Update bank balances to June 30 (including final interest)
+  2. Second - Use 'Reconciliation Dashboard' to fix Cash Flow issues
   ```
 
-```bash yarn
-yarn global add mintlify
+#### 3. Developer Mode Support
+- **Added:** `DEV_MODE` bypass for all balance checks
+- **Purpose:** Allows testing of process logic without perfect balance setup
+- **Safety:** Only available when `DEV_MODE = true` in script properties
+
+#### 4. Process-Specific Behavior
+- **End of Month:** Retains flexible warning with "proceed anyway" option
+- **End of Year:** Strict blocking with no override option
+- **Reasoning:** Different risk profiles require different approaches
+
+### Files Modified
+
+```
+src/config/namedRanges.js
+├── Extended BALANCE_CHECK ranges
+└── Added MAINTAIN_BUDGET_BALANCE named range
+
+src/utility/endOfMonth.js
+├── Enhanced checkAllBalances() function
+├── Added DEV_MODE bypass support
+└── Consistent error messaging
+
+src/utility/yearEndBudget.js
+├── Added checkAllBalances() function
+├── Strict balance checking in showYearEndHelp()
+├── Removed duplicate balance check in setupNewYearBudget()
+├── Enhanced continueEOYSetup() balance checking
+└── DEV_MODE bypass support
 ```
 
-</CodeGroup>
+### Documentation Updated
 
-**Step 2**: Navigate to the docs directory (where the `mint.json` file is located) and execute the following command:
+```
+guides/yearly-tasks/end-of-year/overview.mdx
+├── Updated Pre-EOY Requirements section
+└── Added strict balance checking warnings
 
-```bash
-mintlify dev
+guides/yearly-tasks/end-of-year/setup.mdx
+├── Updated balance requirements section
+└── Removed references to "proceed anyway" option
+
+guides/troubleshooting/common-issues.mdx
+├── Created comprehensive troubleshooting guide
+├── Added EOY balance checking failure solutions
+├── Added developer mode documentation
+└── Added authorization failure solutions
+
+quickstart.mdx
+├── Added Critical Balance Requirement section
+└── Highlighted new strict balance checking
 ```
 
-A local preview of your documentation will be available at `http://localhost:3000`.
+### Impact
 
-### Custom Ports
+#### Positive
+- **🛡️ Data Protection:** Prevents catastrophic opening balance corruption
+- **🔧 Developer Friendly:** DEV_MODE bypass supports testing workflows
+- **📚 Better Documentation:** Comprehensive troubleshooting guidance
+- **🏗️ Robust Architecture:** Named ranges prevent sheet structure brittleness
 
-By default, Mintlify uses port 3000. You can customize the port Mintlify runs on by using the `--port` flag. To run Mintlify on port 3333, for instance, use this command:
+#### User Experience
+- **⚠️ Stricter Requirements:** Users must resolve balance issues before EOY
+- **💡 Clear Guidance:** Error messages explain why and how to fix issues
+- **🎯 Focused Solutions:** Direct users to Reconciliation Dashboard
 
-```bash
-mintlify dev --port 3333
-```
+### Technical Improvements
 
-If you attempt to run Mintlify on a port that's already in use, it will use the next available port:
+1. **Named Ranges Exclusively:**
+   ```javascript
+   // Before: Hardcoded and brittle
+   const banksBalance = banksSheet.getRange("C30").getValue();
 
-```md
-Port 3000 is already in use. Trying 3001 instead.
-```
+   // After: Robust and maintainable
+   const banksBalanceRange = ss.getRangeByName("banksBalance");
+   const banksBalance = banksBalanceRange.getValue();
+   ```
 
-## Mintlify Versions
+2. **Unified Balance Checking:**
+   ```javascript
+   // New comprehensive function
+   function checkAllBalances(showDetails = false) {
+     // Checks all 3 critical balance cells
+     // Returns detailed status information
+     // Supports developer mode bypass
+   }
+   ```
 
-Please note that each CLI release is associated with a specific version of Mintlify. If your local website doesn't align with the production version, please update the CLI:
+3. **Risk-Based Processing:**
+   ```javascript
+   // End of Month: Flexible (can be corrected later)
+   if (!balanceCheck.isBalanced) {
+     const response = ui.alert("⚠️ Balance Check Failed", message, YES_NO);
+     if (response !== ui.Button.YES) return;
+   }
 
-<CodeGroup>
+   // End of Year: Strict (prevents data corruption)
+   if (!balanceCheck.isBalanced) {
+     ui.alert("🚨 Balance Check Failed - EOY Process Blocked", message, OK);
+     return; // No override option
+   }
+   ```
 
-```bash npm
-npm i -g mintlify@latest
-```
+### Future Considerations
 
-```bash yarn
-yarn global upgrade mintlify
-```
+1. **Named Range Management:** Consider creating automated named range validation
+2. **Balance Monitoring:** Potential for proactive balance issue detection
+3. **Recovery Tools:** Enhanced tools for fixing common balance issues
+4. **Audit Trail:** Consider logging balance check results for debugging
 
-</CodeGroup>
+### Testing
 
-## Validating Links
+- ✅ **EOY Process:** Blocked when system unbalanced
+- ✅ **EOM Process:** Flexible warning with override option
+- ✅ **DEV_MODE:** All balance checks bypassed appropriately
+- ✅ **Named Ranges:** Robust handling when ranges missing
+- ✅ **Error Messages:** Clear, actionable guidance provided
 
-The CLI can assist with validating reference links made in your documentation. To identify any broken links, use the following command:
+---
 
-```bash
-mintlify broken-links
-```
-
-## Deployment
-
-<Tip>
-  Unlimited editors available under the [Pro
-  Plan](https://mintlify.com/pricing) and above.
-</Tip>
-
-If the deployment is successful, you should see the following:
-
-<Frame>
-  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
-</Frame>
-
-## Code Formatting
-
-We suggest using extensions on your IDE to recognize and format MDX. If you're a VSCode user, consider the [MDX VSCode extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
-
-## Troubleshooting
-
-<AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-
-    This may be due to an outdated version of node. Try the following:
-    1. Remove the currently-installed version of mintlify: `npm remove -g mintlify`
-    2. Upgrade to Node v19 or higher.
-    3. Reinstall mintlify: `npm install -g mintlify`
-  </Accordion>
-
-  <Accordion title="Issue: Encountering an unknown error">
-  
-    Solution: Go to the root of your device and delete the \~/.mintlify folder. Afterwards, run `mintlify dev` again.
-  </Accordion>
-</AccordionGroup>
-
-Curious about what changed in the CLI version? [Check out the CLI changelog.](https://www.npmjs.com/package/mintlify?activeTab=versions)
+*This update significantly improves the safety and reliability of the budget system while maintaining developer-friendly testing capabilities.*

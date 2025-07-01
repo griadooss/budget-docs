@@ -25,14 +25,24 @@ Before starting the EOY process, ensure these requirements are met:
 - All bank transactions properly categorized and reconciled
 - No unresolved discrepancies in account balances
 
-### 3. **Balanced Sheets** (Critical)
+### 3. **Balanced Sheets** (Critical - Strictly Enforced)
 - **Banks sheet:** Cell C30 = $0.00 (zero balance)
 - **Annual Budget sheet:** Cell B106 = $0.00 (balanced budget)
 - **Maintain Budget sheet:** Cell E120 = $0.00 (balanced maintenance)
 
-<Note>
-While the system doesn't automatically verify these balances before starting, they are **required for successful completion**. The finalization step will verify these conditions.
-</Note>
+<Warning>
+**🚨 CRITICAL REQUIREMENT:** The system **strictly enforces** balance checking and will **completely block** the EOY process if any sheet is unbalanced.
+
+**Why No Override:** The EOY process copies current bank balances to become opening balances for the new fiscal year. Incorrect balances would corrupt your entire new year's foundation data.
+
+**Error Message:** You'll see "Balance Check Failed - EOY Process Blocked" with no proceed option.
+
+**Solution:**
+1. **First** - Update ALL bank balances to be accurate as at June 30 (banks often apply monthly interest as final transaction)
+2. **Second** - Use 'Reconciliation Dashboard' to resolve any Cash Flow transaction issues (missing, extra, or unreconciled transactions)
+</Warning>
+
+
 
 ## Step 1: Initial Setup (Master Spreadsheet)
 
