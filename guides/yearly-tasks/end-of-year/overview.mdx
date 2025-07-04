@@ -11,38 +11,39 @@ The End of Year (EOY) process helps you transition from one financial year to th
 
 The EOY process should be initiated when:
 
-- **You're in the final month of your financial year (June)** - The system restricts EOY setup to June only
+- **You're in June** (the final month of the fiscal year)
 - All transactions for the current year have been reconciled
-- You're ready to start planning for the next financial year
+- You're ready to start planning for the next financial year (July-June)
 
 <Note>
-**Important:** The EOY process can only be started during June (the final month of the fiscal year). If you try to access it in other months, the system will display a restriction message and block the process.
+**Important:** The EOY process can only be started during June. If you try to access it in other months, the system will display a restriction message and block the process.
 </Note>
 
 ## Process Summary
 
-The EOY process consists of **three main phases** with clear menu-driven progression:
+The EOY process consists of **four main steps** with clear menu-driven progression:
 
-### 1. **Initial Setup** (in Master Spreadsheet)
+### 1. **Start EOY Process** (in Master Spreadsheet)
    - **Menu Item:** "Start End of Year Process"
    - Export critical properties to ensure smooth transition
    - Create a copy of your current budget spreadsheet
    - The master spreadsheet remains unchanged during this phase
 
-### 2. **Configuration & Setup** (in New Copy)
+### 2. **Initial Setup** (in New Copy)
    - **Menu Item:** "1. Run Initial EOY Setup"
    - Authorize scripts in the new copy
-   - Run automated verification checks
    - Configure new year settings (dates, payment schedules)
    - **Manual budget update** - Review and update all income and expense amounts
+
+### 3. **Continue Setup** (in New Copy)
    - **Menu Item:** "2. Continue EOY Setup" - Copy bank balances and clear transaction sheets
    - **Menu Item:** "Run End of Month Process" - Complete final month processing for fiscal year
 
-### 3. **Finalization** (in New Copy)
+### 4. **Finalization** (in New Copy)
    - **Menu Item:** "3. Finalize EOY Setup"
    - Verify all completion criteria are met
    - Register the new copy as the active master spreadsheet
-   - **Automatically archive the previous master** with "\_ARCHIVED_FY{year}" suffix
+   - **Archive the previous master** with "_ARCHIVED_FY{year}" suffix
 
 ## State-Driven Menu System
 
@@ -103,8 +104,8 @@ One of the key improvements in the current EOY process is **automatic archiving*
 When you complete "3. Finalize EOY Setup":
 
 1. **New copy becomes the master** - Marked with `IS_MASTER = true`
-2. **Previous master is automatically renamed** - Gets "\_ARCHIVED_FY{year}" suffix
-3. **Archive metadata is added** - Hidden "\_Archive" sheet with archival information
+2. **Previous master is automatically renamed** - Gets "_ARCHIVED_FY{year}" suffix
+3. **Archive metadata is added** - Hidden "_Archive" sheet with archival information
 4. **Clear separation** - No confusion about which spreadsheet to use
 
 ### Benefits
@@ -150,7 +151,7 @@ If authorization fails, refresh the page and try again. The system includes retr
 1. Open the new copy
 2. Navigate to **Period Processing** → **1. Run Initial EOY Setup**
 3. **Complete authorization when prompted** - Google will show scary warnings but this is normal and safe
-4. Follow the three-step process through to finalization
+4. Follow the four-step process through to finalization
 
 ## Documentation and Support
 
