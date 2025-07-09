@@ -13,83 +13,103 @@ description: 'Summary of daily tasks in the Budget System'
 ## Workflow
 
 <Steps>
-  1. Download your bank statements (UBank (Spending + Wages) and NAB (CCard))
-  2. Import the bank statements
-  3. Add income and any cash expenses
-  4. Reconcile the bank records
-  5. Balance the bank accounts
-  6. Run the end of month process
+  1. Download your bank statements (UBank, NAB, or other banks)
+  2. Import the bank statements using the Import Wizard
+  3. Reconcile transactions using the Reconciliation Dashboard
+  4. Add any missing income or cash expenses
+  5. Run the end of month process when ready
 </Steps>
 
 <Tip>
   **Best Practices** - Import weekly to stay current - Always check for
-  duplicates - Verify account mappings before import
+  duplicates - Verify account mappings before import - Reconcile before month-end
 </Tip>
+
 ## Importing Bank Statements
 
 <AccordionGroup>
-  <Accordion title="Importing Bank Statements" icon="file-import">
-    1. Open the Import Wizard - Click "Budget > Import Bank Transactions"
-    2. Process each statement individually
-    3. Select "Paste Data" and follow the instructions 1, 2 and 3
-    4. Press "Process Import"
-    5. A 'Map Columns' dialog will appear. This will show the columns that have been automatically detected in the bank statement.
-    6. Select the appropriate 'Bank Format' for the statement you are importing
-    7. Review the 'Column Mapping' and make any necessary changes. You can drag the column mapping dialog to view the sheet below.
-    8. Manually enter the account balance for the statement you are importing
-    9. Under 'Advanced Options' review the number of days to look-back for duplicate records. Because the bank changes the date of actual transacton, sometimes 4 or 5 days after the event. The default of 7 days is usually sufficient.
-    10. Press "Import Transactions"
-    11. Review the results imported into the "Bank Records" sheet and check for any obvious duplicates (this should have been taken care of automatically)
-    12. If there are any duplicates, you can delete them from the "Bank Records" sheet
+  <Accordion title="Import Bank Transactions" icon="file-import">
+    **Access:** 🏦 Budget > Import Bank Transactions
+
+    ### Method 1: Paste Data
+    1. **Create new sheet** - Click the + button at the bottom
+    2. **Copy bank data** - From your bank statement or exported file
+    3. **Paste into sheet** - Include headers in the paste
+    4. **Select bank format** - Choose your bank type (NAB, CommBank, etc.)
+    5. **Review column mapping** - Verify date, amount, description columns
+    6. **Enter account balance** - Manually enter the statement balance
+    7. **Set lookback days** - Default 7 days for duplicate detection
+    8. **Click "Process Import"** - Review results and handle duplicates
+
+    ### Method 2: Manual Entry
+    1. **Switch to Manual tab** - Click "Manual Entry" tab
+    2. **Add transactions** - Fill in date, amount, description, account, type
+    3. **Click "Add Transaction"** - Add to pending list
+    4. **Review pending list** - Check all transactions before processing
+    5. **Click "Process All"** - Import all manual transactions
+
+    ### Duplicate Detection
+    - System automatically checks for duplicates within lookback period
+    - Review potential duplicates before importing
+    - Choose to skip, import selected, or import all
   </Accordion>
 
-  <Accordion title="Manually Adding Transactionis" icon="file-import">
-    1. Open the Import Wizard - Click "Budget > Import Bank Transactions"
-    2. Select "Manual Entry" and follow the instructions 1, 2 and 3
-    3. Select "Add Transaction" for each manual transaction you want to add. They will be added to the 'Pending Transactions' list.
-    4. When you have finished adding transactions, click "Process All", and the manually added transactions will be added to the cash flow sheet.
-    5. You can now reconcile the manually added transactions
-  </Accordion>
+  <Accordion title="Bank Format Support" icon="bank">
+    **Supported Formats:**
+    - **NAB Credit Card:** Date, Amount, Description, Card Number
+    - **NAB Bank Account:** Date, Amount, Description, Account Number
+    - **CommBank:** Transaction Date, Debit/Credit Amount, Description, Reference
+    - **Other Banks:** Flexible format with date, amount, description
 
+    **Column Mapping:**
+    - System automatically detects common column patterns
+    - Manual adjustment available if needed
+    - Save mappings for future imports
+  </Accordion>
 </AccordionGroup>
+
 ## Transaction Reconciliation
 
 <AccordionGroup>
-  <Accordion title="Opening the Dashboard" icon="rectangle-list">
-    1. Click "Budget > Show Reconciliation Dashboard"
-    2. Both sides of the transaction listings will populate with unreconciled transactions
-    3. The system will automatically match transactions based on the amount and date, these matches will be highlighted in green
-    4. Review unmatched unreconciled bank transactions
-    5. Click on "Find Match", this will change to "Add to Cash Flow"
-    6. Click on "Add to Cash Flow" will open the cash flow editor
-    7. Choose whether or not this is a SPLIT transaction or not.
+  <Accordion title="Reconciliation Dashboard" icon="check-double">
+    **Access:** 🏦 Budget > Reconciliation Dashboard
 
-    <Accordion title="Not a Split Transaction" icon="arrows-split-up-and-left">
-      1. If it is not a split transaction, select the category and sub-category you want to add the transaction to
-      2. Add any description you want to add to the transaction
-      3. Click "Add Transaction"
-      4. The transaction will be added to the cash flow sheet and will appear in the cash flow listing, automatically matched to the bank record
-    </Accordion>
+    ### Opening the Dashboard
+    1. **Click menu option** - Opens side-by-side transaction view
+    2. **Review transactions** - Cash Flow (left) vs Bank Records (right)
+    3. **Check auto-matches** - Green highlighted transactions are auto-matched
+    4. **Handle unmatched** - Review and categorize unmatched transactions
 
-    <Accordion title="Split Transaction" icon="arrows-split-up-and-left">
-      1. If it is a split transaction, a split side-bar editor will open
-      2. Add as many splits as you need by clicking the "Add Split" button, each split can be a different category and sub-category, just like a normal transaction
-      3. Continue adding splits until the "Remaining Amount" is 0
-      4. Click "Save Split Transactions"
-      5. The split transactions will be added to the cash flow and will appear in the cash flow listing, automatically matched to the bank record
-    </Accordion>
+    ### Transaction Matching
+    - **Auto-matches:** System matches by amount and date (green highlight)
+    - **Manual matches:** Click "Find Match" for unmatched transactions
+    - **Split transactions:** Blue highlighted groups for split transactions
+    - **Bulk reconciliation:** Select multiple transactions for batch processing
+
+    ### Category Assignment
+    - **Single transactions:** Select category and subcategory
+    - **Split transactions:** Divide amount across multiple categories
+    - **Description editing:** Modify transaction descriptions
+    - **Account verification:** Confirm correct account assignment
   </Accordion>
-{' '}
-<Accordion title="Reconciliation Steps" icon="check-double">
-     1. First ensure all transactions have been entered since the last reconciliation, which includes bank statements, expenses and income, as well as any manually added transactions like cash expenses and receipts.
-     2. Open the reconciliation dashboard by clicking "Budget > Show Reconciliation Dashboard"
-     3. Review the unmatched unreconciled bank transactions and deal with them as per the instructions above
-     4. For each automatically matched transaction [green highlighted], review the transaction details and ensure they are correct .. then click "Reconcile Match". This can be done from either side ot the transaction lising, be it Cash Flow or Bank Transactions.
-     5. For each 'Split' group of transactions [blue highlighted], review the transaction details and ensure they are correct .. then click "Find Match". This will find the single bank transaction that matches the sum of the split group, and the complete set of transactions, cash flow and bank records will be colored tan to reflect the split.
-     6. Click on "Reconcile Match" to reconcile the split group with the bank transaction.
-     7. If there are still any unmatched transactions, you can manually reconcile them by clicking on "Add to Cash Flow" and following the instructions above.
-     8. Once all transactions are reconciled, click "Refresh" to verify and close the Dashboard
-</Accordion>
+
+  <Accordion title="Reconciliation Process" icon="arrows-split-up-and-left">
+    ### Step-by-Step Process
+    1. **Review auto-matches** - Verify green highlighted transactions
+    2. **Reconcile matches** - Click "Reconcile Match" for verified pairs
+    3. **Handle unmatched** - Click "Add to Cash Flow" for bank-only transactions
+    4. **Categorize transactions** - Assign categories and subcategories
+    5. **Process splits** - Handle split transactions with multiple categories
+    6. **Verify balances** - Ensure all transactions are accounted for
+    7. **Refresh dashboard** - Click refresh to update status
+
+    ### Split Transactions
+    - **Identify splits:** Look for blue highlighted transaction groups
+    - **Click "Find Match"** - Locate corresponding bank transaction
+    - **Divide amount:** Split across multiple categories as needed
+    - **Verify total:** Ensure split amounts equal bank transaction
+    - **Reconcile group:** Click "Reconcile Match" for complete split
+  </Accordion>
 </AccordionGroup>
 
 <Warning>Always reconcile before running month-end processes</Warning>
@@ -102,13 +122,15 @@ description: 'Summary of daily tasks in the Budget System'
     - Splits balanced correctly
     - Bank balances verified
     - Budget variances reviewed
+    - Reconciliation complete
   </Card>
 
   <Card title="Running Month-End" icon="calendar-check">
-    1. Verify all reconciled
-    2. Run end-of-month routine
-    3. Review summary
-    4. Address warnings
+    1. **Verify all reconciled** - Check reconciliation dashboard
+    2. **Run end-of-month** - 📅 Period Processing > Run End of Month Process
+    3. **Confirm month** - Verify correct month is being processed
+    4. **Review results** - Check copied values and formatting
+    5. **Address warnings** - Handle any balance issues
   </Card>
 </CardGroup>
 
@@ -116,34 +138,50 @@ description: 'Summary of daily tasks in the Budget System'
 
 <Tabs>
   <Tab title="Using Categories">
-    - Select from existing options
-    - Use consistent choices
-    - Check subcategories
+    - Select from existing options in dropdowns
+    - Use consistent category names
+    - Check subcategory assignments
+    - Verify active/inactive status
   </Tab>
 
-{' '}
-<Tab title="New Categories">
-  - Request when needed - Provide clear purpose - Wait for approval
-</Tab>
+  <Tab title="Managing Categories">
+    - **Access:** ⚙️ Settings > Sheet Settings > Manage Categories
+    - **Add categories:** Create new income/expense categories
+    - **Edit categories:** Modify names and descriptions
+    - **Toggle status:** Activate/deactivate categories
+    - **Add subcategories:** Create detailed breakdowns
+  </Tab>
 
-  <Tab title="Organization">
+  <Tab title="Category Organization">
     - Keep related items together
-    - Use meaningful names
-    - Maintain hierarchy
+    - Use meaningful, consistent names
+    - Maintain hierarchy (category > subcategory)
+    - Regular cleanup of unused categories
   </Tab>
 </Tabs>
 
-## View Customization
+## Settings and Configuration
 
 <CardGroup cols={3}>
-  <Card title="Colors" icon="palette">
-    Set your color preferences
+  <Card title="Import Settings" icon="gear">
+    **Manage Import Templates**
+    - Configure bank formats
+    - Set account mappings
+    - Save column mappings
   </Card>
-  <Card title="Layout" icon="table-columns">
-    Adjust column widths
+
+  <Card title="Month Management" icon="calendar">
+    **Set Current Month**
+    - Initialize month statuses
+    - Set processing month
+    - Track month progress
   </Card>
-  <Card title="Save" icon="floppy-disk">
-    Store your preferences
+
+  <Card title="Advanced Settings" icon="warning">
+    **Archive Master**
+    - Prepare for EOY process
+    - Backup current system
+    - Create new year setup
   </Card>
 </CardGroup>
 
@@ -151,6 +189,5 @@ description: 'Summary of daily tasks in the Budget System'
 
 <Check>Practice regular imports</Check>
 <Check>Set up your preferred views</Check>
-<Check>
-  Review the [Troubleshooting Guide](/guides/troubleshooting/common-issues)
-</Check>
+<Check>Review the [Troubleshooting Guide](/guides/troubleshooting/common-issues)</Check>
+<Check>Learn about [End of Year Process](/guides/yearly-tasks/end-of-year/overview)</Check>
