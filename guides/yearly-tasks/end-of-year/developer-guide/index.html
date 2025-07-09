@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://griadooss.github.io/budget-docs/guides/yearly-tasks/end-of-year/developer-guide/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Developer Guide - Budget Docs</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Budget Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../introduction/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../quickstart/" class="nav-link">Quickstart</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">User Manual</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../user-manual/basic-overview/" class="dropdown-item">Basic Overview</a>
+</li>
+            
+<li>
+    <a href="../../../user-manual/menu-reference/" class="dropdown-item">Menu Reference</a>
+</li>
+            
+<li>
+    <a href="../../../user-manual/basic-operations/" class="dropdown-item">Basic Operations</a>
+</li>
+            
+<li>
+    <a href="../../../user-manual/getting-started/" class="dropdown-item">Getting Started</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Daily Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../daily-tasks/categorizing/" class="dropdown-item">Categorizing</a>
+</li>
+            
+<li>
+    <a href="../../../daily-tasks/reconciling/" class="dropdown-item">Reconciling</a>
+</li>
+            
+<li>
+    <a href="../../../daily-tasks/importing/" class="dropdown-item">Importing</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Monthly Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../monthly-tasks/end-of-month/" class="dropdown-item">End of Month</a>
+</li>
+            
+<li>
+    <a href="../../../monthly-tasks/reporting/" class="dropdown-item">Reporting</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Yearly Tasks</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">End of Year</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../overview/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../setup/" class="dropdown-item">Setup</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Developer Guide</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">System</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../system/version/" class="dropdown-item">Version</a>
+</li>
+            
+<li>
+    <a href="../../../system/changelog/" class="dropdown-item">Changelog</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Troubleshooting</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../troubleshooting/common-issues/" class="dropdown-item">Common Issues</a>
+</li>
+            
+<li>
+    <a href="../../../troubleshooting/using-ai-help/" class="dropdown-item">Using AI Help</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../setup/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../../system/version/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/griadooss/budget-docs/edit/master/docs/guides/yearly-tasks/end-of-year/developer-guide.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#eoy-process-developer-guide" class="nav-link">EOY Process Developer Guide</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#current-implementation-overview" class="nav-link">Current Implementation Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#development-and-testing-workflow" class="nav-link">Development and Testing Workflow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#state-management-and-menu-system" class="nav-link">State Management and Menu System</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#technical-implementation-details" class="nav-link">Technical Implementation Details</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#known-technical-limitations" class="nav-link">Known Technical Limitations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#testing-and-quality-assurance" class="nav-link">Testing and Quality Assurance</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#performance-considerations" class="nav-link">Performance Considerations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#future-enhancement-opportunities" class="nav-link">Future Enhancement Opportunities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#security-and-access-considerations" class="nav-link">Security and Access Considerations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="eoy-process-developer-guide">EOY Process Developer Guide</h1>
+<p>This guide contains technical information for developers who are maintaining or enhancing the End of Year (EOY) process. End users should refer to the <a href="/guides/yearly-tasks/end-of-year/overview">End of Year Process Overview</a> and <a href="/guides/yearly-tasks/end-of-year/setup">EOY Budget Setup</a> guides instead.</p>
+<h2 id="current-implementation-overview">Current Implementation Overview</h2>
+<p>The EOY process has been significantly improved from the original design and now features:</p>
+<h3 id="key-architectural-features">Key Architectural Features</h3>
+<ul>
+<li><strong>Month-Restricted Access</strong> - Process only available in June (final fiscal month)</li>
+<li><strong>State-Driven Menu System</strong> - Menus adapt based on EOY completion status</li>
+<li><strong>Three-Step Progressive Workflow</strong> - Clear progression through setup phases</li>
+<li><strong>Automated Master Archiving</strong> - Previous master automatically archived on completion</li>
+<li><strong>Comprehensive Verification</strong> - Multiple validation checkpoints throughout process</li>
+</ul>
+<h3 id="core-functions-and-files">Core Functions and Files</h3>
+<p>The EOY implementation is primarily contained in <code>src/utility/yearEndBudget.js</code>:</p>
+<ul>
+<li><strong>Main Entry Points:</strong></li>
+<li><code>showYearEndHelp()</code> - Initial help dialog in master spreadsheet</li>
+<li><code>setupNewYearBudget()</code> - Step 1: Initial EOY setup</li>
+<li><code>continueEOYSetup()</code> - Step 2: Continue configuration and budget update</li>
+<li>
+<p><code>finalizeEOYSetup()</code> - Step 3: Finalization and master archiving</p>
+</li>
+<li>
+<p><strong>Supporting Functions:</strong></p>
+</li>
+<li><code>exportPropertiesToSheet()</code> / <code>importPropertiesFromSheet()</code> - Property management</li>
+<li><code>clearTransactionSheets()</code> - Clean Cash Flow and Bank Records sheets</li>
+<li><code>copyBankBalancesToOpeningPositions()</code> - Transfer bank balances</li>
+<li><code>updateMonthlyHeaders()</code> - Update fiscal year headers across sheets</li>
+<li><code>archiveLegacyMaster()</code> - Automatic master archiving</li>
+</ul>
+<h2 id="development-and-testing-workflow">Development and Testing Workflow</h2>
+<h3 id="critical-development-process">Critical Development Process</h3>
+<p>When developing and testing the EOY process, you <strong>must</strong> follow this workflow to ensure you're testing the latest code:</p>
+<ol>
+<li><strong>Development Phase:</strong></li>
+<li>Make all script changes in the <strong>MASTER</strong> spreadsheet</li>
+<li>Test individual functions using Apps Script editor</li>
+<li>
+<p>Push changes using <code>clasp push</code> to update MASTER's script project</p>
+</li>
+<li>
+<p><strong>Testing Phase:</strong></p>
+</li>
+<li><strong>Always delete existing test copies</strong> before creating new ones</li>
+<li>Make a <strong>fresh copy</strong> of MASTER for each test cycle</li>
+<li>Each copy gets its own Apps Script project with the current code</li>
+<li>
+<p>Test the complete EOY process in the fresh copy</p>
+</li>
+<li>
+<p><strong>Issue Resolution:</strong></p>
+</li>
+<li>Document any issues found during testing</li>
+<li>Make fixes in the <strong>MASTER</strong> spreadsheet</li>
+<li>Push changes to MASTER using <code>clasp push</code></li>
+<li>Delete test copy and create a new one for retesting</li>
+</ol>
+<p><Warning>
+<strong>Critical:</strong> Never use old test copies. Each copy has its own script project, and using an old copy will test outdated code, leading to false results and wasted development time.
+</Warning></p>
+<h3 id="month-restriction-testing">Month Restriction Testing</h3>
+<p>The EOY process includes month validation that restricts access to June only:</p>
+<pre><code class="language-javascript">// In setupNewYearBudget() and showYearEndHelp()
+const currentMonth = getCurrentMonth();
+if (currentMonth &amp;&amp; currentMonth.month !== 6) {
+  // Block access with user-friendly message
+  ui.alert(&quot;Process Not Available&quot;,
+           &quot;The 'Start End of Year Process' is only available in June...&quot;);
+  return;
+}
+</code></pre>
+<p><strong>Testing Considerations:</strong>
+- <strong>Production:</strong> Process only works in June
+- <strong>Development:</strong> You may need to temporarily bypass month checking for testing
+- <strong>Test Mode:</strong> Use <code>testMode</code> parameters in functions where available</p>
+<h2 id="state-management-and-menu-system">State Management and Menu System</h2>
+<h3 id="eoy-state-tracking">EOY State Tracking</h3>
+<p>The system uses script properties to track EOY progress:</p>
+<pre><code class="language-javascript">// Key properties for state management
+- IS_MASTER: &quot;true&quot;/&quot;false&quot; - Whether spreadsheet is the active master
+- EOY_SETUP_COMPLETE: &quot;true&quot;/&quot;false&quot; - Whether EOY setup is finished
+- EOY_READY_FOR_EOM: &quot;true&quot;/&quot;false&quot; - Intermediate state during setup
+- CURRENT_SPREADSHEET_ID: &quot;{id}&quot; - Current spreadsheet identifier
+- MASTER_SPREADSHEET_ID: &quot;{id}&quot; - ID of the master spreadsheet
+</code></pre>
+<h3 id="menu-state-logic">Menu State Logic</h3>
+<p>The menu system in <code>onOpen.js</code> adapts based on these states:</p>
+<pre><code class="language-javascript">// In createBasicMenus()
+if (!isMaster &amp;&amp; !eoySetupComplete &amp;&amp; !eoyReadyForEom) {
+  // Fresh copy - show only EOY setup options
+  periodMenu.addSubMenu(
+    ui.createMenu(&quot;End of Year Setup&quot;)
+      .addItem(&quot;1. Run Initial EOY Setup&quot;, &quot;setupNewYearBudget&quot;)
+      .addItem(&quot;2. Continue EOY Setup&quot;, &quot;continueEOYSetup&quot;)
+      .addItem(&quot;3. Finalize EOY Setup&quot;, &quot;finalizeEOYSetup&quot;)
+  );
+}
+</code></pre>
+<h3 id="state-transitions">State Transitions</h3>
+<ol>
+<li><strong>Fresh Copy Creation:</strong></li>
+<li><code>IS_MASTER = false</code> (imported from master)</li>
+<li><code>EOY_SETUP_COMPLETE = false</code></li>
+<li><code>EOY_READY_FOR_EOM = false</code></li>
+<li>
+<p>Menu shows only EOY setup options</p>
+</li>
+<li>
+<p><strong>After Initial Setup:</strong></p>
+</li>
+<li>Properties updated to reflect progress</li>
+<li>
+<p>Menu options remain EOY-focused</p>
+</li>
+<li>
+<p><strong>After Finalization:</strong></p>
+</li>
+<li><code>IS_MASTER = true</code></li>
+<li><code>EOY_SETUP_COMPLETE = true</code></li>
+<li>Menu shows normal operational options</li>
+</ol>
+<h2 id="technical-implementation-details">Technical Implementation Details</h2>
+<h3 id="property-exportimport-system">Property Export/Import System</h3>
+<p>The property management system ensures continuity between master and copy:</p>
+<pre><code class="language-javascript">// Export from master to hidden sheet
+function exportPropertiesToSheet() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName(&quot;_Properties&quot;);
+
+  if (!sheet) {
+    sheet = ss.insertSheet(&quot;_Properties&quot;);
+    sheet.hideSheet();
+  }
+
+  const props = PropertiesService.getScriptProperties().getProperties();
+  // Write properties to sheet for copying
+}
+
+// Import from hidden sheet in new copy
+function importPropertiesFromSheet() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(&quot;_Properties&quot;);
+
+  if (sheet) {
+    // Read properties from sheet and set in new copy
+    // Adjust IS_MASTER to false for new copy
+  }
+}
+</code></pre>
+<h3 id="verification-system">Verification System</h3>
+<p>Multiple verification points ensure system integrity:</p>
+<ol>
+<li><strong>Sheet Structure Verification</strong> (<code>validateSheets()</code>)</li>
+<li>Verifies all required sheets exist</li>
+<li>Checks sheet naming conventions</li>
+<li>
+<p>Validates critical named ranges</p>
+</li>
+<li>
+<p><strong>Budget Formula Verification</strong> (<code>verifyBudgetSetup()</code>)</p>
+</li>
+<li>Checks Annual Budget formulas</li>
+<li>Validates Maintain Budget structure</li>
+<li>
+<p>Ensures proper formula references</p>
+</li>
+<li>
+<p><strong>Balance Verification</strong> (in <code>finalizeEOYSetup()</code>)</p>
+</li>
+<li>Banks sheet: Cell C30 = 0</li>
+<li>Annual Budget: Cell B106 = 0</li>
+<li>Maintain Budget: Cell E120 = 0</li>
+</ol>
+<h3 id="automatic-master-archiving">Automatic Master Archiving</h3>
+<p>The archiving system provides automatic legacy master management:</p>
+<pre><code class="language-javascript">function archiveLegacyMaster(spreadsheetId, testMode = false) {
+  try {
+    const targetSS = SpreadsheetApp.openById(spreadsheetId);
+    const fiscalYear = getFiscalYearFromSpreadsheet(targetSS);
+
+    if (testMode) {
+      // Create test copy for verification
+      return targetSS.copy(`${targetSS.getName()}_ARCHIVED_TEST`);
+    }
+
+    // Rename with archived suffix
+    const newName = `${targetSS.getName()}_ARCHIVED_FY${fiscalYear}`;
+    targetSS.rename(newName);
+
+    // Add hidden archive metadata sheet
+    const archiveSheet = targetSS.insertSheet(&quot;_Archive&quot;);
+    archiveSheet.hideSheet();
+
+    // Set archive metadata
+    archiveSheet.getRange(&quot;A1&quot;).setValue(&quot;ARCHIVED_DATE&quot;);
+    archiveSheet.getRange(&quot;B1&quot;).setValue(new Date());
+    archiveSheet.getRange(&quot;A2&quot;).setValue(&quot;FORMER_MASTER&quot;);
+    archiveSheet.getRange(&quot;B2&quot;).setValue(true);
+
+  } catch (error) {
+    console.error(&quot;Error archiving legacy master:&quot;, error);
+    throw error;
+  }
+}
+</code></pre>
+<h2 id="known-technical-limitations">Known Technical Limitations</h2>
+<h3 id="script-property-isolation">Script Property Isolation</h3>
+<p><strong>Issue:</strong> Google Apps Script security model prevents modifying script properties of other spreadsheets.</p>
+<p><strong>Impact:</strong> Archived masters retain <code>IS_MASTER = true</code> in their script properties.</p>
+<p><strong>Mitigation Strategies:</strong>
+1. <strong>Renamed Title</strong> - Archived spreadsheets have clear "_ARCHIVED_FY{year}" suffix
+2. <strong>Archive Metadata</strong> - Hidden "_Archive" sheet marks archival status
+3. <strong>User Documentation</strong> - Clear guidance to avoid using archived spreadsheets</p>
+<h3 id="google-authorization-user-experience">Google Authorization User Experience</h3>
+<p><strong>Issue:</strong> Google shows intimidating "unsafe" warnings for all custom spreadsheet scripts.</p>
+<p><strong>Impact:</strong> Users may be reluctant to continue authorization due to scary warning language.</p>
+<p><strong>User Experience Challenges:</strong>
+- "Google hasn't verified this app" warning appears threatening
+- "Go to Budget App Scripts (unsafe)" button seems dangerous
+- Users may abandon the process thinking something is wrong</p>
+<p><strong>Mitigation Strategies:</strong>
+1. <strong>Clear Documentation</strong> - Detailed explanation that warnings are normal
+2. <strong>Step-by-Step Instructions</strong> - Specific guidance through each authorization step
+3. <strong>Reassurance</strong> - Explicit statements that the process is safe and expected</p>
+<h2 id="testing-and-quality-assurance">Testing and Quality Assurance</h2>
+<h3 id="comprehensive-testing-checklist">Comprehensive Testing Checklist</h3>
+<h4 id="before-testing-session">Before Testing Session</h4>
+<ul>
+<li>[ ] All changes pushed to MASTER spreadsheet</li>
+<li>[ ] Old test copies deleted</li>
+<li>[ ] Fresh copy created from MASTER</li>
+<li>[ ] Test environment prepared</li>
+</ul>
+<h4 id="during-testing-step-1-initial-setup">During Testing - Step 1 (Initial Setup)</h4>
+<ul>
+<li>[ ] Month restriction working (if testing in non-June month)</li>
+<li>[ ] Help dialog displays correctly with documentation links</li>
+<li>[ ] Property export completes successfully</li>
+<li>[ ] New copy creation process works</li>
+<li>[ ] Menu system shows only EOY options in new copy</li>
+</ul>
+<h4 id="during-testing-step-2-configuration">During Testing - Step 2 (Configuration)</h4>
+<ul>
+<li>[ ] Authorization process works smoothly</li>
+<li>[ ] Verification checks pass for valid setup</li>
+<li>[ ] Configuration dialog accepts valid inputs</li>
+<li>[ ] Manual budget update process functions</li>
+<li>[ ] Budget balance validation works</li>
+<li>[ ] Continue setup processes correctly</li>
+</ul>
+<h4 id="during-testing-step-3-finalization">During Testing - Step 3 (Finalization)</h4>
+<ul>
+<li>[ ] Final verification checks function properly</li>
+<li>[ ] Master archiving completes without errors</li>
+<li>[ ] New copy marked as master successfully</li>
+<li>[ ] Menu system updates to normal operational mode</li>
+<li>[ ] All transaction sheets properly cleared</li>
+</ul>
+<h4 id="post-testing-verification">Post-Testing Verification</h4>
+<ul>
+<li>[ ] Master functionality works in new spreadsheet</li>
+<li>[ ] Archived master properly renamed and marked</li>
+<li>[ ] Historical data preserved in archived master</li>
+<li>[ ] No script errors in new master</li>
+<li>[ ] Documentation links work correctly</li>
+</ul>
+<h3 id="testing-functions">Testing Functions</h3>
+<p>Several helper functions support testing:</p>
+<pre><code class="language-javascript">// Test archiving without affecting production
+function testArchiveMaster() {
+  const currentId = SpreadsheetApp.getActiveSpreadsheet().getId();
+  return archiveLegacyMaster(currentId, true); // testMode = true
+}
+
+// Test EOY process with safety checks
+function testEOYProcess() {
+  console.log(&quot;Starting EOY test process...&quot;);
+  return setupNewYearBudget(true); // testMode = true
+}
+
+// Safe refresh function for testing
+function runRefreshSafely() {
+  try {
+    SpreadsheetApp.getActiveSpreadsheet().getSheetByName(&quot;Annual Budget&quot;);
+    // Additional safety checks
+  } catch (error) {
+    console.error(&quot;Refresh safety check failed:&quot;, error);
+  }
+}
+</code></pre>
+<h2 id="performance-considerations">Performance Considerations</h2>
+<h3 id="optimization-strategies">Optimization Strategies</h3>
+<ol>
+<li><strong>Minimal Sheet Operations:</strong></li>
+<li>Batch range operations where possible</li>
+<li>Avoid excessive individual cell operations</li>
+<li>
+<p>Use getValues()/setValues() for bulk operations</p>
+</li>
+<li>
+<p><strong>Property Management:</strong></p>
+</li>
+<li>Cache frequently accessed properties</li>
+<li>Minimize property service calls</li>
+<li>
+<p>Use batch property operations</p>
+</li>
+<li>
+<p><strong>Verification Efficiency:</strong></p>
+</li>
+<li>Combine multiple checks into single functions</li>
+<li>Early exit on validation failures</li>
+<li>Provide specific error messages for quick resolution</li>
+</ol>
+<h3 id="resource-management">Resource Management</h3>
+<pre><code class="language-javascript">// Example of efficient batch operations
+function updateMonthlyHeaders() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet()
+                             .getSheetByName(&quot;Annual Budget&quot;);
+
+  // Get all headers in one operation
+  const headerRange = sheet.getRange(1, 1, 1, sheet.getLastColumn());
+  const headers = headerRange.getValues()[0];
+
+  // Process headers in memory
+  const updatedHeaders = headers.map(header =&gt; {
+    // Update logic here
+    return processHeader(header);
+  });
+
+  // Write all headers back in one operation
+  headerRange.setValues([updatedHeaders]);
+}
+</code></pre>
+<h2 id="future-enhancement-opportunities">Future Enhancement Opportunities</h2>
+<h3 id="planned-improvements">Planned Improvements</h3>
+<ol>
+<li><strong>Enhanced Pre-EOY Validation:</strong></li>
+<li>Automatic verification of balance requirements</li>
+<li>Account reconciliation status checking</li>
+<li>
+<p>Data integrity validation before process start</p>
+</li>
+<li>
+<p><strong>Improved Error Recovery:</strong></p>
+</li>
+<li>Process checkpoint system for resuming interrupted operations</li>
+<li>Better error messages with specific resolution steps</li>
+<li>
+<p>Automatic retry mechanisms for transient failures</p>
+</li>
+<li>
+<p><strong>Advanced State Management:</strong></p>
+</li>
+<li>More granular progress tracking</li>
+<li>Session persistence across browser refreshes</li>
+<li>Better handling of concurrent user access</li>
+</ol>
+<h3 id="technical-debt-reduction">Technical Debt Reduction</h3>
+<ol>
+<li><strong>Script Property Limitation Resolution:</strong></li>
+<li>Research Google Workspace APIs for property management</li>
+<li>Implement alternative master tracking systems</li>
+<li>
+<p>Develop more robust archiving mechanisms</p>
+</li>
+<li>
+<p><strong>Code Organization:</strong></p>
+</li>
+<li>Modularize large functions for better maintainability</li>
+<li>Implement consistent error handling patterns</li>
+<li>
+<p>Add comprehensive inline documentation</p>
+</li>
+<li>
+<p><strong>Testing Infrastructure:</strong></p>
+</li>
+<li>Automated testing framework for EOY process</li>
+<li>Mock data generation for consistent testing</li>
+<li>Performance benchmarking tools</li>
+</ol>
+<h2 id="security-and-access-considerations">Security and Access Considerations</h2>
+<h3 id="permission-requirements">Permission Requirements</h3>
+<p>The EOY process requires specific permissions:
+- <strong>Script execution</strong> in both master and new copy
+- <strong>Spreadsheet access</strong> for reading/writing operations
+- <strong>File creation</strong> for making copies
+- <strong>Property management</strong> for state tracking</p>
+<h3 id="security-best-practices">Security Best Practices</h3>
+<ol>
+<li><strong>Property Validation:</strong></li>
+<li>Validate all imported properties</li>
+<li>Sanitize user inputs in configuration dialogs</li>
+<li>
+<p>Check property values before using in operations</p>
+</li>
+<li>
+<p><strong>Error Information Exposure:</strong></p>
+</li>
+<li>Avoid exposing sensitive system information in error messages</li>
+<li>Log detailed errors for developers without showing to users</li>
+<li>
+<p>Provide user-friendly error messages with actionable guidance</p>
+</li>
+<li>
+<p><strong>State Consistency:</strong></p>
+</li>
+<li>Verify state transitions are atomic where possible</li>
+<li>Implement rollback mechanisms for critical operations</li>
+<li>Validate system state before proceeding with operations</li>
+</ol>
+<p>This developer guide provides the technical foundation for maintaining and enhancing the EOY process. For implementation details of specific functions, refer to the source code in <code>src/utility/yearEndBudget.js</code> and related files.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

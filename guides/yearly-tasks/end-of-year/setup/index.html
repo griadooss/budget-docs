@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://griadooss.github.io/budget-docs/guides/yearly-tasks/end-of-year/setup/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Setup - Budget Docs</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Budget Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../introduction/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../quickstart/" class="nav-link">Quickstart</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">User Manual</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../user-manual/basic-overview/" class="dropdown-item">Basic Overview</a>
+</li>
+            
+<li>
+    <a href="../../../user-manual/menu-reference/" class="dropdown-item">Menu Reference</a>
+</li>
+            
+<li>
+    <a href="../../../user-manual/basic-operations/" class="dropdown-item">Basic Operations</a>
+</li>
+            
+<li>
+    <a href="../../../user-manual/getting-started/" class="dropdown-item">Getting Started</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Daily Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../daily-tasks/categorizing/" class="dropdown-item">Categorizing</a>
+</li>
+            
+<li>
+    <a href="../../../daily-tasks/reconciling/" class="dropdown-item">Reconciling</a>
+</li>
+            
+<li>
+    <a href="../../../daily-tasks/importing/" class="dropdown-item">Importing</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Monthly Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../monthly-tasks/end-of-month/" class="dropdown-item">End of Month</a>
+</li>
+            
+<li>
+    <a href="../../../monthly-tasks/reporting/" class="dropdown-item">Reporting</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Yearly Tasks</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">End of Year</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../overview/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Setup</a>
+</li>
+            
+<li>
+    <a href="../developer-guide/" class="dropdown-item">Developer Guide</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">System</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../system/version/" class="dropdown-item">Version</a>
+</li>
+            
+<li>
+    <a href="../../../system/changelog/" class="dropdown-item">Changelog</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Troubleshooting</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../troubleshooting/common-issues/" class="dropdown-item">Common Issues</a>
+</li>
+            
+<li>
+    <a href="../../../troubleshooting/using-ai-help/" class="dropdown-item">Using AI Help</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../overview/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../developer-guide/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/griadooss/budget-docs/edit/master/docs/guides/yearly-tasks/end-of-year/setup.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#eoy-budget-setup" class="nav-link">EOY Budget Setup</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#before-you-start" class="nav-link">Before You Start</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#step-1-start-eoy-process-master-spreadsheet" class="nav-link">Step 1: Start EOY Process (Master Spreadsheet)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#step-2-initial-setup-new-copy" class="nav-link">Step 2: Initial Setup (New Copy)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#step-3-continue-setup-new-copy" class="nav-link">Step 3: Continue Setup (New Copy)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#step-4-finalize-setup-new-copy" class="nav-link">Step 4: Finalize Setup (New Copy)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#what-happens-automatically" class="nav-link">What Happens Automatically</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#after-eoy-completion" class="nav-link">After EOY Completion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#quick-reference" class="nav-link">Quick Reference</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="eoy-budget-setup">EOY Budget Setup</h1>
+<p>This guide provides simple, direct instructions for completing the End of Year (EOY) process to set up your new fiscal year budget.</p>
+<p><Warning>
+<strong>Timing:</strong> The EOY process can only be started during June (the final month of the fiscal year). The system will block access during other months.
+</Warning></p>
+<h2 id="before-you-start">Before You Start</h2>
+<h3 id="prerequisites-must-complete-first">✅ Prerequisites (Must Complete First)</h3>
+<ol>
+<li><strong>Current month must be June</strong> - System automatically checks this</li>
+<li><strong>All balances must be zero:</strong></li>
+<li><strong>Banks sheet:</strong> Cell C30 = $0.00</li>
+<li><strong>Annual Budget sheet:</strong> Cell B106 = $0.00</li>
+<li><strong>Maintain Budget sheet:</strong> Cell E120 = $0.00</li>
+</ol>
+<p><Warning>
+<strong>Critical:</strong> If any balance is not zero, the EOY process will be blocked. Fix balance issues using the Reconciliation Dashboard before starting EOY.
+</Warning></p>
+<h2 id="step-1-start-eoy-process-master-spreadsheet">Step 1: Start EOY Process (Master Spreadsheet)</h2>
+<h3 id="11-export-properties">1.1 Export Properties</h3>
+<ol>
+<li>In your <strong>master spreadsheet</strong> (June only)</li>
+<li>Go to <strong>Period Processing</strong> → <strong>Start End of Year Process</strong></li>
+<li>Click <strong>Export Properties Now</strong> when prompted</li>
+<li>Wait for success confirmation</li>
+</ol>
+<h3 id="12-create-new-copy">1.2 Create New Copy</h3>
+<ol>
+<li>Go to <strong>File</strong> → <strong>Make a copy</strong></li>
+<li>Name it "Budget-2025" (or your new year)</li>
+<li>Choose destination folder</li>
+<li>Click <strong>Make a copy</strong></li>
+<li><strong>Open the new copy</strong></li>
+</ol>
+<h2 id="step-2-initial-setup-new-copy">Step 2: Initial Setup (New Copy)</h2>
+<h3 id="21-run-initial-setup">2.1 Run Initial Setup</h3>
+<ol>
+<li>In the <strong>new copy</strong>, go to <strong>Period Processing</strong> → <strong>1. Run Initial EOY Setup</strong></li>
+<li><strong>Complete authorization</strong> when prompted (Google warnings are normal and safe)</li>
+<li>Click <strong>YES</strong> to proceed with setup</li>
+</ol>
+<h3 id="21a-authorization-process-important">2.1a Authorization Process (Important!)</h3>
+<p>When you run the initial setup, Google will ask you to authorize the scripts. <strong>Don't worry - this is normal and safe!</strong></p>
+<p><strong>What you'll see:</strong></p>
+<ol>
+<li><strong>"Authorization Required" dialog appears</strong></li>
+<li>
+<p>Click <strong>"Continue"</strong> to proceed</p>
+</li>
+<li>
+<p><strong>Google Account Selection</strong></p>
+</li>
+<li>
+<p>Select your Google account (the same one you use for Google Sheets)</p>
+</li>
+<li>
+<p><strong>⚠️ Scary-looking Security Warning</strong> (This is normal!)</p>
+</li>
+<li>You'll see: <strong>"Google hasn't verified this app"</strong></li>
+<li>You'll see: <strong>"The app is requesting access to sensitive info"</strong></li>
+<li>
+<p><strong>Don't panic!</strong> This is Google's standard warning for ALL custom spreadsheet scripts</p>
+</li>
+<li>
+<p><strong>Continue Despite Warning:</strong></p>
+</li>
+<li>Click <strong>"Advanced"</strong> (bottom left of the dialog)</li>
+<li>Click <strong>"Go to Budget App Scripts (unsafe)"</strong> - <em>this is safe, just Google's standard warning</em></li>
+<li><strong>Check "Select all"</strong> checkbox to grant required permissions</li>
+<li>
+<p>Click <strong>"Continue"</strong></p>
+</li>
+<li>
+<p><strong>Success Confirmation</strong></p>
+</li>
+<li>You'll see a success message</li>
+<li>The setup process will continue automatically</li>
+</ol>
+<p><Warning>
+<strong>About the "Unsafe" Warning:</strong> Google shows this warning for ALL custom spreadsheet scripts, not because there's actually a problem. The budget system is safe to authorize - it only accesses your budget spreadsheet data and nothing else.
+</Warning></p>
+<p><Tip>
+If authorization fails, refresh the page and try again. The system includes retry logic for common authorization issues.
+</Tip></p>
+<h3 id="22-configure-new-year">2.2 Configure New Year</h3>
+<ol>
+<li><strong>Budget Start Date:</strong> Enter July 1, 2025</li>
+<li><strong>Payment Dates:</strong> Update your payment schedules for the new year</li>
+<li>Click <strong>Save Configuration</strong></li>
+</ol>
+<h3 id="23-update-budget-amounts">2.3 Update Budget Amounts</h3>
+<ol>
+<li><strong>Income Section:</strong> Update all income amounts for new year</li>
+<li><strong>Expense Section:</strong> Update all expense amounts for new year</li>
+<li><strong>Ensure balance:</strong> Cell E120 must show $0.00</li>
+<li>Click <strong>REFRESH</strong> button at bottom of configuration</li>
+</ol>
+<h2 id="step-3-continue-setup-new-copy">Step 3: Continue Setup (New Copy)</h2>
+<h3 id="31-copy-balances-and-clear-data">3.1 Copy Balances and Clear Data</h3>
+<ol>
+<li>Go to <strong>Period Processing</strong> → <strong>2. Continue EOY Setup</strong></li>
+<li>Click <strong>YES</strong> to proceed</li>
+<li>System automatically:</li>
+<li>Copies bank balances to opening positions</li>
+<li>Clears transaction sheets</li>
+<li>Updates monthly headers</li>
+</ol>
+<h3 id="32-run-end-of-month-process">3.2 Run End of Month Process</h3>
+<ol>
+<li>Go to <strong>Period Processing</strong> → <strong>Run End of Month Process</strong></li>
+<li>Complete the final month processing for June</li>
+<li>This transitions the system from June to July</li>
+</ol>
+<h2 id="step-4-finalize-setup-new-copy">Step 4: Finalize Setup (New Copy)</h2>
+<h3 id="41-complete-finalization">4.1 Complete Finalization</h3>
+<ol>
+<li>Go to <strong>Period Processing</strong> → <strong>3. Finalize EOY Setup</strong></li>
+<li>Click <strong>YES</strong> to finalize</li>
+<li>System automatically:</li>
+<li>Marks this as the new master spreadsheet</li>
+</ol>
+<h3 id="42-archive-legacy-master">4.2 Archive Legacy Master</h3>
+<ol>
+<li><strong>Go back to your original master spreadsheet</strong></li>
+<li>Go to <strong>Settings</strong> → <strong>⚠️ Advanced</strong> → <strong>Archive This Master</strong></li>
+<li>This completes the EOY process</li>
+</ol>
+<h2 id="what-happens-automatically">What Happens Automatically</h2>
+<h3 id="system-handles-these-tasks">✅ System Handles These Tasks</h3>
+<ul>
+<li><strong>Property transfer</strong> from master to new copy</li>
+<li><strong>Bank balance copying</strong> to opening positions</li>
+<li><strong>Transaction sheet clearing</strong> (Cash Flow and Bank Records)</li>
+<li><strong>Monthly header updates</strong> for new fiscal year</li>
+<li><strong>Menu system updates</strong> to show normal operations</li>
+</ul>
+<h3 id="you-must-do-these-tasks">📋 You Must Do These Tasks</h3>
+<ul>
+<li><strong>Update budget amounts</strong> for income and expenses</li>
+<li><strong>Ensure budget balance</strong> (Cell E120 = $0.00)</li>
+<li><strong>Archive the legacy master</strong> manually</li>
+</ul>
+<h2 id="after-eoy-completion">After EOY Completion</h2>
+<h3 id="your-new-system">✅ Your New System</h3>
+<ul>
+<li><strong>New master spreadsheet</strong> ready for July 2025 - June 2026</li>
+<li><strong>July set as current month</strong></li>
+<li><strong>All transaction sheets cleared</strong> for fresh start</li>
+<li><strong>Budget amounts updated</strong> for new fiscal year</li>
+</ul>
+<h3 id="your-archived-system">📁 Your Archived System</h3>
+<ul>
+<li><strong>Previous master archived</strong> with clear naming</li>
+<li><strong>All historical data preserved</strong></li>
+<li><strong>Available for reference</strong> but not for active use</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="balance-check-failed">❌ "Balance Check Failed"</h3>
+<p><strong>Problem:</strong> EOY process blocked due to non-zero balances
+<strong>Solution:</strong>
+1. Update bank balances to June 30 accuracy
+2. Use Reconciliation Dashboard to fix transaction issues
+3. Ensure all three balance cells show $0.00</p>
+<h3 id="process-not-available">❌ "Process Not Available"</h3>
+<p><strong>Problem:</strong> EOY menu option not available
+<strong>Solution:</strong> Wait until June - EOY only works in final fiscal month</p>
+<h3 id="authorization-warnings">❌ Authorization Warnings</h3>
+<p><strong>Problem:</strong> Google shows scary "unsafe" warnings
+<strong>Solution:</strong>
+1. <strong>Don't panic</strong> - This is Google's standard warning for ALL custom scripts
+2. Click <strong>"Advanced"</strong> (bottom left of warning dialog)
+3. Click <strong>"Go to Budget App Scripts (unsafe)"</strong> - This is safe to do
+4. <strong>Check "Select all"</strong> to grant required permissions
+5. Click <strong>"Allow"</strong></p>
+<p><strong>If authorization fails:</strong>
+- Refresh the browser page
+- Try the authorization process again
+- Check that you're using the same Google account as your spreadsheet</p>
+<h3 id="end-of-month-processing-required">❌ "End of Month Processing Required"</h3>
+<p><strong>Problem:</strong> Finalization blocked
+<strong>Solution:</strong> Run "Period Processing → Run End of Month Process" first to transition from June to July</p>
+<h2 id="quick-reference">Quick Reference</h2>
+<h3 id="menu-flow">Menu Flow</h3>
+<ol>
+<li><strong>Master (June):</strong> Period Processing → Start End of Year Process</li>
+<li><strong>New Copy:</strong> Period Processing → 1. Run Initial EOY Setup</li>
+<li><strong>New Copy:</strong> Period Processing → 2. Continue EOY Setup</li>
+<li><strong>New Copy:</strong> Period Processing → Run End of Month Process</li>
+<li><strong>New Copy:</strong> Period Processing → 3. Finalize EOY Setup</li>
+<li><strong>Master:</strong> Settings → ⚠️ Advanced → Archive This Master</li>
+</ol>
+<h3 id="critical-cells">Critical Cells</h3>
+<ul>
+<li><strong>Banks balance:</strong> C30 = $0.00</li>
+<li><strong>Annual Budget balance:</strong> B106 = $0.00</li>
+<li><strong>Maintain Budget balance:</strong> E120 = $0.00</li>
+</ul>
+<h3 id="key-dates">Key Dates</h3>
+<ul>
+<li><strong>EOY Start:</strong> June (final fiscal month)</li>
+<li><strong>New Year Start:</strong> July 1, 2025</li>
+<li><strong>Fiscal Year:</strong> July 2025 - June 2026</li>
+</ul>
+<p><Note>
+The EOY process is designed to be completed in one session, but you can pause between steps if needed. The menu system will guide you to the next appropriate step.
+</Note></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

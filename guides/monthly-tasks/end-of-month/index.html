@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://griadooss.github.io/budget-docs/guides/monthly-tasks/end-of-month/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>End of Month - Budget Docs</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Budget Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../introduction/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../quickstart/" class="nav-link">Quickstart</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">User Manual</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../user-manual/basic-overview/" class="dropdown-item">Basic Overview</a>
+</li>
+            
+<li>
+    <a href="../../user-manual/menu-reference/" class="dropdown-item">Menu Reference</a>
+</li>
+            
+<li>
+    <a href="../../user-manual/basic-operations/" class="dropdown-item">Basic Operations</a>
+</li>
+            
+<li>
+    <a href="../../user-manual/getting-started/" class="dropdown-item">Getting Started</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Daily Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../daily-tasks/categorizing/" class="dropdown-item">Categorizing</a>
+</li>
+            
+<li>
+    <a href="../../daily-tasks/reconciling/" class="dropdown-item">Reconciling</a>
+</li>
+            
+<li>
+    <a href="../../daily-tasks/importing/" class="dropdown-item">Importing</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Monthly Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">End of Month</a>
+</li>
+            
+<li>
+    <a href="../reporting/" class="dropdown-item">Reporting</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Yearly Tasks</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">End of Year</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../yearly-tasks/end-of-year/overview/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../yearly-tasks/end-of-year/setup/" class="dropdown-item">Setup</a>
+</li>
+            
+<li>
+    <a href="../../yearly-tasks/end-of-year/developer-guide/" class="dropdown-item">Developer Guide</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">System</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../system/version/" class="dropdown-item">Version</a>
+</li>
+            
+<li>
+    <a href="../../system/changelog/" class="dropdown-item">Changelog</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Troubleshooting</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../troubleshooting/common-issues/" class="dropdown-item">Common Issues</a>
+</li>
+            
+<li>
+    <a href="../../troubleshooting/using-ai-help/" class="dropdown-item">Using AI Help</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../daily-tasks/importing/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../reporting/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/griadooss/budget-docs/edit/master/docs/guides/monthly-tasks/end-of-month.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#end-of-month-process" class="nav-link">End of Month Process</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#running-the-process" class="nav-link">Running the Process</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#what-the-process-does" class="nav-link">What the Process Does</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#post-processing" class="nav-link">Post-Processing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#best-practices" class="nav-link">Best Practices</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#completion-checklist" class="nav-link">Completion Checklist</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#next-steps" class="nav-link">Next Steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#advanced-features" class="nav-link">Advanced Features</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="end-of-month-process">End of Month Process</h1>
+<p>This guide covers how to complete the monthly budget processing to close the current month and prepare for the next month.</p>
+<h2 id="overview">Overview</h2>
+<p>The End of Month (EOM) process is a critical monthly procedure that:
+- Copies actual values to the next month
+- Updates month formatting and status
+- Prepares the system for the next month's processing
+- Prevents duplicate processing</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="before-running-eom">Before Running EOM</h3>
+<p><Check>All transactions reconciled</Check>
+<Check>Categories verified and assigned</Check>
+<Check>Bank balances verified</Check>
+<Check>Budget variances reviewed</Check>
+<Check>No pending transactions</Check></p>
+<h3 id="system-requirements">System Requirements</h3>
+<ul>
+<li>Current month properly set</li>
+<li>Month statuses initialized</li>
+<li>All sheets accessible</li>
+<li>Proper authorization</li>
+</ul>
+<h2 id="running-the-process">Running the Process</h2>
+<h3 id="access-the-eom-process">Access the EOM Process</h3>
+<ol>
+<li>Open your budget spreadsheet</li>
+<li>Click <strong>📅 Period Processing &gt; Run End of Month Process</strong></li>
+<li>The system will verify prerequisites and show confirmation</li>
+</ol>
+<h3 id="confirmation-dialog">Confirmation Dialog</h3>
+<p>The system will display:
+- <strong>Current month</strong> being processed
+- <strong>Column ranges</strong> for current and next month
+- <strong>Confirmation prompt</strong> to proceed</p>
+<p><Warning>
+  <strong>Important:</strong> Verify the correct month is selected before proceeding
+</Warning></p>
+<h3 id="balance-check">Balance Check</h3>
+<p>The system performs a comprehensive balance check:
+- <strong>Bank balances</strong> - Verify account balances
+- <strong>Budget balances</strong> - Check budget vs actual
+- <strong>Transaction reconciliation</strong> - Ensure all transactions reconciled</p>
+<p>If issues are found:
+- <strong>Review warnings</strong> - Check each issue
+- <strong>Fix problems</strong> - Resolve before proceeding
+- <strong>Re-run check</strong> - Verify fixes before EOM</p>
+<h2 id="what-the-process-does">What the Process Does</h2>
+<h3 id="step-1-copy-actual-values">Step 1: Copy Actual Values</h3>
+<ul>
+<li><strong>Source:</strong> Current month's Actual column (right column)</li>
+<li><strong>Target:</strong> Next month's Actual column</li>
+<li><strong>Range:</strong> Rows 5-114 (budget items)</li>
+<li><strong>Method:</strong> Natural copy with formula adjustment</li>
+</ul>
+<h3 id="step-2-update-formatting">Step 2: Update Formatting</h3>
+<ul>
+<li><strong>Current month:</strong> Apply historical formatting (gray background)</li>
+<li><strong>Next month:</strong> Apply current month formatting (blue highlights)</li>
+<li><strong>Method:</strong> Paint Format copy from template</li>
+</ul>
+<h3 id="step-3-update-status-tracking">Step 3: Update Status Tracking</h3>
+<ul>
+<li><strong>Mark current month:</strong> Set status to "historical"</li>
+<li><strong>Mark next month:</strong> Set status to "current"</li>
+<li><strong>Update properties:</strong> Store processing information</li>
+<li><strong>Hide EOM option:</strong> Prevent duplicate processing</li>
+</ul>
+<h3 id="step-4-eoy-transition-june-only">Step 4: EOY Transition (June Only)</h3>
+<p>If processing June (end of fiscal year):
+- <strong>Increment year:</strong> Update to next fiscal year
+- <strong>Clear formulas:</strong> Remove formulas from all months except July
+- <strong>Update headers:</strong> Set up new fiscal year headers
+- <strong>Initialize July:</strong> Set up July as current month</p>
+<h2 id="post-processing">Post-Processing</h2>
+<h3 id="verification-steps">Verification Steps</h3>
+<ol>
+<li><strong>Check copied values</strong> - Verify Actual column in next month</li>
+<li><strong>Review formatting</strong> - Confirm month highlighting is correct</li>
+<li><strong>Verify status</strong> - Check month status tracking</li>
+<li><strong>Test functionality</strong> - Ensure system is ready for next month</li>
+</ol>
+<h3 id="menu-updates">Menu Updates</h3>
+<ul>
+<li><strong>EOM option hidden</strong> - No longer available for processed month</li>
+<li><strong>Next month ready</strong> - System prepared for next month</li>
+<li><strong>Status indicators</strong> - Updated throughout interface</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<p><AccordionGroup>
+  <Accordion title="Balance Check Failed" icon="alert">
+    <strong>Problem:</strong> System shows balance issues
+    <strong>Solution:</strong>
+    - Review each balance issue
+    - Reconcile missing transactions
+    - Verify account mappings
+    - Re-run balance check
+  </Accordion></p>
+<p><Accordion title="Wrong Month Selected" icon="calendar">
+    <strong>Problem:</strong> Incorrect month being processed
+    <strong>Solution:</strong>
+    - Cancel the process
+    - Set correct current month
+    - Initialize month statuses
+    - Re-run EOM process
+  </Accordion></p>
+<p><Accordion title="Formatting Issues" icon="palette">
+    <strong>Problem:</strong> Month formatting not applied correctly
+    <strong>Solution:</strong>
+    - Check template month availability
+    - Verify column ranges
+    - Re-run formatting manually
+    - Contact support if persistent
+  </Accordion></p>
+<p><Accordion title="Status Update Failed" icon="settings">
+    <strong>Problem:</strong> Month statuses not updated
+    <strong>Solution:</strong>
+    - Check system properties
+    - Verify month tracking
+    - Re-initialize month statuses
+    - Re-run EOM process
+  </Accordion>
+</AccordionGroup></p>
+<h3 id="eoy-specific-issues">EOY-Specific Issues</h3>
+<p><AccordionGroup>
+  <Accordion title="Year Transition Error" icon="calendar-year">
+    <strong>Problem:</strong> Year not incremented properly
+    <strong>Solution:</strong>
+    - Verify June processing
+    - Check fiscal year settings
+    - Review year transition logic
+    - Re-run EOM process
+  </Accordion></p>
+<p><Accordion title="Formula Clearing Issues" icon="code">
+    <strong>Problem:</strong> Formulas not cleared from old months
+    <strong>Solution:</strong>
+    - Check July setup
+    - Verify formula clearing logic
+    - Review month column ranges
+    - Contact support
+  </Accordion>
+</AccordionGroup></p>
+<h2 id="best-practices">Best Practices</h2>
+<p><Check>Always reconcile before EOM</Check>
+<Check>Verify current month before processing</Check>
+<Check>Review balance check results</Check>
+<Check>Test system after EOM completion</Check>
+<Check>Keep backup before major changes</Check>
+<Check>Document any issues encountered</Check></p>
+<h2 id="completion-checklist">Completion Checklist</h2>
+<p>After EOM processing:
+- [ ] Actual values copied to next month
+- [ ] Current month formatted as historical
+- [ ] Next month formatted as current
+- [ ] Month statuses updated
+- [ ] EOM option hidden for processed month
+- [ ] System ready for next month
+- [ ] All balances verified
+- [ ] No errors in processing</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>After successful EOM:
+1. <strong>Begin next month</strong> - Start importing new transactions
+2. <strong>Update budget</strong> - Adjust budget for next month
+3. <strong>Monitor performance</strong> - Track budget vs actual
+4. <strong>Prepare for EOY</strong> - If approaching June</p>
+<p><Note>
+  For End of Year processing, see the <a href="/guides/yearly-tasks/end-of-year/overview">EOY Guide</a>.
+</Note></p>
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="performance-monitoring">Performance Monitoring</h3>
+<ul>
+<li><strong>Processing time</strong> - Track EOM completion time</li>
+<li><strong>Error logging</strong> - Monitor for processing issues</li>
+<li><strong>Status tracking</strong> - Verify all steps completed</li>
+<li><strong>System health</strong> - Check overall system status</li>
+</ul>
+<h3 id="backup-and-recovery">Backup and Recovery</h3>
+<ul>
+<li><strong>Pre-EOM backup</strong> - Automatic backup before processing</li>
+<li><strong>Rollback capability</strong> - Revert if issues occur</li>
+<li><strong>Data integrity</strong> - Verify data consistency</li>
+<li><strong>Error recovery</strong> - Handle processing failures</li>
+</ul>
+<h3 id="integration">Integration</h3>
+<ul>
+<li><strong>Month tracking</strong> - Integrated with month status system</li>
+<li><strong>Menu updates</strong> - Automatic menu refresh</li>
+<li><strong>Status synchronization</strong> - Consistent status across system</li>
+<li><strong>Property management</strong> - Update system properties</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

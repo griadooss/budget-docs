@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://griadooss.github.io/budget-docs/guides/daily-tasks/reconciling/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Reconciling - Budget Docs</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Budget Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../introduction/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../quickstart/" class="nav-link">Quickstart</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">User Manual</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../user-manual/basic-overview/" class="dropdown-item">Basic Overview</a>
+</li>
+            
+<li>
+    <a href="../../user-manual/menu-reference/" class="dropdown-item">Menu Reference</a>
+</li>
+            
+<li>
+    <a href="../../user-manual/basic-operations/" class="dropdown-item">Basic Operations</a>
+</li>
+            
+<li>
+    <a href="../../user-manual/getting-started/" class="dropdown-item">Getting Started</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Daily Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../categorizing/" class="dropdown-item">Categorizing</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Reconciling</a>
+</li>
+            
+<li>
+    <a href="../importing/" class="dropdown-item">Importing</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Monthly Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../monthly-tasks/end-of-month/" class="dropdown-item">End of Month</a>
+</li>
+            
+<li>
+    <a href="../../monthly-tasks/reporting/" class="dropdown-item">Reporting</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Yearly Tasks</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">End of Year</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../yearly-tasks/end-of-year/overview/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../yearly-tasks/end-of-year/setup/" class="dropdown-item">Setup</a>
+</li>
+            
+<li>
+    <a href="../../yearly-tasks/end-of-year/developer-guide/" class="dropdown-item">Developer Guide</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">System</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../system/version/" class="dropdown-item">Version</a>
+</li>
+            
+<li>
+    <a href="../../system/changelog/" class="dropdown-item">Changelog</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Troubleshooting</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../troubleshooting/common-issues/" class="dropdown-item">Common Issues</a>
+</li>
+            
+<li>
+    <a href="../../troubleshooting/using-ai-help/" class="dropdown-item">Using AI Help</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../categorizing/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../importing/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/griadooss/budget-docs/edit/master/docs/guides/daily-tasks/reconciling.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#reconciling-transactions" class="nav-link">Reconciling Transactions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#dashboard-interface" class="nav-link">Dashboard Interface</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#reconciliation-process" class="nav-link">Reconciliation Process</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#transaction-types" class="nav-link">Transaction Types</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#category-assignment" class="nav-link">Category Assignment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#advanced-features" class="nav-link">Advanced Features</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#best-practices" class="nav-link">Best Practices</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#completion-checklist" class="nav-link">Completion Checklist</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#next-steps" class="nav-link">Next Steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="reconciling-transactions">Reconciling Transactions</h1>
+<p>This guide covers how to use the Reconciliation Dashboard to match and verify transactions between your bank records and cash flow entries.</p>
+<h2 id="overview">Overview</h2>
+<p>Reconciliation is the process of matching transactions from your bank statements with entries in your cash flow sheet. The Reconciliation Dashboard provides a side-by-side view to help you identify and resolve discrepancies.</p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Transactions imported from bank statements</li>
+<li>Cash flow entries for income and expenses</li>
+<li>Categories set up in the system</li>
+</ul>
+<h3 id="access-the-dashboard">Access the Dashboard</h3>
+<ol>
+<li>Open your budget spreadsheet</li>
+<li>Click <strong>🏦 Budget &gt; Reconciliation Dashboard</strong></li>
+<li>The dashboard will open in a new window</li>
+</ol>
+<h2 id="dashboard-interface">Dashboard Interface</h2>
+<h3 id="layout">Layout</h3>
+<p>The dashboard displays two columns:</p>
+<p><CardGroup cols={2}>
+<Card title="Cash Flow (Left)" icon="list">
+- Your categorized transactions
+- Income and expense entries
+- Split transaction groups
+- Unreconciled entries
+  </Card></p>
+<p><Card title="Bank Records (Right)" icon="bank">
+- Imported bank transactions
+- Unmatched bank entries
+- Transaction details
+- Account information
+  </Card>
+</CardGroup></p>
+<h3 id="transaction-status-indicators">Transaction Status Indicators</h3>
+<p><CardGroup cols={3}>
+<Card title="Green Highlight" icon="check">
+<strong>Auto-matched transactions</strong>
+- System matched by amount and date
+- Ready for reconciliation
+  </Card></p>
+<p><Card title="Blue Highlight" icon="arrows-split">
+<strong>Split transaction groups</strong>
+- Multiple cash flow entries
+- Match to single bank transaction
+  </Card></p>
+<p><Card title="No Highlight" icon="question">
+<strong>Unmatched transactions</strong>
+- Need manual processing
+- Require categorization
+  </Card>
+</CardGroup></p>
+<h2 id="reconciliation-process">Reconciliation Process</h2>
+<h3 id="step-1-review-auto-matches">Step 1: Review Auto-Matches</h3>
+<ol>
+<li><strong>Identify green highlights</strong> - These are automatically matched</li>
+<li><strong>Verify details</strong> - Check amount, date, and description</li>
+<li><strong>Reconcile matches</strong> - Click "Reconcile Match" for verified pairs</li>
+</ol>
+<h3 id="step-2-handle-unmatched-transactions">Step 2: Handle Unmatched Transactions</h3>
+<ol>
+<li><strong>Review bank transactions</strong> - Look for transactions without matches</li>
+<li><strong>Click "Add to Cash Flow"</strong> - For bank-only transactions</li>
+<li><strong>Categorize transactions</strong> - Assign categories and subcategories</li>
+<li><strong>Add descriptions</strong> - Modify transaction descriptions as needed</li>
+</ol>
+<h3 id="step-3-process-split-transactions">Step 3: Process Split Transactions</h3>
+<ol>
+<li><strong>Identify blue highlights</strong> - These are split transaction groups</li>
+<li><strong>Click "Find Match"</strong> - Locate corresponding bank transaction</li>
+<li><strong>Verify split amounts</strong> - Ensure total equals bank transaction</li>
+<li><strong>Reconcile group</strong> - Click "Reconcile Match" for complete split</li>
+</ol>
+<h3 id="step-4-bulk-reconciliation">Step 4: Bulk Reconciliation</h3>
+<ol>
+<li><strong>Select multiple transactions</strong> - Use checkboxes for batch processing</li>
+<li><strong>Click "Bulk Reconcile"</strong> - Process multiple pairs at once</li>
+<li><strong>Review results</strong> - Check for any failed reconciliations</li>
+</ol>
+<h2 id="transaction-types">Transaction Types</h2>
+<h3 id="single-transactions">Single Transactions</h3>
+<ul>
+<li><strong>Standard transactions</strong> - One-to-one matching</li>
+<li><strong>Category assignment</strong> - Select from dropdown menus</li>
+<li><strong>Description editing</strong> - Modify transaction descriptions</li>
+<li><strong>Account verification</strong> - Confirm correct account assignment</li>
+</ul>
+<h3 id="split-transactions">Split Transactions</h3>
+<ul>
+<li><strong>Multiple categories</strong> - Divide amount across categories</li>
+<li><strong>Group identification</strong> - Blue highlighted groups</li>
+<li><strong>Total verification</strong> - Ensure split amounts equal bank transaction</li>
+<li><strong>Category assignment</strong> - Assign categories to each split</li>
+</ul>
+<h3 id="manual-entries">Manual Entries</h3>
+<ul>
+<li><strong>Cash transactions</strong> - Expenses paid in cash</li>
+<li><strong>Income entries</strong> - Salary, gifts, or other income</li>
+<li><strong>Account reconciliation</strong> - Verify against bank balance</li>
+</ul>
+<h2 id="category-assignment">Category Assignment</h2>
+<h3 id="selecting-categories">Selecting Categories</h3>
+<ol>
+<li><strong>Choose transaction type</strong> - Income or Expense</li>
+<li><strong>Select main category</strong> - From dropdown menu</li>
+<li><strong>Choose subcategory</strong> - More specific classification</li>
+<li><strong>Add description</strong> - Modify transaction description</li>
+</ol>
+<h3 id="category-management">Category Management</h3>
+<ul>
+<li><strong>Active categories only</strong> - Inactive categories are hidden</li>
+<li><strong>Consistent naming</strong> - Use standard category names</li>
+<li><strong>Subcategory hierarchy</strong> - Maintain category structure</li>
+</ul>
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="search-and-filter">Search and Filter</h3>
+<ul>
+<li><strong>Search transactions</strong> - Find specific transactions</li>
+<li><strong>Filter by status</strong> - Show reconciled/unreconciled</li>
+<li><strong>Filter by account</strong> - Focus on specific accounts</li>
+</ul>
+<h3 id="performance-diagnostics">Performance Diagnostics</h3>
+<ul>
+<li><strong>Run diagnostics</strong> - Test system performance</li>
+<li><strong>Check data loading</strong> - Verify transaction retrieval</li>
+<li><strong>Monitor processing</strong> - Track reconciliation speed</li>
+</ul>
+<h3 id="refresh-and-update">Refresh and Update</h3>
+<ul>
+<li><strong>Refresh dashboard</strong> - Update transaction status</li>
+<li><strong>Close dashboard</strong> - Update reconciliation date</li>
+<li><strong>Auto-save</strong> - Changes are saved automatically</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<p><AccordionGroup>
+  <Accordion title="Missing Transactions" icon="alert">
+    <strong>Problem:</strong> Transactions not appearing in dashboard
+    <strong>Solution:</strong>
+    - Check if transactions are already reconciled
+    - Verify import was successful
+    - Refresh the dashboard
+  </Accordion></p>
+<p><Accordion title="Wrong Matches" icon="x">
+    <strong>Problem:</strong> Incorrect auto-matches
+    <strong>Solution:</strong>
+    - Manually reconcile correct pairs
+    - Add missing transactions to cash flow
+    - Review transaction dates and amounts
+  </Accordion></p>
+<p><Accordion title="Split Transaction Issues" icon="arrows-split">
+    <strong>Problem:</strong> Split amounts don't match
+    <strong>Solution:</strong>
+    - Verify split total equals bank transaction
+    - Check for rounding errors
+    - Review individual split amounts
+  </Accordion></p>
+<p><Accordion title="Performance Issues" icon="clock">
+    <strong>Problem:</strong> Dashboard is slow
+    <strong>Solution:</strong>
+    - Run performance diagnostics
+    - Check transaction count
+    - Consider processing in smaller batches
+  </Accordion>
+</AccordionGroup></p>
+<h2 id="best-practices">Best Practices</h2>
+<p><Check>Reconcile regularly (weekly recommended)</Check>
+<Check>Verify all auto-matches before reconciling</Check>
+<Check>Use consistent category names</Check>
+<Check>Review split transactions carefully</Check>
+<Check>Keep descriptions clear and consistent</Check>
+<Check>Refresh dashboard after major changes</Check></p>
+<h2 id="completion-checklist">Completion Checklist</h2>
+<p>Before closing the dashboard:
+- [ ] All auto-matches reviewed and reconciled
+- [ ] Unmatched transactions categorized
+- [ ] Split transactions verified and reconciled
+- [ ] All bank transactions accounted for
+- [ ] Cash flow entries complete
+- [ ] Balances verified</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>After reconciliation:
+1. <strong>Review balances</strong> - Check account balances
+2. <strong>Run month-end process</strong> - If all transactions reconciled
+3. <strong>Update categories</strong> - Add new categories if needed
+4. <strong>Archive data</strong> - Keep records for future reference</p>
+<p><Note>
+  For month-end processing instructions, see the <a href="/guides/monthly-tasks/end-of-month">Monthly Tasks Guide</a>.
+</Note></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

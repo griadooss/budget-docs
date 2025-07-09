@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://griadooss.github.io/budget-docs/essentials/settings/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Global Settings - Budget Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Budget Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../introduction/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../quickstart/" class="nav-link">Quickstart</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">User Manual</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/user-manual/basic-overview/" class="dropdown-item">Basic Overview</a>
+</li>
+            
+<li>
+    <a href="../../guides/user-manual/menu-reference/" class="dropdown-item">Menu Reference</a>
+</li>
+            
+<li>
+    <a href="../../guides/user-manual/basic-operations/" class="dropdown-item">Basic Operations</a>
+</li>
+            
+<li>
+    <a href="../../guides/user-manual/getting-started/" class="dropdown-item">Getting Started</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Daily Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/daily-tasks/categorizing/" class="dropdown-item">Categorizing</a>
+</li>
+            
+<li>
+    <a href="../../guides/daily-tasks/reconciling/" class="dropdown-item">Reconciling</a>
+</li>
+            
+<li>
+    <a href="../../guides/daily-tasks/importing/" class="dropdown-item">Importing</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Monthly Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/monthly-tasks/end-of-month/" class="dropdown-item">End of Month</a>
+</li>
+            
+<li>
+    <a href="../../guides/monthly-tasks/reporting/" class="dropdown-item">Reporting</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Yearly Tasks</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">End of Year</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/yearly-tasks/end-of-year/overview/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../guides/yearly-tasks/end-of-year/setup/" class="dropdown-item">Setup</a>
+</li>
+            
+<li>
+    <a href="../../guides/yearly-tasks/end-of-year/developer-guide/" class="dropdown-item">Developer Guide</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">System</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/system/version/" class="dropdown-item">Version</a>
+</li>
+            
+<li>
+    <a href="../../guides/system/changelog/" class="dropdown-item">Changelog</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Troubleshooting</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/troubleshooting/common-issues/" class="dropdown-item">Common Issues</a>
+</li>
+            
+<li>
+    <a href="../../guides/troubleshooting/using-ai-help/" class="dropdown-item">Using AI Help</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/griadooss/budget-docs/edit/master/docs/essentials/settings.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#properties" class="nav-link">Properties</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>Every Mintlify site needs a <code>mint.json</code> file with the core configuration settings. Learn more about the <a href="#properties">properties</a> below.</p>
+<h2 id="properties">Properties</h2>
+<p><ResponseField name="name" type="string" required>
+Name of your project. Used for the global title.</p>
+<p>Example: <code>mintlify</code></p>
+<p></ResponseField></p>
+<p><ResponseField name="navigation" type="Navigation[]" required>
+  An array of groups with all the pages within that group
+  <Expandable title="Navigation">
+    <ResponseField name="group" type="string">
+    The name of the group.</p>
+<pre><code>Example: `Settings`
+
+&lt;/ResponseField&gt;
+&lt;ResponseField name="pages" type="string[]"&gt;
+The relative paths to the markdown files that will serve as pages.
+
+Example: `["customization", "page"]`
+
+&lt;/ResponseField&gt;
+</code></pre>
+<p></Expandable>
+</ResponseField></p>
+<p><ResponseField name="logo" type="string or object">
+  Path to logo image or object with path to "light" and "dark" mode logo images
+  <Expandable title="Logo">
+    <ResponseField name="light" type="string">
+      Path to the logo in light mode
+    </ResponseField>
+    <ResponseField name="dark" type="string">
+      Path to the logo in dark mode
+    </ResponseField>
+    <ResponseField name="href" type="string" default="/">
+      Where clicking on the logo links you to
+    </ResponseField>
+  </Expandable>
+</ResponseField></p>
+<p><ResponseField name="favicon" type="string">
+  Path to the favicon image
+</ResponseField></p>
+<p><ResponseField name="colors" type="Colors">
+  Hex color codes for your global theme
+  <Expandable title="Colors">
+    <ResponseField name="primary" type="string" required>
+      The primary color. Used for most often for highlighted content, section
+      headers, accents, in light mode
+    </ResponseField>
+    <ResponseField name="light" type="string">
+      The primary color for dark mode. Used for most often for highlighted
+      content, section headers, accents, in dark mode
+    </ResponseField>
+    <ResponseField name="dark" type="string">
+      The primary color for important buttons
+    </ResponseField>
+    <ResponseField name="background" type="object">
+      The color of the background in both light and dark mode
+      <Expandable title="Object">
+        <ResponseField name="light" type="string" required>
+          The hex color code of the background in light mode
+        </ResponseField>
+        <ResponseField name="dark" type="string" required>
+          The hex color code of the background in dark mode
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField></p>
+<p><ResponseField name="topbarLinks" type="TopbarLink[]">
+  Array of <code>name</code>s and <code>url</code>s of links you want to include in the topbar
+  <Expandable title="TopbarLink">
+    <ResponseField name="name" type="string">
+    The name of the button.</p>
+<pre><code>Example: `Contact us`
+&lt;/ResponseField&gt;
+&lt;ResponseField name="url" type="string"&gt;
+The url once you click on the button. Example: `https://mintlify.com/docs`
+&lt;/ResponseField&gt;
+</code></pre>
+<p></Expandable>
+</ResponseField></p>
+<p><ResponseField name="topbarCtaButton" type="Call to Action">
+  <Expandable title="Topbar Call to Action">
+    <ResponseField name="type" type={'"link" or "github"'} default="link">
+    Link shows a button. GitHub shows the repo information at the url provided including the number of GitHub stars.
+    </ResponseField>
+    <ResponseField name="url" type="string">
+    If <code>link</code>: What the button links to.</p>
+<pre><code>If `github`: Link to the repository to load GitHub information from.
+&lt;/ResponseField&gt;
+&lt;ResponseField name="name" type="string"&gt;
+Text inside the button. Only required if `type` is a `link`.
+&lt;/ResponseField&gt;
+</code></pre>
+<p></Expandable>
+</ResponseField></p>
+<p><ResponseField name="versions" type="string[]">
+  Array of version names. Only use this if you want to show different versions
+  of docs with a dropdown in the navigation bar.
+</ResponseField></p>
+<p><ResponseField name="anchors" type="Anchor[]">
+  An array of the anchors, includes the <code>icon</code>, <code>color</code>, and <code>url</code>.
+  <Expandable title="Anchor">
+    <ResponseField name="icon" type="string">
+    The <a href="https://fontawesome.com/search?q=heart">Font Awesome</a> icon used to feature the anchor.</p>
+<pre><code>Example: `comments`
+&lt;/ResponseField&gt;
+&lt;ResponseField name="name" type="string"&gt;
+The name of the anchor label.
+
+Example: `Community`
+&lt;/ResponseField&gt;
+&lt;ResponseField name="url" type="string"&gt;
+  The start of the URL that marks what pages go in the anchor. Generally, this is the name of the folder you put your pages in.
+&lt;/ResponseField&gt;
+&lt;ResponseField name="color" type="string"&gt;
+  The hex color of the anchor icon background. Can also be a gradient if you pass an object with the properties `from` and `to` that are each a hex color.
+&lt;/ResponseField&gt;
+&lt;ResponseField name="version" type="string"&gt;
+  Used if you want to hide an anchor until the correct docs version is selected.
+&lt;/ResponseField&gt;
+&lt;ResponseField name="isDefaultHidden" type="boolean" default="false"&gt;
+  Pass `true` if you want to hide the anchor until you directly link someone to docs inside it.
+&lt;/ResponseField&gt;
+&lt;ResponseField name="iconType" default="duotone" type="string"&gt;
+  One of: "brands", "duotone", "light", "sharp-solid", "solid", or "thin"
+&lt;/ResponseField&gt;
+</code></pre>
+<p></Expandable>
+</ResponseField></p>
+<p><ResponseField name="topAnchor" type="Object">
+  Override the default configurations for the top-most anchor.
+  <Expandable title="Object">
+    <ResponseField name="name" default="Documentation" type="string">
+      The name of the top-most anchor
+    </ResponseField>
+    <ResponseField name="icon" default="book-open" type="string">
+      Font Awesome icon.
+    </ResponseField>
+    <ResponseField name="iconType" default="duotone" type="string">
+      One of: "brands", "duotone", "light", "sharp-solid", "solid", or "thin"
+    </ResponseField>
+  </Expandable>
+</ResponseField></p>
+<p><ResponseField name="tabs" type="Tabs[]">
+  An array of navigational tabs.
+  <Expandable title="Tabs">
+    <ResponseField name="name" type="string">
+      The name of the tab label.
+    </ResponseField>
+    <ResponseField name="url" type="string">
+      The start of the URL that marks what pages go in the tab. Generally, this
+      is the name of the folder you put your pages in.
+    </ResponseField>
+  </Expandable>
+</ResponseField></p>
+<p><ResponseField name="api" type="API">
+  Configuration for API settings. Learn more about API pages at <a href="/api-playground/demo">API Components</a>.
+  <Expandable title="API">
+    <ResponseField name="baseUrl" type="string">
+      The base url for all API endpoints. If <code>baseUrl</code> is an array, it will enable for multiple base url
+      options that the user can toggle.
+    </ResponseField></p>
+<pre><code>&lt;ResponseField name="auth" type="Auth"&gt;
+  &lt;Expandable title="Auth"&gt;
+    &lt;ResponseField name="method" type='"bearer" | "basic" | "key"'&gt;
+      The authentication strategy used for all API endpoints.
+    &lt;/ResponseField&gt;
+    &lt;ResponseField name="name" type="string"&gt;
+    The name of the authentication parameter used in the API playground.
+
+    If method is `basic`, the format should be `[usernameName]:[passwordName]`
+    &lt;/ResponseField&gt;
+    &lt;ResponseField name="inputPrefix" type="string"&gt;
+    The default value that's designed to be a prefix for the authentication input field.
+
+    E.g. If an `inputPrefix` of `AuthKey` would inherit the default input result of the authentication field as `AuthKey`.
+    &lt;/ResponseField&gt;
+  &lt;/Expandable&gt;
+&lt;/ResponseField&gt;
+
+&lt;ResponseField name="playground" type="Playground"&gt;
+  Configurations for the API playground
+
+  &lt;Expandable title="Playground"&gt;
+    &lt;ResponseField name="mode" default="show" type='"show" | "simple" | "hide"'&gt;
+      Whether the playground is showing, hidden, or only displaying the endpoint with no added user interactivity `simple`
+
+      Learn more at the [playground guides](/api-playground/demo)
+    &lt;/ResponseField&gt;
+  &lt;/Expandable&gt;
+&lt;/ResponseField&gt;
+
+&lt;ResponseField name="maintainOrder" type="boolean"&gt;
+  Enabling this flag ensures that key ordering in OpenAPI pages matches the key ordering defined in the OpenAPI file.
+
+  &lt;Warning&gt;This behavior will soon be enabled by default, at which point this field will be deprecated.&lt;/Warning&gt;
+&lt;/ResponseField&gt;
+</code></pre>
+<p></Expandable>
+</ResponseField></p>
+<p><ResponseField name="openapi" type="string | string[]">
+  A string or an array of strings of URL(s) or relative path(s) pointing to your
+  OpenAPI file.</p>
+<p>Examples:
+  <CodeGroup>
+    <code>json Absolute
+    "openapi": "https://example.com/openapi.json"</code>
+    <code>json Relative
+    "openapi": "/openapi.json"</code>
+    <code>json Multiple
+    "openapi": ["https://example.com/openapi1.json", "/openapi2.json", "/openapi3.json"]</code>
+  </CodeGroup></p>
+<p></ResponseField></p>
+<p><ResponseField name="footerSocials" type="FooterSocials">
+  An object of social media accounts where the key:property pair represents the social media platform and the account url.</p>
+<p>Example: 
+  <code>json
+  {
+    "x": "https://x.com/mintlify",
+    "website": "https://mintlify.com"
+  }</code>
+  <Expandable title="FooterSocials">
+    <ResponseField name="[key]" type="string">
+    One of the following values <code>website</code>, <code>facebook</code>, <code>x</code>, <code>discord</code>, <code>slack</code>, <code>github</code>, <code>linkedin</code>, <code>instagram</code>, <code>hacker-news</code></p>
+<pre><code>Example: `x`
+&lt;/ResponseField&gt;
+&lt;ResponseField name="property" type="string"&gt;
+The URL to the social platform.
+
+Example: `https://x.com/mintlify`
+&lt;/ResponseField&gt;
+</code></pre>
+<p></Expandable>
+</ResponseField></p>
+<p><ResponseField name="feedback" type="Feedback">
+  Configurations to enable feedback buttons</p>
+<p><Expandable title="Feedback">
+    <ResponseField name="suggestEdit" type="boolean" default="false">
+    Enables a button to allow users to suggest edits via pull requests
+    </ResponseField>
+    <ResponseField name="raiseIssue" type="boolean" default="false">
+    Enables a button to allow users to raise an issue about the documentation
+    </ResponseField>
+  </Expandable>
+</ResponseField></p>
+<p><ResponseField name="modeToggle" type="ModeToggle">
+  Customize the dark mode toggle.
+  <Expandable title="ModeToggle">
+    <ResponseField name="default" type={'"light" or "dark"'}>
+      Set if you always want to show light or dark mode for new users. When not
+      set, we default to the same mode as the user's operating system.
+    </ResponseField>
+    <ResponseField name="isHidden" type="boolean" default="false">
+      Set to true to hide the dark/light mode toggle. You can combine <code>isHidden</code> with <code>default</code> to force your docs to only use light or dark mode. For example:</p>
+<pre><code>  &lt;CodeGroup&gt;
+  ```json Only Dark Mode
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": true
+  }
+  ```
+
+  ```json Only Light Mode
+  "modeToggle": {
+    "default": "light",
+    "isHidden": true
+  }
+  ```
+  &lt;/CodeGroup&gt;
+
+&lt;/ResponseField&gt;
+</code></pre>
+<p></Expandable>
+</ResponseField></p>
+<p><ResponseField name="backgroundImage" type="string">
+  A background image to be displayed behind every page. See example with
+  <a href="https://infisical.com/docs">Infisical</a> and <a href="https://frpc.io">FRPC</a>.
+</ResponseField></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
