@@ -49,28 +49,6 @@
 </li>
                                     
   <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">User Manual</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../guides/user-manual/basic-overview/" class="dropdown-item">Basic Overview</a>
-</li>
-            
-<li>
-    <a href="../../guides/user-manual/menu-reference/" class="dropdown-item">Menu Reference</a>
-</li>
-            
-<li>
-    <a href="../../guides/user-manual/basic-operations/" class="dropdown-item">Basic Operations</a>
-</li>
-            
-<li>
-    <a href="../../guides/user-manual/getting-started/" class="dropdown-item">Getting Started</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
     <a href="#" class="dropdown-item">Daily Tasks</a>
     <ul class="dropdown-menu">
             
@@ -197,7 +175,6 @@
 <h2 id="properties">Properties</h2>
 <p><ResponseField name="name" type="string" required>
 Name of your project. Used for the global title.</p>
-<p>Example: <code>mintlify</code></p>
 <p></ResponseField></p>
 <p><ResponseField name="navigation" type="Navigation[]" required>
   An array of groups with all the pages within that group
@@ -268,7 +245,6 @@ Example: `["customization", "page"]`
 <pre><code>Example: `Contact us`
 &lt;/ResponseField&gt;
 &lt;ResponseField name="url" type="string"&gt;
-The url once you click on the button. Example: `https://mintlify.com/docs`
 &lt;/ResponseField&gt;
 </code></pre>
 <p></Expandable>
@@ -411,8 +387,6 @@ Example: `Community`
 <p>Example: 
   <code>json
   {
-    "x": "https://x.com/mintlify",
-    "website": "https://mintlify.com"
   }</code>
   <Expandable title="FooterSocials">
     <ResponseField name="[key]" type="string">
@@ -422,7 +396,6 @@ Example: `Community`
 &lt;ResponseField name="property" type="string"&gt;
 The URL to the social platform.
 
-Example: `https://x.com/mintlify`
 &lt;/ResponseField&gt;
 </code></pre>
 <p></Expandable>
