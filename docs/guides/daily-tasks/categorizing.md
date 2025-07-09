@@ -17,32 +17,32 @@ Categorization is the process of assigning transactions to specific income or ex
 The category system uses a two-level hierarchy:
 
 <CardGroup cols={2}>
-  <Card title="Main Categories" icon="folder">
-    - High-level classifications
-    - Income vs Expense types
-    - Examples: Food, Transport, Salary
+<Card title="Main Categories" icon="folder">
+- High-level classifications
+- Income vs Expense types
+- Examples: Food, Transport, Salary
   </Card>
 
-  <Card title="Subcategories" icon="folder-open">
-    - Detailed breakdowns
-    - More specific classifications
-    - Examples: Groceries, Fuel, Wages
+<Card title="Subcategories" icon="folder-open">
+- Detailed breakdowns
+- More specific classifications
+- Examples: Groceries, Fuel, Wages
   </Card>
 </CardGroup>
 
 ### Category Types
 
 <CardGroup cols={2}>
-  <Card title="Income Categories" icon="arrow-up">
-    - **INC prefix** - Income categories
-    - **Green color coding** - Visual identification
-    - **Examples:** Salary, Gifts, Investment Income
+<Card title="Income Categories" icon="arrow-up">
+- **INC prefix** - Income categories
+- **Green color coding** - Visual identification
+- **Examples:** Salary, Gifts, Investment Income
   </Card>
 
-  <Card title="Expense Categories" icon="arrow-down">
-    - **EXP prefix** - Expense categories
-    - **Red color coding** - Visual identification
-    - **Examples:** Food, Transport, Utilities
+<Card title="Expense Categories" icon="arrow-down">
+- **EXP prefix** - Expense categories
+- **Red color coding** - Visual identification
+- **Examples:** Food, Transport, Utilities
   </Card>
 </CardGroup>
 
@@ -123,20 +123,20 @@ The category system uses a two-level hierarchy:
 ### Common Categories
 
 <CardGroup cols={2}>
-  <Card title="Income Categories" icon="arrow-up">
-    - **Salary/Wages** - Regular employment income
-    - **Investment Income** - Dividends, interest
-    - **Gifts** - Cash gifts, presents
-    - **Other Income** - Miscellaneous income
+<Card title="Income Categories" icon="arrow-up">
+- **Salary/Wages** - Regular employment income
+- **Investment Income** - Dividends, interest
+- **Gifts** - Cash gifts, presents
+- **Other Income** - Miscellaneous income
   </Card>
 
-  <Card title="Expense Categories" icon="arrow-down">
-    - **Food & Dining** - Groceries, restaurants
-    - **Transport** - Fuel, public transport
-    - **Utilities** - Electricity, water, gas
-    - **Entertainment** - Movies, hobbies
-    - **Shopping** - Clothing, household items
-    - **Healthcare** - Medical expenses
+<Card title="Expense Categories" icon="arrow-down">
+- **Food & Dining** - Groceries, restaurants
+- **Transport** - Fuel, public transport
+- **Utilities** - Electricity, water, gas
+- **Entertainment** - Movies, hobbies
+- **Shopping** - Clothing, household items
+- **Healthcare** - Medical expenses
   </Card>
 </CardGroup>
 

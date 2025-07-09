@@ -4,7 +4,6 @@ description: Reusable, custom snippets to keep content in sync
 icon: 'recycle'
 ---
 
-import SnippetIntro from '/snippets/snippet-intro.mdx';
 
 <SnippetIntro />
 
@@ -43,7 +42,6 @@ title: My title
 description: My Description
 ---
 
-import MySnippet from '/snippets/path/to/my-snippet.mdx';
 
 ## Header
 
@@ -70,7 +68,6 @@ title: My title
 description: My Description
 ---
 
-import { myName, myObject } from '/snippets/path/to/custom-variables.mdx';
 
 Hello, my name is {myName} and I like {myObject.fruit}.
 ```
@@ -102,7 +99,6 @@ title: My title
 description: My Description
 ---
 
-import { MyComponent } from '/snippets/custom-component.mdx';
 
 Lorem ipsum dolor sit amet.
 

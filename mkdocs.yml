@@ -2,38 +2,29 @@ site_name: Budget Docs
 site_url: https://griadooss.github.io/budget-docs/
 repo_url: https://github.com/griadooss/budget-docs
 nav:
-  - Home: introduction.mdx
-  - Quickstart: quickstart.mdx
-  - Development: development.mdx
-  - Essentials:
-      - Code: essentials/code.mdx
-      - Images: essentials/images.mdx
-      - Markdown: essentials/markdown.mdx
-      - Navigation: essentials/navigation.mdx
-      - Reusable Snippets: essentials/reusable-snippets.mdx
-      - Settings: essentials/settings.mdx
+  - Home: introduction.md
+  - Quickstart: quickstart.md
   - Guides:
       - User Manual:
-          - Basic Overview: guides/user-manual/basic-overview.mdx
-          - Menu Reference: guides/user-manual/menu-reference.mdx
-          - Basic Operations: guides/user-manual/basic-operations.mdx
-          - Getting Started: guides/user-manual/getting-started.mdx
+          - Basic Overview: guides/user-manual/basic-overview.md
+          - Menu Reference: guides/user-manual/menu-reference.md
+          - Basic Operations: guides/user-manual/basic-operations.md
+          - Getting Started: guides/user-manual/getting-started.md
       - Daily Tasks:
-          - Categorizing: guides/daily-tasks/categorizing.mdx
-          - Reconciling: guides/daily-tasks/reconciling.mdx
-          - Importing: guides/daily-tasks/importing.mdx
+          - Categorizing: guides/daily-tasks/categorizing.md
+          - Reconciling: guides/daily-tasks/reconciling.md
+          - Importing: guides/daily-tasks/importing.md
       - Monthly Tasks:
-          - End of Month: guides/monthly-tasks/end-of-month.mdx
-          - Reporting: guides/monthly-tasks/reporting.mdx
+          - End of Month: guides/monthly-tasks/end-of-month.md
+          - Reporting: guides/monthly-tasks/reporting.md
       - Yearly Tasks:
           - End of Year:
-              - Overview: guides/yearly-tasks/end-of-year/overview.mdx
-              - Setup: guides/yearly-tasks/end-of-year/setup.mdx
-              - Developer Guide: guides/yearly-tasks/end-of-year/developer-guide.mdx
+              - Overview: guides/yearly-tasks/end-of-year/overview.md
+              - Setup: guides/yearly-tasks/end-of-year/setup.md
+              - Developer Guide: guides/yearly-tasks/end-of-year/developer-guide.md
       - System:
-          - Version: guides/system/version.mdx
-          - Changelog: guides/system/changelog.mdx
+          - Version: guides/system/version.md
+          - Changelog: guides/system/changelog.md
       - Troubleshooting:
-          - Common Issues: guides/troubleshooting/common-issues.mdx
-          - Using AI Help: guides/troubleshooting/using-ai-help.mdx
-  - Snippets: snippets/snippet-intro.mdx
+          - Common Issues: guides/troubleshooting/common-issues.md
+          - Using AI Help: guides/troubleshooting/using-ai-help.md

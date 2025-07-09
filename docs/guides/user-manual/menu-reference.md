@@ -164,28 +164,28 @@ description: 'Guide to all menu functions in the Budget System'
 ## Menu States
 
 <CardGroup cols={2}>
-  <Card title="Normal Operations" icon="check">
-    - All menus visible
-    - Standard functionality
-    - User-friendly interface
+<Card title="Normal Operations" icon="check">
+- All menus visible
+- Standard functionality
+- User-friendly interface
   </Card>
 
-  <Card title="EOY Setup Mode" icon="calendar-year">
-    - Period Processing shows EOY steps
-    - Limited functionality
-    - Guided setup process
+<Card title="EOY Setup Mode" icon="calendar-year">
+- Period Processing shows EOY steps
+- Limited functionality
+- Guided setup process
   </Card>
 
-  <Card title="Archived Mode" icon="archive">
-    - Minimal menu options
-    - Restore functionality
-    - Read-only access
+<Card title="Archived Mode" icon="archive">
+- Minimal menu options
+- Restore functionality
+- Read-only access
   </Card>
 
-  <Card title="Developer Mode" icon="code">
-    - Additional debug tools
-    - Testing capabilities
-    - Advanced diagnostics
+<Card title="Developer Mode" icon="code">
+- Additional debug tools
+- Testing capabilities
+- Advanced diagnostics
   </Card>
 </CardGroup>
 

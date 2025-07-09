@@ -52,18 +52,18 @@ description: 'Core processes and daily tasks in the Budget System'
 ## Monthly Processing
 
 <CardGroup cols={2}>
-  <Card title="Pre-Process Checklist" icon="list-check">
-    - All transactions categorized
-    - Splits balanced correctly
-    - Bank balances verified
-    - Budget variances reviewed
+<Card title="Pre-Process Checklist" icon="list-check">
+- All transactions categorized
+- Splits balanced correctly
+- Bank balances verified
+- Budget variances reviewed
   </Card>
 
-  <Card title="Running Month-End" icon="calendar-check">
-    1. Verify all reconciled
-    2. Run end-of-month routine
-    3. Review summary
-    4. Address warnings
+<Card title="Running Month-End" icon="calendar-check">
+1. Verify all reconciled
+2. Run end-of-month routine
+3. Review summary
+4. Address warnings
   </Card>
 </CardGroup>
 
@@ -91,14 +91,14 @@ description: 'Core processes and daily tasks in the Budget System'
 ## View Customization
 
 <CardGroup cols={3}>
-  <Card title="Colors" icon="palette">
-    Set your color preferences
+<Card title="Colors" icon="palette">
+Set your color preferences
   </Card>
-  <Card title="Layout" icon="table-columns">
-    Adjust column widths
+<Card title="Layout" icon="table-columns">
+Adjust column widths
   </Card>
-  <Card title="Save" icon="floppy-disk">
-    Store your preferences
+<Card title="Save" icon="floppy-disk">
+Store your preferences
   </Card>
 </CardGroup>
 

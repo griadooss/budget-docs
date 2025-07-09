@@ -81,49 +81,49 @@ description: 'Current version and update information'
 
 ### Core Features
 <CardGroup cols={2}>
-  <Card title="✅ Import System" icon="file-import">
-    - Bank transaction import
-    - Manual entry support
-    - Duplicate detection
-    - Column mapping
+<Card title="✅ Import System" icon="file-import">
+- Bank transaction import
+- Manual entry support
+- Duplicate detection
+- Column mapping
   </Card>
 
-  <Card title="✅ Reconciliation" icon="check-double">
-    - Side-by-side dashboard
-    - Auto-matching
-    - Split transactions
-    - Bulk operations
+<Card title="✅ Reconciliation" icon="check-double">
+- Side-by-side dashboard
+- Auto-matching
+- Split transactions
+- Bulk operations
   </Card>
 
-  <Card title="✅ Category Management" icon="tags">
-    - Category hierarchy
-    - Status tracking
-    - Bulk operations
-    - Import templates
+<Card title="✅ Category Management" icon="tags">
+- Category hierarchy
+- Status tracking
+- Bulk operations
+- Import templates
   </Card>
 
-  <Card title="✅ Month Processing" icon="calendar-check">
-    - End of month process
-    - Status tracking
-    - Format management
-    - Year transitions
+<Card title="✅ Month Processing" icon="calendar-check">
+- End of month process
+- Status tracking
+- Format management
+- Year transitions
   </Card>
 </CardGroup>
 
 ### Advanced Features
 <CardGroup cols={2}>
-  <Card title="✅ EOY Process" icon="calendar-year">
-    - 4-step setup process
-    - Automatic archiving
-    - Balance verification
-    - Year transitions
+<Card title="✅ EOY Process" icon="calendar-year">
+- 4-step setup process
+- Automatic archiving
+- Balance verification
+- Year transitions
   </Card>
 
-  <Card title="✅ Developer Tools" icon="code">
-    - Performance diagnostics
-    - Debug tools
-    - Testing capabilities
-    - System monitoring
+<Card title="✅ Developer Tools" icon="code">
+- Performance diagnostics
+- Debug tools
+- Testing capabilities
+- System monitoring
   </Card>
 </CardGroup>
 

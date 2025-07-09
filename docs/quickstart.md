@@ -93,11 +93,11 @@ The modern EOY process is a **four-step guided workflow**:
 4. **Finalization** (in new copy) - Complete setup and archive previous master
 
 <CardGroup cols={2}>
-  <Card title="EOY Overview" icon="calendar-year" href="/guides/yearly-tasks/end-of-year/overview">
-    Learn about the End of Year process
+<Card title="EOY Overview" icon="calendar-year" href="/guides/yearly-tasks/end-of-year/overview">
+Learn about the End of Year process
   </Card>
-  <Card title="EOY Setup" icon="settings" href="/guides/yearly-tasks/end-of-year/setup">
-    Step-by-step EOY setup instructions
+<Card title="EOY Setup" icon="settings" href="/guides/yearly-tasks/end-of-year/setup">
+Step-by-step EOY setup instructions
   </Card>
 </CardGroup>
 
@@ -154,14 +154,14 @@ The modern EOY process is a **four-step guided workflow**:
 ## Next Steps
 
 <CardGroup cols={3}>
-  <Card title="Daily Tasks" icon="calendar" href="/guides/daily-tasks/importing">
-    Learn about importing and reconciling
+<Card title="Daily Tasks" icon="calendar" href="/guides/daily-tasks/importing">
+Learn about importing and reconciling
   </Card>
-  <Card title="Monthly Tasks" icon="calendar-check" href="/guides/monthly-tasks/end-of-month">
-    Understand month-end processing
+<Card title="Monthly Tasks" icon="calendar-check" href="/guides/monthly-tasks/end-of-month">
+Understand month-end processing
   </Card>
-  <Card title="Troubleshooting" icon="help" href="/guides/troubleshooting/common-issues">
-    Get help with common issues
+<Card title="Troubleshooting" icon="help" href="/guides/troubleshooting/common-issues">
+Get help with common issues
   </Card>
 </CardGroup>
 

@@ -117,20 +117,20 @@ description: 'Summary of daily tasks in the Budget System'
 ## Monthly Processing
 
 <CardGroup cols={2}>
-  <Card title="Pre-Process Checklist" icon="list-check">
-    - All transactions categorized
-    - Splits balanced correctly
-    - Bank balances verified
-    - Budget variances reviewed
-    - Reconciliation complete
+<Card title="Pre-Process Checklist" icon="list-check">
+- All transactions categorized
+- Splits balanced correctly
+- Bank balances verified
+- Budget variances reviewed
+- Reconciliation complete
   </Card>
 
-  <Card title="Running Month-End" icon="calendar-check">
-    1. **Verify all reconciled** - Check reconciliation dashboard
-    2. **Run end-of-month** - 📅 Period Processing > Run End of Month Process
-    3. **Confirm month** - Verify correct month is being processed
-    4. **Review results** - Check copied values and formatting
-    5. **Address warnings** - Handle any balance issues
+<Card title="Running Month-End" icon="calendar-check">
+1. **Verify all reconciled** - Check reconciliation dashboard
+2. **Run end-of-month** - 📅 Period Processing > Run End of Month Process
+3. **Confirm month** - Verify correct month is being processed
+4. **Review results** - Check copied values and formatting
+5. **Address warnings** - Handle any balance issues
   </Card>
 </CardGroup>
 
@@ -163,25 +163,25 @@ description: 'Summary of daily tasks in the Budget System'
 ## Settings and Configuration
 
 <CardGroup cols={3}>
-  <Card title="Import Settings" icon="gear">
-    **Manage Import Templates**
-    - Configure bank formats
-    - Set account mappings
-    - Save column mappings
+<Card title="Import Settings" icon="gear">
+**Manage Import Templates**
+- Configure bank formats
+- Set account mappings
+- Save column mappings
   </Card>
 
-  <Card title="Month Management" icon="calendar">
-    **Set Current Month**
-    - Initialize month statuses
-    - Set processing month
-    - Track month progress
+<Card title="Month Management" icon="calendar">
+**Set Current Month**
+- Initialize month statuses
+- Set processing month
+- Track month progress
   </Card>
 
-  <Card title="Advanced Settings" icon="warning">
-    **Archive Master**
-    - Prepare for EOY process
-    - Backup current system
-    - Create new year setup
+<Card title="Advanced Settings" icon="warning">
+**Archive Master**
+- Prepare for EOY process
+- Backup current system
+- Create new year setup
   </Card>
 </CardGroup>
 

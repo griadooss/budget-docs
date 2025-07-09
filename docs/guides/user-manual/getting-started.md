@@ -14,17 +14,17 @@ This guide will help you understand the basics of your budget management system.
 This budget management system helps track expenses, income, and reconcile transactions.
 
 <CardGroup cols={2}>
-  <Card title="Import Transactions" icon="file-import">
-    Import bank statements and track spending
+<Card title="Import Transactions" icon="file-import">
+Import bank statements and track spending
   </Card>
-  <Card title="Track Budget" icon="chart-line">
-    Monitor spending against budget targets
+<Card title="Track Budget" icon="chart-line">
+Monitor spending against budget targets
   </Card>
-  <Card title="Reconcile" icon="check-double">
-    Monthly account reconciliation
+<Card title="Reconcile" icon="check-double">
+Monthly account reconciliation
   </Card>
-  <Card title="Reports" icon="file-chart-column">
-    Generate summaries and analysis
+<Card title="Reports" icon="file-chart-column">
+Generate summaries and analysis
   </Card>
 </CardGroup>
 

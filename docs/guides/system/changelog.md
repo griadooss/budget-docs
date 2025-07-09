@@ -16,18 +16,18 @@ A complete history of changes and updates to the Budget System documentation.
 **End of Year Process Documentation Overhaul**
 
 <CardGroup cols={2}>
-  <Card title="EOY Process" icon="calendar-year">
-    - Complete rewrite of End of Year documentation
-    - Three-step process clarification
-    - State-driven menu system documentation
-    - Month restriction guidelines
+<Card title="EOY Process" icon="calendar-year">
+- Complete rewrite of End of Year documentation
+- Three-step process clarification
+- State-driven menu system documentation
+- Month restriction guidelines
   </Card>
 
-  <Card title="Technical Updates" icon="code">
-    - Updated developer guide with current implementation
-    - Comprehensive testing checklist
-    - Performance considerations
-    - Security best practices
+<Card title="Technical Updates" icon="code">
+- Updated developer guide with current implementation
+- Comprehensive testing checklist
+- Performance considerations
+- Security best practices
   </Card>
 </CardGroup>
 
@@ -59,16 +59,16 @@ A complete history of changes and updates to the Budget System documentation.
 **Initial Release**
 
 <CardGroup cols={2}>
-  <Card title="Documentation" icon="book">
-    - Initial documentation structure
-    - User manual sections
-    - Quick start guides
+<Card title="Documentation" icon="book">
+- Initial documentation structure
+- User manual sections
+- Quick start guides
   </Card>
 
-  <Card title="Features" icon="stars">
-    - Basic operations guide
-    - Menu reference
-    - Troubleshooting guides
+<Card title="Features" icon="stars">
+- Basic operations guide
+- Menu reference
+- Troubleshooting guides
   </Card>
 </CardGroup>
 

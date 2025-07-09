@@ -29,40 +29,40 @@ Reconciliation is the process of matching transactions from your bank statements
 The dashboard displays two columns:
 
 <CardGroup cols={2}>
-  <Card title="Cash Flow (Left)" icon="list">
-    - Your categorized transactions
-    - Income and expense entries
-    - Split transaction groups
-    - Unreconciled entries
+<Card title="Cash Flow (Left)" icon="list">
+- Your categorized transactions
+- Income and expense entries
+- Split transaction groups
+- Unreconciled entries
   </Card>
 
-  <Card title="Bank Records (Right)" icon="bank">
-    - Imported bank transactions
-    - Unmatched bank entries
-    - Transaction details
-    - Account information
+<Card title="Bank Records (Right)" icon="bank">
+- Imported bank transactions
+- Unmatched bank entries
+- Transaction details
+- Account information
   </Card>
 </CardGroup>
 
 ### Transaction Status Indicators
 
 <CardGroup cols={3}>
-  <Card title="Green Highlight" icon="check">
-    **Auto-matched transactions**
-    - System matched by amount and date
-    - Ready for reconciliation
+<Card title="Green Highlight" icon="check">
+**Auto-matched transactions**
+- System matched by amount and date
+- Ready for reconciliation
   </Card>
 
-  <Card title="Blue Highlight" icon="arrows-split">
-    **Split transaction groups**
-    - Multiple cash flow entries
-    - Match to single bank transaction
+<Card title="Blue Highlight" icon="arrows-split">
+**Split transaction groups**
+- Multiple cash flow entries
+- Match to single bank transaction
   </Card>
 
-  <Card title="No Highlight" icon="question">
-    **Unmatched transactions**
-    - Need manual processing
-    - Require categorization
+<Card title="No Highlight" icon="question">
+**Unmatched transactions**
+- Need manual processing
+- Require categorization
   </Card>
 </CardGroup>
 
