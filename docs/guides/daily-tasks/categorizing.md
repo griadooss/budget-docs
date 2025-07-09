@@ -233,5 +233,5 @@ After categorizing:
 4. **Adjust budget** - Update budget based on categories
 
 <Note>
-  For detailed budget management, see the [Budget Management Guide](/guides/user-manual/basic-operations).
+  For detailed budget management, see the [Budget Management Guide](../user-manual/basic-operations.md).
 </Note>

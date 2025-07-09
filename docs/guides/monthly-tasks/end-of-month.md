@@ -191,7 +191,7 @@ After successful EOM:
 4. **Prepare for EOY** - If approaching June
 
 <Note>
-  For End of Year processing, see the [EOY Guide](/guides/yearly-tasks/end-of-year/overview).
+  For End of Year processing, see the [EOY Guide](../yearly-tasks/end-of-year/overview.md).
 </Note>
 
 ## Advanced Features

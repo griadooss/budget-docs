@@ -205,5 +205,5 @@ After reconciliation:
 4. **Archive data** - Keep records for future reference
 
 <Note>
-  For month-end processing instructions, see the [Monthly Tasks Guide](/guides/monthly-tasks/end-of-month).
+  For month-end processing instructions, see the [Monthly Tasks Guide](../monthly-tasks/end-of-month.md).
 </Note>

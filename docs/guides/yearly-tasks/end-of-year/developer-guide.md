@@ -5,7 +5,7 @@ description: 'Technical information for developers working on the End of Year pr
 
 # EOY Process Developer Guide
 
-This guide contains technical information for developers who are maintaining or enhancing the End of Year (EOY) process. End users should refer to the [End of Year Process Overview](/guides/yearly-tasks/end-of-year/overview) and [EOY Budget Setup](/guides/yearly-tasks/end-of-year/setup) guides instead.
+This guide contains technical information for developers who are maintaining or enhancing the End of Year (EOY) process. End users should refer to the [End of Year Process Overview](overview.md) and [EOY Budget Setup](setup.md) guides instead.
 
 ## Current Implementation Overview
 

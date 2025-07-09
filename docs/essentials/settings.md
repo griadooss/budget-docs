@@ -101,7 +101,7 @@ Name of your project. Used for the global title.
     </ResponseField>
     <ResponseField name="url" type="string">
     If `link`: What the button links to.
-    
+
     If `github`: Link to the repository to load GitHub information from.
     </ResponseField>
     <ResponseField name="name" type="string">
@@ -177,7 +177,7 @@ Name of your project. Used for the global title.
 </ResponseField>
 
 <ResponseField name="api" type="API">
-  Configuration for API settings. Learn more about API pages at [API Components](/api-playground/demo).
+  Configuration for API settings. Learn more about API pages at .
   <Expandable title="API">
     <ResponseField name="baseUrl" type="string">
       The base url for all API endpoints. If `baseUrl` is an array, it will enable for multiple base url
@@ -209,7 +209,7 @@ Name of your project. Used for the global title.
         <ResponseField name="mode" default="show" type='"show" | "simple" | "hide"'>
           Whether the playground is showing, hidden, or only displaying the endpoint with no added user interactivity `simple`
 
-          Learn more at the [playground guides](/api-playground/demo)
+          Learn more at the
         </ResponseField>
       </Expandable>
     </ResponseField>
@@ -226,7 +226,7 @@ Name of your project. Used for the global title.
 <ResponseField name="openapi" type="string | string[]">
   A string or an array of strings of URL(s) or relative path(s) pointing to your
   OpenAPI file.
-  
+
   Examples:
   <CodeGroup>
     ```json Absolute
@@ -244,8 +244,8 @@ Name of your project. Used for the global title.
 
 <ResponseField name="footerSocials" type="FooterSocials">
   An object of social media accounts where the key:property pair represents the social media platform and the account url.
-  
-  Example: 
+
+  Example:
   ```json
   {
   }
@@ -253,12 +253,12 @@ Name of your project. Used for the global title.
   <Expandable title="FooterSocials">
     <ResponseField name="[key]" type="string">
     One of the following values `website`, `facebook`, `x`, `discord`, `slack`, `github`, `linkedin`, `instagram`, `hacker-news`
-    
+
     Example: `x`
     </ResponseField>
     <ResponseField name="property" type="string">
     The URL to the social platform.
-    
+
     </ResponseField>
   </Expandable>
 </ResponseField>
@@ -285,7 +285,7 @@ Name of your project. Used for the global title.
     </ResponseField>
     <ResponseField name="isHidden" type="boolean" default="false">
       Set to true to hide the dark/light mode toggle. You can combine `isHidden` with `default` to force your docs to only use light or dark mode. For example:
-      
+
       <CodeGroup>
       ```json Only Dark Mode
       "modeToggle": {

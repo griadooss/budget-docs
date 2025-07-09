@@ -107,5 +107,5 @@ Store your preferences
 <Check>Practice regular imports</Check>
 <Check>Set up your preferred views</Check>
 <Check>
-  Review the [Troubleshooting Guide](/guides/troubleshooting/common-issues)
+  Review the [Troubleshooting Guide](../troubleshooting/common-issues.md)
 </Check>

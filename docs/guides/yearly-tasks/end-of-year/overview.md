@@ -155,9 +155,9 @@ If authorization fails, refresh the page and try again. The system includes retr
 
 ## Documentation and Support
 
-- **Step-by-step instructions:** [EOY Budget Setup](/guides/yearly-tasks/end-of-year/setup)
-- **Technical details:** [Developer Guide](/guides/yearly-tasks/end-of-year/developer-guide)
-- **Troubleshooting:** [Common Issues](/guides/troubleshooting/common-issues)
+- **Step-by-step instructions:** [EOY Budget Setup](setup.md)
+- **Technical details:** [Developer Guide](developer-guide.md)
+- **Troubleshooting:** [Common Issues](../../troubleshooting/common-issues.md)
 
 <Note>
 The complete documentation is accessible at any time during the EOY process through menu links and help dialogs. You don't need to complete the process in one session - you can refer back to the documentation as needed.

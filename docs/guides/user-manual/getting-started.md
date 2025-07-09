@@ -46,7 +46,7 @@ Generate summaries and analysis
 ## Next Steps
 
 <Steps>
-  1. Review the [Menu Reference](/guides/user-manual/menu-reference)
-  2. Learn about [Basic Operations](/guides/user-manual/basic-operations)
-  3. Try your first [Transaction Import](/guides/daily-tasks/importing)
+  1. Review the [Menu Reference](menu-reference.md)
+  2. Learn about [Basic Operations](basic-operations.md)
+  3. Try your first [Transaction Import](../daily-tasks/importing.md)
 </Steps>

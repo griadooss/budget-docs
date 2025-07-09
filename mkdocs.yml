@@ -18,6 +18,11 @@ nav:
               - Overview: guides/yearly-tasks/end-of-year/overview.md
               - Setup: guides/yearly-tasks/end-of-year/setup.md
               - Developer Guide: guides/yearly-tasks/end-of-year/developer-guide.md
+      - User Manual:
+          - Overview: guides/user-manual/basic-overview.md
+          - Operations: guides/user-manual/basic-operations.md
+          - Starting: guides/user-manual/getting-started.md
+          - Menu: guides/user-manual/menu-reference
       - System:
           - Version: guides/system/version.md
           - Changelog: guides/system/changelog.md

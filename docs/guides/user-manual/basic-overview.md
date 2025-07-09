@@ -189,5 +189,5 @@ description: 'Summary of daily tasks in the Budget System'
 
 <Check>Practice regular imports</Check>
 <Check>Set up your preferred views</Check>
-<Check>Review the [Troubleshooting Guide](/guides/troubleshooting/common-issues)</Check>
-<Check>Learn about [End of Year Process](/guides/yearly-tasks/end-of-year/overview)</Check>
+<Check>Review the [Troubleshooting Guide](../troubleshooting/common-issues.md)</Check>
+<Check>Learn about [End of Year Process](../yearly-tasks/end-of-year/overview.md)</Check>
