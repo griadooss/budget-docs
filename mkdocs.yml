@@ -2,9 +2,10 @@ site_name: Budget Docs
 site_url: https://griadooss.github.io/budget-docs/
 repo_url: https://github.com/griadooss/budget-docs
 nav:
-  - Home: index.md
+  - Home: introduction.md
   - Quickstart: quickstart.md
   - Guides:
+      - Introduction: introduction.md
       - User Manual:
           - Basic Overview: guides/user-manual/basic-overview.md
           - Menu Reference: guides/user-manual/menu-reference.md

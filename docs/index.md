@@ -1,15 +1,11 @@
----
-title: 'Budget System Documentation'
-description: 'Complete guide to managing your household budget'
----
+<center>
+  <img src="images/balance.svg" alt="Zero-Balance Budgeting" width="300"/>
+</center>
 
-# Welcome to Your Budget System
+# Kumada Zero Budgeting System
 
-This documentation will help you manage your household budget effectively using our Google Sheets-based system.
+**My complete guide to managing my household budget with the Budget App.**
 
+> _Zero-balance budgeting: Prevents reckless spending. Every dollar has a job!_
 
-## Quick Links
-
-- [Daily Tasks](guides/daily-tasks/importing.md): Learn how to import and categorize transactions
-- [Monthly Tasks](guides/monthly-tasks/end-of-month.md): End of month procedures and reporting
-- [Need Help?](guides/troubleshooting/common-issues.md): Troubleshooting and support
+[Get Started](introduction.md)
