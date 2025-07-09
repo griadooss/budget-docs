@@ -6,7 +6,6 @@ icon: 'image'
 
 <img
   style={{ borderRadius: '0.5rem' }}
-  src="https://mintlify-assets.b-cdn.net/bigbend.jpg"
 />
 
 ## Image

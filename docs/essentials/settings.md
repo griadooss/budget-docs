@@ -11,7 +11,6 @@ Every Mintlify site needs a `mint.json` file with the core configuration setting
 <ResponseField name="name" type="string" required>
 Name of your project. Used for the global title.
 
-Example: `mintlify`
 
 </ResponseField>
 
@@ -90,7 +89,6 @@ Example: `mintlify`
     Example: `Contact us`
     </ResponseField>
     <ResponseField name="url" type="string">
-    The url once you click on the button. Example: `https://mintlify.com/docs`
     </ResponseField>
 
   </Expandable>
@@ -250,8 +248,6 @@ Example: `mintlify`
   Example: 
   ```json
   {
-    "x": "https://x.com/mintlify",
-    "website": "https://mintlify.com"
   }
   ```
   <Expandable title="FooterSocials">
@@ -263,7 +259,6 @@ Example: `mintlify`
     <ResponseField name="property" type="string">
     The URL to the social platform.
     
-    Example: `https://x.com/mintlify`
     </ResponseField>
   </Expandable>
 </ResponseField>

@@ -28,8 +28,6 @@ out/
 build/
 
 # Mintlify-specific
-.mintlify/
-.mintlify-cache/
 
 # Environment files
 .env

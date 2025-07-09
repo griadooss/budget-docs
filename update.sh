@@ -35,7 +35,6 @@ fi
 
 # Start local server for testing
 echo -e "${BLUE}Starting local server...${NC}"
-npx mintlify dev &
 SERVER_PID=$!
 
 # Wait for server to start

@@ -2,13 +2,6 @@
   "name": "budget-docs",
   "version": "2.0.0",
   "private": true,
-  "scripts": {
-    "dev": "mintlify dev",
-    "start": "mintlify dev"
-  },
-  "devDependencies": {
-    "@mintlify/cli": "^4.0.0"
-  },
+  "scripts": {},
   "window.titleBarStyle": "native"
 }
-
