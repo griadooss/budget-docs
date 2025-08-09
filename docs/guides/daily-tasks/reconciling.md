@@ -160,6 +160,16 @@ The dashboard displays two columns:
     - Review transaction dates and amounts
   </Accordion>
 
+  <Accordion title="Bank Date Changes" icon="calendar">
+    **Problem:** Transactions appear in wrong month after delayed reconciliation
+    **Solution:**
+    - **Immediate processing prevents this** - Banks change transaction dates 2-7 days after processing
+    - Compare last few days of previous month with first few days of current month
+    - Look for identical amounts and descriptions between periods
+    - Manually adjust bank balances if historical data is affected
+    - **Prevention:** Always reconcile within 7 days of month/year end
+  </Accordion>
+
   <Accordion title="Split Transaction Issues" icon="arrows-split">
     **Problem:** Split amounts don't match
     **Solution:**
@@ -179,6 +189,8 @@ The dashboard displays two columns:
 
 ## Best Practices
 
+<Check>**Reconcile within 7 days of transactions** - Critical for cross-year detection</Check>
+<Check>**Process End-of-Year imports immediately** - Avoid bank date advancement issues</Check>
 <Check>Reconcile regularly (weekly recommended)</Check>
 <Check>Verify all auto-matches before reconciling</Check>
 <Check>Use consistent category names</Check>

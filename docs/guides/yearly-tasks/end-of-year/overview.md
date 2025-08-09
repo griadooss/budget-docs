@@ -15,6 +15,12 @@ The EOY process should be initiated when:
 - All transactions for the current year have been reconciled
 - You're ready to start planning for the next financial year (July-June)
 
+<Warning>
+**⏰ CRITICAL TIMING:** Complete the EOY process **immediately** after your fiscal year ends (June 30). Then import July transactions **within 7 days** to enable cross-year duplicate detection.
+
+**Why This Matters:** Banks often advance transaction processing dates by 2-7 days, moving late June transactions into July. Delayed reconciliation prevents the system from catching these duplicates automatically.
+</Warning>
+
 <Note>
 **Important:** The EOY process can only be started during June. If you try to access it in other months, the system will display a restriction message and block the process.
 </Note>

@@ -120,6 +120,38 @@ the final month of the fiscal year.
 
 ## Import and Reconciliation Issues
 
+### ⚠️ Cross-Year/Month Duplicate Detection Issues
+
+**Problem:** Transactions appear duplicated across months/years, or cross-year detection doesn't trigger.
+
+**Root Cause:** Banks advance transaction processing dates by 2-7 days, moving transactions from one period to another.
+
+**Why Cross-Year Detection Fails:**
+- **7-day time window exceeded:** Detection only works within 7 days of fiscal year start
+- **Too many existing transactions:** System assumes it's not the "first" import anymore
+- **Delayed reconciliation:** August imports are too late to catch June→July transaction movements
+
+**Impact:**
+- **Balance reconciliation fails:** Historical bank balances become incorrect
+- **Manual corrections required:** Must visually compare end/start of periods
+- **Zero balance disrupted:** Cannot achieve accurate zero balance retrospectively
+
+**Prevention (CRITICAL):**
+1. **Complete EOY process immediately** after June 30
+2. **Import July transactions within 7 days** of fiscal year start
+3. **Reconcile monthly within 1 week** of month end
+4. **Update bank balances immediately** before month/year-end processing
+
+**Recovery Solutions:**
+1. **Visual comparison:** Compare last 7 days of previous period with first 7 days of current period
+2. **Look for identical amounts and descriptions** between periods
+3. **Manually adjust historical bank balances** to restore zero balance
+4. **Use calculated "must have been" balances** rather than relying on historical records
+
+<Warning>
+**There is no automated fix for delayed reconciliation** - bank date changes invalidate historical data integrity. Prevention through timely processing is the only reliable solution.
+</Warning>
+
 ### ❌ Bank Import Failures
 
 **Problem:** Cannot import bank transactions or import maps incorrectly.
