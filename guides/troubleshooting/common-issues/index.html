@@ -326,6 +326,30 @@ the final month of the fiscal year.
 <li>Monthly processing is more forgiving than EOY</li>
 </ol>
 <h2 id="import-and-reconciliation-issues">Import and Reconciliation Issues</h2>
+<h3 id="cross-yearmonth-duplicate-detection-issues">⚠️ Cross-Year/Month Duplicate Detection Issues</h3>
+<p><strong>Problem:</strong> Transactions appear duplicated across months/years, or cross-year detection doesn't trigger.</p>
+<p><strong>Root Cause:</strong> Banks advance transaction processing dates by 2-7 days, moving transactions from one period to another.</p>
+<p><strong>Why Cross-Year Detection Fails:</strong>
+- <strong>7-day time window exceeded:</strong> Detection only works within 7 days of fiscal year start
+- <strong>Too many existing transactions:</strong> System assumes it's not the "first" import anymore
+- <strong>Delayed reconciliation:</strong> August imports are too late to catch June→July transaction movements</p>
+<p><strong>Impact:</strong>
+- <strong>Balance reconciliation fails:</strong> Historical bank balances become incorrect
+- <strong>Manual corrections required:</strong> Must visually compare end/start of periods
+- <strong>Zero balance disrupted:</strong> Cannot achieve accurate zero balance retrospectively</p>
+<p><strong>Prevention (CRITICAL):</strong>
+1. <strong>Complete EOY process immediately</strong> after June 30
+2. <strong>Import July transactions within 7 days</strong> of fiscal year start
+3. <strong>Reconcile monthly within 1 week</strong> of month end
+4. <strong>Update bank balances immediately</strong> before month/year-end processing</p>
+<p><strong>Recovery Solutions:</strong>
+1. <strong>Visual comparison:</strong> Compare last 7 days of previous period with first 7 days of current period
+2. <strong>Look for identical amounts and descriptions</strong> between periods
+3. <strong>Manually adjust historical bank balances</strong> to restore zero balance
+4. <strong>Use calculated "must have been" balances</strong> rather than relying on historical records</p>
+<p><Warning>
+<strong>There is no automated fix for delayed reconciliation</strong> - bank date changes invalidate historical data integrity. Prevention through timely processing is the only reliable solution.
+</Warning></p>
 <h3 id="bank-import-failures">❌ Bank Import Failures</h3>
 <p><strong>Problem:</strong> Cannot import bank transactions or import maps incorrectly.</p>
 <p><strong>Common Causes:</strong>

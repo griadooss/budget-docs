@@ -193,12 +193,224 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#importing-bank-transactions" class="nav-link">Importing Bank Transactions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#critical-timing-guidelines" class="nav-link">Critical Timing Guidelines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#import-process" class="nav-link">Import Process</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#import-templates-and-settings" class="nav-link">Import Templates and Settings</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#best-practices" class="nav-link">Best Practices</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#troubleshooting-common-issues" class="nav-link">Troubleshooting Common Issues</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#integration-with-reconciliation" class="nav-link">Integration with Reconciliation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#advanced-features" class="nav-link">Advanced Features</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#next-steps" class="nav-link">Next Steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="importing-bank-transactions">Importing Bank Transactions</h1>
+<p>This guide covers how to import bank transactions from your financial institutions, with special emphasis on timing to prevent duplicate detection issues.</p>
+<h2 id="overview">Overview</h2>
+<p>Bank transaction importing is the foundation of effective budget reconciliation. <strong>When you import matters as much as what you import</strong> - banks can change transaction processing dates, affecting your reconciliation accuracy.</p>
+<h2 id="critical-timing-guidelines">Critical Timing Guidelines</h2>
+<h3 id="timing-rules-for-success">⏰ <strong>Timing Rules for Success</strong></h3>
+<p><CardGroup cols={2}>
+<Card title="Monthly Imports" icon="calendar-days">
+<strong>Import within 7 days of month-end</strong>
+- Prevents bank date advancement issues
+- Enables cross-month duplicate detection
+- Maintains historical data integrity
+</Card></p>
+<p><Card title="End-of-Year Imports" icon="calendar-year">
+<strong>Import July within 7 days of EOY completion</strong>
+- Critical for cross-year duplicate detection
+- Prevents June→July transaction movement
+- Maintains fiscal year boundary accuracy
+</Card>
+</CardGroup></p>
+<h3 id="why-timing-matters">🚨 <strong>Why Timing Matters</strong></h3>
+<p>Banks routinely advance transaction processing dates by 2-7 days after initial processing. This means:</p>
+<ul>
+<li><strong>June 30 transactions</strong> may appear as <strong>July 1-7 transactions</strong> </li>
+<li><strong>Month-end transactions</strong> may appear in the <strong>following month</strong></li>
+<li><strong>Historical bank balances</strong> become incorrect if reconciliation is delayed</li>
+<li><strong>Cross-year duplicate detection</strong> fails if import timing exceeds system windows</li>
+</ul>
+<h2 id="import-process">Import Process</h2>
+<h3 id="step-1-download-bank-statements">Step 1: Download Bank Statements</h3>
+<ol>
+<li><strong>Log into your bank's website or app</strong></li>
+<li><strong>Select the account</strong> you want to import</li>
+<li><strong>Choose date range</strong> - typically one month at a time</li>
+<li><strong>Download in CSV format</strong> (preferred) or PDF if CSV unavailable</li>
+<li><strong>Save to a known location</strong> on your computer</li>
+</ol>
+<p><Note>
+<strong>File Format Priority:</strong> Most banks offer multiple export formats. Always choose CSV over PDF when available - it imports more accurately and faster.
+</Note></p>
+<h3 id="step-2-access-import-function">Step 2: Access Import Function</h3>
+<ol>
+<li><strong>Open your budget spreadsheet</strong></li>
+<li><strong>Navigate to Budget → Import Bank Transactions</strong></li>
+<li><strong>Select your bank template</strong> or configure if first time</li>
+<li><strong>Upload your downloaded file</strong></li>
+</ol>
+<h3 id="step-3-configure-import-settings">Step 3: Configure Import Settings</h3>
+<p><strong>For First-Time Setup:</strong>
+1. <strong>Map columns</strong> - Tell system which columns contain dates, amounts, descriptions
+2. <strong>Set lookback days</strong> - Usually 7 days for duplicate detection
+3. <strong>Configure account rules</strong> - How to identify which account transactions belong to
+4. <strong>Save as template</strong> - Reuse settings for future imports</p>
+<p><strong>For Regular Imports:</strong>
+1. <strong>Select saved template</strong> for your bank
+2. <strong>Verify column mapping</strong> (banks occasionally change formats)
+3. <strong>Proceed with import</strong></p>
+<h3 id="step-4-review-and-process">Step 4: Review and Process</h3>
+<ol>
+<li><strong>Review potential duplicates</strong> - System shows transactions that might already exist</li>
+<li><strong>Verify new transactions</strong> - Check amounts, dates, descriptions are correct</li>
+<li><strong>Confirm account assignment</strong> - Ensure transactions go to correct bank account</li>
+<li><strong>Complete import</strong> - Add transactions to your budget system</li>
+</ol>
+<h2 id="import-templates-and-settings">Import Templates and Settings</h2>
+<h3 id="lookback-days-configuration">Lookback Days Configuration</h3>
+<p><strong>Default: 7 days</strong> - Appropriate for most situations</p>
+<ul>
+<li><strong>Monthly reconciliation:</strong> 7 days catches bank date advances</li>
+<li><strong>Delayed reconciliation:</strong> Won't catch older duplicates (intentional safety feature)</li>
+<li><strong>Cross-year detection:</strong> Automatically uses template settings</li>
+</ul>
+<h3 id="bank-specific-templates">Bank-Specific Templates</h3>
+<p>Save templates for each bank you use:
+- <strong>Column mappings</strong> for your bank's CSV format
+- <strong>Account identification rules</strong>
+- <strong>Default descriptions</strong> for common transaction types
+- <strong>Lookback day preferences</strong> </p>
+<h3 id="account-rules">Account Rules</h3>
+<p>Configure how the system identifies which account transactions belong to:
+- <strong>Credit cards:</strong> Often use ending digits (e.g., ending-1234)
+- <strong>Bank accounts:</strong> May use full account number
+- <strong>Manual selection:</strong> Choose account during import</p>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="timing-best-practices">🎯 <strong>Timing Best Practices</strong></h3>
+<p><Check><strong>Import within 7 days</strong> of transaction dates</Check>
+<Check><strong>Complete EOY imports immediately</strong> after fiscal year end</Check>
+<Check><strong>Process month-end imports promptly</strong> (within 1 week)</Check>
+<Check><strong>Monitor for bank format changes</strong> quarterly</Check></p>
+<h3 id="data-quality-best-practices">🎯 <strong>Data Quality Best Practices</strong></h3>
+<p><Check><strong>Verify dates before importing</strong> - Check for obvious errors</Check>
+<Check><strong>Review amounts for reasonableness</strong> - Catch decimal point errors</Check>
+<Check><strong>Check descriptions for completeness</strong> - Some banks truncate descriptions</Check>
+<Check><strong>Confirm account assignments</strong> - Ensure transactions go to correct accounts</Check></p>
+<h3 id="file-management-best-practices">🎯 <strong>File Management Best Practices</strong></h3>
+<p><Check><strong>Use consistent naming</strong> - e.g., "NAB-Checking-2025-07.csv"</Check>
+<Check><strong>Keep monthly exports organized</strong> - Separate folders by year/month</Check>
+<Check><strong>Archive import files</strong> - Keep for audit trail and re-import if needed</Check>
+<Check><strong>Delete temporary downloads</strong> - Clean up download folder regularly</Check></p>
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<h3 id="import-fails-or-maps-incorrectly">❌ <strong>Import Fails or Maps Incorrectly</strong></h3>
+<p><strong>Solutions:</strong>
+1. <strong>Check file format</strong> - Ensure CSV not PDF
+2. <strong>Verify column mappings</strong> - Bank may have changed format
+3. <strong>Clear stored mappings</strong> - Start fresh if bank changed significantly
+4. <strong>Update template</strong> - Save new configuration for future use</p>
+<h3 id="too-many-duplicates-detected">❌ <strong>Too Many Duplicates Detected</strong></h3>
+<p><strong>Causes:</strong>
+- Importing overlapping date ranges
+- Re-importing same file
+- Bank file contains previously imported transactions</p>
+<p><strong>Solutions:</strong>
+1. <strong>Check date ranges</strong> - Don't overlap with previous imports
+2. <strong>Review file contents</strong> - Ensure new transactions only
+3. <strong>Use duplicate review</strong> - System shows why it thinks transactions are duplicates</p>
+<h3 id="missing-transactions">❌ <strong>Missing Transactions</strong></h3>
+<p><strong>Causes:</strong>
+- Bank file doesn't contain all transactions
+- Date range too narrow
+- CSV export excluded some transaction types</p>
+<p><strong>Solutions:</strong>
+1. <strong>Verify date range</strong> - Check if bank export covers full period
+2. <strong>Check account settings</strong> - Some accounts exclude certain transaction types
+3. <strong>Download separate files</strong> - Some banks separate credits and debits
+4. <strong>Manual entry backup</strong> - Add missing transactions manually if needed</p>
+<h3 id="cross-yearmonth-detection-not-working">⚠️ <strong>Cross-Year/Month Detection Not Working</strong></h3>
+<p><strong>Most Common Cause:</strong> <strong>Delayed import timing</strong></p>
+<p><strong>Why This Happens:</strong>
+- System only detects cross-period duplicates within 7-day window
+- Late imports assume it's not "first import" of new period
+- Bank date advancement occurs between import and reconciliation</p>
+<p><strong>Prevention:</strong>
+- <strong>Import immediately</strong> after period end
+- <strong>Complete EOY process promptly</strong> 
+- <strong>Don't delay monthly reconciliation</strong></p>
+<p><strong>Recovery:</strong>
+- <strong>Manual comparison</strong> - Visual check of period boundaries
+- <strong>Adjust bank balances</strong> - Restore zero balance manually</p>
+<h2 id="integration-with-reconciliation">Integration with Reconciliation</h2>
+<h3 id="after-import-next-steps">After Import: Next Steps</h3>
+<ol>
+<li><strong>Open Reconciliation Dashboard</strong> - Budget → Reconciliation Dashboard</li>
+<li><strong>Review auto-matches</strong> - Verify system-suggested matches are correct</li>
+<li><strong>Process unmatched transactions</strong> - Categorize and assign to budget</li>
+<li><strong>Complete reconciliation</strong> - Match all transactions to achieve zero balance</li>
+</ol>
+<h3 id="reconciliation-timing">Reconciliation Timing</h3>
+<p><strong>Critical Window:</strong> Complete reconciliation <strong>within 7 days</strong> of import to maintain data integrity and prevent bank date advancement issues from affecting your budget accuracy.</p>
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="manual-transaction-entry">Manual Transaction Entry</h3>
+<p>For banks that only provide PDF statements:
+1. <strong>Use Transaction Editor</strong> - Budget → Edit Transaction
+2. <strong>Enter transactions individually</strong> - Date, amount, description, account
+3. <strong>Categorize immediately</strong> - Assign to budget categories
+4. <strong>No duplicate detection</strong> - Manual entries skip duplicate checking</p>
+<h3 id="bulk-processing">Bulk Processing</h3>
+<p>For multiple accounts or months:
+1. <strong>Import each account separately</strong> - Maintains clear audit trail
+2. <strong>Process chronologically</strong> - Import older months first
+3. <strong>Reconcile between imports</strong> - Don't accumulate unreconciled transactions
+4. <strong>Monitor system performance</strong> - Large imports may take longer</p>
+<p><Warning>
+<strong>Bulk Import Limitation:</strong> Cross-year detection expects "first import" to be small. Importing 70+ transactions at once may bypass detection even within the 7-day window.
+</Warning></p>
+<h2 id="next-steps">Next Steps</h2>
+<p>After successful import:
+1. <strong><a href="../reconciling/">Reconcile transactions</a></strong> - Match imports to budget categories
+2. <strong><a href="../../monthly-tasks/end-of-month/">Run month-end process</a></strong> - When all transactions reconciled
+3. <strong><a href="../../system/changelog.md">Update categories</a></strong> - Add new categories if needed</p>
+<p><Note>
+Remember: <strong>Import timing affects reconciliation accuracy.</strong> The few minutes saved by delaying imports can cost hours of manual correction later.
+</Note></p></div>
             </div>
         </div>
 

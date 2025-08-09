@@ -397,6 +397,15 @@
     - Add missing transactions to cash flow
     - Review transaction dates and amounts
   </Accordion></p>
+<p><Accordion title="Bank Date Changes" icon="calendar">
+    <strong>Problem:</strong> Transactions appear in wrong month after delayed reconciliation
+    <strong>Solution:</strong>
+    - <strong>Immediate processing prevents this</strong> - Banks change transaction dates 2-7 days after processing
+    - Compare last few days of previous month with first few days of current month
+    - Look for identical amounts and descriptions between periods
+    - Manually adjust bank balances if historical data is affected
+    - <strong>Prevention:</strong> Always reconcile within 7 days of month/year end
+  </Accordion></p>
 <p><Accordion title="Split Transaction Issues" icon="arrows-split">
     <strong>Problem:</strong> Split amounts don't match
     <strong>Solution:</strong>
@@ -413,7 +422,9 @@
   </Accordion>
 </AccordionGroup></p>
 <h2 id="best-practices">Best Practices</h2>
-<p><Check>Reconcile regularly (weekly recommended)</Check>
+<p><Check><strong>Reconcile within 7 days of transactions</strong> - Critical for cross-year detection</Check>
+<Check><strong>Process End-of-Year imports immediately</strong> - Avoid bank date advancement issues</Check>
+<Check>Reconcile regularly (weekly recommended)</Check>
 <Check>Verify all auto-matches before reconciling</Check>
 <Check>Use consistent category names</Check>
 <Check>Review split transactions carefully</Check>
