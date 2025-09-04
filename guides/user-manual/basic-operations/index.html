@@ -212,7 +212,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#view-customization" class="nav-link">View Customization</a>
+            <li class="nav-item" data-bs-level="2"><a href="#budget-distribution" class="nav-link">Budget Distribution</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -230,89 +230,126 @@
 <h1 id="basic-operations">Basic Operations</h1>
 <p><Note>
   These are the fundamental operations you'll perform regularly in the Budget
-  System. Master these for effective budget management.
+  System. Master these for effective budget management. Updated to reflect current system implementation.
 </Note></p>
 <h2 id="importing-transactions">Importing Transactions</h2>
 <p><Steps>
-  1. Download your bank statement 2. Open the Import Wizard - Click "Budget &gt;
-  Import Bank Transactions" - Select your bank's format 3. Map Columns (if
-  needed) - Match bank columns to system fields - Verify date formats 4. Review
-  &amp; Import - Check for duplicates - Verify amounts - Confirm import
+  1. <strong>Download your bank statement</strong> (CSV format preferred)
+  2. <strong>Open the Import Wizard</strong> - Click "🏦 Budget &gt; Import Bank Transactions"
+  3. <strong>Select your bank's format</strong> - Choose from available templates
+  4. <strong>Map Columns</strong> (if needed) - Match bank columns to system fields
+  5. <strong>Review &amp; Import</strong> - Check for duplicates and verify amounts
+  6. <strong>Confirm import</strong> - System will show import summary
 </Steps></p>
 <p><Tip>
-  <strong>Best Practices</strong> - Import weekly to stay current - Always check for
-  duplicates - Verify account mappings before import
+  <strong>Best Practices:</strong>
+  - Import weekly to stay current
+  - Always check for duplicates (system has automatic detection)
+  - Verify account mappings before import
+  - Use cross-year duplicate detection for year-end imports
 </Tip></p>
 <h2 id="transaction-reconciliation">Transaction Reconciliation</h2>
 <p><AccordionGroup>
   <Accordion title="Opening the Dashboard" icon="rectangle-list">
-    1. Click "Budget &gt; Show Reconciliation Dashboard"
+    1. Click "🏦 Budget &gt; Reconciliation Dashboard"
     2. Review unreconciled transactions
     3. Sort by date if needed
+    4. Use filters to focus on specific accounts or date ranges
   </Accordion></p>
-<p>{' '}
-<Accordion title="Reconciliation Steps" icon="check-double">
-  For each transaction: - Match to bank record - Verify category/subcategory -
-  Check split transactions - Mark as reconciled when complete
-</Accordion></p>
+<p><Accordion title="Reconciliation Steps" icon="check-double">
+    For each transaction:
+    - Match to bank record
+    - Verify category/subcategory assignment
+    - Check split transactions
+    - Mark as reconciled when complete
+    - Use bulk reconciliation for multiple items
+  </Accordion></p>
 <p><Accordion title="Split Transactions" icon="arrows-split-up-and-left">
     1. Select transaction to split
     2. Enter split amounts
     3. Assign categories to each part
-    4. Verify total matches original
+    4. Verify total matches original amount
+    5. Save split configuration
   </Accordion>
 </AccordionGroup></p>
-<p><Warning>Always reconcile before running month-end processes</Warning></p>
+<p><Warning>Always reconcile before running month-end processes. Unreconciled transactions can cause balance issues.</Warning></p>
 <h2 id="monthly-processing">Monthly Processing</h2>
 <p><CardGroup cols={2}>
 <Card title="Pre-Process Checklist" icon="list-check">
-- All transactions categorized
+- All transactions categorized and reconciled
 - Splits balanced correctly
-- Bank balances verified
+- Bank balances verified and current
 - Budget variances reviewed
+- Balance indicators checked
   </Card></p>
 <p><Card title="Running Month-End" icon="calendar-check">
-1. Verify all reconciled
-2. Run end-of-month routine
-3. Review summary
-4. Address warnings
+1. Verify all transactions reconciled
+2. Check balance indicators
+3. Run "📅 Period Processing &gt; Run End of Month Process"
+4. Review summary and address any warnings
+5. System will hide EOM option after completion
   </Card>
 </CardGroup></p>
+<p><Note>
+<strong>Balance Checking:</strong> The system will check balances before processing. You can proceed with warnings for monthly processing, but EOY processes require zero balance.
+</Note></p>
 <h2 id="managing-categories">Managing Categories</h2>
 <p><Tabs>
-  <Tab title="Using Categories">
-    - Select from existing options
-    - Use consistent choices
-    - Check subcategories
-  </Tab></p>
-<p>{' '}
-<Tab title="New Categories">
-  - Request when needed - Provide clear purpose - Wait for approval
-</Tab></p>
-<p><Tab title="Organization">
-    - Keep related items together
-    - Use meaningful names
-    - Maintain hierarchy
+  <Tab title="Adding Categories">
+    <strong>Use the proper workflow:</strong>
+    1. Go to "🏦 Budget &gt; Maintain Budget &gt; ➕ Add Category/Subcategory"
+    2. Follow the guided workflow
+    3. System will properly set up the item across all sheets
+    4. ACTIVE flags will be automatically managed</p>
+<pre><code>**Important:** Always use the menu function, not manual sheet editing.
+</code></pre>
+<p></Tab></p>
+<p><Tab title="Deleting Categories">
+    <strong>Critical - Use proper deletion process:</strong>
+    1. Go to "🏦 Budget &gt; Maintain Budget &gt; 🗑️ Delete Category/Subcategory"
+    2. System will run safety checks
+    3. Proper cleanup across all sheets
+    4. ACTIVE flags updated automatically</p>
+<pre><code>**Warning:** Never manually delete rows from sheets - this causes balance inconsistencies.
+</code></pre>
+<p></Tab></p>
+<p><Tab title="Category Status">
+    <strong>ACTIVE Flag System:</strong>
+    - Categories are automatically marked ACTIVE when budgeted
+    - Status is synchronized across all sheets
+    - Use "🔄 Re-sync ACTIVE Flags" in Developer menu if needed
+    - System prevents deletion of items with reconciled transactions
   </Tab>
 </Tabs></p>
-<h2 id="view-customization">View Customization</h2>
-<p><CardGroup cols={3}>
-<Card title="Colors" icon="palette">
-Set your color preferences
-  </Card>
-<Card title="Layout" icon="table-columns">
-Adjust column widths
-  </Card>
-<Card title="Save" icon="floppy-disk">
-Store your preferences
-  </Card>
-</CardGroup></p>
+<p><Warning>
+<strong>Critical:</strong> Always use menu functions for category management. Manual sheet editing can cause serious balance inconsistencies.
+</Warning></p>
+<h2 id="budget-distribution">Budget Distribution</h2>
+<p><AccordionGroup>
+  <Accordion title="Individual Distribution" icon="arrow-right">
+    1. Go to Maintain Budget sheet
+    2. Set budget amount for item
+    3. Click "Distribute" button
+    4. System validates budget balance
+    5. ACTIVE flags updated automatically
+  </Accordion></p>
+<p><Accordion title="Bulk Distribution" icon="arrows-right">
+    1. Use "⚙️ Settings &gt; Sheet Settings &gt; Bulk Distribute Items"
+    2. System filters items with budget &gt; 0
+    3. Validates overall budget balance
+    4. Distributes all eligible items
+    5. ACTIVE flags synchronized
+  </Accordion>
+</AccordionGroup></p>
+<p><Note>
+<strong>Balance Validation:</strong> Distribution requires balanced budget (income = expenses). System will warn if unbalanced but allows override for individual distribution.
+</Note></p>
 <h2 id="next-steps">Next Steps</h2>
-<p><Check>Practice regular imports</Check>
-<Check>Set up your preferred views</Check>
-<Check>
-  Review the <a href="../../troubleshooting/common-issues/">Troubleshooting Guide</a>
-</Check></p></div>
+<p><Check>Practice regular imports and reconciliation</Check>
+<Check>Use proper category management workflows</Check>
+<Check>Understand balance checking requirements</Check>
+<Check>Review the <a href="../../troubleshooting/common-issues/">Troubleshooting Guide</a></Check>
+<Check>Familiarize yourself with <a href="../menu-reference/">Menu Reference</a></Check></p></div>
             </div>
         </div>
 

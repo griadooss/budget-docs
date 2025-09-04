@@ -204,6 +204,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#category-management-issues" class="nav-link">Category Management Issues</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-bs-level="2"><a href="#import-and-reconciliation-issues" class="nav-link">Import and Reconciliation Issues</a>
               <ul class="nav flex-column">
               </ul>
@@ -228,7 +232,7 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="common-issues-troubleshooting">Common Issues &amp; Troubleshooting</h1>
-<p>This guide covers the most common issues you might encounter with the budget system and how to resolve them.</p>
+<p>This guide covers the most common issues you might encounter with the budget system and how to resolve them. Updated to reflect the current system implementation.</p>
 <h2 id="end-of-year-process-issues">End of Year Process Issues</h2>
 <h3 id="balance-check-failed-eoy-process-blocked">❌ "Balance Check Failed - EOY Process Blocked"</h3>
 <p><strong>Problem:</strong> The system displays a blocking error message preventing you from starting the End of Year process.</p>
@@ -247,9 +251,9 @@ balances to become opening balances for the new fiscal year.
 </code></pre>
 <p><strong>Why This Happens:</strong>
 - The system detected that one or more of your balance sheets are not at zero
-- <strong>Banks sheet</strong> (cell C30) is not balanced
-- <strong>Annual Budget sheet</strong> (cell B106) is not balanced
-- <strong>Maintain Budget sheet</strong> (cell E120) is not balanced</p>
+- <strong>Banks sheet</strong> (named range: <code>banksBalance</code>) is not balanced
+- <strong>Annual Budget sheet</strong> (named range: <code>'Annual Budget'!budgetBalance</code>) is not balanced
+- <strong>Maintain Budget sheet</strong> (named range: <code>'Maintain Budget'!maintainBudgetBalance</code>) is not balanced</p>
 <p><strong>Solution:</strong>
 1. <strong>First: Update Bank Balances (Critical for EOY):</strong>
    - Go to <strong>Banks</strong> sheet and update ALL bank account balances
@@ -270,10 +274,10 @@ balances to become opening balances for the new fiscal year.
 <li>
 <p><strong>Verify All Balance Cells:</strong></p>
 </li>
-<li><strong>Banks sheet</strong> (C30): Should show $0.00 when bank balances match Cash Flow</li>
-<li><strong>Annual Budget sheet</strong> (B106): Should show $0.00 when budget is balanced</li>
+<li><strong>Banks sheet</strong> (<code>banksBalance</code>): Should show $0.00 when bank balances match Cash Flow</li>
+<li><strong>Annual Budget sheet</strong> (<code>'Annual Budget'!budgetBalance</code>): Should show $0.00 when budget is balanced</li>
 <li>
-<p><strong>Maintain Budget sheet</strong> (E120): Should show $0.00 when income equals expenses</p>
+<p><strong>Maintain Budget sheet</strong> (<code>'Maintain Budget'!maintainBudgetBalance</code>): Should show $0.00 when income equals expenses</p>
 </li>
 <li>
 <p><strong>Retry EOY Process:</strong></p>
@@ -325,6 +329,61 @@ the final month of the fiscal year.
 <li>Fix balance issues in subsequent reconciliation</li>
 <li>Monthly processing is more forgiving than EOY</li>
 </ol>
+<h2 id="category-management-issues">Category Management Issues</h2>
+<h3 id="active-flag-inconsistencies">⚠️ ACTIVE Flag Inconsistencies</h3>
+<p><strong>Problem:</strong> Categories show as INACTIVE when they should be ACTIVE, or vice versa.</p>
+<p><strong>Why This Happens:</strong>
+- Manual changes to the LookUps sheet
+- Items removed from budget but not properly cleaned up
+- System synchronization issues</p>
+<p><strong>Solution:</strong>
+1. <strong>Use Developer Menu (if available):</strong>
+   - Go to <strong>🛠️ Developer &gt; Debug Tools &gt; 🔄 Re-sync ACTIVE Flags</strong>
+   - This will synchronize all category statuses</p>
+<ol>
+<li><strong>Manual Check:</strong></li>
+<li>Verify items exist in both Maintain Budget and Annual Budget sheets</li>
+<li>Ensure budget amounts are greater than zero</li>
+<li>
+<p>Check that "Distributed" checkbox is checked</p>
+</li>
+<li>
+<p><strong>Prevention:</strong></p>
+</li>
+<li>Always use menu functions for category management</li>
+<li>Don't manually edit the LookUps sheet</li>
+<li>Use "Delete Category/Subcategory" from Maintain Budget menu</li>
+</ol>
+<h3 id="manual-deletion-issues">❌ Manual Deletion Issues</h3>
+<p><strong>Problem:</strong> Balance inconsistencies after manually deleting rows from sheets.</p>
+<p><strong>Why This Happens:</strong>
+- Manual deletion from Annual Budget or Maintain Budget sheets
+- Bypasses safety checks and cleanup procedures
+- Creates inconsistencies between sheets</p>
+<p><strong>Symptoms:</strong>
+- Maintain Budget shows balanced (0.00) but Annual Budget shows unbalanced
+- Items exist in one sheet but not the other
+- ACTIVE flags don't match budget status</p>
+<p><strong>Solution:</strong>
+1. <strong>Restore the Deleted Item:</strong>
+   - Manually add the item back to the appropriate sheet
+   - Use the same category/subcategory name</p>
+<ol>
+<li><strong>Use Proper Deletion Process:</strong></li>
+<li>Go to <strong>🏦 Budget &gt; Maintain Budget &gt; 🗑️ Delete Category/Subcategory</strong></li>
+<li>
+<p>This ensures proper cleanup across all sheets</p>
+</li>
+<li>
+<p><strong>Prevention:</strong></p>
+</li>
+<li><strong>Never manually delete rows</strong> from Annual Budget or Maintain Budget sheets</li>
+<li>Always use the menu functions for category management</li>
+<li>The system provides safety checks and proper cleanup</li>
+</ol>
+<p><Warning>
+<strong>Critical:</strong> Manual deletion from sheets can cause serious balance inconsistencies. Always use the provided menu functions.
+</Warning></p>
 <h2 id="import-and-reconciliation-issues">Import and Reconciliation Issues</h2>
 <h3 id="cross-yearmonth-duplicate-detection-issues">⚠️ Cross-Year/Month Duplicate Detection Issues</h3>
 <p><strong>Problem:</strong> Transactions appear duplicated across months/years, or cross-year detection doesn't trigger.</p>
@@ -414,16 +473,28 @@ the final month of the fiscal year.
 </ol>
 <h2 id="developer-mode">Developer Mode</h2>
 <h3 id="testing-and-development">🔧 Testing and Development</h3>
-<p><strong>Problem:</strong> Need to test processes without perfect balance.</p>
+<p><strong>Problem:</strong> Need to test processes without perfect balance or access developer tools.</p>
 <p><strong>Solution:</strong>
-- <strong>Enable DEV_MODE</strong> in script properties
+- <strong>Enable DEV_MODE</strong> using the Help menu
 - Balance checks are bypassed with console logging
-- Allows testing of process logic without balance setup</p>
+- Allows testing of process logic without balance setup
+- Enables access to Developer menu tools</p>
 <p><strong>How to Enable:</strong>
-1. Go to <strong>Extensions</strong> → <strong>Apps Script</strong>
-2. Go to <strong>Settings</strong> → <strong>Script Properties</strong>
-3. Add property: <code>DEV_MODE</code> = <code>true</code>
-4. Save and refresh spreadsheet</p>
+1. <strong>Method 1 (Recommended):</strong> Use the Help menu
+   - Go to <strong>ℹ️ Help &gt; Toggle Developer Mode</strong>
+   - This enables/disables developer mode</p>
+<ol>
+<li><strong>Method 2 (Manual):</strong> Script properties</li>
+<li>Go to <strong>Extensions</strong> → <strong>Apps Script</strong></li>
+<li>Go to <strong>Settings</strong> → <strong>Script Properties</strong></li>
+<li>Add property: <code>DEV_MODE</code> = <code>true</code></li>
+<li>Save and refresh spreadsheet</li>
+</ol>
+<p><strong>Developer Tools Available:</strong>
+- <strong>Integrity Checker:</strong> Validate system integrity
+- <strong>Debug Tools:</strong> Diagnostic utilities
+- <strong>Trigger Management:</strong> Manage automatic triggers
+- <strong>System Status:</strong> Check configuration</p>
 <p><Warning>
 <strong>Production Use:</strong> Always disable DEV_MODE for normal budget operations. It bypasses critical safety checks.
 </Warning></p>

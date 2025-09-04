@@ -190,6 +190,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2025-active-flag-and-deletion-management-enhancement" class="nav-link">2025 ACTIVE Flag and Deletion Management Enhancement</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -353,7 +357,170 @@ quickstart.mdx
 <li>✅ <strong>Error Messages:</strong> Clear, actionable guidance provided</li>
 </ul>
 <hr />
-<p><em>This update significantly improves the safety and reliability of the budget system while maintaining developer-friendly testing capabilities.</em></p></div>
+<h2 id="2025-active-flag-and-deletion-management-enhancement">2025 ACTIVE Flag and Deletion Management Enhancement</h2>
+<p><strong>Date:</strong> January 2025
+<strong>Branch:</strong> <code>feature/balance-mismatch-detection</code>
+<strong>Issue:</strong> Manual deletion causing balance inconsistencies and ACTIVE flag sync issues</p>
+<h3 id="problem-identified_1">Problem Identified</h3>
+<p>The system had several critical issues with category management:</p>
+<ol>
+<li><strong>Manual Deletion Issues:</strong> Users could manually delete rows from Annual Budget or Maintain Budget sheets, causing balance inconsistencies</li>
+<li><strong>ACTIVE Flag Sync Problems:</strong> Automatic triggers for ACTIVE flag synchronization were unreliable and caused performance issues</li>
+<li><strong>Inconsistent Safety Checks:</strong> Deletion safety checks had incorrect column mappings and missing validations</li>
+<li><strong>Zero Budget Distribution:</strong> System allowed distribution of items with zero budget amounts</li>
+</ol>
+<h3 id="changes-made_1">Changes Made</h3>
+<h4 id="1-robust-active-flag-synchronization">1. Robust ACTIVE Flag Synchronization</h4>
+<ul>
+<li><strong>Before:</strong> Relied on unreliable <code>onEdit</code> triggers that caused performance issues</li>
+<li><strong>After:</strong> "Distribution is the Gatekeeper" approach - ACTIVE flags sync only after successful distribution</li>
+<li><strong>Benefits:</strong></li>
+<li>Reliable synchronization without performance impact</li>
+<li>Single point of truth for ACTIVE flag updates</li>
+<li>Automatic sync after individual and bulk distribution</li>
+</ul>
+<h4 id="2-enhanced-deletion-safety-checks">2. Enhanced Deletion Safety Checks</h4>
+<ul>
+<li><strong>Before:</strong> Incorrect column mappings and missing validations</li>
+<li><strong>After:</strong> Comprehensive safety checks with proper column mappings</li>
+<li><strong>New Validations:</strong></li>
+<li>Prevents deletion of items with reconciled transactions (ACTUAL &gt; 0)</li>
+<li>Corrects LookUps column mapping (Category: rowData[3], Subcategory: rowData[5])</li>
+<li>Warns about Annual Budget sheet removal</li>
+<li>Ensures proper cleanup across all sheets</li>
+</ul>
+<h4 id="3-budget-distribution-validation">3. Budget Distribution Validation</h4>
+<ul>
+<li><strong>Before:</strong> No validation of budget balance or individual item amounts</li>
+<li><strong>After:</strong> Comprehensive validation before distribution</li>
+<li><strong>New Features:</strong></li>
+<li>Budget balance validation using named ranges</li>
+<li>Individual item budget amount validation (prevents zero-budget distribution)</li>
+<li>Popup warnings for unbalanced budgets</li>
+<li>Option to proceed despite warnings</li>
+</ul>
+<h4 id="4-developer-tools-enhancement">4. Developer Tools Enhancement</h4>
+<ul>
+<li><strong>Added:</strong> "🔄 Re-sync ACTIVE Flags" function in Developer menu</li>
+<li><strong>Simplified:</strong> Function now calls existing <code>syncActiveFlagsFromBudgetedItems()</code></li>
+<li><strong>Purpose:</strong> Manual sync when needed without performance impact</li>
+</ul>
+<h3 id="files-modified_1">Files Modified</h3>
+<pre><code>src/modules/distributeBudget.js
+├── Added isBudgetBalanced() function
+├── Added getBudgetBalance() function
+├── Added checkDistributionRequirements() function
+├── Added onDistributionComplete() function
+├── Enhanced distributeValuesFromRow() with validation
+└── Simplified cleanupActiveFlagInconsistencies()
+
+src/utility/budgetTools.js
+├── Enhanced bulkDistribute() with balance validation
+├── Added budget &gt; 0 filtering
+└── Added onDistributionComplete() call
+
+src/server/lookupManager.js
+├── Fixed column mappings in safety checks
+├── Added reconciled transaction validation
+├── Added Annual Budget sheet cleanup
+└── Enhanced deletion warnings
+
+src/triggers/onOpen.js
+├── Deprecated unreliable onEdit triggers
+├── Updated Developer menu with new functions
+└── Added global function exports
+</code></pre>
+<h3 id="technical-improvements_1">Technical Improvements</h3>
+<ol>
+<li>
+<p><strong>Named Range Usage:</strong>
+   <code>javascript
+   // Proper named range usage with sheet names
+   const maintainBalanceRange = ss.getRangeByName("'Maintain Budget'!maintainBudgetBalance");
+   const annualBalanceRange = ss.getRangeByName("'Annual Budget'!budgetBalance");</code></p>
+</li>
+<li>
+<p><strong>Distribution Validation:</strong>
+   ```javascript
+   // Budget balance validation
+   if (!isBudgetBalanced()) {
+     const response = ui.alert("Budget Not Balanced", message, YES_NO);
+     if (response !== ui.Button.YES) return false;
+   }</p>
+</li>
+</ol>
+<p>// Individual item validation
+   if (budgetAmount &lt;= 0) {
+     ui.alert("Cannot distribute zero budget amount");
+     return;
+   }
+   ```</p>
+<ol>
+<li>
+<p><strong>ACTIVE Flag Synchronization:</strong>
+   <code>javascript
+   // Single point of sync after distribution
+   function onDistributionComplete() {
+     try {
+       console.log("🔄 Syncing ACTIVE flags after distribution...");
+       syncActiveFlagsFromBudgetedItems();
+       console.log("✅ ACTIVE flags synced successfully");
+     } catch (error) {
+       console.error("❌ Error syncing ACTIVE flags:", error.message);
+     }
+   }</code></p>
+</li>
+<li>
+<p><strong>Enhanced Safety Checks:</strong>
+   <code>``javascript
+   // Prevent deletion of items with reconciled transactions
+   if (actualAmount &gt; 0) {
+     issues.push(</code>CRITICAL: Cannot delete item with reconciled transactions ($${actualAmount.toFixed(2)})`);
+   }</p>
+</li>
+</ol>
+<p>// Correct column mapping
+   const category = rowData[3]; // Category Name
+   const subcategory = rowData[5]; // Subcategory Name
+   ```</p>
+<h3 id="documentation-updates">Documentation Updates</h3>
+<ul>
+<li><strong>Menu Reference:</strong> Updated to reflect current menu structure and functions</li>
+<li><strong>Troubleshooting Guide:</strong> Added sections on ACTIVE flag issues and manual deletion problems</li>
+<li><strong>Basic Operations:</strong> Updated category management workflows and best practices</li>
+<li><strong>Development Docs:</strong> Added comprehensive change log and technical details</li>
+</ul>
+<h3 id="impact_1">Impact</h3>
+<h4 id="positive_1">Positive</h4>
+<ul>
+<li><strong>🛡️ Data Integrity:</strong> Prevents accidental data loss from manual deletions</li>
+<li><strong>🔄 Reliable Sync:</strong> ACTIVE flags now sync consistently without performance issues</li>
+<li><strong>⚖️ Balance Protection:</strong> Validates budget balance before distribution</li>
+<li><strong>🔧 Better UX:</strong> Clear warnings and guidance for users</li>
+</ul>
+<h4 id="user-experience_1">User Experience</h4>
+<ul>
+<li><strong>⚠️ Stricter Validation:</strong> Users must have balanced budgets for distribution</li>
+<li><strong>💡 Clear Guidance:</strong> Better error messages and warnings</li>
+<li><strong>🎯 Proper Workflow:</strong> Encourages use of menu functions over manual editing</li>
+</ul>
+<h3 id="future-considerations_1">Future Considerations</h3>
+<ol>
+<li><strong>Sheet Protection:</strong> Consider protecting critical ranges to prevent manual deletion</li>
+<li><strong>Audit Trail:</strong> Log category changes for better tracking</li>
+<li><strong>Recovery Tools:</strong> Enhanced tools for fixing balance inconsistencies</li>
+<li><strong>User Education:</strong> Continued emphasis on proper workflow usage</li>
+</ol>
+<h3 id="testing_1">Testing</h3>
+<ul>
+<li>✅ <strong>ACTIVE Flag Sync:</strong> Reliable synchronization after distribution</li>
+<li>✅ <strong>Deletion Safety:</strong> Prevents deletion of items with reconciled transactions</li>
+<li>✅ <strong>Budget Validation:</strong> Blocks distribution of zero-budget items</li>
+<li>✅ <strong>Balance Checking:</strong> Validates budget balance before distribution</li>
+<li>✅ <strong>Column Mapping:</strong> Correct LookUps sheet column references</li>
+</ul>
+<hr />
+<p><em>This update significantly improves data integrity and user workflow while maintaining system performance and reliability.</em></p></div>
             </div>
         </div>
 
