@@ -171,10 +171,10 @@ description: 'Summary of daily tasks in the Budget System'
   </Card>
 
 <Card title="Month Management" icon="calendar">
-**Set Current Month**
-- Initialize month statuses
-- Set processing month
-- Track month progress
+**End of Year Processing**
+- Initialize month statuses (moved to Period Processing > End of Year)
+- EOY setup and processing workflow
+- Month tracking system setup
   </Card>
 
 <Card title="Advanced Settings" icon="warning">

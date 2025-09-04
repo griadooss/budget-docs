@@ -66,26 +66,22 @@ description: 'Complete guide to all menu functions in the Budget System'
       - Validates balance consistency
   </Accordion>
 
-  <Accordion title="End of Year Setup" icon="calendar-year">
-    - **Access:** Click "📅 Period Processing > End of Year Setup"
-    - **Purpose:** Set up new fiscal year (only available in new copies)
-    - **Steps:**
-      1. Run Initial EOY Setup
-      2. Continue EOY Setup
-      3. Finalize EOY Setup
+  <Accordion title="End of Year Submenu" icon="calendar-year">
+    - **Access:** Click "📅 Period Processing > End of Year"
+    - **Purpose:** Complete End of Year setup and processing workflow
+    - **Functions:**
+      - **Start End of Year Process:** Begin EOY process (master spreadsheets only)
+      - **1. Run Initial EOY Setup:** First setup step
+      - **2. Continue EOY Setup:** Second setup step  
+      - **3. Finalize EOY Setup:** Final setup step
+      - **Initialize Month Statuses:** Set up month tracking system
+    - **Workflow:** Start EOY Process → Steps 1-3 → Initialize Month Statuses
     - **Note:** Only available during June or in new year copies
     - **Features:**
       - Strict balance checking (no override option)
       - Bank balance validation
       - Automatic master spreadsheet creation
-  </Accordion>
-
-  <Accordion title="Start End of Year Process" icon="calendar-year">
-    - **Access:** Click "📅 Period Processing > Start End of Year Process"
-    - **Purpose:** Begin EOY process (only available in master spreadsheets)
-    - **Shows:** EOY instructions and setup guide
-    - **Note:** Only available in master spreadsheets during June
-    - **Critical:** Requires all balances to be zero (no override)
+      - Guided step-by-step process
   </Accordion>
 </AccordionGroup>
 
@@ -116,8 +112,8 @@ description: 'Complete guide to all menu functions in the Budget System'
     - **Access:** Click "⚙️ Settings > Month Management"
     - **Purpose:** Control month processing and status
     - **Features:**
-      - **Set Current Month:** Manually set the current processing month
-      - **Initialize Month Statuses:** Set up month tracking system
+      - **Note:** Month management functions have been moved to Period Processing > End of Year
+      - **Initialize Month Statuses:** Now available in Period Processing > End of Year submenu
   </Accordion>
 
   <Accordion title="Advanced Settings" icon="warning">

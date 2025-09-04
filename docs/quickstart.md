@@ -56,9 +56,9 @@ Welcome to the Budget System! This guide will help you get started with the basi
 5. **Review results** - Check copied values and formatting
 
 ### Month Management
-1. **Set current month** - Click ⚙️ Settings > Set Current Month
-2. **Initialize statuses** - Click ⚙️ Settings > Initialize Month Statuses
-3. **Verify highlighting** - Check current month is highlighted in blue
+1. **Initialize statuses** - Click 📅 Period Processing > End of Year > Initialize Month Statuses
+2. **Verify highlighting** - Check current month is highlighted in blue
+3. **Note:** Month management functions moved to Period Processing > End of Year submenu
 
 ## Settings and Configuration
 
