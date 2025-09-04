@@ -5,7 +5,7 @@ description: 'Solutions for common problems with the budget system'
 
 # Common Issues & Troubleshooting
 
-This guide covers the most common issues you might encounter with the budget system and how to resolve them.
+This guide covers the most common issues you might encounter with the budget system and how to resolve them. Updated to reflect the current system implementation.
 
 ## End of Year Process Issues
 
@@ -30,9 +30,9 @@ balances to become opening balances for the new fiscal year.
 
 **Why This Happens:**
 - The system detected that one or more of your balance sheets are not at zero
-- **Banks sheet** (cell C30) is not balanced
-- **Annual Budget sheet** (cell B106) is not balanced
-- **Maintain Budget sheet** (cell E120) is not balanced
+- **Banks sheet** (named range: `banksBalance`) is not balanced
+- **Annual Budget sheet** (named range: `'Annual Budget'!budgetBalance`) is not balanced
+- **Maintain Budget sheet** (named range: `'Maintain Budget'!maintainBudgetBalance`) is not balanced
 
 **Solution:**
 1. **First: Update Bank Balances (Critical for EOY):**
@@ -51,9 +51,9 @@ balances to become opening balances for the new fiscal year.
    - Work through all unreconciled items until dashboard is clear
 
 3. **Verify All Balance Cells:**
-   - **Banks sheet** (C30): Should show $0.00 when bank balances match Cash Flow
-   - **Annual Budget sheet** (B106): Should show $0.00 when budget is balanced
-   - **Maintain Budget sheet** (E120): Should show $0.00 when income equals expenses
+   - **Banks sheet** (`banksBalance`): Should show $0.00 when bank balances match Cash Flow
+   - **Annual Budget sheet** (`'Annual Budget'!budgetBalance`): Should show $0.00 when budget is balanced
+   - **Maintain Budget sheet** (`'Maintain Budget'!maintainBudgetBalance`): Should show $0.00 when income equals expenses
 
 4. **Retry EOY Process:**
    - Once all three balance cells show $0.00, retry the EOY process
@@ -117,6 +117,64 @@ the final month of the fiscal year.
    - Click "Yes" to continue despite warnings
    - Fix balance issues in subsequent reconciliation
    - Monthly processing is more forgiving than EOY
+
+## Category Management Issues
+
+### ⚠️ ACTIVE Flag Inconsistencies
+
+**Problem:** Categories show as INACTIVE when they should be ACTIVE, or vice versa.
+
+**Why This Happens:**
+- Manual changes to the LookUps sheet
+- Items removed from budget but not properly cleaned up
+- System synchronization issues
+
+**Solution:**
+1. **Use Developer Menu (if available):**
+   - Go to **🛠️ Developer > Debug Tools > 🔄 Re-sync ACTIVE Flags**
+   - This will synchronize all category statuses
+
+2. **Manual Check:**
+   - Verify items exist in both Maintain Budget and Annual Budget sheets
+   - Ensure budget amounts are greater than zero
+   - Check that "Distributed" checkbox is checked
+
+3. **Prevention:**
+   - Always use menu functions for category management
+   - Don't manually edit the LookUps sheet
+   - Use "Delete Category/Subcategory" from Maintain Budget menu
+
+### ❌ Manual Deletion Issues
+
+**Problem:** Balance inconsistencies after manually deleting rows from sheets.
+
+**Why This Happens:**
+- Manual deletion from Annual Budget or Maintain Budget sheets
+- Bypasses safety checks and cleanup procedures
+- Creates inconsistencies between sheets
+
+**Symptoms:**
+- Maintain Budget shows balanced (0.00) but Annual Budget shows unbalanced
+- Items exist in one sheet but not the other
+- ACTIVE flags don't match budget status
+
+**Solution:**
+1. **Restore the Deleted Item:**
+   - Manually add the item back to the appropriate sheet
+   - Use the same category/subcategory name
+
+2. **Use Proper Deletion Process:**
+   - Go to **🏦 Budget > Maintain Budget > 🗑️ Delete Category/Subcategory**
+   - This ensures proper cleanup across all sheets
+
+3. **Prevention:**
+   - **Never manually delete rows** from Annual Budget or Maintain Budget sheets
+   - Always use the menu functions for category management
+   - The system provides safety checks and proper cleanup
+
+<Warning>
+**Critical:** Manual deletion from sheets can cause serious balance inconsistencies. Always use the provided menu functions.
+</Warning>
 
 ## Import and Reconciliation Issues
 
@@ -217,18 +275,30 @@ the final month of the fiscal year.
 
 ### 🔧 Testing and Development
 
-**Problem:** Need to test processes without perfect balance.
+**Problem:** Need to test processes without perfect balance or access developer tools.
 
 **Solution:**
-- **Enable DEV_MODE** in script properties
+- **Enable DEV_MODE** using the Help menu
 - Balance checks are bypassed with console logging
 - Allows testing of process logic without balance setup
+- Enables access to Developer menu tools
 
 **How to Enable:**
-1. Go to **Extensions** → **Apps Script**
-2. Go to **Settings** → **Script Properties**
-3. Add property: `DEV_MODE` = `true`
-4. Save and refresh spreadsheet
+1. **Method 1 (Recommended):** Use the Help menu
+   - Go to **ℹ️ Help > Toggle Developer Mode**
+   - This enables/disables developer mode
+
+2. **Method 2 (Manual):** Script properties
+   - Go to **Extensions** → **Apps Script**
+   - Go to **Settings** → **Script Properties**
+   - Add property: `DEV_MODE` = `true`
+   - Save and refresh spreadsheet
+
+**Developer Tools Available:**
+- **Integrity Checker:** Validate system integrity
+- **Debug Tools:** Diagnostic utilities
+- **Trigger Management:** Manage automatic triggers
+- **System Status:** Check configuration
 
 <Warning>
 **Production Use:** Always disable DEV_MODE for normal budget operations. It bypasses critical safety checks.
