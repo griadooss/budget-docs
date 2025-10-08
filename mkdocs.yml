@@ -26,6 +26,7 @@ nav:
       - System:
           - Version: guides/system/version.md
           - Changelog: guides/system/changelog.md
+          - Developer Menu: guides/system/developer-menu.md
       - Troubleshooting:
           - Common Issues: guides/troubleshooting/common-issues.md
           - Using AI Help: guides/troubleshooting/using-ai-help.md
