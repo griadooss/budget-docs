@@ -547,18 +547,6 @@ The Legacy menu contains advanced developer tools and legacy system functions or
 
   </Accordion>
 
-  <Accordion title="Debug GOVT Category" icon="bug">
-    - **Function:** `debugGOVTCategoryState()`
-
-    - **Purpose:** Debug GOVT category state
-
-    - **When to Use:** When GOVT category has issues
-
-    - **Output:** Debug information about GOVT category state
-
-    - **Dependencies:** GOVT category access
-
-  </Accordion>
 </AccordionGroup>
 
 ### Performance Testing
