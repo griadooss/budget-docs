@@ -413,18 +413,6 @@ The Legacy menu contains advanced developer tools and legacy system functions or
 ### Advanced Testing
 
 <AccordionGroup>
-  <Accordion title="Test Unified Categories" icon="flask">
-    - **Function:** `testUnifiedCategoryAddition()`
-
-    - **Purpose:** Test unified category addition system
-
-    - **When to Use:** When testing category addition functionality
-
-    - **Output:** Test results for category addition system
-
-    - **Dependencies:** Category system access
-
-  </Accordion>
 
 
 
