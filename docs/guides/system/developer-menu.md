@@ -325,20 +325,6 @@ The Legacy menu contains advanced developer tools and legacy system functions or
 
   </Accordion>
 
-  <Accordion title="Run Legacy Transaction Scripts" icon="play">
-    - **Function:** `runAllNonMonthlyTranxScripts()`
-
-    - **Purpose:** Run legacy transaction processing scripts
-
-    - **When to Use:** For legacy system compatibility testing
-
-    - **Effect:** Executes legacy transaction processing (now disabled)
-
-    - **Dependencies:** Legacy transaction data
-
-    - **Note:** These functions are now disabled in favor of dynamic distribution
-
-  </Accordion>
 </AccordionGroup>
 
 ### Cross-Year Detection
