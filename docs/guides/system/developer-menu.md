@@ -586,7 +586,7 @@ The Legacy menu contains advanced developer tools and legacy system functions or
   </Accordion>
 
   <Accordion title="Test Reconciliation Updates" icon="tachometer">
-    - **Function:** `testReconciliationDateUpdate()`
+    - **Function:** `testReconciliationDateUpdateDetailed()`
 
     - **Purpose:** Test reconciliation date update performance
 
@@ -624,18 +624,6 @@ The Legacy menu contains advanced developer tools and legacy system functions or
 
   </Accordion>
 
-  <Accordion title="Bulk Performance Test" icon="tachometer">
-    - **Function:** `bulkPerformanceTest()`
-
-    - **Purpose:** Test bulk operations performance
-
-    - **When to Use:** When bulk operations are slow
-
-    - **Output:** Performance metrics for bulk operations
-
-    - **Dependencies:** Bulk operation system access
-
-  </Accordion>
 </AccordionGroup>
 
 ## 🚨 Important Notes
