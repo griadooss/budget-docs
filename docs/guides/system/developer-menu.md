@@ -383,18 +383,6 @@ The Legacy menu contains advanced developer tools and legacy system functions or
 
   </Accordion>
 
-  <Accordion title="Debug Archived Master" icon="archive">
-    - **Function:** `debugArchivedMasterSearch()`
-
-    - **Purpose:** Debug archived master search functionality
-
-    - **When to Use:** When archived master search is not working
-
-    - **Output:** Debug information about archived master search
-
-    - **Dependencies:** Archive system access
-
-  </Accordion>
 
   <Accordion title="Debug Archive Detection" icon="search-plus">
     - **Function:** `debugArchiveFileDetection()`
@@ -406,6 +394,19 @@ The Legacy menu contains advanced developer tools and legacy system functions or
     - **Output:** Debug information about archive file detection
 
     - **Dependencies:** Archive system access
+
+  </Accordion>
+
+  <Accordion title="Create Missing Named Ranges" icon="wrench">
+    - **Function:** `createMissingNamedRanges()`
+
+    - **Purpose:** Create missing named ranges required by the system
+
+    - **When to Use:** When functions fail due to missing named ranges
+
+    - **Output:** Creates BudgetStartDate and other critical named ranges
+
+    - **Dependencies:** Maintain Budget sheet access
 
   </Accordion>
 </AccordionGroup>
