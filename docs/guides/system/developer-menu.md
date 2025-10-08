@@ -426,18 +426,6 @@ The Legacy menu contains advanced developer tools and legacy system functions or
 
   </Accordion>
 
-  <Accordion title="Test Distribution Logic" icon="flask">
-    - **Function:** `testDistributionLogic()`
-
-    - **Purpose:** Test budget distribution logic
-
-    - **When to Use:** When testing distribution calculations
-
-    - **Output:** Test results for distribution logic
-
-    - **Dependencies:** Distribution system access
-
-  </Accordion>
 
 
   <Accordion title="Test Integrity Checker" icon="flask">
