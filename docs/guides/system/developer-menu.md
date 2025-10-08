@@ -521,18 +521,6 @@ The Legacy menu contains advanced developer tools and legacy system functions or
 
   </Accordion>
 
-  <Accordion title="Debug Annual Budget Contents" icon="bug">
-    - **Function:** `debugAnnualBudgetContents()`
-
-    - **Purpose:** Debug Annual Budget contents
-
-    - **When to Use:** When Annual Budget has issues
-
-    - **Output:** Debug information about Annual Budget contents
-
-    - **Dependencies:** Annual Budget access
-
-  </Accordion>
 
   <Accordion title="Debug Annual Budget Categories" icon="bug">
     - **Function:** `debugAnnualBudgetCategories()`
