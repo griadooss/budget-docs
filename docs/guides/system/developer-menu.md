@@ -439,18 +439,6 @@ The Legacy menu contains advanced developer tools and legacy system functions or
 
   </Accordion>
 
-  <Accordion title="Test Distribution with Maintain" icon="flask">
-    - **Function:** `testDistributionWithMaintainBudget()`
-
-    - **Purpose:** Test distribution with Maintain Budget integration
-
-    - **When to Use:** When testing distribution with Maintain Budget
-
-    - **Output:** Test results for distribution with Maintain Budget
-
-    - **Dependencies:** Maintain Budget and distribution system access
-
-  </Accordion>
 
   <Accordion title="Test Integrity Checker" icon="flask">
     - **Function:** `testIntegrityChecker()`
