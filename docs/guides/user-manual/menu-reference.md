@@ -176,6 +176,10 @@ description: 'Complete guide to all menu functions in the Budget System'
   </Accordion>
 </AccordionGroup>
 
+<Note>
+  For detailed information about all Developer menu functions, see the [Developer Menu Reference](../system/developer-menu.md).
+</Note>
+
 ## ℹ️ Help Menu
 
 <AccordionGroup>

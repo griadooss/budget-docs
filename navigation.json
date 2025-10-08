@@ -49,6 +49,12 @@
         "guides/troubleshooting/common-issues",
         "guides/troubleshooting/using-ai-help"
       ]
+    },
+    {
+      "group": "System",
+      "pages": [
+        "guides/system/developer-menu"
+      ]
     }
   ]
 }
