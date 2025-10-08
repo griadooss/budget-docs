@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://griadooss.github.io/budget-docs/essentials/function-documentation-template/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Function Documentation Template - Budget Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Budget Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../introduction/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../quickstart/" class="nav-link">Quickstart</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../introduction/" class="dropdown-item">Home</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Daily Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/daily-tasks/categorizing/" class="dropdown-item">Categorizing</a>
+</li>
+            
+<li>
+    <a href="../../guides/daily-tasks/reconciling/" class="dropdown-item">Reconciling</a>
+</li>
+            
+<li>
+    <a href="../../guides/daily-tasks/importing/" class="dropdown-item">Importing</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Monthly Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/monthly-tasks/end-of-month/" class="dropdown-item">End of Month</a>
+</li>
+            
+<li>
+    <a href="../../guides/monthly-tasks/reporting/" class="dropdown-item">Reporting</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Yearly Tasks</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">End of Year</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/yearly-tasks/end-of-year/overview/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../guides/yearly-tasks/end-of-year/setup/" class="dropdown-item">Setup</a>
+</li>
+            
+<li>
+    <a href="../../guides/yearly-tasks/end-of-year/developer-guide/" class="dropdown-item">Developer Guide</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">User Manual</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/user-manual/basic-overview/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../guides/user-manual/basic-operations/" class="dropdown-item">Operations</a>
+</li>
+            
+<li>
+    <a href="../../guides/user-manual/getting-started/" class="dropdown-item">Starting</a>
+</li>
+            
+<li>
+    <a href="../../guides/user-manual/menu-reference" class="dropdown-item">Menu</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">System</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/system/version/" class="dropdown-item">Version</a>
+</li>
+            
+<li>
+    <a href="../../guides/system/changelog/" class="dropdown-item">Changelog</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Troubleshooting</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../guides/troubleshooting/common-issues/" class="dropdown-item">Common Issues</a>
+</li>
+            
+<li>
+    <a href="../../guides/troubleshooting/using-ai-help/" class="dropdown-item">Using AI Help</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/griadooss/budget-docs/edit/master/docs/essentials/function-documentation-template.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#function-documentation-template" class="nav-link">Function Documentation Template</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#basic-function-documentation" class="nav-link">Basic Function Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#detailed-function-documentation" class="nav-link">Detailed Function Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#performance-function-documentation" class="nav-link">Performance Function Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#debug-function-documentation" class="nav-link">Debug Function Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#testing-function-documentation" class="nav-link">Testing Function Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#legacy-function-documentation" class="nav-link">Legacy Function Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#usage-guidelines" class="nav-link">Usage Guidelines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="function-documentation-template">Function Documentation Template</h1>
+<p>This template provides a standardized format for documenting individual Developer menu functions.</p>
+<h2 id="basic-function-documentation">Basic Function Documentation</h2>
+<pre><code class="language-markdown">### Function Name
+
+&lt;Accordion title=&quot;Function Display Name&quot; icon=&quot;icon-name&quot;&gt;
+  - **Function:** `functionName()`
+  - **Purpose:** Brief description of what the function does
+  - **When to Use:** Specific scenarios when this function should be used
+  - **Output:** What the function returns or displays
+  - **Dependencies:** Required permissions, access, or system components
+  - **Duration:** Expected execution time (if applicable)
+  - **Warning:** Any important warnings or side effects (if applicable)
+  - **Note:** Additional important information (if applicable)
+&lt;/Accordion&gt;
+</code></pre>
+<h2 id="detailed-function-documentation">Detailed Function Documentation</h2>
+<pre><code class="language-markdown">### Function Name
+
+&lt;Accordion title=&quot;Function Display Name&quot; icon=&quot;icon-name&quot;&gt;
+  - **Function:** `functionName()`
+  - **Purpose:** Detailed description of what the function does
+  - **When to Use:** 
+    - Specific scenario 1
+    - Specific scenario 2
+    - Specific scenario 3
+  - **Output:** 
+    - What the function returns
+    - Format of the output
+    - Where to find the results
+  - **Dependencies:** 
+    - Required permissions
+    - Required system access
+    - Required data availability
+  - **Duration:** Expected execution time and factors that affect it
+  - **Parameters:** Any parameters the function accepts (if applicable)
+  - **Side Effects:** Any changes the function makes to the system
+  - **Error Handling:** How the function handles errors
+  - **Example Usage:** Code example or usage scenario (if applicable)
+  - **Warning:** Important warnings about usage
+  - **Note:** Additional important information
+&lt;/Accordion&gt;
+</code></pre>
+<h2 id="performance-function-documentation">Performance Function Documentation</h2>
+<pre><code class="language-markdown">### Performance Function Name
+
+&lt;Accordion title=&quot;Performance Function Display Name&quot; icon=&quot;tachometer&quot;&gt;
+  - **Function:** `performanceFunctionName()`
+  - **Purpose:** Test and measure system performance
+  - **When to Use:** 
+    - When investigating performance issues
+    - During system optimization
+    - For performance monitoring
+  - **Output:** 
+    - Performance metrics in milliseconds
+    - Breakdown by operation phase
+    - Recommendations for optimization
+  - **Dependencies:** Access to system components being tested
+  - **Duration:** Varies based on system size and complexity
+  - **Example Output:**
+    ```
+    Phase 1: 50ms
+    Phase 2: 200ms
+    Phase 3: 100ms
+    Total: 350ms
+    ```
+  - **Performance Thresholds:**
+    - **Good:** &lt; 100ms per phase
+    - **Acceptable:** 100-500ms per phase
+    - **Poor:** &gt; 500ms per phase
+  - **Warning:** May consume significant system resources
+  - **Note:** Results may vary based on system load and data size
+&lt;/Accordion&gt;
+</code></pre>
+<h2 id="debug-function-documentation">Debug Function Documentation</h2>
+<pre><code class="language-markdown">### Debug Function Name
+
+&lt;Accordion title=&quot;Debug Function Display Name&quot; icon=&quot;bug&quot;&gt;
+  - **Function:** `debugFunctionName()`
+  - **Purpose:** Debug and diagnose system issues
+  - **When to Use:** 
+    - When system behavior is unexpected
+    - When troubleshooting specific issues
+    - During development and testing
+  - **Output:** 
+    - Debug information and diagnostics
+    - System state information
+    - Error details and recommendations
+  - **Dependencies:** Access to system components being debugged
+  - **Duration:** Usually quick (under 30 seconds)
+  - **Debug Levels:**
+    - **Basic:** Essential information only
+    - **Detailed:** Comprehensive diagnostic data
+    - **Verbose:** Complete system state dump
+  - **Warning:** May expose sensitive system information
+  - **Note:** Output should be reviewed by experienced developers
+&lt;/Accordion&gt;
+</code></pre>
+<h2 id="testing-function-documentation">Testing Function Documentation</h2>
+<pre><code class="language-markdown">### Test Function Name
+
+&lt;Accordion title=&quot;Test Function Display Name&quot; icon=&quot;flask&quot;&gt;
+  - **Function:** `testFunctionName()`
+  - **Purpose:** Test system functionality and validate behavior
+  - **When to Use:** 
+    - During development and testing
+    - After system changes
+    - For regression testing
+  - **Output:** 
+    - Test results and pass/fail status
+    - Detailed test metrics
+    - Recommendations for fixes (if tests fail)
+  - **Dependencies:** Access to system components being tested
+  - **Duration:** Varies based on test complexity
+  - **Test Coverage:**
+    - **Unit Tests:** Individual component testing
+    - **Integration Tests:** Component interaction testing
+    - **System Tests:** End-to-end functionality testing
+  - **Warning:** Tests may modify test data
+  - **Note:** Run in test environment when possible
+&lt;/Accordion&gt;
+</code></pre>
+<h2 id="legacy-function-documentation">Legacy Function Documentation</h2>
+<pre><code class="language-markdown">### Legacy Function Name
+
+&lt;Accordion title=&quot;Legacy Function Display Name&quot; icon=&quot;archive&quot;&gt;
+  - **Function:** `legacyFunctionName()`
+  - **Purpose:** Legacy system functionality (may be deprecated)
+  - **When to Use:** 
+    - For legacy system compatibility
+    - During system migration
+    - For historical data access
+  - **Output:** Legacy system results
+  - **Dependencies:** Legacy system components
+  - **Duration:** May be slower than modern alternatives
+  - **Status:** 
+    - **Active:** Currently maintained
+    - **Deprecated:** Will be removed in future versions
+    - **Legacy:** Replaced by newer functionality
+  - **Warning:** May not work with current system versions
+  - **Note:** Consider migrating to modern alternatives
+&lt;/Accordion&gt;
+</code></pre>
+<h2 id="usage-guidelines">Usage Guidelines</h2>
+<h3 id="icons">Icons</h3>
+<p>Use appropriate icons for different function types:
+- <code>code</code> - General development functions
+- <code>info</code> - Information and status functions
+- <code>wrench</code> - Repair and fix functions
+- <code>flask</code> - Testing functions
+- <code>bug</code> - Debug functions
+- <code>tachometer</code> - Performance functions
+- <code>archive</code> - Legacy functions
+- <code>shield-check</code> - Security and integrity functions</p>
+<h3 id="warnings-and-notes">Warnings and Notes</h3>
+<ul>
+<li>Use <strong>Warning</strong> for critical safety information</li>
+<li>Use <strong>Note</strong> for important but non-critical information</li>
+<li>Use <strong>Dependencies</strong> to list required system access</li>
+<li>Use <strong>Duration</strong> for functions that may take significant time</li>
+</ul>
+<h3 id="output-documentation">Output Documentation</h3>
+<ul>
+<li>Describe what the function returns</li>
+<li>Include example output when helpful</li>
+<li>Specify where to find results (console, UI, etc.)</li>
+<li>Mention any side effects or system changes</li>
+</ul>
+<h3 id="when-to-use-guidelines">When to Use Guidelines</h3>
+<ul>
+<li>Be specific about use cases</li>
+<li>Include both positive and negative use cases</li>
+<li>Mention alternatives when applicable</li>
+<li>Include timing considerations (when to run, how often)</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

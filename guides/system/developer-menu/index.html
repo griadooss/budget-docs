@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://griadooss.github.io/budget-docs/guides/system/developer-menu/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Developer Menu Reference - Budget Docs</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Budget Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../introduction/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../quickstart/" class="nav-link">Quickstart</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../introduction/" class="dropdown-item">Home</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Daily Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../daily-tasks/categorizing/" class="dropdown-item">Categorizing</a>
+</li>
+            
+<li>
+    <a href="../../daily-tasks/reconciling/" class="dropdown-item">Reconciling</a>
+</li>
+            
+<li>
+    <a href="../../daily-tasks/importing/" class="dropdown-item">Importing</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Monthly Tasks</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../monthly-tasks/end-of-month/" class="dropdown-item">End of Month</a>
+</li>
+            
+<li>
+    <a href="../../monthly-tasks/reporting/" class="dropdown-item">Reporting</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Yearly Tasks</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">End of Year</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../yearly-tasks/end-of-year/overview/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../yearly-tasks/end-of-year/setup/" class="dropdown-item">Setup</a>
+</li>
+            
+<li>
+    <a href="../../yearly-tasks/end-of-year/developer-guide/" class="dropdown-item">Developer Guide</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">User Manual</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../user-manual/basic-overview/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../user-manual/basic-operations/" class="dropdown-item">Operations</a>
+</li>
+            
+<li>
+    <a href="../../user-manual/getting-started/" class="dropdown-item">Starting</a>
+</li>
+            
+<li>
+    <a href="../../user-manual/menu-reference" class="dropdown-item">Menu</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">System</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../version/" class="dropdown-item">Version</a>
+</li>
+            
+<li>
+    <a href="../changelog/" class="dropdown-item">Changelog</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Troubleshooting</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../troubleshooting/common-issues/" class="dropdown-item">Common Issues</a>
+</li>
+            
+<li>
+    <a href="../../troubleshooting/using-ai-help/" class="dropdown-item">Using AI Help</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/griadooss/budget-docs/edit/master/docs/guides/system/developer-menu.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#developer-menu-reference" class="nav-link">Developer Menu Reference</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#developer-menu-overview" class="nav-link">🛠️ Developer Menu Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#dev-mode-controls" class="nav-link">🔧 Dev Mode Controls</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#system-status" class="nav-link">📊 System Status</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#triggers" class="nav-link">⚙️ Triggers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#integrity-checker" class="nav-link">🛡️ Integrity Checker</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#testing-tools" class="nav-link">🧪 Testing Tools</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#debug-tools" class="nav-link">🐛 Debug Tools</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#legacy-menu" class="nav-link">🏛️ Legacy Menu</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#important-notes" class="nav-link">🚨 Important Notes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#related-documentation" class="nav-link">📚 Related Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="developer-menu-reference">Developer Menu Reference</h1>
+<p><Note>
+  The Developer menu is only available when Developer Mode is enabled. To enable Developer Mode, go to <strong>ℹ️ Help &gt; Toggle Developer Mode</strong>.
+</Note></p>
+<p><Warning>
+  <strong>Developer Mode Warning:</strong> Developer mode bypasses critical safety checks and should only be used for development and testing purposes. Always disable Developer Mode for normal budget operations.
+</Warning></p>
+<h2 id="developer-menu-overview">🛠️ Developer Menu Overview</h2>
+<p>The Developer menu provides access to advanced system tools, debugging utilities, and legacy functions. It's organized into several submenus for easy navigation:</p>
+<ul>
+<li><strong>Dev Mode</strong> - Developer mode controls</li>
+<li><strong>System Status</strong> - System configuration management  </li>
+<li><strong>Triggers</strong> - Google Apps Script trigger management</li>
+<li><strong>Integrity Checker</strong> - System validation and repair tools</li>
+<li><strong>Testing Tools</strong> - Development testing utilities</li>
+<li><strong>Debug Tools</strong> - Diagnostic and debugging functions</li>
+<li><strong>Legacy</strong> - Legacy system tools and advanced testing</li>
+</ul>
+<h2 id="dev-mode-controls">🔧 Dev Mode Controls</h2>
+<p><AccordionGroup>
+  <Accordion title="Check Dev Mode Status" icon="info">
+    - <strong>Function:</strong> <code>checkDevMode()</code>
+    - <strong>Purpose:</strong> Display current developer mode status
+    - <strong>When to Use:</strong> Verify if developer mode is active
+    - <strong>Output:</strong> Shows current DEV_MODE property value
+    - <strong>Dependencies:</strong> None
+  </Accordion></p>
+<p><Accordion title="Enable Dev Mode" icon="toggle-on">
+    - <strong>Function:</strong> <code>enableDevMode()</code>
+    - <strong>Purpose:</strong> Turn on developer mode
+    - <strong>When to Use:</strong> When you need access to developer tools
+    - <strong>Effect:</strong> Enables all developer menu functions
+    - <strong>Dependencies:</strong> Script properties access
+  </Accordion></p>
+<p><Accordion title="Disable Dev Mode" icon="toggle-off">
+    - <strong>Function:</strong> <code>disableDevMode()</code>
+    - <strong>Purpose:</strong> Turn off developer mode
+    - <strong>When to Use:</strong> After completing development work
+    - <strong>Effect:</strong> Disables developer menu access
+    - <strong>Dependencies:</strong> Script properties access
+  </Accordion>
+</AccordionGroup></p>
+<h2 id="system-status">📊 System Status</h2>
+<p><AccordionGroup>
+  <Accordion title="Check Master Status" icon="info-circle">
+    - <strong>Function:</strong> <code>checkMasterStatus()</code>
+    - <strong>Purpose:</strong> Verify if current spreadsheet is the master
+    - <strong>When to Use:</strong> Before performing master-only operations
+    - <strong>Output:</strong> Shows IS_MASTER property and related status
+    - <strong>Dependencies:</strong> Script properties access
+  </Accordion></p>
+<p><Accordion title="Set as Master Spreadsheet" icon="crown">
+    - <strong>Function:</strong> <code>setAsMaster()</code>
+    - <strong>Purpose:</strong> Mark current spreadsheet as the master
+    - <strong>When to Use:</strong> When setting up a new master spreadsheet
+    - <strong>Effect:</strong> Sets IS_MASTER property to true
+    - <strong>Dependencies:</strong> Script properties access
+    - <strong>Warning:</strong> Only use on the intended master spreadsheet
+  </Accordion>
+</AccordionGroup></p>
+<h2 id="triggers">⚙️ Triggers</h2>
+<p><AccordionGroup>
+  <Accordion title="Install onEdit Trigger" icon="plus">
+    - <strong>Function:</strong> <code>installOnEditTrigger()</code>
+    - <strong>Purpose:</strong> Set up automatic edit detection
+    - <strong>When to Use:</strong> When automatic processing is needed
+    - <strong>Effect:</strong> Creates onEdit trigger for automatic processing
+    - <strong>Dependencies:</strong> Trigger creation permissions
+  </Accordion></p>
+<p><Accordion title="Remove onEdit Trigger" icon="minus">
+    - <strong>Function:</strong> <code>removeOnEditTrigger()</code>
+    - <strong>Purpose:</strong> Remove automatic edit detection
+    - <strong>When to Use:</strong> When automatic processing is not needed
+    - <strong>Effect:</strong> Deletes existing onEdit trigger
+    - <strong>Dependencies:</strong> Trigger management permissions
+  </Accordion>
+</AccordionGroup></p>
+<h2 id="integrity-checker">🛡️ Integrity Checker</h2>
+<p><AccordionGroup>
+  <Accordion title="Run Comprehensive Check" icon="shield-check">
+    - <strong>Function:</strong> <code>runComprehensiveIntegrityCheck()</code>
+    - <strong>Purpose:</strong> Full system validation and health check
+    - <strong>When to Use:</strong> When investigating system issues or before major changes
+    - <strong>Output:</strong> Detailed report of system integrity status
+    - <strong>Dependencies:</strong> Access to all system sheets
+    - <strong>Duration:</strong> May take several minutes for large datasets
+  </Accordion></p>
+<p><Accordion title="Quick Integrity Check" icon="bolt">
+    - <strong>Function:</strong> <code>quickIntegrityCheck()</code>
+    - <strong>Purpose:</strong> Fast validation check for common issues
+    - <strong>When to Use:</strong> Regular system health monitoring
+    - <strong>Output:</strong> Quick summary of critical issues
+    - <strong>Dependencies:</strong> Basic sheet access
+    - <strong>Duration:</strong> Usually completes in under 30 seconds
+  </Accordion></p>
+<p><Accordion title="Fix Corrupted Formulas" icon="wrench">
+    - <strong>Function:</strong> <code>fixCorruptedFormulas()</code>
+    - <strong>Purpose:</strong> Repair broken or corrupted formulas
+    - <strong>When to Use:</strong> When formulas are not calculating correctly
+    - <strong>Effect:</strong> Attempts to repair identified formula issues
+    - <strong>Dependencies:</strong> Write access to sheets with formulas
+    - <strong>Warning:</strong> Creates backup before making changes
+  </Accordion>
+</AccordionGroup></p>
+<h2 id="testing-tools">🧪 Testing Tools</h2>
+<p><AccordionGroup>
+  <Accordion title="Reset Month Statuses" icon="refresh">
+    - <strong>Function:</strong> <code>resetMonthStatuses()</code>
+    - <strong>Purpose:</strong> Reset month processing statuses
+    - <strong>When to Use:</strong> When month statuses are corrupted or incorrect
+    - <strong>Effect:</strong> Resets all month status flags to default state
+    - <strong>Dependencies:</strong> Write access to month status ranges
+    - <strong>Warning:</strong> May affect month processing workflow
+  </Accordion></p>
+<p><Accordion title="Validate Script Properties" icon="check-double">
+    - <strong>Function:</strong> <code>validateScriptProperties()</code>
+    - <strong>Purpose:</strong> Check script properties for consistency
+    - <strong>When to Use:</strong> When system behavior is unexpected
+    - <strong>Output:</strong> Report of script properties and their values
+    - <strong>Dependencies:</strong> Script properties access
+  </Accordion>
+</AccordionGroup></p>
+<h2 id="debug-tools">🐛 Debug Tools</h2>
+<p><AccordionGroup>
+  <Accordion title="Named Ranges Report" icon="list">
+    - <strong>Function:</strong> <code>verifyNamedRanges()</code>
+    - <strong>Purpose:</strong> Check spreadsheet named ranges
+    - <strong>When to Use:</strong> When named ranges are not working correctly
+    - <strong>Output:</strong> Complete list of all named ranges and their status
+    - <strong>Dependencies:</strong> Named ranges access
+  </Accordion></p>
+<p><Accordion title="View Stored Mappings" icon="eye">
+    - <strong>Function:</strong> <code>viewStoredMappings()</code>
+    - <strong>Purpose:</strong> Check stored bank configurations
+    - <strong>When to Use:</strong> When import mappings are not working
+    - <strong>Output:</strong> Display of all stored bank import mappings
+    - <strong>Dependencies:</strong> Stored mappings access
+  </Accordion></p>
+<p><Accordion title="Import History" icon="history">
+    - <strong>Function:</strong> <code>showImportHistory()</code>
+    - <strong>Purpose:</strong> View transaction import history
+    - <strong>When to Use:</strong> When investigating import issues
+    - <strong>Output:</strong> List of recent imports with timestamps and details
+    - <strong>Dependencies:</strong> Import history data access
+  </Accordion></p>
+<p><Accordion title="Re-sync ACTIVE Flags" icon="sync">
+    - <strong>Function:</strong> <code>cleanupActiveFlagInconsistencies()</code>
+    - <strong>Purpose:</strong> Manually sync category active status
+    - <strong>When to Use:</strong> When ACTIVE flags are out of sync
+    - <strong>Effect:</strong> Synchronizes ACTIVE flags across all categories
+    - <strong>Dependencies:</strong> Category data access
+  </Accordion></p>
+<p><Accordion title="Debug Income Budget Status" icon="chart-line">
+    - <strong>Function:</strong> <code>debugIncomeBudgetStatus()</code>
+    - <strong>Purpose:</strong> Debug income budget calculations
+    - <strong>When to Use:</strong> When income budget calculations are incorrect
+    - <strong>Output:</strong> Detailed analysis of income budget status
+    - <strong>Dependencies:</strong> Income budget data access
+  </Accordion>
+</AccordionGroup></p>
+<h2 id="legacy-menu">🏛️ Legacy Menu</h2>
+<p>The Legacy menu contains advanced developer tools and legacy system functions organized into specialized submenus.</p>
+<h3 id="legacy-system-cleanup">Legacy System Cleanup</h3>
+<p><AccordionGroup>
+  <Accordion title="Find Legacy Named Ranges" icon="search">
+    - <strong>Function:</strong> <code>findLegacyNamedRanges()</code>
+    - <strong>Purpose:</strong> Identify legacy named ranges from old system
+    - <strong>When to Use:</strong> During system cleanup or migration
+    - <strong>Output:</strong> List of legacy named ranges that can be removed
+    - <strong>Dependencies:</strong> Named ranges access
+  </Accordion></p>
+<p><Accordion title="Get Cleanup Instructions" icon="list-alt">
+    - <strong>Function:</strong> <code>getLegacyCleanupInstructions()</code>
+    - <strong>Purpose:</strong> Get step-by-step cleanup instructions
+    - <strong>When to Use:</strong> When removing legacy system components
+    - <strong>Output:</strong> Detailed instructions for legacy system removal
+    - <strong>Dependencies:</strong> None
+  </Accordion></p>
+<p><Accordion title="Run Legacy Transaction Scripts" icon="play">
+    - <strong>Function:</strong> <code>runAllNonMonthlyTranxScripts()</code>
+    - <strong>Purpose:</strong> Run legacy transaction processing scripts
+    - <strong>When to Use:</strong> For legacy system compatibility testing
+    - <strong>Effect:</strong> Executes legacy transaction processing (now disabled)
+    - <strong>Dependencies:</strong> Legacy transaction data
+    - <strong>Note:</strong> These functions are now disabled in favor of dynamic distribution
+  </Accordion>
+</AccordionGroup></p>
+<h3 id="cross-year-detection">Cross-Year Detection</h3>
+<p><AccordionGroup>
+  <Accordion title="Test Cross-Year Detection" icon="flask">
+    - <strong>Function:</strong> <code>testCrossYearDetection()</code>
+    - <strong>Purpose:</strong> Test cross-year duplicate detection system
+    - <strong>When to Use:</strong> When testing or debugging cross-year functionality
+    - <strong>Output:</strong> Test results and diagnostic information
+    - <strong>Dependencies:</strong> Cross-year detection system
+  </Accordion></p>
+<p><Accordion title="Quick Diagnose Cross-Year" icon="stethoscope">
+    - <strong>Function:</strong> <code>quickDiagnoseCrossYearIssue()</code>
+    - <strong>Purpose:</strong> Quick diagnostic for cross-year issues
+    - <strong>When to Use:</strong> When cross-year detection is not working
+    - <strong>Output:</strong> Quick diagnosis of cross-year detection problems
+    - <strong>Dependencies:</strong> Cross-year detection system
+  </Accordion></p>
+<p><Accordion title="Show Cross-Year Info" icon="info">
+    - <strong>Function:</strong> <code>showCrossYearDetectionInfo()</code>
+    - <strong>Purpose:</strong> Display cross-year detection information
+    - <strong>When to Use:</strong> When understanding cross-year system status
+    - <strong>Output:</strong> Information about cross-year detection configuration
+    - <strong>Dependencies:</strong> Cross-year detection system
+  </Accordion></p>
+<p><Accordion title="Debug Archived Master" icon="archive">
+    - <strong>Function:</strong> <code>debugArchivedMasterSearch()</code>
+    - <strong>Purpose:</strong> Debug archived master search functionality
+    - <strong>When to Use:</strong> When archived master search is not working
+    - <strong>Output:</strong> Debug information about archived master search
+    - <strong>Dependencies:</strong> Archive system access
+  </Accordion></p>
+<p><Accordion title="Debug Archive Detection" icon="search-plus">
+    - <strong>Function:</strong> <code>debugArchiveFileDetection()</code>
+    - <strong>Purpose:</strong> Debug archive file detection
+    - <strong>When to Use:</strong> When archive file detection is failing
+    - <strong>Output:</strong> Debug information about archive file detection
+    - <strong>Dependencies:</strong> Archive system access
+  </Accordion>
+</AccordionGroup></p>
+<h3 id="advanced-testing">Advanced Testing</h3>
+<p><AccordionGroup>
+  <Accordion title="Test Unified Categories" icon="flask">
+    - <strong>Function:</strong> <code>testUnifiedCategoryAddition()</code>
+    - <strong>Purpose:</strong> Test unified category addition system
+    - <strong>When to Use:</strong> When testing category addition functionality
+    - <strong>Output:</strong> Test results for category addition system
+    - <strong>Dependencies:</strong> Category system access
+  </Accordion></p>
+<p><Accordion title="Test Distribution Logic" icon="flask">
+    - <strong>Function:</strong> <code>testDistributionLogic()</code>
+    - <strong>Purpose:</strong> Test budget distribution logic
+    - <strong>When to Use:</strong> When testing distribution calculations
+    - <strong>Output:</strong> Test results for distribution logic
+    - <strong>Dependencies:</strong> Distribution system access
+  </Accordion></p>
+<p><Accordion title="Test Distribution with Maintain" icon="flask">
+    - <strong>Function:</strong> <code>testDistributionWithMaintainBudget()</code>
+    - <strong>Purpose:</strong> Test distribution with Maintain Budget integration
+    - <strong>When to Use:</strong> When testing distribution with Maintain Budget
+    - <strong>Output:</strong> Test results for distribution with Maintain Budget
+    - <strong>Dependencies:</strong> Maintain Budget and distribution system access
+  </Accordion></p>
+<p><Accordion title="Test Integrity Checker" icon="flask">
+    - <strong>Function:</strong> <code>testIntegrityChecker()</code>
+    - <strong>Purpose:</strong> Test integrity checker functionality
+    - <strong>When to Use:</strong> When testing integrity checker system
+    - <strong>Output:</strong> Test results for integrity checker
+    - <strong>Dependencies:</strong> Integrity checker system access
+  </Accordion></p>
+<p><Accordion title="Test Commitment Validation" icon="flask">
+    - <strong>Function:</strong> <code>testCommitmentValidation()</code>
+    - <strong>Purpose:</strong> Test commitment validation system
+    - <strong>When to Use:</strong> When testing commitment validation
+    - <strong>Output:</strong> Test results for commitment validation
+    - <strong>Dependencies:</strong> Commitment system access
+  </Accordion>
+</AccordionGroup></p>
+<h3 id="debug-diagnostics">Debug &amp; Diagnostics</h3>
+<p><AccordionGroup>
+  <Accordion title="Debug Template Check" icon="bug">
+    - <strong>Function:</strong> <code>debugTemplateCheck()</code>
+    - <strong>Purpose:</strong> Debug template checking functionality
+    - <strong>When to Use:</strong> When template checking is not working
+    - <strong>Output:</strong> Debug information about template checking
+    - <strong>Dependencies:</strong> Template system access
+  </Accordion></p>
+<p><Accordion title="Debug Template Comprehensive" icon="bug">
+    - <strong>Function:</strong> <code>debugTemplateComprehensive()</code>
+    - <strong>Purpose:</strong> Comprehensive template debugging
+    - <strong>When to Use:</strong> When detailed template debugging is needed
+    - <strong>Output:</strong> Comprehensive debug information about templates
+    - <strong>Dependencies:</strong> Template system access
+  </Accordion></p>
+<p><Accordion title="Debug Accounts" icon="bug">
+    - <strong>Function:</strong> <code>debugAccounts()</code>
+    - <strong>Purpose:</strong> Debug account mapping functionality
+    - <strong>When to Use:</strong> When account mapping is not working
+    - <strong>Output:</strong> Debug information about account mapping
+    - <strong>Dependencies:</strong> Account mapping system access
+  </Accordion></p>
+<p><Accordion title="Debug Annual Budget Contents" icon="bug">
+    - <strong>Function:</strong> <code>debugAnnualBudgetContents()</code>
+    - <strong>Purpose:</strong> Debug Annual Budget contents
+    - <strong>When to Use:</strong> When Annual Budget has issues
+    - <strong>Output:</strong> Debug information about Annual Budget contents
+    - <strong>Dependencies:</strong> Annual Budget access
+  </Accordion></p>
+<p><Accordion title="Debug Annual Budget Categories" icon="bug">
+    - <strong>Function:</strong> <code>debugAnnualBudgetCategories()</code>
+    - <strong>Purpose:</strong> Debug Annual Budget categories
+    - <strong>When to Use:</strong> When Annual Budget categories have issues
+    - <strong>Output:</strong> Debug information about Annual Budget categories
+    - <strong>Dependencies:</strong> Annual Budget access
+  </Accordion></p>
+<p><Accordion title="Debug GOVT Category" icon="bug">
+    - <strong>Function:</strong> <code>debugGOVTCategoryState()</code>
+    - <strong>Purpose:</strong> Debug GOVT category state
+    - <strong>When to Use:</strong> When GOVT category has issues
+    - <strong>Output:</strong> Debug information about GOVT category state
+    - <strong>Dependencies:</strong> GOVT category access
+  </Accordion>
+</AccordionGroup></p>
+<h3 id="performance-testing">Performance Testing</h3>
+<p><AccordionGroup>
+  <Accordion title="Test Sheet Access Performance" icon="tachometer">
+    - <strong>Function:</strong> <code>testSheetAccessPerformance()</code>
+    - <strong>Purpose:</strong> Test sheet access performance and identify bottlenecks
+    - <strong>When to Use:</strong> When investigating performance issues
+    - <strong>Output:</strong> Detailed performance metrics for sheet access operations
+    - <strong>Dependencies:</strong> Access to all system sheets
+    - <strong>Example Output:</strong>
+      <code>Get spreadsheet: 1ms
+      Get Cash Flow sheet: 457ms
+      Get Cash Flow data range: 200ms
+      Get Cash Flow values: 105ms
+      Total Sheet Access Time: 1223ms</code>
+  </Accordion></p>
+<p><Accordion title="Test Reconciliation Updates" icon="tachometer">
+    - <strong>Function:</strong> <code>testReconciliationDateUpdate()</code>
+    - <strong>Purpose:</strong> Test reconciliation date update performance
+    - <strong>When to Use:</strong> When reconciliation updates are slow
+    - <strong>Output:</strong> Performance metrics for reconciliation updates
+    - <strong>Dependencies:</strong> Reconciliation system access
+  </Accordion></p>
+<p><Accordion title="Test Loan Participants" icon="tachometer">
+    - <strong>Function:</strong> <code>testLoanParticipants()</code>
+    - <strong>Purpose:</strong> Test loan participants loading performance
+    - <strong>When to Use:</strong> When loan participant loading is slow
+    - <strong>Output:</strong> Performance metrics for loan participant loading
+    - <strong>Dependencies:</strong> Loan system access
+  </Accordion></p>
+<p><Accordion title="Test Loan Categories" icon="tachometer">
+    - <strong>Function:</strong> <code>testLoanCategories()</code>
+    - <strong>Purpose:</strong> Test loan category handling performance
+    - <strong>When to Use:</strong> When loan category operations are slow
+    - <strong>Output:</strong> Performance metrics for loan category operations
+    - <strong>Dependencies:</strong> Loan system access
+  </Accordion></p>
+<p><Accordion title="Bulk Performance Test" icon="tachometer">
+    - <strong>Function:</strong> <code>bulkPerformanceTest()</code>
+    - <strong>Purpose:</strong> Test bulk operations performance
+    - <strong>When to Use:</strong> When bulk operations are slow
+    - <strong>Output:</strong> Performance metrics for bulk operations
+    - <strong>Dependencies:</strong> Bulk operation system access
+  </Accordion>
+</AccordionGroup></p>
+<h2 id="important-notes">🚨 Important Notes</h2>
+<h3 id="developer-mode-safety">Developer Mode Safety</h3>
+<p><Warning>
+  <strong>Critical Safety Warning:</strong> Developer mode bypasses important safety checks and validation. Always disable Developer Mode when not actively developing or testing.
+</Warning></p>
+<h3 id="function-dependencies">Function Dependencies</h3>
+<p>Many developer functions require specific permissions and access levels:</p>
+<ul>
+<li><strong>Script Properties Access</strong> - Required for most configuration functions</li>
+<li><strong>Sheet Write Access</strong> - Required for repair and modification functions  </li>
+<li><strong>Trigger Management</strong> - Required for trigger installation/removal</li>
+<li><strong>System Data Access</strong> - Required for diagnostic and testing functions</li>
+</ul>
+<h3 id="performance-considerations">Performance Considerations</h3>
+<ul>
+<li><strong>Large Dataset Impact</strong> - Some functions may take several minutes on large datasets</li>
+<li><strong>Resource Usage</strong> - Performance testing functions may consume significant resources</li>
+<li><strong>Concurrent Usage</strong> - Avoid running multiple performance tests simultaneously</li>
+</ul>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>If developer functions are not working:</p>
+<ol>
+<li><strong>Check Developer Mode</strong> - Ensure Developer Mode is enabled</li>
+<li><strong>Verify Permissions</strong> - Ensure you have necessary script permissions</li>
+<li><strong>Check Dependencies</strong> - Verify all required system components are available</li>
+<li><strong>Review Console</strong> - Check browser console for error messages</li>
+<li><strong>Test Individually</strong> - Run functions one at a time to isolate issues</li>
+</ol>
+<h2 id="related-documentation">📚 Related Documentation</h2>
+<ul>
+<li><a href="menu-reference.md">Menu Reference</a> - Complete menu system overview</li>
+<li><a href="troubleshooting/common-issues.md">Troubleshooting Guide</a> - Common issues and solutions</li>
+<li><a href="yearly-tasks/end-of-year/developer-guide.md">EOY Developer Guide</a> - End of Year development</li>
+<li><a href="system/changelog.md">System Changelog</a> - System changes and updates</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
