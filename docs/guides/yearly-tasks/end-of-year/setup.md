@@ -105,8 +105,11 @@ If authorization fails, refresh the page and try again. The system includes retr
 
 ### 3.2 Run End of Month Process
 1. Go to **Period Processing** → **Run End of Month Process**
-2. Complete the final month processing for June
-3. This transitions the system from June to July
+2. **Commitment Validation Dialog** will appear if there are outstanding commitments:
+   - **NO = Fix Now:** Address commitments before proceeding
+   - **YES = Ignore:** Proceed with EOM despite outstanding commitments
+3. Complete the final month processing for June
+4. This transitions the system from June to July
 
 ## Step 4: Finalize Setup (New Copy)
 
@@ -178,6 +181,13 @@ If authorization fails, refresh the page and try again. The system includes retr
 ### ❌ "End of Month Processing Required"
 **Problem:** Finalization blocked
 **Solution:** Run "Period Processing → Run End of Month Process" first to transition from June to July
+
+### ❌ "Outstanding Commitments Warning"
+**Problem:** Commitment validation dialog appears during EOM processing
+**Solution:**
+- **NO = Fix Now:** Address the listed commitments before proceeding
+- **YES = Ignore:** Proceed with EOM despite outstanding commitments
+- Use the Reconciliation Dashboard to identify and fix commitment issues
 
 ## Quick Reference
 

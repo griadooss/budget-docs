@@ -44,6 +44,7 @@ The EOY process consists of **four main steps** with clear menu-driven progressi
 ### 3. **Continue Setup** (in New Copy)
    - **Menu Item:** "2. Continue EOY Setup" - Copy bank balances and clear transaction sheets
    - **Menu Item:** "Run End of Month Process" - Complete final month processing for fiscal year
+   - **Commitment Validation** - System checks for outstanding commitments with user choice (Fix Now vs Ignore)
 
 ### 4. **Finalization** (in New Copy)
    - **Menu Item:** "3. Finalize EOY Setup"
@@ -101,6 +102,12 @@ Before beginning the EOY process, ensure these conditions are met:
 1. **First** - Update ALL bank balances to be accurate as at June 30 (banks often apply monthly interest as final transaction)
 2. **Second** - Use 'Reconciliation Dashboard' to resolve any Cash Flow transaction issues (missing, extra, or unreconciled transactions)
 </Warning>
+
+### 4. **Commitment Validation** (User Choice)
+- System checks for outstanding commitments during End of Month processing
+- **User Choice Dialog:** Choose between "Fix Now" (NO) or "Ignore" (YES)
+- **Fix Now (NO):** Address commitments before proceeding with EOM
+- **Ignore (YES):** Proceed with EOM despite outstanding commitments
 
 ## Automated Master Archiving
 

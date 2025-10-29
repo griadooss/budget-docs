@@ -17,6 +17,8 @@ The EOY process has been significantly improved from the original design and now
 - **Three-Step Progressive Workflow** - Clear progression through setup phases
 - **Automated Master Archiving** - Previous master automatically archived on completion
 - **Comprehensive Verification** - Multiple validation checkpoints throughout process
+- **User Choice Dialogs** - Commitment validation with Fix Now vs Ignore options
+- **Draggable Warning Dialogs** - Improved user experience for all warning dialogs
 
 ### Core Functions and Files
 The EOY implementation is primarily contained in `src/utility/yearEndBudget.js`:
@@ -33,6 +35,8 @@ The EOY implementation is primarily contained in `src/utility/yearEndBudget.js`:
   - `copyBankBalancesToOpeningPositions()` - Transfer bank balances
   - `updateMonthlyHeaders()` - Update fiscal year headers across sheets
   - `archiveLegacyMaster()` - Automatic master archiving
+  - `validateCommitments()` - Check for outstanding commitments
+  - `checkAllBalances()` - Comprehensive balance validation
 
 ## Development and Testing Workflow
 
@@ -131,6 +135,71 @@ if (!isMaster && !eoySetupComplete && !eoyReadyForEom) {
    - Menu shows normal operational options
 
 ## Technical Implementation Details
+
+### Commitment Validation System
+
+The EOY process now includes a sophisticated commitment validation system that provides user choice rather than blocking:
+
+```javascript
+// In endOfMonthProcessing() - commitment validation
+if (!isDev && !eoyReadyForEom) {
+  const commitmentCheck = validateCommitments();
+  
+  if (!commitmentCheck.isValid) {
+    // Show user choice dialog instead of blocking
+    const userChoice = ui.alert(
+      "⚠️ Outstanding Commitments Warning",
+      `The following commitments have not been met for ${monthNames[currentMonth]} ${currentYear}:\n\n` +
+        commitmentCheck.issues.join("\n") +
+        "\n\n⚠️ WARNING: These commitments are outstanding.\n\n" +
+        "Choose your action:\n" +
+        "• NO = Fix Now: Address commitments before EOM processing\n" +
+        "• YES = Ignore: Proceed with EOM despite outstanding commitments",
+      ui.ButtonSet.YES_NO
+    );
+    
+    if (userChoice === ui.Button.NO) {
+      // User chose to fix commitments - block EOM
+      return;
+    }
+    // User chose to ignore - continue with EOM
+  }
+}
+```
+
+**Key Features:**
+- **Non-blocking Design:** Users can choose to proceed despite outstanding commitments
+- **Clear User Interface:** Intuitive button mapping (NO = Fix Now, YES = Ignore)
+- **Month/Year Display:** Shows correct month and year from script properties
+- **Detailed Issue Reporting:** Lists specific commitment problems for user review
+
+### Improved Dialog System
+
+All warning dialogs in the EOY process now use a draggable, user-friendly interface:
+
+```javascript
+// Example of draggable dialog implementation
+function showEOYSetupIncompleteDialog(issues) {
+  const htmlOutput = HtmlService.createHtmlOutput(`
+    <div style="font-family: Arial, sans-serif; padding: 20px;">
+      <h3>⚠️ EOY Setup Incomplete</h3>
+      <p>The following issues must be resolved before finalization:</p>
+      <ul>${issues.map(issue => `<li>${issue}</li>`).join('')}</ul>
+      <p>Please address these issues and try again.</p>
+    </div>
+  `)
+  .setWidth(500)
+  .setHeight(300);
+  
+  SpreadsheetApp.getUi().showModelessDialog(htmlOutput, "EOY Setup Incomplete");
+}
+```
+
+**Benefits:**
+- **Better User Experience:** Dialogs can be moved and don't block the interface
+- **Consistent Design:** All dialogs follow the same visual pattern
+- **Improved Readability:** Better formatting and layout for complex information
+- **Non-intrusive:** Users can continue working while reviewing dialog content
 
 ### Property Export/Import System
 
@@ -278,6 +347,8 @@ function archiveLegacyMaster(spreadsheetId, testMode = false) {
 - [ ] New copy marked as master successfully
 - [ ] Menu system updates to normal operational mode
 - [ ] All transaction sheets properly cleared
+- [ ] Commitment validation dialogs work correctly
+- [ ] User choice options (Fix Now vs Ignore) function properly
 
 #### Post-Testing Verification
 - [ ] Master functionality works in new spreadsheet
