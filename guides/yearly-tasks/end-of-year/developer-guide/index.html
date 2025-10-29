@@ -254,6 +254,8 @@
 <li><strong>Three-Step Progressive Workflow</strong> - Clear progression through setup phases</li>
 <li><strong>Automated Master Archiving</strong> - Previous master automatically archived on completion</li>
 <li><strong>Comprehensive Verification</strong> - Multiple validation checkpoints throughout process</li>
+<li><strong>User Choice Dialogs</strong> - Commitment validation with Fix Now vs Ignore options</li>
+<li><strong>Draggable Warning Dialogs</strong> - Improved user experience for all warning dialogs</li>
 </ul>
 <h3 id="core-functions-and-files">Core Functions and Files</h3>
 <p>The EOY implementation is primarily contained in <code>src/utility/yearEndBudget.js</code>:</p>
@@ -273,6 +275,8 @@
 <li><code>copyBankBalancesToOpeningPositions()</code> - Transfer bank balances</li>
 <li><code>updateMonthlyHeaders()</code> - Update fiscal year headers across sheets</li>
 <li><code>archiveLegacyMaster()</code> - Automatic master archiving</li>
+<li><code>validateCommitments()</code> - Check for outstanding commitments</li>
+<li><code>checkAllBalances()</code> - Comprehensive balance validation</li>
 </ul>
 <h2 id="development-and-testing-workflow">Development and Testing Workflow</h2>
 <h3 id="critical-development-process">Critical Development Process</h3>
@@ -366,6 +370,61 @@ if (!isMaster &amp;&amp; !eoySetupComplete &amp;&amp; !eoyReadyForEom) {
 <li>Menu shows normal operational options</li>
 </ol>
 <h2 id="technical-implementation-details">Technical Implementation Details</h2>
+<h3 id="commitment-validation-system">Commitment Validation System</h3>
+<p>The EOY process now includes a sophisticated commitment validation system that provides user choice rather than blocking:</p>
+<pre><code class="language-javascript">// In endOfMonthProcessing() - commitment validation
+if (!isDev &amp;&amp; !eoyReadyForEom) {
+  const commitmentCheck = validateCommitments();
+
+  if (!commitmentCheck.isValid) {
+    // Show user choice dialog instead of blocking
+    const userChoice = ui.alert(
+      &quot;⚠️ Outstanding Commitments Warning&quot;,
+      `The following commitments have not been met for ${monthNames[currentMonth]} ${currentYear}:\n\n` +
+        commitmentCheck.issues.join(&quot;\n&quot;) +
+        &quot;\n\n⚠️ WARNING: These commitments are outstanding.\n\n&quot; +
+        &quot;Choose your action:\n&quot; +
+        &quot;• NO = Fix Now: Address commitments before EOM processing\n&quot; +
+        &quot;• YES = Ignore: Proceed with EOM despite outstanding commitments&quot;,
+      ui.ButtonSet.YES_NO
+    );
+
+    if (userChoice === ui.Button.NO) {
+      // User chose to fix commitments - block EOM
+      return;
+    }
+    // User chose to ignore - continue with EOM
+  }
+}
+</code></pre>
+<p><strong>Key Features:</strong>
+- <strong>Non-blocking Design:</strong> Users can choose to proceed despite outstanding commitments
+- <strong>Clear User Interface:</strong> Intuitive button mapping (NO = Fix Now, YES = Ignore)
+- <strong>Month/Year Display:</strong> Shows correct month and year from script properties
+- <strong>Detailed Issue Reporting:</strong> Lists specific commitment problems for user review</p>
+<h3 id="improved-dialog-system">Improved Dialog System</h3>
+<p>All warning dialogs in the EOY process now use a draggable, user-friendly interface:</p>
+<pre><code class="language-javascript">// Example of draggable dialog implementation
+function showEOYSetupIncompleteDialog(issues) {
+  const htmlOutput = HtmlService.createHtmlOutput(`
+    &lt;div style=&quot;font-family: Arial, sans-serif; padding: 20px;&quot;&gt;
+      &lt;h3&gt;⚠️ EOY Setup Incomplete&lt;/h3&gt;
+      &lt;p&gt;The following issues must be resolved before finalization:&lt;/p&gt;
+      &lt;ul&gt;${issues.map(issue =&gt; `&lt;li&gt;${issue}&lt;/li&gt;`).join('')}&lt;/ul&gt;
+      &lt;p&gt;Please address these issues and try again.&lt;/p&gt;
+    &lt;/div&gt;
+  `)
+  .setWidth(500)
+  .setHeight(300);
+
+  SpreadsheetApp.getUi().showModelessDialog(htmlOutput, &quot;EOY Setup Incomplete&quot;);
+}
+</code></pre>
+<p><strong>Benefits:</strong>
+- <strong>Better User Experience:</strong> Dialogs can be moved and don't block the interface
+- <strong>Consistent Design:</strong> All dialogs follow the same visual pattern
+- <strong>Improved Readability:</strong> Better formatting and layout for complex information
+- <strong>Non-intrusive:</strong> Users can continue working while reviewing dialog content</p>
 <h3 id="property-exportimport-system">Property Export/Import System</h3>
 <p>The property management system ensures continuity between master and copy:</p>
 <pre><code class="language-javascript">// Export from master to hidden sheet
@@ -501,6 +560,8 @@ function importPropertiesFromSheet() {
 <li>[ ] New copy marked as master successfully</li>
 <li>[ ] Menu system updates to normal operational mode</li>
 <li>[ ] All transaction sheets properly cleared</li>
+<li>[ ] Commitment validation dialogs work correctly</li>
+<li>[ ] User choice options (Fix Now vs Ignore) function properly</li>
 </ul>
 <h4 id="post-testing-verification">Post-Testing Verification</h4>
 <ul>
