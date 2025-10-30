@@ -15,7 +15,7 @@ The EOY process has been significantly improved from the original design and now
 - **Month-Restricted Access** - Process only available in June (final fiscal month)
 - **State-Driven Menu System** - Menus adapt based on EOY completion status
 - **Three-Step Progressive Workflow** - Clear progression through setup phases
-- **Automated Master Archiving** - Previous master automatically archived on completion
+- **Guided Master Archiving** - User manually archives previous master with system guidance
 - **Comprehensive Verification** - Multiple validation checkpoints throughout process
 - **User Choice Dialogs** - Commitment validation with Fix Now vs Ignore options
 - **Draggable Warning Dialogs** - Improved user experience for all warning dialogs
@@ -34,7 +34,7 @@ The EOY implementation is primarily contained in `src/utility/yearEndBudget.js`:
   - `clearTransactionSheets()` - Clean Cash Flow and Bank Records sheets
   - `copyBankBalancesToOpeningPositions()` - Transfer bank balances
   - `updateMonthlyHeaders()` - Update fiscal year headers across sheets
-  - `archiveLegacyMaster()` - Automatic master archiving
+  - `archiveThisMaster()` - Manual master archiving (user-initiated)
   - `validateCommitments()` - Check for outstanding commitments
   - `checkAllBalances()` - Comprehensive balance validation
 
@@ -251,41 +251,79 @@ Multiple verification points ensure system integrity:
    - Annual Budget: Cell B106 = 0
    - Maintain Budget: Cell E120 = 0
 
-### Automatic Master Archiving
+### Manual Master Archiving Process
 
-The archiving system provides automatic legacy master management:
+The archiving system requires **user-initiated action** rather than automatic archiving:
+
+#### What Actually Happens During EOY Finalization
 
 ```javascript
-function archiveLegacyMaster(spreadsheetId, testMode = false) {
+// In proceedWithFinalization() - NO automatic archiving occurs
+function proceedWithFinalization() {
+  // 1. Mark new copy as master
+  props.setProperty("IS_MASTER", "true");
+  props.setProperty("EOY_SETUP_COMPLETE", "true");
+  
+  // 2. Show completion dialog with archiving instructions
+  const htmlContent = `
+    <h3>THEN: Archive Your Old Spreadsheet</h3>
+    <p><strong>Go to your old spreadsheet (last year's budget) and archive it:</strong></p>
+    <p>Settings → ⚠️ Advanced → Archive This Master</p>
+  `;
+  
+  // 3. User must manually navigate to old master and run archiveThisMaster()
+  // NO automatic archiving happens here
+}
+```
+
+#### User-Initiated Archiving Function
+
+```javascript
+function archiveThisMaster() {
   try {
-    const targetSS = SpreadsheetApp.openById(spreadsheetId);
-    const fiscalYear = getFiscalYearFromSpreadsheet(targetSS);
-
-    if (testMode) {
-      // Create test copy for verification
-      return targetSS.copy(`${targetSS.getName()}_ARCHIVED_TEST`);
-    }
-
-    // Rename with archived suffix
-    const newName = `${targetSS.getName()}_ARCHIVED_FY${fiscalYear}`;
-    targetSS.rename(newName);
-
-    // Add hidden archive metadata sheet
-    const archiveSheet = targetSS.insertSheet("_Archive");
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ui = SpreadsheetApp.getUi();
+    
+    // 1. Get fiscal year for naming
+    const fiscalYear = getFiscalYearFromSpreadsheet(ss);
+    const currentName = ss.getName();
+    const archiveName = `${currentName}_ARCHIVED_FY${fiscalYear.toString().slice(-2)}`;
+    
+    // 2. Confirm with user
+    const confirmResponse = ui.alert(
+      "📦 Archive This Master",
+      `This will rename to: "${archiveName}" and mark as archived. Continue?`,
+      ui.ButtonSet.YES_NO
+    );
+    
+    if (confirmResponse !== ui.Button.YES) return false;
+    
+    // 3. Create archive metadata sheet
+    const archiveSheet = ss.insertSheet("_Archive");
     archiveSheet.hideSheet();
-
-    // Set archive metadata
-    archiveSheet.getRange("A1").setValue("ARCHIVED_DATE");
-    archiveSheet.getRange("B1").setValue(new Date());
-    archiveSheet.getRange("A2").setValue("FORMER_MASTER");
-    archiveSheet.getRange("B2").setValue(true);
-
+    
+    // 4. Update properties to mark as archived
+    props.setProperty("IS_MASTER", "false");
+    props.setProperty("IS_ARCHIVED", "true");
+    props.setProperty("ARCHIVED_DATE", new Date().toISOString());
+    
+    // 5. Rename the spreadsheet
+    ss.rename(archiveName);
+    
+    return true;
   } catch (error) {
-    console.error("Error archiving legacy master:", error);
-    throw error;
+    console.error("Error in archiveThisMaster:", error);
+    return false;
   }
 }
 ```
+
+#### Key Technical Points
+
+- **No Automatic Archiving:** The EOY finalization does NOT automatically archive the old master
+- **User Control:** Archiving is completely user-initiated via Settings menu
+- **Two-Step Process:** EOY finalization + Manual archiving = Complete EOY process
+- **Reversible:** `restoreFromArchive()` function can undo the archiving
 
 ## Known Technical Limitations
 

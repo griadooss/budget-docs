@@ -119,10 +119,12 @@ If authorization fails, refresh the page and try again. The system includes retr
 3. System automatically:
    - Marks this as the new master spreadsheet
 
-### 4.2 Archive Legacy Master
-1. **Go back to your original master spreadsheet**
+### 4.2 Archive Legacy Master (Manual Step)
+1. **Go back to your original master spreadsheet** (the one you copied from)
 2. Go to **Settings** → **⚠️ Advanced** → **Archive This Master**
-3. This completes the EOY process
+3. **Confirm archiving** when prompted
+4. System will automatically rename and mark as archived
+5. This completes the EOY process
 
 ## What Happens Automatically
 
@@ -136,7 +138,7 @@ If authorization fails, refresh the page and try again. The system includes retr
 ### 📋 You Must Do These Tasks
 - **Update budget amounts** for income and expenses
 - **Ensure budget balance** (Cell E120 = $0.00)
-- **Archive the legacy master** manually
+- **Archive the legacy master** manually (go to old master → Settings → Archive This Master)
 
 ## After EOY Completion
 

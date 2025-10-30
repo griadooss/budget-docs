@@ -109,23 +109,34 @@ Before beginning the EOY process, ensure these conditions are met:
 - **Fix Now (NO):** Address commitments before proceeding with EOM
 - **Ignore (YES):** Proceed with EOM despite outstanding commitments
 
-## Automated Master Archiving
+## Master Archiving Process
 
-One of the key improvements in the current EOY process is **automatic archiving** of your previous master spreadsheet:
+The EOY process includes a **guided archiving system** for your previous master spreadsheet:
 
-### What Happens Automatically
+### What Happens During Finalization
 When you complete "3. Finalize EOY Setup":
 
 1. **New copy becomes the master** - Marked with `IS_MASTER = true`
-2. **Previous master is automatically renamed** - Gets "_ARCHIVED_FY{year}" suffix
-3. **Archive metadata is added** - Hidden "_Archive" sheet with archival information
-4. **Clear separation** - No confusion about which spreadsheet to use
+2. **Completion dialog appears** - Shows next steps including archiving instructions
+3. **Old master remains active** - Still accessible and functional
+4. **User guidance provided** - Clear instructions for manual archiving
+
+### Manual Archiving Required
+After EOY finalization, you must manually archive the old master:
+
+1. **Go to your old master spreadsheet** (the one you copied from)
+2. **Navigate to Settings → ⚠️ Advanced → Archive This Master**
+3. **Confirm archiving** when prompted
+4. **System automatically:**
+   - Renames spreadsheet with "_ARCHIVED_FY{year}" suffix
+   - Adds archive metadata in hidden "_Archive" sheet
+   - Marks as archived (`IS_ARCHIVED = true`)
 
 ### Benefits
-- **No manual archiving required** - System handles it automatically
+- **User control** - You decide when to archive the old master
 - **Clear naming convention** - Archived spreadsheets are easily identifiable
 - **Preserved history** - All previous data remains intact and accessible
-- **Reduced errors** - No risk of accidentally using the wrong spreadsheet
+- **Reversible process** - Can restore from archive if needed
 
 ## Authorization Process
 
