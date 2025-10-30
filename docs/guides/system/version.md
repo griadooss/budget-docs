@@ -168,9 +168,10 @@ description: 'Current version and update information'
 ## Support Information
 
 ### Getting Help
-- **User Manual** - Comprehensive documentation
+- **Online Documentation** - Comprehensive documentation (accessible via ℹ️ Help > Online Documentation)
+- **User Manual Section** - Detailed user guides in the online documentation
 - **Troubleshooting Guide** - Common issues and solutions
-- **Developer Mode** - Advanced debugging tools
+- **Developer Mode** - Advanced debugging tools (accessible via ℹ️ Help > Toggle Developer Mode)
 - **Performance Diagnostics** - System health monitoring
 
 ### Contact Information

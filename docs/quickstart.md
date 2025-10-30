@@ -167,7 +167,6 @@ Get help with common issues
 
 ## Getting Help
 
-- **User Manual:** Click ℹ️ Help > User Manual
 - **Online Documentation:** Click ℹ️ Help > Online Documentation
 - **Version Info:** Click ℹ️ Help > About (Version Info)
 - **Developer Mode:** Click ℹ️ Help > Toggle Developer Mode (for advanced users)
