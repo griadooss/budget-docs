@@ -216,7 +216,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#automated-master-archiving" class="nav-link">Automated Master Archiving</a>
+            <li class="nav-item" data-bs-level="2"><a href="#master-archiving-process" class="nav-link">Master Archiving Process</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -339,22 +339,33 @@ The menu system automatically adapts based on your EOY completion status, ensuri
 <li><strong>Fix Now (NO):</strong> Address commitments before proceeding with EOM</li>
 <li><strong>Ignore (YES):</strong> Proceed with EOM despite outstanding commitments</li>
 </ul>
-<h2 id="automated-master-archiving">Automated Master Archiving</h2>
-<p>One of the key improvements in the current EOY process is <strong>automatic archiving</strong> of your previous master spreadsheet:</p>
-<h3 id="what-happens-automatically">What Happens Automatically</h3>
+<h2 id="master-archiving-process">Master Archiving Process</h2>
+<p>The EOY process includes a <strong>guided archiving system</strong> for your previous master spreadsheet:</p>
+<h3 id="what-happens-during-finalization">What Happens During Finalization</h3>
 <p>When you complete "3. Finalize EOY Setup":</p>
 <ol>
 <li><strong>New copy becomes the master</strong> - Marked with <code>IS_MASTER = true</code></li>
-<li><strong>Previous master is automatically renamed</strong> - Gets "_ARCHIVED_FY{year}" suffix</li>
-<li><strong>Archive metadata is added</strong> - Hidden "_Archive" sheet with archival information</li>
-<li><strong>Clear separation</strong> - No confusion about which spreadsheet to use</li>
+<li><strong>Completion dialog appears</strong> - Shows next steps including archiving instructions</li>
+<li><strong>Old master remains active</strong> - Still accessible and functional</li>
+<li><strong>User guidance provided</strong> - Clear instructions for manual archiving</li>
+</ol>
+<h3 id="manual-archiving-required">Manual Archiving Required</h3>
+<p>After EOY finalization, you must manually archive the old master:</p>
+<ol>
+<li><strong>Go to your old master spreadsheet</strong> (the one you copied from)</li>
+<li><strong>Navigate to Settings → ⚠️ Advanced → Archive This Master</strong></li>
+<li><strong>Confirm archiving</strong> when prompted</li>
+<li><strong>System automatically:</strong></li>
+<li>Renames spreadsheet with "_ARCHIVED_FY{year}" suffix</li>
+<li>Adds archive metadata in hidden "_Archive" sheet</li>
+<li>Marks as archived (<code>IS_ARCHIVED = true</code>)</li>
 </ol>
 <h3 id="benefits">Benefits</h3>
 <ul>
-<li><strong>No manual archiving required</strong> - System handles it automatically</li>
+<li><strong>User control</strong> - You decide when to archive the old master</li>
 <li><strong>Clear naming convention</strong> - Archived spreadsheets are easily identifiable</li>
 <li><strong>Preserved history</strong> - All previous data remains intact and accessible</li>
-<li><strong>Reduced errors</strong> - No risk of accidentally using the wrong spreadsheet</li>
+<li><strong>Reversible process</strong> - Can restore from archive if needed</li>
 </ul>
 <h2 id="authorization-process">Authorization Process</h2>
 <p>When working with a new copy, you'll need to authorize the scripts. <strong>Don't worry - this is normal and safe:</strong></p>
