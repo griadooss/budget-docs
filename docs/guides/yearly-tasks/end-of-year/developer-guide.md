@@ -247,9 +247,9 @@ Multiple verification points ensure system integrity:
    - Ensures proper formula references
 
 3. **Balance Verification** (in `finalizeEOYSetup()`)
-   - Banks sheet: Cell C30 = 0
-   - Annual Budget: Cell B106 = 0
-   - Maintain Budget: Cell E120 = 0
+   - Banks sheet: "BOOKS BALANCED" indicator = 0
+   - Annual Budget: "BUDGET BALANCED" indicator = 0
+   - Maintain Budget: Balance indicator = 0
 
 ### Manual Master Archiving Process
 

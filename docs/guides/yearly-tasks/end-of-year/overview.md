@@ -87,9 +87,9 @@ Before beginning the EOY process, ensure these conditions are met:
 - All transactions properly categorized and reconciled
 
 ### 3. **Balanced Sheets** (CRITICAL - Strictly Enforced)
-- **Banks sheet:** Zero balance in cell C30
-- **Annual Budget sheet:** Zero balance in cell B106
-- **Maintain Budget sheet:** Zero balance in cell E120
+- **Banks sheet:** "BOOKS BALANCED" indicator must show $0.00
+- **Annual Budget sheet:** "BUDGET BALANCED" indicator must show $0.00
+- **Maintain Budget sheet:** Balance indicator must show $0.00
 
 <Warning>
 **🚨 CRITICAL REQUIREMENT:** The system now **strictly enforces** balance checking and will **block the EOY process** if any sheet is unbalanced.
@@ -101,6 +101,7 @@ Before beginning the EOY process, ensure these conditions are met:
 **💡 Solution:**
 1. **First** - Update ALL bank balances to be accurate as at June 30 (banks often apply monthly interest as final transaction)
 2. **Second** - Use 'Reconciliation Dashboard' to resolve any Cash Flow transaction issues (missing, extra, or unreconciled transactions)
+3. **Third** - Ensure all three balance indicators show $0.00 before starting EOY process
 </Warning>
 
 ### 4. **Commitment Validation** (User Choice)

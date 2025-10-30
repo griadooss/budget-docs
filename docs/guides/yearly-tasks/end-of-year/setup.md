@@ -17,9 +17,9 @@ This guide provides simple, direct instructions for completing the End of Year (
 
 1. **Current month must be June** - System automatically checks this
 2. **All balances must be zero:**
-   - **Banks sheet:** Cell C30 = $0.00
-   - **Annual Budget sheet:** Cell B106 = $0.00
-   - **Maintain Budget sheet:** Cell E120 = $0.00
+   - **Banks sheet:** "BOOKS BALANCED" indicator = $0.00
+   - **Annual Budget sheet:** "BUDGET BALANCED" indicator = $0.00
+   - **Maintain Budget sheet:** Balance indicator = $0.00
 
 <Warning>
 **Critical:** If any balance is not zero, the EOY process will be blocked. Fix balance issues using the Reconciliation Dashboard before starting EOY.
@@ -90,7 +90,7 @@ If authorization fails, refresh the page and try again. The system includes retr
 ### 2.3 Update Budget Amounts
 1. **Income Section:** Update all income amounts for new year
 2. **Expense Section:** Update all expense amounts for new year
-3. **Ensure balance:** Cell E120 must show $0.00
+3. **Ensure balance:** Maintain Budget balance indicator must show $0.00
 4. Click **REFRESH** button at bottom of configuration
 
 ## Step 3: Continue Setup (New Copy)
@@ -137,7 +137,7 @@ If authorization fails, refresh the page and try again. The system includes retr
 
 ### 📋 You Must Do These Tasks
 - **Update budget amounts** for income and expenses
-- **Ensure budget balance** (Cell E120 = $0.00)
+- **Ensure budget balance** (Maintain Budget balance indicator = $0.00)
 - **Archive the legacy master** manually (go to old master → Settings → Archive This Master)
 
 ## After EOY Completion
@@ -201,10 +201,10 @@ If authorization fails, refresh the page and try again. The system includes retr
 5. **New Copy:** Period Processing → 3. Finalize EOY Setup
 6. **Master:** Settings → ⚠️ Advanced → Archive This Master
 
-### Critical Cells
-- **Banks balance:** C30 = $0.00
-- **Annual Budget balance:** B106 = $0.00
-- **Maintain Budget balance:** E120 = $0.00
+### Critical Balance Indicators
+- **Banks sheet:** "BOOKS BALANCED" indicator = $0.00
+- **Annual Budget sheet:** "BUDGET BALANCED" indicator = $0.00
+- **Maintain Budget sheet:** Balance indicator = $0.00
 
 ### Key Dates
 - **EOY Start:** June (final fiscal month)
