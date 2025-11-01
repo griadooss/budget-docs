@@ -249,32 +249,34 @@
 <li>Run the end of month process when ready</li>
 </ol>
 <p><Tip>
-  <strong>Best Practices:</strong>
-  - Import weekly to stay current
-  - Always check for duplicates
-  - Verify account mappings before import
-  - Reconcile before month-end
-</Tip></p>
+  <strong>Best Practices:</strong></p>
+<ul>
+<li>Import weekly to stay current</li>
+<li>Always check for duplicates</li>
+<li>Verify account mappings before import</li>
+<li>Reconcile before month-end
+</Tip></li>
+</ul>
 <h2 id="importing-bank-statements">Importing Bank Statements</h2>
 <p><AccordionGroup>
   <Accordion title="Import Bank Transactions" icon="file-import">
     <strong>Access:</strong> 🏦 Budget &gt; Import Bank Transactions</p>
 <pre><code>### Method 1: Paste Data
-1. **Create new sheet** - Click the + button at the bottom
-2. **Copy bank data** - From your bank statement or exported file
-3. **Paste into sheet** - Include headers in the paste
-4. **Select bank format** - Choose your bank type (NAB, CommBank, etc.)
-5. **Review column mapping** - Verify date, amount, description columns
-6. **Enter account balance** - Manually enter the statement balance
-7. **Set lookback days** - Default 7 days for duplicate detection
-8. **Click "Process Import"** - Review results and handle duplicates
+1. &lt;strong&gt;Create new sheet&lt;/strong&gt; - Click the + button at the bottom
+2. &lt;strong&gt;Copy bank data&lt;/strong&gt; - From your bank statement or exported file
+3. &lt;strong&gt;Paste into sheet&lt;/strong&gt; - Include headers in the paste
+4. &lt;strong&gt;Select bank format&lt;/strong&gt; - Choose your bank type (NAB, CommBank, etc.)
+5. &lt;strong&gt;Review column mapping&lt;/strong&gt; - Verify date, amount, description columns
+6. &lt;strong&gt;Enter account balance&lt;/strong&gt; - Manually enter the statement balance
+7. &lt;strong&gt;Set lookback days&lt;/strong&gt; - Default 7 days for duplicate detection
+8. &lt;strong&gt;Click "Process Import"&lt;/strong&gt; - Review results and handle duplicates
 
 ### Method 2: Manual Entry
-1. **Switch to Manual tab** - Click "Manual Entry" tab
-2. **Add transactions** - Fill in date, amount, description, account, type
-3. **Click "Add Transaction"** - Add to pending list
-4. **Review pending list** - Check all transactions before processing
-5. **Click "Process All"** - Import all manual transactions
+1. &lt;strong&gt;Switch to Manual tab&lt;/strong&gt; - Click "Manual Entry" tab
+2. &lt;strong&gt;Add transactions&lt;/strong&gt; - Fill in date, amount, description, account, type
+3. &lt;strong&gt;Click "Add Transaction"&lt;/strong&gt; - Add to pending list
+4. &lt;strong&gt;Review pending list&lt;/strong&gt; - Check all transactions before processing
+5. &lt;strong&gt;Click "Process All"&lt;/strong&gt; - Import all manual transactions
 
 ### Duplicate Detection
 - System automatically checks for duplicates within lookback period
@@ -284,12 +286,12 @@
 <p></Accordion></p>
 <p><Accordion title="Bank Format Support" icon="bank">
     <strong>Supported Formats:</strong></p>
-<pre><code>- **NAB Credit Card:** Date, Amount, Description, Card Number
-- **NAB Bank Account:** Date, Amount, Description, Account Number
-- **CommBank:** Transaction Date, Debit/Credit Amount, Description, Reference
-- **Other Banks:** Flexible format with date, amount, description
+<pre><code>- &lt;strong&gt;NAB Credit Card:&lt;/strong&gt; Date, Amount, Description, Card Number
+- &lt;strong&gt;NAB Bank Account:&lt;/strong&gt; Date, Amount, Description, Account Number
+- &lt;strong&gt;CommBank:&lt;/strong&gt; Transaction Date, Debit/Credit Amount, Description, Reference
+- &lt;strong&gt;Other Banks:&lt;/strong&gt; Flexible format with date, amount, description
 
-**Column Mapping:**
+&lt;strong&gt;Column Mapping:&lt;/strong&gt;
 - System automatically detects common column patterns
 - Manual adjustment available if needed
 - Save mappings for future imports
@@ -301,40 +303,40 @@
   <Accordion title="Reconciliation Dashboard" icon="check-double">
     <strong>Access:</strong> 🏦 Budget &gt; Reconciliation Dashboard</p>
 <pre><code>### Opening the Dashboard
-1. **Click menu option** - Opens side-by-side transaction view
-2. **Review transactions** - Cash Flow (left) vs Bank Records (right)
-3. **Check auto-matches** - Green highlighted transactions are auto-matched
-4. **Handle unmatched** - Review and categorize unmatched transactions
+1. &lt;strong&gt;Click menu option&lt;/strong&gt; - Opens side-by-side transaction view
+2. &lt;strong&gt;Review transactions&lt;/strong&gt; - Cash Flow (left) vs Bank Records (right)
+3. &lt;strong&gt;Check auto-matches&lt;/strong&gt; - Green highlighted transactions are auto-matched
+4. &lt;strong&gt;Handle unmatched&lt;/strong&gt; - Review and categorize unmatched transactions
 
 ### Transaction Matching
-- **Auto-matches:** System matches by amount and date (green highlight)
-- **Manual matches:** Click "Find Match" for unmatched transactions
-- **Split transactions:** Blue highlighted groups for split transactions
-- **Bulk reconciliation:** Select multiple transactions for batch processing
+- &lt;strong&gt;Auto-matches:&lt;/strong&gt; System matches by amount and date (green highlight)
+- &lt;strong&gt;Manual matches:&lt;/strong&gt; Click "Find Match" for unmatched transactions
+- &lt;strong&gt;Split transactions:&lt;/strong&gt; Blue highlighted groups for split transactions
+- &lt;strong&gt;Bulk reconciliation:&lt;/strong&gt; Select multiple transactions for batch processing
 
 ### Category Assignment
-- **Single transactions:** Select category and subcategory
-- **Split transactions:** Divide amount across multiple categories
-- **Description editing:** Modify transaction descriptions
-- **Account verification:** Confirm correct account assignment
+- &lt;strong&gt;Single transactions:&lt;/strong&gt; Select category and subcategory
+- &lt;strong&gt;Split transactions:&lt;/strong&gt; Divide amount across multiple categories
+- &lt;strong&gt;Description editing:&lt;/strong&gt; Modify transaction descriptions
+- &lt;strong&gt;Account verification:&lt;/strong&gt; Confirm correct account assignment
 </code></pre>
 <p></Accordion></p>
 <p><Accordion title="Reconciliation Process" icon="arrows-split-up-and-left">
     ### Step-by-Step Process</p>
-<pre><code>1. **Review auto-matches** - Verify green highlighted transactions
-2. **Reconcile matches** - Click "Reconcile Match" for verified pairs
-3. **Handle unmatched** - Click "Add to Cash Flow" for bank-only transactions
-4. **Categorize transactions** - Assign categories and subcategories
-5. **Process splits** - Handle split transactions with multiple categories
-6. **Verify balances** - Ensure all transactions are accounted for
-7. **Refresh dashboard** - Click refresh to update status
+<pre><code>1. &lt;strong&gt;Review auto-matches&lt;/strong&gt; - Verify green highlighted transactions
+2. &lt;strong&gt;Reconcile matches&lt;/strong&gt; - Click "Reconcile Match" for verified pairs
+3. &lt;strong&gt;Handle unmatched&lt;/strong&gt; - Click "Add to Cash Flow" for bank-only transactions
+4. &lt;strong&gt;Categorize transactions&lt;/strong&gt; - Assign categories and subcategories
+5. &lt;strong&gt;Process splits&lt;/strong&gt; - Handle split transactions with multiple categories
+6. &lt;strong&gt;Verify balances&lt;/strong&gt; - Ensure all transactions are accounted for
+7. &lt;strong&gt;Refresh dashboard&lt;/strong&gt; - Click refresh to update status
 
 ### Split Transactions
-- **Identify splits:** Look for blue highlighted transaction groups
-- **Click "Find Match"** - Locate corresponding bank transaction
-- **Divide amount:** Split across multiple categories as needed
-- **Verify total:** Ensure split amounts equal bank transaction
-- **Reconcile group:** Click "Reconcile Match" for complete split
+- &lt;strong&gt;Identify splits:&lt;/strong&gt; Look for blue highlighted transaction groups
+- &lt;strong&gt;Click "Find Match"&lt;/strong&gt; - Locate corresponding bank transaction
+- &lt;strong&gt;Divide amount:&lt;/strong&gt; Split across multiple categories as needed
+- &lt;strong&gt;Verify total:&lt;/strong&gt; Ensure split amounts equal bank transaction
+- &lt;strong&gt;Reconcile group:&lt;/strong&gt; Click "Reconcile Match" for complete split
 </code></pre>
 <p></Accordion>
 </AccordionGroup></p>
