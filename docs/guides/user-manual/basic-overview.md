@@ -21,8 +21,11 @@ description: 'Summary of daily tasks in the Budget System'
 </Steps>
 
 <Tip>
-  **Best Practices** - Import weekly to stay current - Always check for
-  duplicates - Verify account mappings before import - Reconcile before month-end
+  **Best Practices:**
+  - Import weekly to stay current
+  - Always check for duplicates
+  - Verify account mappings before import
+  - Reconcile before month-end
 </Tip>
 
 ## Importing Bank Statements
