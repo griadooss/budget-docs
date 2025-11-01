@@ -12,13 +12,11 @@ description: 'Summary of daily tasks in the Budget System'
 
 ## Workflow
 
-<Steps>
-  1. Download your bank statements (UBank, NAB, or other banks)
-  2. Import the bank statements using the Import Wizard
-  3. Reconcile transactions using the Reconciliation Dashboard
-  4. Add any missing income or cash expenses
-  5. Run the end of month process when ready
-</Steps>
+1. Download your bank statements (UBank, NAB, or other banks)
+2. Import the bank statements using the Import Wizard
+3. Reconcile transactions using the Reconciliation Dashboard
+4. Add any missing income or cash expenses
+5. Run the end of month process when ready
 
 <Tip>
   **Best Practices:**
@@ -59,6 +57,7 @@ description: 'Summary of daily tasks in the Budget System'
 
   <Accordion title="Bank Format Support" icon="bank">
     **Supported Formats:**
+    
     - **NAB Credit Card:** Date, Amount, Description, Card Number
     - **NAB Bank Account:** Date, Amount, Description, Account Number
     - **CommBank:** Transaction Date, Debit/Credit Amount, Description, Reference
@@ -98,6 +97,7 @@ description: 'Summary of daily tasks in the Budget System'
 
   <Accordion title="Reconciliation Process" icon="arrows-split-up-and-left">
     ### Step-by-Step Process
+    
     1. **Review auto-matches** - Verify green highlighted transactions
     2. **Reconcile matches** - Click "Reconcile Match" for verified pairs
     3. **Handle unmatched** - Click "Add to Cash Flow" for bank-only transactions
