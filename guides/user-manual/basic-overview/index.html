@@ -241,13 +241,13 @@
   System. Master these for effective budget management.
 </Note></p>
 <h2 id="workflow">Workflow</h2>
-<p><Steps>
-  1. Download your bank statements (UBank, NAB, or other banks)
-  2. Import the bank statements using the Import Wizard
-  3. Reconcile transactions using the Reconciliation Dashboard
-  4. Add any missing income or cash expenses
-  5. Run the end of month process when ready
-</Steps></p>
+<ol>
+<li>Download your bank statements (UBank, NAB, or other banks)</li>
+<li>Import the bank statements using the Import Wizard</li>
+<li>Reconcile transactions using the Reconciliation Dashboard</li>
+<li>Add any missing income or cash expenses</li>
+<li>Run the end of month process when ready</li>
+</ol>
 <p><Tip>
   <strong>Best Practices:</strong>
   - Import weekly to stay current
@@ -283,12 +283,13 @@
 </code></pre>
 <p></Accordion></p>
 <p><Accordion title="Bank Format Support" icon="bank">
-    <strong>Supported Formats:</strong>
-    - <strong>NAB Credit Card:</strong> Date, Amount, Description, Card Number
-    - <strong>NAB Bank Account:</strong> Date, Amount, Description, Account Number
-    - <strong>CommBank:</strong> Transaction Date, Debit/Credit Amount, Description, Reference
-    - <strong>Other Banks:</strong> Flexible format with date, amount, description</p>
-<pre><code>**Column Mapping:**
+    <strong>Supported Formats:</strong></p>
+<pre><code>- **NAB Credit Card:** Date, Amount, Description, Card Number
+- **NAB Bank Account:** Date, Amount, Description, Account Number
+- **CommBank:** Transaction Date, Debit/Credit Amount, Description, Reference
+- **Other Banks:** Flexible format with date, amount, description
+
+**Column Mapping:**
 - System automatically detects common column patterns
 - Manual adjustment available if needed
 - Save mappings for future imports
@@ -319,15 +320,16 @@
 </code></pre>
 <p></Accordion></p>
 <p><Accordion title="Reconciliation Process" icon="arrows-split-up-and-left">
-    ### Step-by-Step Process
-    1. <strong>Review auto-matches</strong> - Verify green highlighted transactions
-    2. <strong>Reconcile matches</strong> - Click "Reconcile Match" for verified pairs
-    3. <strong>Handle unmatched</strong> - Click "Add to Cash Flow" for bank-only transactions
-    4. <strong>Categorize transactions</strong> - Assign categories and subcategories
-    5. <strong>Process splits</strong> - Handle split transactions with multiple categories
-    6. <strong>Verify balances</strong> - Ensure all transactions are accounted for
-    7. <strong>Refresh dashboard</strong> - Click refresh to update status</p>
-<pre><code>### Split Transactions
+    ### Step-by-Step Process</p>
+<pre><code>1. **Review auto-matches** - Verify green highlighted transactions
+2. **Reconcile matches** - Click "Reconcile Match" for verified pairs
+3. **Handle unmatched** - Click "Add to Cash Flow" for bank-only transactions
+4. **Categorize transactions** - Assign categories and subcategories
+5. **Process splits** - Handle split transactions with multiple categories
+6. **Verify balances** - Ensure all transactions are accounted for
+7. **Refresh dashboard** - Click refresh to update status
+
+### Split Transactions
 - **Identify splits:** Look for blue highlighted transaction groups
 - **Click "Find Match"** - Locate corresponding bank transaction
 - **Divide amount:** Split across multiple categories as needed
