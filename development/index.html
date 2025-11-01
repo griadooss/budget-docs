@@ -1414,21 +1414,19 @@
 <li><strong>Before:</strong> EOY processes allowed "proceed anyway" option</li>
 <li><strong>After:</strong> EOY processes completely blocked if system unbalanced</li>
 <li><strong>New Error Message:</strong>
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>🚨 Balance Check Failed - EOY Process Blocked
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Critical balance issues found:
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>• Banks sheet is not balanced (X.XX)
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>🔴 CRITICAL: The End of Year process copies current bank
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>balances to become opening balances for the new fiscal year.
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  ❌ EOY process cannot proceed until all balances are zero.
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>💡 Tip:
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>1. First - Update bank balances to June 30 (including final interest)
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>2. Second - Use &#39;Reconciliation Dashboard&#39; to fix Cash Flow issues
-</code></pre></div></li>
+  ```
+  🚨 Balance Check Failed - EOY Process Blocked</li>
 </ul>
+<p>Critical balance issues found:
+  • Banks sheet is not balanced (X.XX)</p>
+<p>🔴 CRITICAL: The End of Year process copies current bank
+  balances to become opening balances for the new fiscal year.</p>
+<pre><code>❌ EOY process cannot proceed until all balances are zero.
+</code></pre>
+<p>💡 Tip:
+  1. First - Update bank balances to June 30 (including final interest)
+  2. Second - Use 'Reconciliation Dashboard' to fix Cash Flow issues
+  ```</p>
 <h4 id="3-developer-mode-support">3. Developer Mode Support</h4>
 <ul>
 <li><strong>Added:</strong> <code>DEV_MODE</code> bypass for all balance checks</li>
@@ -1442,41 +1440,41 @@
 <li><strong>Reasoning:</strong> Different risk profiles require different approaches</li>
 </ul>
 <h3 id="files-modified">Files Modified</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>src/config/namedRanges.js
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── Extended BALANCE_CHECK ranges
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>└── Added MAINTAIN_BUDGET_BALANCE named range
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>src/utility/endOfMonth.js
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── Enhanced checkAllBalances() function
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>├── Added DEV_MODE bypass support
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>└── Consistent error messaging
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>src/utility/yearEndBudget.js
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>├── Added checkAllBalances() function
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>├── Strict balance checking in showYearEndHelp()
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>├── Removed duplicate balance check in setupNewYearBudget()
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>├── Enhanced continueEOYSetup() balance checking
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>└── DEV_MODE bypass support
-</code></pre></div>
+<pre><code>src/config/namedRanges.js
+├── Extended BALANCE_CHECK ranges
+└── Added MAINTAIN_BUDGET_BALANCE named range
+
+src/utility/endOfMonth.js
+├── Enhanced checkAllBalances() function
+├── Added DEV_MODE bypass support
+└── Consistent error messaging
+
+src/utility/yearEndBudget.js
+├── Added checkAllBalances() function
+├── Strict balance checking in showYearEndHelp()
+├── Removed duplicate balance check in setupNewYearBudget()
+├── Enhanced continueEOYSetup() balance checking
+└── DEV_MODE bypass support
+</code></pre>
 <h3 id="documentation-updated">Documentation Updated</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>guides/yearly-tasks/end-of-year/overview.mdx
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── Updated Pre-EOY Requirements section
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>└── Added strict balance checking warnings
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>guides/yearly-tasks/end-of-year/setup.mdx
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>├── Updated balance requirements section
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>└── Removed references to &quot;proceed anyway&quot; option
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>guides/troubleshooting/common-issues.mdx
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>├── Created comprehensive troubleshooting guide
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>├── Added EOY balance checking failure solutions
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>├── Added developer mode documentation
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>└── Added authorization failure solutions
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>quickstart.mdx
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>├── Added Critical Balance Requirement section
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>└── Highlighted new strict balance checking
-</code></pre></div>
+<pre><code>guides/yearly-tasks/end-of-year/overview.mdx
+├── Updated Pre-EOY Requirements section
+└── Added strict balance checking warnings
+
+guides/yearly-tasks/end-of-year/setup.mdx
+├── Updated balance requirements section
+└── Removed references to &quot;proceed anyway&quot; option
+
+guides/troubleshooting/common-issues.mdx
+├── Created comprehensive troubleshooting guide
+├── Added EOY balance checking failure solutions
+├── Added developer mode documentation
+└── Added authorization failure solutions
+
+quickstart.mdx
+├── Added Critical Balance Requirement section
+└── Highlighted new strict balance checking
+</code></pre>
 <h3 id="impact">Impact</h3>
 <h4 id="positive">Positive</h4>
 <ul>
@@ -1493,42 +1491,42 @@
 </ul>
 <h3 id="technical-improvements">Technical Improvements</h3>
 <ol>
-<li>
-<p><strong>Named Ranges Exclusively:</strong>
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Before: Hardcoded and brittle</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">banksBalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">banksSheet</span><span class="p">.</span><span class="nx">getRange</span><span class="p">(</span><span class="s2">&quot;C30&quot;</span><span class="p">).</span><span class="nx">getValue</span><span class="p">();</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1">// After: Robust and maintainable</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">banksBalanceRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss</span><span class="p">.</span><span class="nx">getRangeByName</span><span class="p">(</span><span class="s2">&quot;banksBalance&quot;</span><span class="p">);</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">banksBalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">banksBalanceRange</span><span class="p">.</span><span class="nx">getValue</span><span class="p">();</span>
-</code></pre></div></p>
-</li>
+<li><strong>Named Ranges Exclusively:</strong>
+   ```javascript
+   // Before: Hardcoded and brittle
+   const banksBalance = banksSheet.getRange("C30").getValue();</li>
+</ol>
+<p>// After: Robust and maintainable
+   const banksBalanceRange = ss.getRangeByName("banksBalance");
+   const banksBalance = banksBalanceRange.getValue();
+   ```</p>
+<ol>
 <li>
 <p><strong>Unified Balance Checking:</strong>
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// New comprehensive function</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">checkAllBalances</span><span class="p">(</span><span class="nx">showDetails</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="c1">// Checks all 3 critical balance cells</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="c1">// Returns detailed status information</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="c1">// Supports developer mode bypass</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
-</code></pre></div></p>
+   <code>javascript
+   // New comprehensive function
+   function checkAllBalances(showDetails = false) {
+     // Checks all 3 critical balance cells
+     // Returns detailed status information
+     // Supports developer mode bypass
+   }</code></p>
 </li>
 <li>
 <p><strong>Risk-Based Processing:</strong>
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// End of Month: Flexible (can be corrected later)</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">balanceCheck</span><span class="p">.</span><span class="nx">isBalanced</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;⚠️ Balance Check Failed&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">YES_NO</span><span class="p">);</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">Button</span><span class="p">.</span><span class="nx">YES</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">// End of Year: Strict (prevents data corruption)</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">balanceCheck</span><span class="p">.</span><span class="nx">isBalanced</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="nx">ui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;🚨 Balance Check Failed - EOY Process Blocked&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">OK</span><span class="p">);</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="c1">// No override option</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
-</code></pre></div></p>
+   ```javascript
+   // End of Month: Flexible (can be corrected later)
+   if (!balanceCheck.isBalanced) {
+     const response = ui.alert("⚠️ Balance Check Failed", message, YES_NO);
+     if (response !== ui.Button.YES) return;
+   }</p>
 </li>
 </ol>
+<p>// End of Year: Strict (prevents data corruption)
+   if (!balanceCheck.isBalanced) {
+     ui.alert("🚨 Balance Check Failed - EOY Process Blocked", message, OK);
+     return; // No override option
+   }
+   ```</p>
 <h3 id="future-considerations">Future Considerations</h3>
 <ol>
 <li><strong>Named Range Management:</strong> Consider creating automated named range validation</li>
@@ -1594,81 +1592,83 @@
 <li><strong>Purpose:</strong> Manual sync when needed without performance impact</li>
 </ul>
 <h3 id="files-modified_1">Files Modified</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>src/modules/distributeBudget.js
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>├── Added isBudgetBalanced() function
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>├── Added getBudgetBalance() function
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>├── Added checkDistributionRequirements() function
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>├── Added onDistributionComplete() function
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>├── Enhanced distributeValuesFromRow() with validation
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>└── Simplified cleanupActiveFlagInconsistencies()
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>src/utility/budgetTools.js
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>├── Enhanced bulkDistribute() with balance validation
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>├── Added budget &gt; 0 filtering
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>└── Added onDistributionComplete() call
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>src/server/lookupManager.js
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>├── Fixed column mappings in safety checks
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>├── Added reconciled transaction validation
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>├── Added Annual Budget sheet cleanup
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>└── Enhanced deletion warnings
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>src/triggers/onOpen.js
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>├── Deprecated unreliable onEdit triggers
-<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>├── Updated Developer menu with new functions
-<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>└── Added global function exports
-</code></pre></div>
+<pre><code>src/modules/distributeBudget.js
+├── Added isBudgetBalanced() function
+├── Added getBudgetBalance() function
+├── Added checkDistributionRequirements() function
+├── Added onDistributionComplete() function
+├── Enhanced distributeValuesFromRow() with validation
+└── Simplified cleanupActiveFlagInconsistencies()
+
+src/utility/budgetTools.js
+├── Enhanced bulkDistribute() with balance validation
+├── Added budget &gt; 0 filtering
+└── Added onDistributionComplete() call
+
+src/server/lookupManager.js
+├── Fixed column mappings in safety checks
+├── Added reconciled transaction validation
+├── Added Annual Budget sheet cleanup
+└── Enhanced deletion warnings
+
+src/triggers/onOpen.js
+├── Deprecated unreliable onEdit triggers
+├── Updated Developer menu with new functions
+└── Added global function exports
+</code></pre>
 <h3 id="technical-improvements_1">Technical Improvements</h3>
 <ol>
 <li>
 <p><strong>Named Range Usage:</strong>
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Proper named range usage with sheet names</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">maintainBalanceRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss</span><span class="p">.</span><span class="nx">getRangeByName</span><span class="p">(</span><span class="s2">&quot;&#39;Maintain Budget&#39;!maintainBudgetBalance&quot;</span><span class="p">);</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">annualBalanceRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss</span><span class="p">.</span><span class="nx">getRangeByName</span><span class="p">(</span><span class="s2">&quot;&#39;Annual Budget&#39;!budgetBalance&quot;</span><span class="p">);</span>
-</code></pre></div></p>
+   <code>javascript
+   // Proper named range usage with sheet names
+   const maintainBalanceRange = ss.getRangeByName("'Maintain Budget'!maintainBudgetBalance");
+   const annualBalanceRange = ss.getRangeByName("'Annual Budget'!budgetBalance");</code></p>
 </li>
 <li>
 <p><strong>Distribution Validation:</strong>
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// Budget balance validation</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">isBudgetBalanced</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Budget Not Balanced&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">YES_NO</span><span class="p">);</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">Button</span><span class="p">.</span><span class="nx">YES</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1">// Individual item validation</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">budgetAmount</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="nx">ui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Cannot distribute zero budget amount&quot;</span><span class="p">);</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">  </span><span class="k">return</span><span class="p">;</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">}</span>
-</code></pre></div></p>
+   ```javascript
+   // Budget balance validation
+   if (!isBudgetBalanced()) {
+     const response = ui.alert("Budget Not Balanced", message, YES_NO);
+     if (response !== ui.Button.YES) return false;
+   }</p>
 </li>
+</ol>
+<p>// Individual item validation
+   if (budgetAmount &lt;= 0) {
+     ui.alert("Cannot distribute zero budget amount");
+     return;
+   }
+   ```</p>
+<ol>
 <li>
 <p><strong>ACTIVE Flag Synchronization:</strong>
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Single point of sync after distribution</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">onDistributionComplete</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;🔄 Syncing ACTIVE flags after distribution...&quot;</span><span class="p">);</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nx">syncActiveFlagsFromBudgetedItems</span><span class="p">();</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;✅ ACTIVE flags synced successfully&quot;</span><span class="p">);</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;❌ Error syncing ACTIVE flags:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">}</span>
-</code></pre></div></p>
+   <code>javascript
+   // Single point of sync after distribution
+   function onDistributionComplete() {
+     try {
+       console.log("🔄 Syncing ACTIVE flags after distribution...");
+       syncActiveFlagsFromBudgetedItems();
+       console.log("✅ ACTIVE flags synced successfully");
+     } catch (error) {
+       console.error("❌ Error syncing ACTIVE flags:", error.message);
+     }
+   }</code></p>
 </li>
 <li>
 <p><strong>Enhanced Safety Checks:</strong>
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// Prevent deletion of items with reconciled transactions</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">actualAmount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nx">issues</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`CRITICAL: Cannot delete item with reconciled transactions ($</span><span class="si">${</span><span class="nx">actualAmount</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="si">}</span><span class="sb">)`</span><span class="p">);</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">}</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1">// Correct column mapping</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="kd">const</span><span class="w"> </span><span class="nx">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rowData</span><span class="p">[</span><span class="mf">3</span><span class="p">];</span><span class="w"> </span><span class="c1">// Category Name</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="kd">const</span><span class="w"> </span><span class="nx">subcategory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rowData</span><span class="p">[</span><span class="mf">5</span><span class="p">];</span><span class="w"> </span><span class="c1">// Subcategory Name</span>
-</code></pre></div></p>
+   <code>``javascript
+   // Prevent deletion of items with reconciled transactions
+   if (actualAmount &gt; 0) {
+     issues.push(</code>CRITICAL: Cannot delete item with reconciled transactions ($${actualAmount.toFixed(2)})`);
+   }</p>
 </li>
 </ol>
+<p>// Correct column mapping
+   const category = rowData[3]; // Category Name
+   const subcategory = rowData[5]; // Subcategory Name
+   ```</p>
 <h3 id="documentation-updates">Documentation Updates</h3>
 <ul>
 <li><strong>Menu Reference:</strong> Updated to reflect current menu structure and functions</li>
