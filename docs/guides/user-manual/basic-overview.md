@@ -31,24 +31,24 @@ description: 'Summary of daily tasks in the Budget System'
 
 <AccordionGroup>
   <Accordion title="Import Bank Transactions" icon="file-import">
-    <strong>Access:</strong> 🏦 Budget > Import Bank Transactions
+    **Access:** 🏦 Budget > Import Bank Transactions
 
     ### Method 1: Paste Data
-    1. <strong>Create new sheet</strong> - Click the + button at the bottom
-    2. <strong>Copy bank data</strong> - From your bank statement or exported file
-    3. <strong>Paste into sheet</strong> - Include headers in the paste
-    4. <strong>Select bank format</strong> - Choose your bank type (NAB, CommBank, etc.)
-    5. <strong>Review column mapping</strong> - Verify date, amount, description columns
-    6. <strong>Enter account balance</strong> - Manually enter the statement balance
-    7. <strong>Set lookback days</strong> - Default 7 days for duplicate detection
-    8. <strong>Click "Process Import"</strong> - Review results and handle duplicates
+    1. **Create new sheet** - Click the + button at the bottom
+    2. **Copy bank data** - From your bank statement or exported file
+    3. **Paste into sheet** - Include headers in the paste
+    4. **Select bank format** - Choose your bank type (NAB, CommBank, etc.)
+    5. **Review column mapping** - Verify date, amount, description columns
+    6. **Enter account balance** - Manually enter the statement balance
+    7. **Set lookback days** - Default 7 days for duplicate detection
+    8. **Click "Process Import"** - Review results and handle duplicates
 
     ### Method 2: Manual Entry
-    1. <strong>Switch to Manual tab</strong> - Click "Manual Entry" tab
-    2. <strong>Add transactions</strong> - Fill in date, amount, description, account, type
-    3. <strong>Click "Add Transaction"</strong> - Add to pending list
-    4. <strong>Review pending list</strong> - Check all transactions before processing
-    5. <strong>Click "Process All"</strong> - Import all manual transactions
+    1. **Switch to Manual tab** - Click "Manual Entry" tab
+    2. **Add transactions** - Fill in date, amount, description, account, type
+    3. **Click "Add Transaction"** - Add to pending list
+    4. **Review pending list** - Check all transactions before processing
+    5. **Click "Process All"** - Import all manual transactions
 
     ### Duplicate Detection
     - System automatically checks for duplicates within lookback period
@@ -57,14 +57,14 @@ description: 'Summary of daily tasks in the Budget System'
   </Accordion>
 
   <Accordion title="Bank Format Support" icon="bank">
-    <strong>Supported Formats:</strong>
+    **Supported Formats:**
     
-    - <strong>NAB Credit Card:</strong> Date, Amount, Description, Card Number
-    - <strong>NAB Bank Account:</strong> Date, Amount, Description, Account Number
-    - <strong>CommBank:</strong> Transaction Date, Debit/Credit Amount, Description, Reference
-    - <strong>Other Banks:</strong> Flexible format with date, amount, description
+    - **NAB Credit Card:** Date, Amount, Description, Card Number
+    - **NAB Bank Account:** Date, Amount, Description, Account Number
+    - **CommBank:** Transaction Date, Debit/Credit Amount, Description, Reference
+    - **Other Banks:** Flexible format with date, amount, description
 
-    <strong>Column Mapping:</strong>
+    **Column Mapping:**
     - System automatically detects common column patterns
     - Manual adjustment available if needed
     - Save mappings for future imports
@@ -75,44 +75,44 @@ description: 'Summary of daily tasks in the Budget System'
 
 <AccordionGroup>
   <Accordion title="Reconciliation Dashboard" icon="check-double">
-    <strong>Access:</strong> 🏦 Budget > Reconciliation Dashboard
+    **Access:** 🏦 Budget > Reconciliation Dashboard
 
     ### Opening the Dashboard
-    1. <strong>Click menu option</strong> - Opens side-by-side transaction view
-    2. <strong>Review transactions</strong> - Cash Flow (left) vs Bank Records (right)
-    3. <strong>Check auto-matches</strong> - Green highlighted transactions are auto-matched
-    4. <strong>Handle unmatched</strong> - Review and categorize unmatched transactions
+    1. **Click menu option** - Opens side-by-side transaction view
+    2. **Review transactions** - Cash Flow (left) vs Bank Records (right)
+    3. **Check auto-matches** - Green highlighted transactions are auto-matched
+    4. **Handle unmatched** - Review and categorize unmatched transactions
 
     ### Transaction Matching
-    - <strong>Auto-matches:</strong> System matches by amount and date (green highlight)
-    - <strong>Manual matches:</strong> Click "Find Match" for unmatched transactions
-    - <strong>Split transactions:</strong> Blue highlighted groups for split transactions
-    - <strong>Bulk reconciliation:</strong> Select multiple transactions for batch processing
+    - **Auto-matches:** System matches by amount and date (green highlight)
+    - **Manual matches:** Click "Find Match" for unmatched transactions
+    - **Split transactions:** Blue highlighted groups for split transactions
+    - **Bulk reconciliation:** Select multiple transactions for batch processing
 
     ### Category Assignment
-    - <strong>Single transactions:</strong> Select category and subcategory
-    - <strong>Split transactions:</strong> Divide amount across multiple categories
-    - <strong>Description editing:</strong> Modify transaction descriptions
-    - <strong>Account verification:</strong> Confirm correct account assignment
+    - **Single transactions:** Select category and subcategory
+    - **Split transactions:** Divide amount across multiple categories
+    - **Description editing:** Modify transaction descriptions
+    - **Account verification:** Confirm correct account assignment
   </Accordion>
 
   <Accordion title="Reconciliation Process" icon="arrows-split-up-and-left">
     ### Step-by-Step Process
     
-    1. <strong>Review auto-matches</strong> - Verify green highlighted transactions
-    2. <strong>Reconcile matches</strong> - Click "Reconcile Match" for verified pairs
-    3. <strong>Handle unmatched</strong> - Click "Add to Cash Flow" for bank-only transactions
-    4. <strong>Categorize transactions</strong> - Assign categories and subcategories
-    5. <strong>Process splits</strong> - Handle split transactions with multiple categories
-    6. <strong>Verify balances</strong> - Ensure all transactions are accounted for
-    7. <strong>Refresh dashboard</strong> - Click refresh to update status
+    1. **Review auto-matches** - Verify green highlighted transactions
+    2. **Reconcile matches** - Click "Reconcile Match" for verified pairs
+    3. **Handle unmatched** - Click "Add to Cash Flow" for bank-only transactions
+    4. **Categorize transactions** - Assign categories and subcategories
+    5. **Process splits** - Handle split transactions with multiple categories
+    6. **Verify balances** - Ensure all transactions are accounted for
+    7. **Refresh dashboard** - Click refresh to update status
 
     ### Split Transactions
-    - <strong>Identify splits:</strong> Look for blue highlighted transaction groups
-    - <strong>Click "Find Match"</strong> - Locate corresponding bank transaction
-    - <strong>Divide amount:</strong> Split across multiple categories as needed
-    - <strong>Verify total:</strong> Ensure split amounts equal bank transaction
-    - <strong>Reconcile group:</strong> Click "Reconcile Match" for complete split
+    - **Identify splits:** Look for blue highlighted transaction groups
+    - **Click "Find Match"** - Locate corresponding bank transaction
+    - **Divide amount:** Split across multiple categories as needed
+    - **Verify total:** Ensure split amounts equal bank transaction
+    - **Reconcile group:** Click "Reconcile Match" for complete split
   </Accordion>
 </AccordionGroup>
 
