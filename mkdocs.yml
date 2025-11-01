@@ -2,7 +2,21 @@ site_name: Budget Docs
 site_url: https://griadooss.github.io/budget-docs/
 repo_url: https://github.com/griadooss/budget-docs
 
+theme:
+  name: material
+
 markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
   - md_in_html
 
 nav:
