@@ -36,29 +36,30 @@ balances to become opening balances for the new fiscal year.
 - **Maintain Budget sheet** (named range: `'Maintain Budget'!maintainBudgetBalance`) is not balanced
 
 **Solution:**
-1. **First: Update Bank Balances (Critical for EOY):**
-   - Go to **Banks** sheet and update ALL bank account balances
-   - Ensure balances are **accurate as at end of financial year (June 30)**
-   - **Important:** Banks often apply monthly interest as a final transaction
-   - Download final statements and enter any end-of-year transactions
-   - Bank balances MUST reflect the true position at fiscal year end
 
-2. **Second: Use Reconciliation Dashboard:**
-   - If bank balances are current but system still unbalanced, the issue is Cash Flow transactions
-   - Go to **Budget** → **Reconciliation Dashboard**
-   - **Missing transactions:** Import any transactions not yet in the system
-   - **Extra transactions:** Remove duplicate or incorrect entries
-   - **Unreconciled transactions:** Match transactions to budget categories
-   - Work through all unreconciled items until dashboard is clear
+- **First: Update Bank Balances (Critical for EOY):**
+  - Go to **Banks** sheet and update ALL bank account balances
+  - Ensure balances are **accurate as at end of financial year (June 30)**
+  - **Important:** Banks often apply monthly interest as a final transaction
+  - Download final statements and enter any end-of-year transactions
+  - Bank balances MUST reflect the true position at fiscal year end
 
-3. **Verify All Balance Cells:**
-   - **Banks sheet** (`banksBalance`): Should show $0.00 when bank balances match Cash Flow
-   - **Annual Budget sheet** (`'Annual Budget'!budgetBalance`): Should show $0.00 when budget is balanced
-   - **Maintain Budget sheet** (`'Maintain Budget'!maintainBudgetBalance`): Should show $0.00 when income equals expenses
+- **Second: Use Reconciliation Dashboard:**
+  - If bank balances are current but system still unbalanced, the issue is Cash Flow transactions
+  - Go to **Budget** → **Reconciliation Dashboard**
+  - **Missing transactions:** Import any transactions not yet in the system
+  - **Extra transactions:** Remove duplicate or incorrect entries
+  - **Unreconciled transactions:** Match transactions to budget categories
+  - Work through all unreconciled items until dashboard is clear
 
-4. **Retry EOY Process:**
-   - Once all three balance cells show $0.00, retry the EOY process
-   - The system will allow you to proceed
+- **Verify All Balance Cells:**
+  - **Banks sheet** (`banksBalance`): Should show $0.00 when bank balances match Cash Flow
+  - **Annual Budget sheet** (`'Annual Budget'!budgetBalance`): Should show $0.00 when budget is balanced
+  - **Maintain Budget sheet** (`'Maintain Budget'!maintainBudgetBalance`): Should show $0.00 when income equals expenses
+
+- **Retry EOY Process:**
+  - Once all three balance cells show $0.00, retry the EOY process
+  - The system will allow you to proceed
 
 !!! note "Why No Override"
     Unlike End of Month processing, EOY has no "proceed anyway" option because incorrect bank balances would be copied to your new fiscal year, corrupting your entire budget foundation.
@@ -91,11 +92,12 @@ the final month of the fiscal year.
 - "Go to Budget App Scripts (unsafe)"
 
 **Solution:**
-1. **Don't Panic** - This is Google's standard warning for ALL custom scripts
-2. **Click "Advanced"** (bottom left of warning dialog)
-3. **Click "Go to Budget App Scripts (unsafe)"** - This is safe to do
-4. **Check "Select all"** to grant required permissions
-5. **Click "Allow"**
+
+- **Don't Panic** - This is Google's standard warning for ALL custom scripts
+- **Click "Advanced"** (bottom left of warning dialog)
+- **Click "Go to Budget App Scripts (unsafe)"** - This is safe to do
+- **Check "Select all"** to grant required permissions
+- **Click "Allow"**
 
 !!! warning "These warnings are normal!"
     Google shows these warnings for any custom spreadsheet script that isn't published in their official store. Your budget system is completely safe.
@@ -109,14 +111,15 @@ the final month of the fiscal year.
 **Key Difference:** End of Month processing allows you to "proceed anyway" because monthly imbalances can be corrected later.
 
 **Solution Options:**
-1. **Fix Balances First (Recommended):**
-   - Use Reconciliation Dashboard to resolve issues
-   - Ensures clean monthly processing
 
-2. **Proceed Anyway:**
-   - Click "Yes" to continue despite warnings
-   - Fix balance issues in subsequent reconciliation
-   - Monthly processing is more forgiving than EOY
+- **Fix Balances First (Recommended):**
+  - Use Reconciliation Dashboard to resolve issues
+  - Ensures clean monthly processing
+
+- **Proceed Anyway:**
+  - Click "Yes" to continue despite warnings
+  - Fix balance issues in subsequent reconciliation
+  - Monthly processing is more forgiving than EOY
 
 ## Category Management Issues
 
@@ -131,19 +134,20 @@ the final month of the fiscal year.
 - System synchronization issues
 
 **Solution:**
-1. **Use Developer Menu (if available):**
-   - Go to **🛠️ Developer > Debug Tools > 🔄 Re-sync ACTIVE Flags**
-   - This will synchronize all category statuses
 
-2. **Manual Check:**
-   - Verify items exist in both Maintain Budget and Annual Budget sheets
-   - Ensure budget amounts are greater than zero
-   - Check that "Distributed" checkbox is checked
+- **Use Developer Menu (if available):**
+  - Go to **🛠️ Developer > Debug Tools > 🔄 Re-sync ACTIVE Flags**
+  - This will synchronize all category statuses
 
-3. **Prevention:**
-   - Always use menu functions for category management
-   - Don't manually edit the LookUps sheet
-   - Use "Delete Category/Subcategory" from Maintain Budget menu
+- **Manual Check:**
+  - Verify items exist in both Maintain Budget and Annual Budget sheets
+  - Ensure budget amounts are greater than zero
+  - Check that "Distributed" checkbox is checked
+
+- **Prevention:**
+  - Always use menu functions for category management
+  - Don't manually edit the LookUps sheet
+  - Use "Delete Category/Subcategory" from Maintain Budget menu
 
 ### ❌ Manual Deletion Issues
 
@@ -161,18 +165,19 @@ the final month of the fiscal year.
 - ACTIVE flags don't match budget status
 
 **Solution:**
-1. **Restore the Deleted Item:**
-   - Manually add the item back to the appropriate sheet
-   - Use the same category/subcategory name
 
-2. **Use Proper Deletion Process:**
-   - Go to **🏦 Budget > Maintain Budget > 🗑️ Delete Category/Subcategory**
-   - This ensures proper cleanup across all sheets
+- **Restore the Deleted Item:**
+  - Manually add the item back to the appropriate sheet
+  - Use the same category/subcategory name
 
-3. **Prevention:**
-   - **Never manually delete rows** from Annual Budget or Maintain Budget sheets
-   - Always use the menu functions for category management
-   - The system provides safety checks and proper cleanup
+- **Use Proper Deletion Process:**
+  - Go to **🏦 Budget > Maintain Budget > 🗑️ Delete Category/Subcategory**
+  - This ensures proper cleanup across all sheets
+
+- **Prevention:**
+  - **Never manually delete rows** from Annual Budget or Maintain Budget sheets
+  - Always use the menu functions for category management
+  - The system provides safety checks and proper cleanup
 
 !!! warning "Critical"
     Manual deletion from sheets can cause serious balance inconsistencies. Always use the provided menu functions.
