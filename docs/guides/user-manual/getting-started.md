@@ -13,16 +13,16 @@ description: 'Introduction to the Budget System'
 This budget management system helps track expenses, income, and reconcile transactions.
 
 === "Import Transactions"
-    [Import bank statements and track spending](../daily-tasks/importing/)
+    [Import bank statements and track spending](../daily-tasks/importing)
 
 === "Track Budget"
-    [Monitor spending against budget targets](basic-operations.md)
+    [Monitor spending against budget targets](basic-operations)
 
 === "Reconcile"
-    [Monthly account reconciliation](../daily-tasks/reconciling/)
+    [Monthly account reconciliation](../daily-tasks/reconciling)
 
 === "Reports"
-    [Generate summaries and analysis](../monthly-tasks/reporting/)
+    [Generate summaries and analysis](../monthly-tasks/reporting)
 
 ## Access Levels
 
