@@ -1240,128 +1240,162 @@
 
 
 <h1 id="basic-operations">Basic Operations</h1>
-<p><Note>
-  These are the fundamental operations you'll perform regularly in the Budget
-  System. Master these for effective budget management. Updated to reflect current system implementation.
-</Note></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These are the fundamental operations you'll perform regularly in the Budget System. Master these for effective budget management. Updated to reflect current system implementation.</p>
+</div>
 <h2 id="importing-transactions">Importing Transactions</h2>
-<p><Steps>
-  1. <strong>Download your bank statement</strong> (CSV format preferred)
-  2. <strong>Open the Import Wizard</strong> - Click "🏦 Budget &gt; Import Bank Transactions"
-  3. <strong>Select your bank's format</strong> - Choose from available templates
-  4. <strong>Map Columns</strong> (if needed) - Match bank columns to system fields
-  5. <strong>Review &amp; Import</strong> - Check for duplicates and verify amounts
-  6. <strong>Confirm import</strong> - System will show import summary
-</Steps></p>
-<p><Tip>
-  <strong>Best Practices:</strong>
-  - Import weekly to stay current
-  - Always check for duplicates (system has automatic detection)
-  - Verify account mappings before import
-  - Use cross-year duplicate detection for year-end imports
-</Tip></p>
+<ol>
+<li><strong>Download your bank statement</strong> (CSV format preferred)</li>
+<li><strong>Open the Import Wizard</strong> - Click "🏦 Budget &gt; Import Bank Transactions"</li>
+<li><strong>Select your bank's format</strong> - Choose from available templates</li>
+<li><strong>Map Columns</strong> (if needed) - Match bank columns to system fields</li>
+<li><strong>Review &amp; Import</strong> - Check for duplicates and verify amounts</li>
+<li><strong>Confirm import</strong> - System will show import summary</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Best Practices</p>
+<ul>
+<li>Import weekly to stay current</li>
+<li>Always check for duplicates (system has automatic detection)</li>
+<li>Verify account mappings before import</li>
+<li>Use cross-year duplicate detection for year-end imports</li>
+</ul>
+</div>
 <h2 id="transaction-reconciliation">Transaction Reconciliation</h2>
-<p><AccordionGroup>
-  <Accordion title="Opening the Dashboard" icon="rectangle-list">
-    1. Click "🏦 Budget &gt; Reconciliation Dashboard"
-    2. Review unreconciled transactions
-    3. Sort by date if needed
-    4. Use filters to focus on specific accounts or date ranges
-  </Accordion></p>
-<p><Accordion title="Reconciliation Steps" icon="check-double">
-    For each transaction:
-    - Match to bank record
-    - Verify category/subcategory assignment
-    - Check split transactions
-    - Mark as reconciled when complete
-    - Use bulk reconciliation for multiple items
-  </Accordion></p>
-<p><Accordion title="Split Transactions" icon="arrows-split-up-and-left">
-    1. Select transaction to split
-    2. Enter split amounts
-    3. Assign categories to each part
-    4. Verify total matches original amount
-    5. Save split configuration
-  </Accordion>
-</AccordionGroup></p>
-<p><Warning>Always reconcile before running month-end processes. Unreconciled transactions can cause balance issues.</Warning></p>
+<details class="rectangle-list">
+<summary>Opening the Dashboard</summary>
+<ol>
+<li>Click "🏦 Budget &gt; Reconciliation Dashboard"</li>
+<li>Review unreconciled transactions</li>
+<li>Sort by date if needed</li>
+<li>Use filters to focus on specific accounts or date ranges</li>
+</ol>
+</details>
+<details class="check-double">
+<summary>Reconciliation Steps</summary>
+<p>For each transaction:
+- Match to bank record
+- Verify category/subcategory assignment
+- Check split transactions
+- Mark as reconciled when complete
+- Use bulk reconciliation for multiple items</p>
+</details>
+<details class="arrows-split-up-and-left">
+<summary>Split Transactions</summary>
+<ol>
+<li>Select transaction to split</li>
+<li>Enter split amounts</li>
+<li>Assign categories to each part</li>
+<li>Verify total matches original amount</li>
+<li>Save split configuration</li>
+</ol>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always reconcile before running month-end processes. Unreconciled transactions can cause balance issues.</p>
+</div>
 <h2 id="monthly-processing">Monthly Processing</h2>
-<p><CardGroup cols={2}>
-<Card title="Pre-Process Checklist" icon="list-check">
-- All transactions categorized and reconciled
-- Splits balanced correctly
-- Bank balances verified and current
-- Budget variances reviewed
-- Balance indicators checked
-  </Card></p>
-<p><Card title="Running Month-End" icon="calendar-check">
-1. Verify all transactions reconciled
-2. Check balance indicators
-3. Run "📅 Period Processing &gt; Run End of Month Process"
-4. Review summary and address any warnings
-5. System will hide EOM option after completion
-  </Card>
-</CardGroup></p>
-<p><Note>
-<strong>Balance Checking:</strong> The system will check balances before processing. You can proceed with warnings for monthly processing, but EOY processes require zero balance.
-</Note></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Pre-Process Checklist</label><label for="__tabbed_1_2">Running Month-End</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>All transactions categorized and reconciled</li>
+<li>Splits balanced correctly</li>
+<li>Bank balances verified and current</li>
+<li>Budget variances reviewed</li>
+<li>Balance indicators checked</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Verify all transactions reconciled</li>
+<li>Check balance indicators</li>
+<li>Run "📅 Period Processing &gt; Run End of Month Process"</li>
+<li>Review summary and address any warnings</li>
+<li>System will hide EOM option after completion</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Balance Checking</p>
+<p>The system will check balances before processing. You can proceed with warnings for monthly processing, but EOY processes require zero balance.</p>
+</div>
 <h2 id="managing-categories">Managing Categories</h2>
-<p><Tabs>
-  <Tab title="Adding Categories">
-    <strong>Use the proper workflow:</strong>
-    1. Go to "🏦 Budget &gt; Maintain Budget &gt; ➕ Add Category/Subcategory"
-    2. Follow the guided workflow
-    3. System will properly set up the item across all sheets
-    4. ACTIVE flags will be automatically managed</p>
-<div class="highlight"><pre><span></span><code>**Important:** Always use the menu function, not manual sheet editing.
-</code></pre></div>
-<p></Tab></p>
-<p><Tab title="Deleting Categories">
-    <strong>Critical - Use proper deletion process:</strong>
-    1. Go to "🏦 Budget &gt; Maintain Budget &gt; 🗑️ Delete Category/Subcategory"
-    2. System will run safety checks
-    3. Proper cleanup across all sheets
-    4. ACTIVE flags updated automatically</p>
-<div class="highlight"><pre><span></span><code>**Warning:** Never manually delete rows from sheets - this causes balance inconsistencies.
-</code></pre></div>
-<p></Tab></p>
-<p><Tab title="Category Status">
-    <strong>ACTIVE Flag System:</strong>
-    - Categories are automatically marked ACTIVE when budgeted
-    - Status is synchronized across all sheets
-    - Use "🔄 Re-sync ACTIVE Flags" in Developer menu if needed
-    - System prevents deletion of items with reconciled transactions
-  </Tab>
-</Tabs></p>
-<p><Warning>
-<strong>Critical:</strong> Always use menu functions for category management. Manual sheet editing can cause serious balance inconsistencies.
-</Warning></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Adding Categories</label><label for="__tabbed_2_2">Deleting Categories</label><label for="__tabbed_2_3">Category Status</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Use the proper workflow:</strong></p>
+<ol>
+<li>Go to "🏦 Budget &gt; Maintain Budget &gt; ➕ Add Category/Subcategory"</li>
+<li>Follow the guided workflow</li>
+<li>System will properly set up the item across all sheets</li>
+<li>ACTIVE flags will be automatically managed</li>
+</ol>
+<p><strong>Important:</strong> Always use the menu function, not manual sheet editing.</p>
+</div>
+<div class="tabbed-block">
+<p><strong>Critical - Use proper deletion process:</strong></p>
+<ol>
+<li>Go to "🏦 Budget &gt; Maintain Budget &gt; 🗑️ Delete Category/Subcategory"</li>
+<li>System will run safety checks</li>
+<li>Proper cleanup across all sheets</li>
+<li>ACTIVE flags updated automatically</li>
+</ol>
+<p><strong>Warning:</strong> Never manually delete rows from sheets - this causes balance inconsistencies.</p>
+</div>
+<div class="tabbed-block">
+<p><strong>ACTIVE Flag System:</strong></p>
+<ul>
+<li>Categories are automatically marked ACTIVE when budgeted</li>
+<li>Status is synchronized across all sheets</li>
+<li>Use "🔄 Re-sync ACTIVE Flags" in Developer menu if needed</li>
+<li>System prevents deletion of items with reconciled transactions</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Critical</p>
+<p>Always use menu functions for category management. Manual sheet editing can cause serious balance inconsistencies.</p>
+</div>
 <h2 id="budget-distribution">Budget Distribution</h2>
-<p><AccordionGroup>
-  <Accordion title="Individual Distribution" icon="arrow-right">
-    1. Go to Maintain Budget sheet
-    2. Set budget amount for item
-    3. Click "Distribute" button
-    4. System validates budget balance
-    5. ACTIVE flags updated automatically
-  </Accordion></p>
-<p><Accordion title="Bulk Distribution" icon="arrows-right">
-    1. Use "⚙️ Settings &gt; Sheet Settings &gt; Bulk Distribute Items"
-    2. System filters items with budget &gt; 0
-    3. Validates overall budget balance
-    4. Distributes all eligible items
-    5. ACTIVE flags synchronized
-  </Accordion>
-</AccordionGroup></p>
-<p><Note>
-<strong>Balance Validation:</strong> Distribution requires balanced budget (income = expenses). System will warn if unbalanced but allows override for individual distribution.
-</Note></p>
+<details class="arrow-right">
+<summary>Individual Distribution</summary>
+<ol>
+<li>Go to Maintain Budget sheet</li>
+<li>Set budget amount for item</li>
+<li>Click "Distribute" button</li>
+<li>System validates budget balance</li>
+<li>ACTIVE flags updated automatically</li>
+</ol>
+</details>
+<details class="arrows-right">
+<summary>Bulk Distribution</summary>
+<ol>
+<li>Use "⚙️ Settings &gt; Sheet Settings &gt; Bulk Distribute Items"</li>
+<li>System filters items with budget &gt; 0</li>
+<li>Validates overall budget balance</li>
+<li>Distributes all eligible items</li>
+<li>ACTIVE flags synchronized</li>
+</ol>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Balance Validation</p>
+<p>Distribution requires balanced budget (income = expenses). System will warn if unbalanced but allows override for individual distribution.</p>
+</div>
 <h2 id="next-steps">Next Steps</h2>
-<p><Check>Practice regular imports and reconciliation</Check>
-<Check>Use proper category management workflows</Check>
-<Check>Understand balance checking requirements</Check>
-<Check>Review the <a href="../../troubleshooting/common-issues/">Troubleshooting Guide</a></Check>
-<Check>Familiarize yourself with <a href="../menu-reference/">Menu Reference</a></Check></p>
+<div class="admonition tip">
+<p class="admonition-title">Next Steps</p>
+<ul>
+<li>Practice regular imports and reconciliation</li>
+<li>Use proper category management workflows</li>
+<li>Understand balance checking requirements</li>
+<li>Review the <a href="../../troubleshooting/common-issues/">Troubleshooting Guide</a></li>
+<li>Familiarize yourself with <a href="../menu-reference/">Menu Reference</a></li>
+</ul>
+</div>
 
 
 
