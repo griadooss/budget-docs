@@ -25,7 +25,7 @@ The Developer menu provides access to advanced system tools, debugging utilities
 
 ## 🔧 Dev Mode Controls
 
-??? "Check Dev Mode Status"
+??? info "Check Dev Mode Status"
     - **Function:** `checkDevMode()`
 
     - **Purpose:** Display current developer mode status
