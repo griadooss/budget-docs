@@ -2044,10 +2044,12 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
 </code></pre></div>
-<p><strong>Testing Considerations:</strong>
-- <strong>Production:</strong> Process only works in June
-- <strong>Development:</strong> You may need to temporarily bypass month checking for testing
-- <strong>Test Mode:</strong> Use <code>testMode</code> parameters in functions where available</p>
+<p><strong>Testing Considerations:</strong></p>
+<ul>
+<li><strong>Production:</strong> Process only works in June</li>
+<li><strong>Development:</strong> You may need to temporarily bypass month checking for testing</li>
+<li><strong>Test Mode:</strong> Use <code>testMode</code> parameters in functions where available</li>
+</ul>
 <h2 id="state-management-and-menu-system">State Management and Menu System</h2>
 <h3 id="eoy-state-tracking">EOY State Tracking</h3>
 <p>The system uses script properties to track EOY progress:</p>
@@ -2122,11 +2124,13 @@
 <a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="p">}</span>
 </code></pre></div>
-<p><strong>Key Features:</strong>
-- <strong>Non-blocking Design:</strong> Users can choose to proceed despite outstanding commitments
-- <strong>Clear User Interface:</strong> Intuitive button mapping (NO = Fix Now, YES = Ignore)
-- <strong>Month/Year Display:</strong> Shows correct month and year from script properties
-- <strong>Detailed Issue Reporting:</strong> Lists specific commitment problems for user review</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Non-blocking Design:</strong> Users can choose to proceed despite outstanding commitments</li>
+<li><strong>Clear User Interface:</strong> Intuitive button mapping (NO = Fix Now, YES = Ignore)</li>
+<li><strong>Month/Year Display:</strong> Shows correct month and year from script properties</li>
+<li><strong>Detailed Issue Reporting:</strong> Lists specific commitment problems for user review</li>
+</ul>
 <h3 id="improved-dialog-system">Improved Dialog System</h3>
 <p>All warning dialogs in the EOY process now use a draggable, user-friendly interface:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Example of draggable dialog implementation</span>
@@ -2145,11 +2149,13 @@
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getUi</span><span class="p">().</span><span class="nx">showModelessDialog</span><span class="p">(</span><span class="nx">htmlOutput</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;EOY Setup Incomplete&quot;</span><span class="p">);</span>
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
 </code></pre></div>
-<p><strong>Benefits:</strong>
-- <strong>Better User Experience:</strong> Dialogs can be moved and don't block the interface
-- <strong>Consistent Design:</strong> All dialogs follow the same visual pattern
-- <strong>Improved Readability:</strong> Better formatting and layout for complex information
-- <strong>Non-intrusive:</strong> Users can continue working while reviewing dialog content</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li><strong>Better User Experience:</strong> Dialogs can be moved and don't block the interface</li>
+<li><strong>Consistent Design:</strong> All dialogs follow the same visual pattern</li>
+<li><strong>Improved Readability:</strong> Better formatting and layout for complex information</li>
+<li><strong>Non-intrusive:</strong> Users can continue working while reviewing dialog content</li>
+</ul>
 <h3 id="property-exportimport-system">Property Export/Import System</h3>
 <p>The property management system ensures continuity between master and copy:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Export from master to hidden sheet</span>
@@ -2271,21 +2277,27 @@
 <h3 id="script-property-isolation">Script Property Isolation</h3>
 <p><strong>Issue:</strong> Google Apps Script security model prevents modifying script properties of other spreadsheets.</p>
 <p><strong>Impact:</strong> Archived masters retain <code>IS_MASTER = true</code> in their script properties.</p>
-<p><strong>Mitigation Strategies:</strong>
-1. <strong>Renamed Title</strong> - Archived spreadsheets have clear "_ARCHIVED_FY{year}" suffix
-2. <strong>Archive Metadata</strong> - Hidden "_Archive" sheet marks archival status
-3. <strong>User Documentation</strong> - Clear guidance to avoid using archived spreadsheets</p>
+<p><strong>Mitigation Strategies:</strong></p>
+<ol>
+<li><strong>Renamed Title</strong> - Archived spreadsheets have clear "_ARCHIVED_FY{year}" suffix</li>
+<li><strong>Archive Metadata</strong> - Hidden "_Archive" sheet marks archival status</li>
+<li><strong>User Documentation</strong> - Clear guidance to avoid using archived spreadsheets</li>
+</ol>
 <h3 id="google-authorization-user-experience">Google Authorization User Experience</h3>
 <p><strong>Issue:</strong> Google shows intimidating "unsafe" warnings for all custom spreadsheet scripts.</p>
 <p><strong>Impact:</strong> Users may be reluctant to continue authorization due to scary warning language.</p>
-<p><strong>User Experience Challenges:</strong>
-- "Google hasn't verified this app" warning appears threatening
-- "Go to Budget App Scripts (unsafe)" button seems dangerous
-- Users may abandon the process thinking something is wrong</p>
-<p><strong>Mitigation Strategies:</strong>
-1. <strong>Clear Documentation</strong> - Detailed explanation that warnings are normal
-2. <strong>Step-by-Step Instructions</strong> - Specific guidance through each authorization step
-3. <strong>Reassurance</strong> - Explicit statements that the process is safe and expected</p>
+<p><strong>User Experience Challenges:</strong></p>
+<ul>
+<li>"Google hasn't verified this app" warning appears threatening</li>
+<li>"Go to Budget App Scripts (unsafe)" button seems dangerous</li>
+<li>Users may abandon the process thinking something is wrong</li>
+</ul>
+<p><strong>Mitigation Strategies:</strong></p>
+<ol>
+<li><strong>Clear Documentation</strong> - Detailed explanation that warnings are normal</li>
+<li><strong>Step-by-Step Instructions</strong> - Specific guidance through each authorization step</li>
+<li><strong>Reassurance</strong> - Explicit statements that the process is safe and expected</li>
+</ol>
 <h2 id="testing-and-quality-assurance">Testing and Quality Assurance</h2>
 <h3 id="comprehensive-testing-checklist">Comprehensive Testing Checklist</h3>
 <h4 id="before-testing-session">Before Testing Session</h4>
@@ -2447,11 +2459,13 @@
 </ol>
 <h2 id="security-and-access-considerations">Security and Access Considerations</h2>
 <h3 id="permission-requirements">Permission Requirements</h3>
-<p>The EOY process requires specific permissions:
-- <strong>Script execution</strong> in both master and new copy
-- <strong>Spreadsheet access</strong> for reading/writing operations
-- <strong>File creation</strong> for making copies
-- <strong>Property management</strong> for state tracking</p>
+<p>The EOY process requires specific permissions:</p>
+<ul>
+<li><strong>Script execution</strong> in both master and new copy</li>
+<li><strong>Spreadsheet access</strong> for reading/writing operations</li>
+<li><strong>File creation</strong> for making copies</li>
+<li><strong>Property management</strong> for state tracking</li>
+</ul>
 <h3 id="security-best-practices">Security Best Practices</h3>
 <ol>
 <li><strong>Property Validation:</strong></li>
