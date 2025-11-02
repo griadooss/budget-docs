@@ -2029,9 +2029,10 @@
 <li>Push changes to MASTER using <code>clasp push</code></li>
 <li>Delete test copy and create a new one for retesting</li>
 </ol>
-<p><Warning>
-<strong>Critical:</strong> Never use old test copies. Each copy has its own script project, and using an old copy will test outdated code, leading to false results and wasted development time.
-</Warning></p>
+<div class="admonition warning">
+<p class="admonition-title">Critical</p>
+<p>Never use old test copies. Each copy has its own script project, and using an old copy will test outdated code, leading to false results and wasted development time.</p>
+</div>
 <h3 id="month-restriction-testing">Month Restriction Testing</h3>
 <p>The EOY process includes month validation that restricts access to June only:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// In setupNewYearBudget() and showYearEndHelp()</span>
