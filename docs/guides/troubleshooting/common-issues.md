@@ -59,9 +59,8 @@ balances to become opening balances for the new fiscal year.
    - Once all three balance cells show $0.00, retry the EOY process
    - The system will allow you to proceed
 
-<Note>
-**Why No Override:** Unlike End of Month processing, EOY has no "proceed anyway" option because incorrect bank balances would be copied to your new fiscal year, corrupting your entire budget foundation.
-</Note>
+!!! note "Why No Override"
+    Unlike End of Month processing, EOY has no "proceed anyway" option because incorrect bank balances would be copied to your new fiscal year, corrupting your entire budget foundation.
 
 ### ❌ "Process Not Available" (Wrong Month)
 
@@ -96,9 +95,8 @@ the final month of the fiscal year.
 4. **Check "Select all"** to grant required permissions
 5. **Click "Allow"**
 
-<Warning>
-**These warnings are normal!** Google shows these warnings for any custom spreadsheet script that isn't published in their official store. Your budget system is completely safe.
-</Warning>
+!!! warning "These warnings are normal!"
+    Google shows these warnings for any custom spreadsheet script that isn't published in their official store. Your budget system is completely safe.
 
 ## End of Month Process Issues
 
@@ -172,9 +170,8 @@ the final month of the fiscal year.
    - Always use the menu functions for category management
    - The system provides safety checks and proper cleanup
 
-<Warning>
-**Critical:** Manual deletion from sheets can cause serious balance inconsistencies. Always use the provided menu functions.
-</Warning>
+!!! warning "Critical"
+    Manual deletion from sheets can cause serious balance inconsistencies. Always use the provided menu functions.
 
 ## Import and Reconciliation Issues
 
@@ -206,9 +203,8 @@ the final month of the fiscal year.
 3. **Manually adjust historical bank balances** to restore zero balance
 4. **Use calculated "must have been" balances** rather than relying on historical records
 
-<Warning>
-**There is no automated fix for delayed reconciliation** - bank date changes invalidate historical data integrity. Prevention through timely processing is the only reliable solution.
-</Warning>
+!!! warning "There is no automated fix for delayed reconciliation"
+    Bank date changes invalidate historical data integrity. Prevention through timely processing is the only reliable solution.
 
 ### ❌ Bank Import Failures
 
@@ -300,9 +296,8 @@ the final month of the fiscal year.
 - **Trigger Management:** Manage automatic triggers
 - **System Status:** Check configuration
 
-<Warning>
-**Production Use:** Always disable DEV_MODE for normal budget operations. It bypasses critical safety checks.
-</Warning>
+!!! warning "Production Use"
+    Always disable DEV_MODE for normal budget operations. It bypasses critical safety checks.
 
 ## Getting Help
 
@@ -334,6 +329,5 @@ If you encounter issues not covered here:
 3. **Check Version History** - Google Sheets maintains automatic backups
 4. **Contact Support** - With specific error details
 
-<Note>
-The budget system is designed with multiple safety mechanisms. In most cases, issues can be resolved without data loss.
-</Note>
+!!! note
+    The budget system is designed with multiple safety mechanisms. In most cases, issues can be resolved without data loss.
