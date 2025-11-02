@@ -1868,43 +1868,59 @@
 </div>
 <h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
 <h3 id="import-fails-or-maps-incorrectly">❌ <strong>Import Fails or Maps Incorrectly</strong></h3>
-<p><strong>Solutions:</strong>
-1. <strong>Check file format</strong> - Ensure CSV not PDF
-2. <strong>Verify column mappings</strong> - Bank may have changed format
-3. <strong>Clear stored mappings</strong> - Start fresh if bank changed significantly
-4. <strong>Update template</strong> - Save new configuration for future use</p>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li><strong>Check file format</strong> - Ensure CSV not PDF</li>
+<li><strong>Verify column mappings</strong> - Bank may have changed format</li>
+<li><strong>Clear stored mappings</strong> - Start fresh if bank changed significantly</li>
+<li><strong>Update template</strong> - Save new configuration for future use</li>
+</ol>
 <h3 id="too-many-duplicates-detected">❌ <strong>Too Many Duplicates Detected</strong></h3>
-<p><strong>Causes:</strong>
-- Importing overlapping date ranges
-- Re-importing same file
-- Bank file contains previously imported transactions</p>
-<p><strong>Solutions:</strong>
-1. <strong>Check date ranges</strong> - Don't overlap with previous imports
-2. <strong>Review file contents</strong> - Ensure new transactions only
-3. <strong>Use duplicate review</strong> - System shows why it thinks transactions are duplicates</p>
+<p><strong>Causes:</strong></p>
+<ul>
+<li>Importing overlapping date ranges</li>
+<li>Re-importing same file</li>
+<li>Bank file contains previously imported transactions</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li><strong>Check date ranges</strong> - Don't overlap with previous imports</li>
+<li><strong>Review file contents</strong> - Ensure new transactions only</li>
+<li><strong>Use duplicate review</strong> - System shows why it thinks transactions are duplicates</li>
+</ol>
 <h3 id="missing-transactions">❌ <strong>Missing Transactions</strong></h3>
-<p><strong>Causes:</strong>
-- Bank file doesn't contain all transactions
-- Date range too narrow
-- CSV export excluded some transaction types</p>
-<p><strong>Solutions:</strong>
-1. <strong>Verify date range</strong> - Check if bank export covers full period
-2. <strong>Check account settings</strong> - Some accounts exclude certain transaction types
-3. <strong>Download separate files</strong> - Some banks separate credits and debits
-4. <strong>Manual entry backup</strong> - Add missing transactions manually if needed</p>
+<p><strong>Causes:</strong></p>
+<ul>
+<li>Bank file doesn't contain all transactions</li>
+<li>Date range too narrow</li>
+<li>CSV export excluded some transaction types</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li><strong>Verify date range</strong> - Check if bank export covers full period</li>
+<li><strong>Check account settings</strong> - Some accounts exclude certain transaction types</li>
+<li><strong>Download separate files</strong> - Some banks separate credits and debits</li>
+<li><strong>Manual entry backup</strong> - Add missing transactions manually if needed</li>
+</ol>
 <h3 id="cross-yearmonth-detection-not-working">⚠️ <strong>Cross-Year/Month Detection Not Working</strong></h3>
 <p><strong>Most Common Cause:</strong> <strong>Delayed import timing</strong></p>
-<p><strong>Why This Happens:</strong>
-- System only detects cross-period duplicates within 7-day window
-- Late imports assume it's not "first import" of new period
-- Bank date advancement occurs between import and reconciliation</p>
-<p><strong>Prevention:</strong>
-- <strong>Import immediately</strong> after period end
-- <strong>Complete EOY process promptly</strong> 
-- <strong>Don't delay monthly reconciliation</strong></p>
-<p><strong>Recovery:</strong>
-- <strong>Manual comparison</strong> - Visual check of period boundaries
-- <strong>Adjust bank balances</strong> - Restore zero balance manually</p>
+<p><strong>Why This Happens:</strong></p>
+<ul>
+<li>System only detects cross-period duplicates within 7-day window</li>
+<li>Late imports assume it's not "first import" of new period</li>
+<li>Bank date advancement occurs between import and reconciliation</li>
+</ul>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li><strong>Import immediately</strong> after period end</li>
+<li><strong>Complete EOY process promptly</strong> </li>
+<li><strong>Don't delay monthly reconciliation</strong></li>
+</ul>
+<p><strong>Recovery:</strong></p>
+<ul>
+<li><strong>Manual comparison</strong> - Visual check of period boundaries</li>
+<li><strong>Adjust bank balances</strong> - Restore zero balance manually</li>
+</ul>
 <h2 id="integration-with-reconciliation">Integration with Reconciliation</h2>
 <h3 id="after-import-next-steps">After Import: Next Steps</h3>
 <ol>
@@ -1917,26 +1933,32 @@
 <p><strong>Critical Window:</strong> Complete reconciliation <strong>within 7 days</strong> of import to maintain data integrity and prevent bank date advancement issues from affecting your budget accuracy.</p>
 <h2 id="advanced-features">Advanced Features</h2>
 <h3 id="manual-transaction-entry">Manual Transaction Entry</h3>
-<p>For banks that only provide PDF statements:
-1. <strong>Use Transaction Editor</strong> - Budget → Edit Transaction
-2. <strong>Enter transactions individually</strong> - Date, amount, description, account
-3. <strong>Categorize immediately</strong> - Assign to budget categories
-4. <strong>No duplicate detection</strong> - Manual entries skip duplicate checking</p>
+<p>For banks that only provide PDF statements:</p>
+<ol>
+<li><strong>Use Transaction Editor</strong> - Budget → Edit Transaction</li>
+<li><strong>Enter transactions individually</strong> - Date, amount, description, account</li>
+<li><strong>Categorize immediately</strong> - Assign to budget categories</li>
+<li><strong>No duplicate detection</strong> - Manual entries skip duplicate checking</li>
+</ol>
 <h3 id="bulk-processing">Bulk Processing</h3>
-<p>For multiple accounts or months:
-1. <strong>Import each account separately</strong> - Maintains clear audit trail
-2. <strong>Process chronologically</strong> - Import older months first
-3. <strong>Reconcile between imports</strong> - Don't accumulate unreconciled transactions
-4. <strong>Monitor system performance</strong> - Large imports may take longer</p>
+<p>For multiple accounts or months:</p>
+<ol>
+<li><strong>Import each account separately</strong> - Maintains clear audit trail</li>
+<li><strong>Process chronologically</strong> - Import older months first</li>
+<li><strong>Reconcile between imports</strong> - Don't accumulate unreconciled transactions</li>
+<li><strong>Monitor system performance</strong> - Large imports may take longer</li>
+</ol>
 <div class="admonition warning">
 <p class="admonition-title">Bulk Import Limitation</p>
 <p>Cross-year detection expects "first import" to be small. Importing 70+ transactions at once may bypass detection even within the 7-day window.</p>
 </div>
 <h2 id="next-steps">Next Steps</h2>
-<p>After successful import:
-1. <strong><a href="../reconciling/">Reconcile transactions</a></strong> - Match imports to budget categories
-2. <strong><a href="../../monthly-tasks/end-of-month/">Run month-end process</a></strong> - When all transactions reconciled
-3. <strong><a href="../../system/changelog.md">Update categories</a></strong> - Add new categories if needed</p>
+<p>After successful import:</p>
+<ol>
+<li><strong><a href="../reconciling/">Reconcile transactions</a></strong> - Match imports to budget categories</li>
+<li><strong><a href="../../monthly-tasks/end-of-month/">Run month-end process</a></strong> - When all transactions reconciled</li>
+<li><strong><a href="../../system/changelog.md">Update categories</a></strong> - Add new categories if needed</li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Remember: <strong>Import timing affects reconciliation accuracy.</strong> The few minutes saved by delaying imports can cost hours of manual correction later.</p>
