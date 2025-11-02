@@ -140,6 +140,7 @@ Configure how the system identifies which account transactions belong to:
 ### ❌ **Import Fails or Maps Incorrectly**
 
 **Solutions:**
+
 1. **Check file format** - Ensure CSV not PDF
 2. **Verify column mappings** - Bank may have changed format
 3. **Clear stored mappings** - Start fresh if bank changed significantly
@@ -148,11 +149,13 @@ Configure how the system identifies which account transactions belong to:
 ### ❌ **Too Many Duplicates Detected**
 
 **Causes:**
+
 - Importing overlapping date ranges
 - Re-importing same file
 - Bank file contains previously imported transactions
 
 **Solutions:**
+
 1. **Check date ranges** - Don't overlap with previous imports
 2. **Review file contents** - Ensure new transactions only
 3. **Use duplicate review** - System shows why it thinks transactions are duplicates
@@ -160,11 +163,13 @@ Configure how the system identifies which account transactions belong to:
 ### ❌ **Missing Transactions**
 
 **Causes:**
+
 - Bank file doesn't contain all transactions
 - Date range too narrow
 - CSV export excluded some transaction types
 
 **Solutions:**
+
 1. **Verify date range** - Check if bank export covers full period
 2. **Check account settings** - Some accounts exclude certain transaction types
 3. **Download separate files** - Some banks separate credits and debits
@@ -175,16 +180,19 @@ Configure how the system identifies which account transactions belong to:
 **Most Common Cause:** **Delayed import timing**
 
 **Why This Happens:**
+
 - System only detects cross-period duplicates within 7-day window
 - Late imports assume it's not "first import" of new period
 - Bank date advancement occurs between import and reconciliation
 
 **Prevention:**
+
 - **Import immediately** after period end
 - **Complete EOY process promptly** 
 - **Don't delay monthly reconciliation**
 
 **Recovery:**
+
 - **Manual comparison** - Visual check of period boundaries
 - **Adjust bank balances** - Restore zero balance manually
 
@@ -206,6 +214,7 @@ Configure how the system identifies which account transactions belong to:
 ### Manual Transaction Entry
 
 For banks that only provide PDF statements:
+
 1. **Use Transaction Editor** - Budget → Edit Transaction
 2. **Enter transactions individually** - Date, amount, description, account
 3. **Categorize immediately** - Assign to budget categories
@@ -214,6 +223,7 @@ For banks that only provide PDF statements:
 ### Bulk Processing
 
 For multiple accounts or months:
+
 1. **Import each account separately** - Maintains clear audit trail
 2. **Process chronologically** - Import older months first
 3. **Reconcile between imports** - Don't accumulate unreconciled transactions
@@ -225,6 +235,7 @@ For multiple accounts or months:
 ## Next Steps
 
 After successful import:
+
 1. **[Reconcile transactions](reconciling.md)** - Match imports to budget categories
 2. **[Run month-end process](../monthly-tasks/end-of-month.md)** - When all transactions reconciled
 3. **[Update categories](../../system/changelog.md)** - Add new categories if needed
