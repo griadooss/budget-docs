@@ -95,14 +95,16 @@ Banks routinely advance transaction processing dates by 2-7 days after initial p
 ### Bank-Specific Templates
 
 Save templates for each bank you use:
+
 - **Column mappings** for your bank's CSV format
 - **Account identification rules**
 - **Default descriptions** for common transaction types
-- **Lookback day preferences** 
+- **Lookback day preferences**
 
 ### Account Rules
 
 Configure how the system identifies which account transactions belong to:
+
 - **Credit cards:** Often use ending digits (e.g., ending-1234)
 - **Bank accounts:** May use full account number
 - **Manual selection:** Choose account during import
