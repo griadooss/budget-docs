@@ -182,7 +182,7 @@ The dashboard displays two columns:
 
 ## Best Practices
 
-!!! tip inline end "Best Practices"
+!!! tip "Best Practices"
     - **Reconcile within 7 days of transactions** - Critical for cross-year detection
     - **Process End-of-Year imports immediately** - Avoid bank date advancement issues
     - Reconcile regularly (weekly recommended)
@@ -195,6 +195,7 @@ The dashboard displays two columns:
 ## Completion Checklist
 
 Before closing the dashboard:
+
 - [ ] All auto-matches reviewed and reconciled
 - [ ] Unmatched transactions categorized
 - [ ] Split transactions verified and reconciled
@@ -205,6 +206,7 @@ Before closing the dashboard:
 ## Next Steps
 
 After reconciliation:
+
 1. **Review balances** - Check account balances
 2. **Run month-end process** - If all transactions reconciled
 3. **Update categories** - Add new categories if needed
