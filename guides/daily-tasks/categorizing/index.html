@@ -1762,31 +1762,43 @@
 <h2 id="category-system">Category System</h2>
 <h3 id="structure">Structure</h3>
 <p>The category system uses a two-level hierarchy:</p>
-<p><CardGroup cols={2}>
-<Card title="Main Categories" icon="folder">
-- High-level classifications
-- Income vs Expense types
-- Examples: Food, Transport, Salary
-  </Card></p>
-<p><Card title="Subcategories" icon="folder-open">
-- Detailed breakdowns
-- More specific classifications
-- Examples: Groceries, Fuel, Wages
-  </Card>
-</CardGroup></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Main Categories</label><label for="__tabbed_1_2">Subcategories</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>High-level classifications</li>
+<li>Income vs Expense types</li>
+<li>Examples: Food, Transport, Salary</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Detailed breakdowns</li>
+<li>More specific classifications</li>
+<li>Examples: Groceries, Fuel, Wages</li>
+</ul>
+</div>
+</div>
+</div>
 <h3 id="category-types">Category Types</h3>
-<p><CardGroup cols={2}>
-<Card title="Income Categories" icon="arrow-up">
-- <strong>INC prefix</strong> - Income categories
-- <strong>Green color coding</strong> - Visual identification
-- <strong>Examples:</strong> Salary, Gifts, Investment Income
-  </Card></p>
-<p><Card title="Expense Categories" icon="arrow-down">
-- <strong>EXP prefix</strong> - Expense categories
-- <strong>Red color coding</strong> - Visual identification
-- <strong>Examples:</strong> Food, Transport, Utilities
-  </Card>
-</CardGroup></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Income Categories</label><label for="__tabbed_2_2">Expense Categories</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><strong>INC prefix</strong> - Income categories</li>
+<li><strong>Green color coding</strong> - Visual identification</li>
+<li><strong>Examples:</strong> Salary, Gifts, Investment Income</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong>EXP prefix</strong> - Expense categories</li>
+<li><strong>Red color coding</strong> - Visual identification</li>
+<li><strong>Examples:</strong> Food, Transport, Utilities</li>
+</ul>
+</div>
+</div>
+</div>
 <h2 id="managing-categories">Managing Categories</h2>
 <h3 id="access-category-manager">Access Category Manager</h3>
 <ol>
@@ -1795,12 +1807,12 @@
 <li>The Category Manager will open in a new window</li>
 </ol>
 <h3 id="adding-new-categories">Adding New Categories</h3>
-<p><Steps>
-  1. <strong>Click "Add Category"</strong> - In the Category Manager
-  2. <strong>Enter category name</strong> - Use clear, descriptive names
-  3. <strong>Select category type</strong> - Income or Expense
-  4. <strong>Click "Save"</strong> - Category is added to the system
-</Steps></p>
+<ol>
+<li><strong>Click "Add Category"</strong> - In the Category Manager</li>
+<li><strong>Enter category name</strong> - Use clear, descriptive names</li>
+<li><strong>Select category type</strong> - Income or Expense</li>
+<li><strong>Click "Save"</strong> - Category is added to the system</li>
+</ol>
 <h3 id="editing-categories">Editing Categories</h3>
 <ol>
 <li><strong>Select category</strong> - Click on the category in the list</li>
@@ -1866,22 +1878,28 @@
 <li><strong>Standardize names</strong> - Use consistent terminology</li>
 </ul>
 <h3 id="common-categories">Common Categories</h3>
-<p><CardGroup cols={2}>
-<Card title="Income Categories" icon="arrow-up">
-- <strong>Salary/Wages</strong> - Regular employment income
-- <strong>Investment Income</strong> - Dividends, interest
-- <strong>Gifts</strong> - Cash gifts, presents
-- <strong>Other Income</strong> - Miscellaneous income
-  </Card></p>
-<p><Card title="Expense Categories" icon="arrow-down">
-- <strong>Food &amp; Dining</strong> - Groceries, restaurants
-- <strong>Transport</strong> - Fuel, public transport
-- <strong>Utilities</strong> - Electricity, water, gas
-- <strong>Entertainment</strong> - Movies, hobbies
-- <strong>Shopping</strong> - Clothing, household items
-- <strong>Healthcare</strong> - Medical expenses
-  </Card>
-</CardGroup></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Income Categories</label><label for="__tabbed_3_2">Expense Categories</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><strong>Salary/Wages</strong> - Regular employment income</li>
+<li><strong>Investment Income</strong> - Dividends, interest</li>
+<li><strong>Gifts</strong> - Cash gifts, presents</li>
+<li><strong>Other Income</strong> - Miscellaneous income</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong>Food &amp; Dining</strong> - Groceries, restaurants</li>
+<li><strong>Transport</strong> - Fuel, public transport</li>
+<li><strong>Utilities</strong> - Electricity, water, gas</li>
+<li><strong>Entertainment</strong> - Movies, hobbies</li>
+<li><strong>Shopping</strong> - Clothing, household items</li>
+<li><strong>Healthcare</strong> - Medical expenses</li>
+</ul>
+</div>
+</div>
+</div>
 <h2 id="category-management">Category Management</h2>
 <h3 id="active-vs-inactive">Active vs Inactive</h3>
 <ul>
@@ -1905,36 +1923,46 @@
 </ul>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="common-issues">Common Issues</h3>
-<p><AccordionGroup>
-  <Accordion title="Category Not Found" icon="search">
-    <strong>Problem:</strong> Category not in dropdown
-    <strong>Solution:</strong>
-    - Check if category is active
-    - Verify category type (Income/Expense)
-    - Refresh the dropdown
-  </Accordion></p>
-<p><Accordion title="Wrong Category Type" icon="alert">
-    <strong>Problem:</strong> Income category for expense transaction
-    <strong>Solution:</strong>
-    - Select correct category type
-    - Check transaction type setting
-    - Verify category assignment
-  </Accordion></p>
-<p><Accordion title="Missing Subcategories" icon="folder">
-    <strong>Problem:</strong> No subcategories available
-    <strong>Solution:</strong>
-    - Add subcategories to main category
-    - Check if main category is active
-    - Verify subcategory status
-  </Accordion></p>
-<p><Accordion title="Category Manager Issues" icon="settings">
-    <strong>Problem:</strong> Can't access category manager
-    <strong>Solution:</strong>
-    - Check menu permissions
-    - Verify spreadsheet access
-    - Try refreshing the page
-  </Accordion>
-</AccordionGroup></p>
+<details class="warning">
+<summary>Category Not Found</summary>
+<p><strong>Problem:</strong> Category not in dropdown</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Check if category is active</li>
+<li>Verify category type (Income/Expense)</li>
+<li>Refresh the dropdown</li>
+</ul>
+</details>
+<details class="warning">
+<summary>Wrong Category Type</summary>
+<p><strong>Problem:</strong> Income category for expense transaction</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Select correct category type</li>
+<li>Check transaction type setting</li>
+<li>Verify category assignment</li>
+</ul>
+</details>
+<details class="warning">
+<summary>Missing Subcategories</summary>
+<p><strong>Problem:</strong> No subcategories available</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Add subcategories to main category</li>
+<li>Check if main category is active</li>
+<li>Verify subcategory status</li>
+</ul>
+</details>
+<details class="warning">
+<summary>Category Manager Issues</summary>
+<p><strong>Problem:</strong> Can't access category manager</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Check menu permissions</li>
+<li>Verify spreadsheet access</li>
+<li>Try refreshing the page</li>
+</ul>
+</details>
 <h2 id="advanced-features">Advanced Features</h2>
 <h3 id="category-statistics">Category Statistics</h3>
 <ul>
@@ -1956,21 +1984,27 @@
 <li><strong>Data migration</strong> - Move categories between systems</li>
 </ul>
 <h2 id="best-practices">Best Practices</h2>
-<p><Check>Use consistent category names</Check>
-<Check>Create meaningful subcategories</Check>
-<Check>Regularly review and clean up categories</Check>
-<Check>Use active categories only</Check>
-<Check>Maintain category hierarchy</Check>
-<Check>Document category purposes</Check></p>
+<div class="admonition tip">
+<p class="admonition-title">Best Practices</p>
+<ul>
+<li>Use consistent category names</li>
+<li>Create meaningful subcategories</li>
+<li>Regularly review and clean up categories</li>
+<li>Use active categories only</li>
+<li>Maintain category hierarchy</li>
+<li>Document category purposes</li>
+</ul>
+</div>
 <h2 id="next-steps">Next Steps</h2>
 <p>After categorizing:
 1. <strong>Review categorization</strong> - Check for consistency
 2. <strong>Update categories</strong> - Add new categories as needed
 3. <strong>Generate reports</strong> - Analyze spending patterns
 4. <strong>Adjust budget</strong> - Update budget based on categories</p>
-<p><Note>
-  For detailed budget management, see the <a href="../../user-manual/basic-operations/">Budget Management Guide</a>.
-</Note></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For detailed budget management, see the <a href="../../user-manual/basic-operations/">Budget Management Guide</a>.</p>
+</div>
 
 
 
