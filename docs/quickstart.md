@@ -74,9 +74,8 @@ Welcome to the Budget System! This guide will help you get started with the basi
 
 ## End of Year Process
 
-<Warning>
-**Important Annual Process:** The End of Year (EOY) process is a critical annual procedure that must be completed in June to transition to the new fiscal year.
-</Warning>
+!!! warning "Important Annual Process"
+    The End of Year (EOY) process is a critical annual procedure that must be completed in June to transition to the new fiscal year.
 
 ### When You Need EOY Setup
 The EOY process is required when:
@@ -92,78 +91,75 @@ The modern EOY process is a **four-step guided workflow**:
 3. **Month Processing** (in new copy) - Run EOM to transition from June to July
 4. **Finalization** (in new copy) - Complete setup and archive previous master
 
-<CardGroup cols={2}>
-<Card title="EOY Overview" icon="calendar-year" href="/guides/yearly-tasks/end-of-year/overview">
-Learn about the End of Year process
-  </Card>
-<Card title="EOY Setup" icon="settings" href="/guides/yearly-tasks/end-of-year/setup">
-Step-by-step EOY setup instructions
-  </Card>
-</CardGroup>
+=== "EOY Overview"
+    [Learn about the End of Year process](/guides/yearly-tasks/end-of-year/overview)
+
+=== "EOY Setup"
+    [Step-by-step EOY setup instructions](/guides/yearly-tasks/end-of-year/setup)
 
 ## Troubleshooting
 
 ### Common Issues
 
-<AccordionGroup>
-  <Accordion title="Menus Not Loading" icon="menu">
+??? warning "Menus Not Loading"
     **Problem:** Custom menus not appearing
+
     **Solution:**
+
     - Refresh the page (Ctrl+F5)
     - Check script authorization
     - Verify spreadsheet access
-  </Accordion>
 
-  <Accordion title="Import Errors" icon="file-import">
+??? danger "Import Errors"
     **Problem:** Can't import transactions
+
     **Solution:**
+
     - Check bank format selection
     - Verify column mapping
     - Review data format
     - Try manual entry method
-  </Accordion>
 
-  <Accordion title="Reconciliation Issues" icon="check-double">
+??? warning "Reconciliation Issues"
     **Problem:** Dashboard not working
+
     **Solution:**
+
     - Refresh the dashboard
     - Check transaction data
     - Verify sheet access
     - Run performance diagnostics
-  </Accordion>
 
-  <Accordion title="EOM Process Errors" icon="calendar-check">
+??? calendar-check "EOM Process Errors"
     **Problem:** End of month process fails
+
     **Solution:**
+
     - Verify all transactions reconciled
     - Check current month setting
     - Review balance issues
     - Initialize month statuses
-  </Accordion>
-</AccordionGroup>
 
 ## Best Practices
 
-<Check>Import transactions weekly</Check>
-<Check>Reconcile before month-end</Check>
-<Check>Use consistent category names</Check>
-<Check>Keep backup copies</Check>
-<Check>Review balances regularly</Check>
-<Check>Document any issues</Check>
+!!! tip "Best Practices"
+    - Import transactions weekly
+    - Reconcile before month-end
+    - Use consistent category names
+    - Keep backup copies
+    - Review balances regularly
+    - Document any issues
 
 ## Next Steps
 
-<CardGroup cols={3}>
-<Card title="Daily Tasks" icon="calendar" href="/guides/daily-tasks/importing">
-Learn about importing and reconciling
-  </Card>
-<Card title="Monthly Tasks" icon="calendar-check" href="/guides/monthly-tasks/end-of-month">
-Understand month-end processing
-  </Card>
-<Card title="Troubleshooting" icon="help" href="/guides/troubleshooting/common-issues">
-Get help with common issues
-  </Card>
-</CardGroup>
+=== "Daily Tasks"
+    [Learn about importing and reconciling](/guides/daily-tasks/importing)
+
+=== "Monthly Tasks"
+    [Understand month-end processing](/guides/monthly-tasks/end-of-month)
+
+=== "Troubleshooting"
+    [Get help with common issues](/guides/troubleshooting/common-issues)
 
 ## Getting Help
 
@@ -171,6 +167,5 @@ Get help with common issues
 - **Version Info:** Click ℹ️ Help > About (Version Info)
 - **Developer Mode:** Click ℹ️ Help > Toggle Developer Mode (for advanced users)
 
-<Note>
-  For detailed instructions on any process, refer to the specific guides in the documentation.
-</Note>
+!!! note
+    For detailed instructions on any process, refer to the specific guides in the documentation.
