@@ -5,15 +5,12 @@ description: 'Complete guide to all menu functions in the Budget System'
 
 # Menu Functions Reference
 
-<Note>
-  All budget functions are organized in the menu bar for easy access. This guide
-  explains each menu and its functions as they currently exist in the system.
-</Note>
+!!! note
+    All budget functions are organized in the menu bar for easy access. This guide explains each menu and its functions as they currently exist in the system.
 
 ## 🏦 Budget Menu
 
-<AccordionGroup>
-  <Accordion title="Import Bank Transactions" icon="file-import">
+??? file-import "Import Bank Transactions"
     - **Access:** Click "🏦 Budget > Import Bank Transactions"
     - **Purpose:** Import new transactions from bank statements
     - **Features:**
@@ -23,9 +20,8 @@ description: 'Complete guide to all menu functions in the Budget System'
       - Column mapping for different bank formats
       - Account selection and mapping
       - Cross-year duplicate detection
-  </Accordion>
 
-  <Accordion title="Reconciliation Dashboard" icon="check-double">
+??? check-double "Reconciliation Dashboard"
     - **Access:** Click "🏦 Budget > Reconciliation Dashboard"
     - **Purpose:** Match and verify transactions
     - **Features:**
@@ -35,9 +31,8 @@ description: 'Complete guide to all menu functions in the Budget System'
       - Bulk reconciliation
       - Category assignment
       - Performance diagnostics
-  </Accordion>
 
-  <Accordion title="Maintain Budget Submenu" icon="wrench">
+??? wrench "Maintain Budget Submenu"
     - **Access:** Click "🏦 Budget > Maintain Budget"
     - **Purpose:** Manage budget categories and transactions
     - **Functions:**
@@ -45,13 +40,10 @@ description: 'Complete guide to all menu functions in the Budget System'
       - **➕ Add Category/Subcategory:** Add new budget items with proper setup
       - **🗑️ Delete Category/Subcategory:** Safely remove items with cleanup
       - **✏️ Edit Transaction:** Modify existing transactions
-  </Accordion>
-</AccordionGroup>
 
 ## 📅 Period Processing Menu
 
-<AccordionGroup>
-  <Accordion title="Run End of Month Process" icon="calendar-check">
+??? calendar-check "Run End of Month Process"
     - **Access:** Click "📅 Period Processing > Run End of Month Process"
     - **Purpose:** Close the monthly books and prepare for next month
     - **Requirements:**
@@ -64,9 +56,8 @@ description: 'Complete guide to all menu functions in the Budget System'
       - Updates month statuses
       - Hides EOM option after completion
       - Validates balance consistency
-  </Accordion>
 
-  <Accordion title="End of Year Submenu" icon="calendar-year">
+??? calendar-year "End of Year Submenu"
     - **Access:** Click "📅 Period Processing > End of Year"
     - **Purpose:** Complete End of Year setup and processing workflow
     - **Functions:**
@@ -82,13 +73,10 @@ description: 'Complete guide to all menu functions in the Budget System'
       - Bank balance validation
       - Automatic master spreadsheet creation
       - Guided step-by-step process
-  </Accordion>
-</AccordionGroup>
 
 ## ⚙️ Settings Menu
 
-<AccordionGroup>
-  <Accordion title="Import Settings" icon="gear">
+??? gear "Import Settings"
     - **Access:** Click "⚙️ Settings > Import Settings"
     - **Purpose:** Configure bank statement import formats
     - **Features:**
@@ -96,9 +84,8 @@ description: 'Complete guide to all menu functions in the Budget System'
       - Configure bank-specific column mappings
       - Set duplicate detection rules
       - Account selection and mapping
-  </Accordion>
 
-  <Accordion title="Sheet Settings" icon="table">
+??? table "Sheet Settings"
     - **Access:** Click "⚙️ Settings > Sheet Settings"
     - **Purpose:** Manage budget categories and distribution
     - **Features:**
@@ -106,30 +93,25 @@ description: 'Complete guide to all menu functions in the Budget System'
       - **Bulk Distribute Items:** Distribute budget values across months
       - **Sync ACTIVE Flags:** Synchronize category active status
       - **Validate ACTIVE Flags:** Check category status consistency
-  </Accordion>
 
-  <Accordion title="Month Management" icon="calendar">
+??? calendar "Month Management"
     - **Access:** Click "⚙️ Settings > Month Management"
     - **Purpose:** Control month processing and status
     - **Features:**
       - **Note:** Month management functions have been moved to Period Processing > End of Year
       - **Initialize Month Statuses:** Now available in Period Processing > End of Year submenu
-  </Accordion>
 
-  <Accordion title="Advanced Settings" icon="warning">
+??? warning "Advanced Settings"
     - **Access:** Click "⚙️ Settings > Advanced Settings"
     - **Purpose:** Master spreadsheet management
     - **Features:**
       - **Archive This Master:** Archive current master spreadsheet
       - **Note:** Only available in master spreadsheets
       - **Critical:** Prepares for EOY process
-  </Accordion>
-</AccordionGroup>
 
 ## 🛠️ Developer Menu (Dev Mode Only)
 
-<AccordionGroup>
-  <Accordion title="Dev Mode Controls" icon="code">
+??? code "Dev Mode Controls"
     - **Access:** Click "🛠️ Developer > Dev Mode"
     - **Purpose:** Enable/disable development mode
     - **Functions:**
@@ -137,35 +119,31 @@ description: 'Complete guide to all menu functions in the Budget System'
       - **Enable Dev Mode:** Turn on development features
       - **Disable Dev Mode:** Turn off development features
     - **Note:** Required for accessing other developer tools
-  </Accordion>
 
-  <Accordion title="System Status" icon="info-circle">
+??? info-circle "System Status"
     - **Access:** Click "🛠️ Developer > System Status"
     - **Purpose:** Check and manage system configuration
     - **Functions:**
       - **Check Master Status:** Verify master spreadsheet status
       - **Set as Master Spreadsheet:** Mark current spreadsheet as master
-  </Accordion>
 
-  <Accordion title="Trigger Management" icon="cog">
+??? cog "Trigger Management"
     - **Access:** Click "🛠️ Developer > Triggers"
     - **Purpose:** Manage Google Apps Script triggers
     - **Functions:**
       - **🔧 Install onEdit Trigger:** Set up automatic edit detection
       - **❌ Remove onEdit Trigger:** Remove automatic edit detection
     - **Note:** Triggers handle automatic processing
-  </Accordion>
 
-  <Accordion title="Integrity Checker" icon="shield-check">
+??? shield-check "Integrity Checker"
     - **Access:** Click "🛠️ Developer > Integrity Checker"
     - **Purpose:** Validate system integrity and fix issues
     - **Functions:**
       - **Run Comprehensive Check:** Full system validation
       - **Quick Integrity Check:** Fast validation check
       - **Fix Corrupted Formulas:** Repair broken formulas
-  </Accordion>
 
-  <Accordion title="Debug Tools" icon="bug">
+??? bug "Debug Tools"
     - **Access:** Click "🛠️ Developer > Debug Tools"
     - **Purpose:** Diagnostic and debugging utilities
     - **Functions:**
@@ -173,17 +151,13 @@ description: 'Complete guide to all menu functions in the Budget System'
       - **👁️ View Stored Mappings:** Check stored bank configurations
       - **📜 Import History:** View transaction import history
       - **🔄 Re-sync ACTIVE Flags:** Manually sync category status
-  </Accordion>
-</AccordionGroup>
 
-<Note>
-  For detailed information about all Developer menu functions, see the [Developer Menu Reference](../system/developer-menu.md).
-</Note>
+!!! note
+    For detailed information about all Developer menu functions, see the [Developer Menu Reference](../system/developer-menu.md).
 
 ## ℹ️ Help Menu
 
-<AccordionGroup>
-  <Accordion title="Documentation" icon="book">
+??? book "Documentation"
     - **Access:** Click "ℹ️ Help > Online Documentation"
     - **Purpose:** Access comprehensive system documentation
     - **Features:**
@@ -191,77 +165,75 @@ description: 'Complete guide to all menu functions in the Budget System'
       - Troubleshooting guides
       - Development documentation
       - Best practices
-  </Accordion>
 
-  <Accordion title="System Information" icon="info">
+??? info "System Information"
     - **Access:** Click "ℹ️ Help > About (Version Info)"
     - **Purpose:** Check system version and status
     - **Features:**
       - Current version information
       - System configuration details
       - Update status
-  </Accordion>
 
-  <Accordion title="Developer Mode Toggle" icon="code">
+??? code "Developer Mode Toggle"
     - **Access:** Click "ℹ️ Help > Toggle Developer Mode"
     - **Purpose:** Switch between user and developer modes
     - **Note:** Enables/disables developer menu access
-  </Accordion>
-</AccordionGroup>
 
 ## Menu States
 
-<CardGroup cols={2}>
-<Card title="Normal Operations" icon="check">
-- All standard menus visible
-- Full user functionality
-- Maintain Budget submenu available
-- Standard workflow processes
-  </Card>
+=== "Normal Operations"
 
-<Card title="EOY Setup Mode" icon="calendar-year">
-- Period Processing shows EOY steps
-- Limited functionality during setup
-- Guided setup process
-- Strict balance checking
-  </Card>
+    - All standard menus visible
+    - Full user functionality
+    - Maintain Budget submenu available
+    - Standard workflow processes
 
-<Card title="Archived Mode" icon="archive">
-- Minimal menu options
-- Restore functionality only
-- Read-only access
-- No editing capabilities
-  </Card>
+=== "EOY Setup Mode"
 
-<Card title="Developer Mode" icon="code">
-- Additional debug tools
-- Advanced diagnostics
-- Trigger management
-- Integrity checking tools
-  </Card>
-</CardGroup>
+    - Period Processing shows EOY steps
+    - Limited functionality during setup
+    - Guided setup process
+    - Strict balance checking
+
+=== "Archived Mode"
+
+    - Minimal menu options
+    - Restore functionality only
+    - Read-only access
+    - No editing capabilities
+
+=== "Developer Mode"
+
+    - Additional debug tools
+    - Advanced diagnostics
+    - Trigger management
+    - Integrity checking tools
 
 ## Important Workflow Notes
 
-<Warning>
-**Critical:** Always use menu functions for category management. Manual deletion from sheets can cause balance inconsistencies.
-</Warning>
+!!! warning "Critical"
+    Always use menu functions for category management. Manual deletion from sheets can cause balance inconsistencies.
 
-<Note>
-**ACTIVE Flag System:** Category active status is automatically managed. Use "Re-sync ACTIVE Flags" in Developer menu if needed.
-</Note>
+!!! note "ACTIVE Flag System"
+    Category active status is automatically managed. Use "Re-sync ACTIVE Flags" in Developer menu if needed.
 
-<Info>
-**Balance Checking:** The system validates balances before critical operations. EOY processes require zero balance with no override option.
-</Info>
+!!! info "Balance Checking"
+    The system validates balances before critical operations. EOY processes require zero balance with no override option.
 
 ## Best Practices
 
-<Check>Always use "Delete Category/Subcategory" from Maintain Budget menu</Check>
-<Check>Use "Add Category/Subcategory" for proper setup</Check>
-<Check>Check balance indicators before running EOY processes</Check>
-<Check>Review warning messages carefully</Check>
-<Check>Use Developer menu tools for troubleshooting</Check>
-<Warning>Don't manually delete rows from Annual Budget or Maintain Budget sheets</Warning>
-<Warning>Don't modify sheet structure manually</Warning>
-<Warning>Developer menu only appears when DEV_MODE is enabled</Warning>
+!!! tip "Best Practices"
+    - Always use "Delete Category/Subcategory" from Maintain Budget menu
+    - Use "Add Category/Subcategory" for proper setup
+    - Check balance indicators before running EOY processes
+    - Review warning messages carefully
+    - Use Developer menu tools for troubleshooting
+
+!!! warning
+    Don't manually delete rows from Annual Budget or Maintain Budget sheets
+
+!!! warning
+    Don't modify sheet structure manually
+
+!!! warning
+    Developer menu only appears when DEV_MODE is enabled
