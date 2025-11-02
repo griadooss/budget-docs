@@ -222,6 +222,7 @@ The category system uses a two-level hierarchy:
 ## Next Steps
 
 After categorizing:
+
 1. **Review categorization** - Check for consistency
 2. **Update categories** - Add new categories as needed
 3. **Generate reports** - Analyze spending patterns
