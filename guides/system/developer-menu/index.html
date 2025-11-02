@@ -1519,7 +1519,7 @@
 <p><AccordionGroup>
   <Accordion title="Check Dev Mode Status" icon="info">
     - <strong>Function:</strong> <code>checkDevMode()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Display current developer mode status
+<pre><code>- **Purpose:** Display current developer mode status
 
 
 - **When to Use:** Verify if developer mode is active
@@ -1529,11 +1529,11 @@
 
 
 - **Dependencies:** None
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Enable Dev Mode" icon="toggle-on">
     - <strong>Function:</strong> <code>enableDevMode()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Turn on developer mode
+<pre><code>- **Purpose:** Turn on developer mode
 
 
 - **When to Use:** When you need access to developer tools
@@ -1543,11 +1543,11 @@
 
 
 - **Dependencies:** Script properties access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Disable Dev Mode" icon="toggle-off">
     - <strong>Function:</strong> <code>disableDevMode()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Turn off developer mode
+<pre><code>- **Purpose:** Turn off developer mode
 
 
 - **When to Use:** After completing development work
@@ -1557,25 +1557,25 @@
 
 
 - **Dependencies:** Script properties access
-</code></pre></div>
+</code></pre>
 <p></Accordion>
 </AccordionGroup></p>
 <h2 id="system-status">📊 System Status</h2>
 <p><AccordionGroup>
   <Accordion title="Check Master Status" icon="info-circle">
     - <strong>Function:</strong> <code>checkMasterStatus()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Verify if current spreadsheet is the master
+<pre><code>- **Purpose:** Verify if current spreadsheet is the master
 
 - **When to Use:** Before performing master-only operations
 
 - **Output:** Shows IS_MASTER property and related status
 
 - **Dependencies:** Script properties access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Set as Master Spreadsheet" icon="crown">
     - <strong>Function:</strong> <code>setAsMaster()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Mark current spreadsheet as the master
+<pre><code>- **Purpose:** Mark current spreadsheet as the master
 
 - **When to Use:** When setting up a new master spreadsheet
 
@@ -1584,39 +1584,39 @@
 - **Dependencies:** Script properties access
 
 - **Warning:** Only use on the intended master spreadsheet
-</code></pre></div>
+</code></pre>
 <p></Accordion>
 </AccordionGroup></p>
 <h2 id="triggers">⚙️ Triggers</h2>
 <p><AccordionGroup>
   <Accordion title="Install onEdit Trigger" icon="plus">
     - <strong>Function:</strong> <code>installOnEditTrigger()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Set up automatic edit detection
+<pre><code>- **Purpose:** Set up automatic edit detection
 
 - **When to Use:** When automatic processing is needed
 
 - **Effect:** Creates onEdit trigger for automatic processing
 
 - **Dependencies:** Trigger creation permissions
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Remove onEdit Trigger" icon="minus">
     - <strong>Function:</strong> <code>removeOnEditTrigger()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Remove automatic edit detection
+<pre><code>- **Purpose:** Remove automatic edit detection
 
 - **When to Use:** When automatic processing is not needed
 
 - **Effect:** Deletes existing onEdit trigger
 
 - **Dependencies:** Trigger management permissions
-</code></pre></div>
+</code></pre>
 <p></Accordion>
 </AccordionGroup></p>
 <h2 id="integrity-checker">🛡️ Integrity Checker</h2>
 <p><AccordionGroup>
   <Accordion title="Run Comprehensive Check" icon="shield-check">
     - <strong>Function:</strong> <code>runComprehensiveIntegrityCheck()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Full system validation and health check
+<pre><code>- **Purpose:** Full system validation and health check
 
 - **When to Use:** When investigating system issues or before major changes
 
@@ -1625,11 +1625,11 @@
 - **Dependencies:** Access to all system sheets
 
 - **Duration:** May take several minutes for large datasets
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Quick Integrity Check" icon="bolt">
     - <strong>Function:</strong> <code>quickIntegrityCheck()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Fast validation check for common issues
+<pre><code>- **Purpose:** Fast validation check for common issues
 
 - **When to Use:** Regular system health monitoring
 
@@ -1638,11 +1638,11 @@
 - **Dependencies:** Basic sheet access
 
 - **Duration:** Usually completes in under 30 seconds
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Fix Corrupted Formulas" icon="wrench">
     - <strong>Function:</strong> <code>fixCorruptedFormulas()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Repair broken or corrupted formulas
+<pre><code>- **Purpose:** Repair broken or corrupted formulas
 
 - **When to Use:** When formulas are not calculating correctly
 
@@ -1651,14 +1651,14 @@
 - **Dependencies:** Write access to sheets with formulas
 
 - **Warning:** Creates backup before making changes
-</code></pre></div>
+</code></pre>
 <p></Accordion>
 </AccordionGroup></p>
 <h2 id="testing-tools">🧪 Testing Tools</h2>
 <p><AccordionGroup>
   <Accordion title="Reset Month Statuses" icon="refresh">
     - <strong>Function:</strong> <code>resetMonthStatuses()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Reset month processing statuses
+<pre><code>- **Purpose:** Reset month processing statuses
 
 - **When to Use:** When month statuses are corrupted or incorrect
 
@@ -1667,76 +1667,76 @@
 - **Dependencies:** Write access to month status ranges
 
 - **Warning:** May affect month processing workflow
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Validate Script Properties" icon="check-double">
     - <strong>Function:</strong> <code>validateScriptProperties()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Check script properties for consistency
+<pre><code>- **Purpose:** Check script properties for consistency
 
 - **When to Use:** When system behavior is unexpected
 
 - **Output:** Report of script properties and their values
 
 - **Dependencies:** Script properties access
-</code></pre></div>
+</code></pre>
 <p></Accordion>
 </AccordionGroup></p>
 <h2 id="debug-tools">🐛 Debug Tools</h2>
 <p><AccordionGroup>
   <Accordion title="Named Ranges Report" icon="list">
     - <strong>Function:</strong> <code>verifyNamedRanges()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Check spreadsheet named ranges
+<pre><code>- **Purpose:** Check spreadsheet named ranges
 
 - **When to Use:** When named ranges are not working correctly
 
 - **Output:** Complete list of all named ranges and their status
 
 - **Dependencies:** Named ranges access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="View Stored Mappings" icon="eye">
     - <strong>Function:</strong> <code>viewStoredMappings()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Check stored bank configurations
+<pre><code>- **Purpose:** Check stored bank configurations
 
 - **When to Use:** When import mappings are not working
 
 - **Output:** Display of all stored bank import mappings
 
 - **Dependencies:** Stored mappings access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Import History" icon="history">
     - <strong>Function:</strong> <code>showImportHistory()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** View transaction import history
+<pre><code>- **Purpose:** View transaction import history
 
 - **When to Use:** When investigating import issues
 
 - **Output:** List of recent imports with timestamps and details
 
 - **Dependencies:** Import history data access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Re-sync ACTIVE Flags" icon="sync">
     - <strong>Function:</strong> <code>cleanupActiveFlagInconsistencies()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Manually sync category active status
+<pre><code>- **Purpose:** Manually sync category active status
 
 - **When to Use:** When ACTIVE flags are out of sync
 
 - **Effect:** Synchronizes ACTIVE flags across all categories
 
 - **Dependencies:** Category data access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Debug Income Budget Status" icon="chart-line">
     - <strong>Function:</strong> <code>debugIncomeBudgetStatus()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Debug income budget calculations
+<pre><code>- **Purpose:** Debug income budget calculations
 
 - **When to Use:** When income budget calculations are incorrect
 
 - **Output:** Detailed analysis of income budget status
 
 - **Dependencies:** Income budget data access
-</code></pre></div>
+</code></pre>
 <p></Accordion>
 </AccordionGroup></p>
 <h2 id="legacy-menu">🏛️ Legacy Menu</h2>
@@ -1745,162 +1745,162 @@
 <p><AccordionGroup>
   <Accordion title="Find Legacy Named Ranges" icon="search">
     - <strong>Function:</strong> <code>findLegacyNamedRanges()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Identify legacy named ranges from old system
+<pre><code>- **Purpose:** Identify legacy named ranges from old system
 
 - **When to Use:** During system cleanup or migration
 
 - **Output:** List of legacy named ranges that can be removed
 
 - **Dependencies:** Named ranges access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Get Cleanup Instructions" icon="list-alt">
     - <strong>Function:</strong> <code>getLegacyCleanupInstructions()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Get step-by-step cleanup instructions
+<pre><code>- **Purpose:** Get step-by-step cleanup instructions
 
 - **When to Use:** When removing legacy system components
 
 - **Output:** Detailed instructions for legacy system removal
 
 - **Dependencies:** None
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p></AccordionGroup></p>
 <h3 id="cross-year-detection">Cross-Year Detection</h3>
 <p><AccordionGroup>
   <Accordion title="Test Cross-Year Detection" icon="flask">
     - <strong>Function:</strong> <code>testCrossYearDetection()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Test cross-year duplicate detection system
+<pre><code>- **Purpose:** Test cross-year duplicate detection system
 
 - **When to Use:** When testing or debugging cross-year functionality
 
 - **Output:** Test results and diagnostic information
 
 - **Dependencies:** Cross-year detection system
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Quick Diagnose Cross-Year" icon="stethoscope">
     - <strong>Function:</strong> <code>quickDiagnoseCrossYearIssue()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Quick diagnostic for cross-year issues
+<pre><code>- **Purpose:** Quick diagnostic for cross-year issues
 
 - **When to Use:** When cross-year detection is not working
 
 - **Output:** Quick diagnosis of cross-year detection problems
 
 - **Dependencies:** Cross-year detection system
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Show Cross-Year Info" icon="info">
     - <strong>Function:</strong> <code>showCrossYearDetectionInfo()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Display cross-year detection information
+<pre><code>- **Purpose:** Display cross-year detection information
 
 - **When to Use:** When understanding cross-year system status
 
 - **Output:** Information about cross-year detection configuration
 
 - **Dependencies:** Cross-year detection system
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Debug Archive Detection" icon="search-plus">
     - <strong>Function:</strong> <code>debugArchiveFileDetection()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Debug archive file detection
+<pre><code>- **Purpose:** Debug archive file detection
 
 - **When to Use:** When archive file detection is failing
 
 - **Output:** Debug information about archive file detection
 
 - **Dependencies:** Archive system access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Create Missing Named Ranges" icon="wrench">
     - <strong>Function:</strong> <code>createMissingNamedRanges()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Create missing named ranges required by the system
+<pre><code>- **Purpose:** Create missing named ranges required by the system
 
 - **When to Use:** When functions fail due to missing named ranges
 
 - **Output:** Creates BudgetStartDate and other critical named ranges
 
 - **Dependencies:** Maintain Budget sheet access
-</code></pre></div>
+</code></pre>
 <p></Accordion>
 </AccordionGroup></p>
 <h3 id="advanced-testing">Advanced Testing</h3>
 <p><AccordionGroup></p>
 <p><Accordion title="Test Integrity Checker" icon="flask">
     - <strong>Function:</strong> <code>testIntegrityChecker()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Test integrity checker functionality
+<pre><code>- **Purpose:** Test integrity checker functionality
 
 - **When to Use:** When testing integrity checker system
 
 - **Output:** Test results for integrity checker
 
 - **Dependencies:** Integrity checker system access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Test Commitment Validation" icon="flask">
     - <strong>Function:</strong> <code>testCommitmentValidation()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Test commitment validation system
+<pre><code>- **Purpose:** Test commitment validation system
 
 - **When to Use:** When testing commitment validation
 
 - **Output:** Test results for commitment validation
 
 - **Dependencies:** Commitment system access
-</code></pre></div>
+</code></pre>
 <p></Accordion>
 </AccordionGroup></p>
 <h3 id="debug-diagnostics">Debug &amp; Diagnostics</h3>
 <p><AccordionGroup>
   <Accordion title="Debug Template Check" icon="bug">
     - <strong>Function:</strong> <code>debugTemplateCheck()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Debug template checking functionality
+<pre><code>- **Purpose:** Debug template checking functionality
 
 - **When to Use:** When template checking is not working
 
 - **Output:** Debug information about template checking
 
 - **Dependencies:** Template system access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Debug Template Comprehensive" icon="bug">
     - <strong>Function:</strong> <code>debugTemplateComprehensive()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Comprehensive template debugging
+<pre><code>- **Purpose:** Comprehensive template debugging
 
 - **When to Use:** When detailed template debugging is needed
 
 - **Output:** Comprehensive debug information about templates
 
 - **Dependencies:** Template system access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Debug Accounts" icon="bug">
     - <strong>Function:</strong> <code>debugAccounts()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Debug account mapping functionality
+<pre><code>- **Purpose:** Debug account mapping functionality
 
 - **When to Use:** When account mapping is not working
 
 - **Output:** Debug information about account mapping
 
 - **Dependencies:** Account mapping system access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Debug Annual Budget Categories" icon="bug">
     - <strong>Function:</strong> <code>debugAnnualBudgetCategories()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Debug Annual Budget categories
+<pre><code>- **Purpose:** Debug Annual Budget categories
 
 - **When to Use:** When Annual Budget categories have issues
 
 - **Output:** Debug information about Annual Budget categories
 
 - **Dependencies:** Annual Budget access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p></AccordionGroup></p>
 <h3 id="performance-testing">Performance Testing</h3>
 <p><AccordionGroup>
   <Accordion title="Test Sheet Access Performance" icon="tachometer">
     - <strong>Function:</strong> <code>testSheetAccessPerformance()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Test sheet access performance and identify bottlenecks
+<pre><code>- **Purpose:** Test sheet access performance and identify bottlenecks
 
 - **When to Use:** When investigating performance issues
 
@@ -1916,40 +1916,40 @@
   Get Cash Flow values: 105ms
   Total Sheet Access Time: 1223ms
   ```
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Test Reconciliation Updates" icon="tachometer">
     - <strong>Function:</strong> <code>testReconciliationDateUpdateDetailed()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Test reconciliation date update performance
+<pre><code>- **Purpose:** Test reconciliation date update performance
 
 - **When to Use:** When reconciliation updates are slow
 
 - **Output:** Performance metrics for reconciliation updates
 
 - **Dependencies:** Reconciliation system access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Test Loan Participants" icon="tachometer">
     - <strong>Function:</strong> <code>testLoanParticipants()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Test loan participants loading performance
+<pre><code>- **Purpose:** Test loan participants loading performance
 
 - **When to Use:** When loan participant loading is slow
 
 - **Output:** Performance metrics for loan participant loading
 
 - **Dependencies:** Loan system access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p><Accordion title="Test Loan Categories" icon="tachometer">
     - <strong>Function:</strong> <code>testLoanCategories()</code></p>
-<div class="highlight"><pre><span></span><code>- **Purpose:** Test loan category handling performance
+<pre><code>- **Purpose:** Test loan category handling performance
 
 - **When to Use:** When loan category operations are slow
 
 - **Output:** Performance metrics for loan category operations
 
 - **Dependencies:** Loan system access
-</code></pre></div>
+</code></pre>
 <p></Accordion></p>
 <p></AccordionGroup></p>
 <h2 id="important-notes">🚨 Important Notes</h2>
