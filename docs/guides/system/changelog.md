@@ -55,19 +55,17 @@ description: 'Detailed history of documentation updates'
 
 **Initial Release**
 
-<CardGroup cols={2}>
-<Card title="Documentation" icon="book">
-- Initial documentation structure
-- User manual sections
-- Quick start guides
-  </Card>
+=== "Documentation"
 
-<Card title="Features" icon="stars">
-- Basic operations guide
-- Menu reference
-- Troubleshooting guides
-  </Card>
-</CardGroup>
+    - Initial documentation structure
+    - User manual sections
+    - Quick start guides
+
+=== "Features"
+
+    - Basic operations guide
+    - Menu reference
+    - Troubleshooting guides
 
 **Added**
 - Complete user manual
