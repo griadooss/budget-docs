@@ -63,12 +63,14 @@ Banks routinely advance transaction processing dates by 2-7 days after initial p
 ### Step 3: Configure Import Settings
 
 **For First-Time Setup:**
+
 1. **Map columns** - Tell system which columns contain dates, amounts, descriptions
 2. **Set lookback days** - Usually 7 days for duplicate detection
 3. **Configure account rules** - How to identify which account transactions belong to
 4. **Save as template** - Reuse settings for future imports
 
 **For Regular Imports:**
+
 1. **Select saved template** for your bank
 2. **Verify column mapping** (banks occasionally change formats)
 3. **Proceed with import**
