@@ -1634,13 +1634,15 @@
 <li>All transactions for the current year have been reconciled</li>
 <li>You're ready to start planning for the next financial year (July-June)</li>
 </ul>
-<p><Warning>
-<strong>⏰ CRITICAL TIMING:</strong> Complete the EOY process <strong>immediately</strong> after your fiscal year ends (June 30). Then import July transactions <strong>within 7 days</strong> to enable cross-year duplicate detection.</p>
-<p><strong>Why This Matters:</strong> Banks often advance transaction processing dates by 2-7 days, moving late June transactions into July. Delayed reconciliation prevents the system from catching these duplicates automatically.
-</Warning></p>
-<p><Note>
-<strong>Important:</strong> The EOY process can only be started during June. If you try to access it in other months, the system will display a restriction message and block the process.
-</Note></p>
+<div class="admonition warning">
+<p class="admonition-title">⏰ CRITICAL TIMING</p>
+<p>Complete the EOY process <strong>immediately</strong> after your fiscal year ends (June 30). Then import July transactions <strong>within 7 days</strong> to enable cross-year duplicate detection.</p>
+<p><strong>Why This Matters:</strong> Banks often advance transaction processing dates by 2-7 days, moving late June transactions into July. Delayed reconciliation prevents the system from catching these duplicates automatically.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Important</p>
+<p>The EOY process can only be started during June. If you try to access it in other months, the system will display a restriction message and block the process.</p>
+</div>
 <h2 id="process-summary">Process Summary</h2>
 <p>The EOY process consists of <strong>four main steps</strong> with clear menu-driven progression:</p>
 <h3 id="1-start-eoy-process-in-master-spreadsheet">1. <strong>Start EOY Process</strong> (in Master Spreadsheet)</h3>
@@ -1689,9 +1691,10 @@
 <li><strong>Run End of Month Process</strong> - Normal monthly operations</li>
 <li><strong>Start End of Year Process</strong> - For next year's EOY</li>
 </ul>
-<p><Note>
-The menu system automatically adapts based on your EOY completion status, ensuring you always see the appropriate options for your current stage.
-</Note></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The menu system automatically adapts based on your EOY completion status, ensuring you always see the appropriate options for your current stage.</p>
+</div>
 <h2 id="pre-eoy-requirements">Pre-EOY Requirements</h2>
 <p>Before beginning the EOY process, ensure these conditions are met:</p>
 <h3 id="1-month-restriction">1. <strong>Month Restriction</strong></h3>
@@ -1710,15 +1713,18 @@ The menu system automatically adapts based on your EOY completion status, ensuri
 <li><strong>Annual Budget sheet:</strong> "BUDGET BALANCED" indicator must show $0.00</li>
 <li><strong>Maintain Budget sheet:</strong> Balance indicator must show $0.00</li>
 </ul>
-<p><Warning>
-<strong>🚨 CRITICAL REQUIREMENT:</strong> The system now <strong>strictly enforces</strong> balance checking and will <strong>block the EOY process</strong> if any sheet is unbalanced.</p>
+<div class="admonition warning">
+<p class="admonition-title">🚨 CRITICAL REQUIREMENT</p>
+<p>The system now <strong>strictly enforces</strong> balance checking and will <strong>block the EOY process</strong> if any sheet is unbalanced.</p>
 <p><strong>Why This Matters:</strong> The EOY process copies current bank balances to become opening balances for the new fiscal year. If these are incorrect, your entire new year will start with wrong foundation data.</p>
 <p><strong>❌ No Override Available:</strong> Unlike End of Month processing, there is no "proceed anyway" option for EOY to prevent catastrophic data issues.</p>
-<p><strong>💡 Solution:</strong>
-1. <strong>First</strong> - Update ALL bank balances to be accurate as at June 30 (banks often apply monthly interest as final transaction)
-2. <strong>Second</strong> - Use 'Reconciliation Dashboard' to resolve any Cash Flow transaction issues (missing, extra, or unreconciled transactions)
-3. <strong>Third</strong> - Ensure all three balance indicators show $0.00 before starting EOY process
-</Warning></p>
+<p><strong>💡 Solution:</strong></p>
+<ol>
+<li><strong>First</strong> - Update ALL bank balances to be accurate as at June 30 (banks often apply monthly interest as final transaction)</li>
+<li><strong>Second</strong> - Use 'Reconciliation Dashboard' to resolve any Cash Flow transaction issues (missing, extra, or unreconciled transactions)</li>
+<li><strong>Third</strong> - Ensure all three balance indicators show $0.00 before starting EOY process</li>
+</ol>
+</div>
 <h3 id="4-commitment-validation-user-choice">4. <strong>Commitment Validation</strong> (User Choice)</h3>
 <ul>
 <li>System checks for outstanding commitments during End of Month processing</li>
@@ -1770,12 +1776,14 @@ The menu system automatically adapts based on your EOY completion status, ensuri
 <li>Click <strong>"Allow"</strong></li>
 <li><strong>Verification</strong> - System automatically validates setup</li>
 </ol>
-<p><Warning>
-<strong>About the "Unsafe" Warning:</strong> Google shows this warning for ALL custom spreadsheet scripts, not because there's actually a problem. The budget system is safe to authorize - it only accesses your budget spreadsheet data and nothing else.
-</Warning></p>
-<p><Tip>
-If authorization fails, refresh the page and try again. The system includes retry logic for common authorization issues.
-</Tip></p>
+<div class="admonition warning">
+<p class="admonition-title">About the \"Unsafe\" Warning</p>
+<p>Google shows this warning for ALL custom spreadsheet scripts, not because there's actually a problem. The budget system is safe to authorize - it only accesses your budget spreadsheet data and nothing else.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If authorization fails, refresh the page and try again. The system includes retry logic for common authorization issues.</p>
+</div>
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="from-master-spreadsheet-june-only">From Master Spreadsheet (June only)</h3>
 <ol>
@@ -1797,9 +1805,10 @@ If authorization fails, refresh the page and try again. The system includes retr
 <li><strong>Technical details:</strong> <a href="../developer-guide/">Developer Guide</a></li>
 <li><strong>Troubleshooting:</strong> <a href="../../../troubleshooting/common-issues/">Common Issues</a></li>
 </ul>
-<p><Note>
-The complete documentation is accessible at any time during the EOY process through menu links and help dialogs. You don't need to complete the process in one session - you can refer back to the documentation as needed.
-</Note></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The complete documentation is accessible at any time during the EOY process through menu links and help dialogs. You don't need to complete the process in one session - you can refer back to the documentation as needed.</p>
+</div>
 
 
 
