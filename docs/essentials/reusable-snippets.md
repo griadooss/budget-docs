@@ -11,12 +11,8 @@ icon: 'recycle'
 
 **Pre-condition**: You must create your snippet file in the `snippets` directory.
 
-<Note>
-  Any page in the `snippets` directory will be treated as a snippet and will not
-  be rendered into a standalone page. If you want to create a standalone page
-  from the snippet, import the snippet into another file and call it as a
-  component.
-</Note>
+!!! note
+    Any page in the `snippets` directory will be treated as a snippet and will not be rendered into a standalone page. If you want to create a standalone page from the snippet, import the snippet into another file and call it as a component.
 
 ### Default export
 

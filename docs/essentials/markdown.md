@@ -20,11 +20,8 @@ Best use to subsection headers.
 ### Subtitles
 ```
 
-<Tip>
-
-Each **title** and **subtitle** creates an anchor and also shows up on the table of contents on the right.
-
-</Tip>
+!!! tip
+    Each **title** and **subtitle** creates an anchor and also shows up on the table of contents on the right.
 
 ## Text Formatting
 

@@ -217,7 +217,8 @@ Name of your project. Used for the global title.
     <ResponseField name="maintainOrder" type="boolean">
       Enabling this flag ensures that key ordering in OpenAPI pages matches the key ordering defined in the OpenAPI file.
 
-      <Warning>This behavior will soon be enabled by default, at which point this field will be deprecated.</Warning>
+      !!! warning
+          This behavior will soon be enabled by default, at which point this field will be deprecated.
     </ResponseField>
 
   </Expandable>
