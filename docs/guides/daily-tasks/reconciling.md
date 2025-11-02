@@ -196,12 +196,12 @@ The dashboard displays two columns:
 
 Before closing the dashboard:
 
-- [x] All auto-matches reviewed and reconciled
-- [x] Unmatched transactions categorized
-- [x] Split transactions verified and reconciled
-- [x] All bank transactions accounted for
-- [x] Cash flow entries complete
-- [x] Balances verified
+- [x] **All auto-matches** reviewed and reconciled
+- [x] **Unmatched transactions** categorized
+- [x] **Split transactions** verified and reconciled
+- [x] **All bank transactions** accounted for
+- [x] **Cash flow entries** complete
+- [x] **Balances** verified
 
 ## Next Steps
 
