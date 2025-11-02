@@ -15,21 +15,21 @@ Bank transaction importing is the foundation of effective budget reconciliation.
 
 ### ⏰ **Timing Rules for Success**
 
-<CardGroup cols={2}>
-<Card title="Monthly Imports" icon="calendar-days">
-**Import within 7 days of month-end**
-- Prevents bank date advancement issues
-- Enables cross-month duplicate detection
-- Maintains historical data integrity
-</Card>
+=== "Monthly Imports"
 
-<Card title="End-of-Year Imports" icon="calendar-year">
-**Import July within 7 days of EOY completion**
-- Critical for cross-year duplicate detection
-- Prevents June→July transaction movement
-- Maintains fiscal year boundary accuracy
-</Card>
-</CardGroup>
+    **Import within 7 days of month-end**
+
+    - Prevents bank date advancement issues
+    - Enables cross-month duplicate detection
+    - Maintains historical data integrity
+
+=== "End-of-Year Imports"
+
+    **Import July within 7 days of EOY completion**
+
+    - Critical for cross-year duplicate detection
+    - Prevents June→July transaction movement
+    - Maintains fiscal year boundary accuracy
 
 ### 🚨 **Why Timing Matters**
 
@@ -50,9 +50,8 @@ Banks routinely advance transaction processing dates by 2-7 days after initial p
 4. **Download in CSV format** (preferred) or PDF if CSV unavailable
 5. **Save to a known location** on your computer
 
-<Note>
-**File Format Priority:** Most banks offer multiple export formats. Always choose CSV over PDF when available - it imports more accurately and faster.
-</Note>
+!!! note "File Format Priority"
+    Most banks offer multiple export formats. Always choose CSV over PDF when available - it imports more accurately and faster.
 
 ### Step 2: Access Import Function
 
@@ -110,24 +109,27 @@ Configure how the system identifies which account transactions belong to:
 
 ### 🎯 **Timing Best Practices**
 
-<Check>**Import within 7 days** of transaction dates</Check>
-<Check>**Complete EOY imports immediately** after fiscal year end</Check>
-<Check>**Process month-end imports promptly** (within 1 week)</Check>
-<Check>**Monitor for bank format changes** quarterly</Check>
+!!! tip "Timing Best Practices"
+    - **Import within 7 days** of transaction dates
+    - **Complete EOY imports immediately** after fiscal year end
+    - **Process month-end imports promptly** (within 1 week)
+    - **Monitor for bank format changes** quarterly
 
 ### 🎯 **Data Quality Best Practices**
 
-<Check>**Verify dates before importing** - Check for obvious errors</Check>
-<Check>**Review amounts for reasonableness** - Catch decimal point errors</Check>
-<Check>**Check descriptions for completeness** - Some banks truncate descriptions</Check>
-<Check>**Confirm account assignments** - Ensure transactions go to correct accounts</Check>
+!!! tip "Data Quality"
+    - **Verify dates before importing** - Check for obvious errors
+    - **Review amounts for reasonableness** - Catch decimal point errors
+    - **Check descriptions for completeness** - Some banks truncate descriptions
+    - **Confirm account assignments** - Ensure transactions go to correct accounts
 
 ### 🎯 **File Management Best Practices**
 
-<Check>**Use consistent naming** - e.g., "NAB-Checking-2025-07.csv"</Check>
-<Check>**Keep monthly exports organized** - Separate folders by year/month</Check>
-<Check>**Archive import files** - Keep for audit trail and re-import if needed</Check>
-<Check>**Delete temporary downloads** - Clean up download folder regularly</Check>
+!!! tip "File Management"
+    - **Use consistent naming** - e.g., "NAB-Checking-2025-07.csv"
+    - **Keep monthly exports organized** - Separate folders by year/month
+    - **Archive import files** - Keep for audit trail and re-import if needed
+    - **Delete temporary downloads** - Clean up download folder regularly
 
 ## Troubleshooting Common Issues
 
@@ -213,9 +215,8 @@ For multiple accounts or months:
 3. **Reconcile between imports** - Don't accumulate unreconciled transactions
 4. **Monitor system performance** - Large imports may take longer
 
-<Warning>
-**Bulk Import Limitation:** Cross-year detection expects "first import" to be small. Importing 70+ transactions at once may bypass detection even within the 7-day window.
-</Warning>
+!!! warning "Bulk Import Limitation"
+    Cross-year detection expects "first import" to be small. Importing 70+ transactions at once may bypass detection even within the 7-day window.
 
 ## Next Steps
 
@@ -224,6 +225,5 @@ After successful import:
 2. **[Run month-end process](../monthly-tasks/end-of-month.md)** - When all transactions reconciled
 3. **[Update categories](../../system/changelog.md)** - Add new categories if needed
 
-<Note>
-Remember: **Import timing affects reconciliation accuracy.** The few minutes saved by delaying imports can cost hours of manual correction later.
-</Note>
+!!! note
+    Remember: **Import timing affects reconciliation accuracy.** The few minutes saved by delaying imports can cost hours of manual correction later.

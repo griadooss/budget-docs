@@ -5,48 +5,39 @@ description: 'Introduction to the Budget System'
 
 # Getting Started with Your Budget System
 
-<Note>
-This guide will help you understand the basics of your budget management system.
-</Note>
+!!! note
+    This guide will help you understand the basics of your budget management system.
 
 ## Overview
 
 This budget management system helps track expenses, income, and reconcile transactions.
 
-<CardGroup cols={2}>
-<Card title="Import Transactions" icon="file-import">
-Import bank statements and track spending
-  </Card>
-<Card title="Track Budget" icon="chart-line">
-Monitor spending against budget targets
-  </Card>
-<Card title="Reconcile" icon="check-double">
-Monthly account reconciliation
-  </Card>
-<Card title="Reports" icon="file-chart-column">
-Generate summaries and analysis
-  </Card>
-</CardGroup>
+=== "Import Transactions"
+    Import bank statements and track spending
+
+=== "Track Budget"
+    Monitor spending against budget targets
+
+=== "Reconcile"
+    Monthly account reconciliation
+
+=== "Reports"
+    Generate summaries and analysis
 
 ## Access Levels
 
-<Tabs>
-  <Tab title="Basic Users">
+=== "Basic Users"
     - Import transactions
     - Reconcile accounts
     - View reports
-  </Tab>
-  <Tab title="Advanced Users">
+
+=== "Advanced Users"
     - Modify budget categories
     - Run monthly processes
     - Configure settings
-  </Tab>
-</Tabs>
 
 ## Next Steps
 
-<Steps>
-  1. Review the [Menu Reference](menu-reference.md)
-  2. Learn about [Basic Operations](basic-operations.md)
-  3. Try your first [Transaction Import](../daily-tasks/importing.md)
-</Steps>
+1. Review the [Menu Reference](menu-reference.md)
+2. Learn about [Basic Operations](basic-operations.md)
+3. Try your first [Transaction Import](../daily-tasks/importing.md)
