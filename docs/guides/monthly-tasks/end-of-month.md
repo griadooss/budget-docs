@@ -185,14 +185,14 @@ If processing June (end of fiscal year):
 
 After EOM processing:
 
-- [ ] Actual values copied to next month
-- [ ] Current month formatted as historical
-- [ ] Next month formatted as current
-- [ ] Month statuses updated
-- [ ] EOM option hidden for processed month
-- [ ] System ready for next month
-- [ ] All balances verified
-- [ ] No errors in processing
+- ☐ Actual values copied to next month
+- ☐ Current month formatted as historical
+- ☐ Next month formatted as current
+- ☐ Month statuses updated
+- ☐ EOM option hidden for processed month
+- ☐ System ready for next month
+- ☐ All balances verified
+- ☐ No errors in processing
 
 ## Next Steps
 
