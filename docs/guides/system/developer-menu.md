@@ -476,7 +476,7 @@ If developer functions are not working:
 
 ## 📚 Related Documentation
 
-- [Menu Reference](menu-reference.md) - Complete menu system overview
-- [Troubleshooting Guide](troubleshooting/common-issues.md) - Common issues and solutions
-- [EOY Developer Guide](yearly-tasks/end-of-year/developer-guide.md) - End of Year development
-- [System Changelog](system/changelog.md) - System changes and updates
+- [Menu Reference](../user-manual/menu-reference.md) - Complete menu system overview
+- [Troubleshooting Guide](../troubleshooting/common-issues.md) - Common issues and solutions
+- [EOY Developer Guide](../yearly-tasks/end-of-year/developer-guide.md) - End of Year development
+- [System Changelog](changelog.md) - System changes and updates
