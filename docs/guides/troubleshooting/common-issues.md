@@ -29,6 +29,7 @@ balances to become opening balances for the new fiscal year.
 ```
 
 **Why This Happens:**
+
 - The system detected that one or more of your balance sheets are not at zero
 - **Banks sheet** (named range: `banksBalance`) is not balanced
 - **Annual Budget sheet** (named range: `'Annual Budget'!budgetBalance`) is not balanced
@@ -75,6 +76,7 @@ the final month of the fiscal year.
 ```
 
 **Solution:**
+
 - **Wait until June:** EOY process is only available during the final fiscal month
 - **Check System Month:** Ensure your system month is set to June (6)
 - **Complete Monthly Processing:** Finish all End of Month processes through May first
@@ -123,6 +125,7 @@ the final month of the fiscal year.
 **Problem:** Categories show as INACTIVE when they should be ACTIVE, or vice versa.
 
 **Why This Happens:**
+
 - Manual changes to the LookUps sheet
 - Items removed from budget but not properly cleaned up
 - System synchronization issues
@@ -147,6 +150,7 @@ the final month of the fiscal year.
 **Problem:** Balance inconsistencies after manually deleting rows from sheets.
 
 **Why This Happens:**
+
 - Manual deletion from Annual Budget or Maintain Budget sheets
 - Bypasses safety checks and cleanup procedures
 - Creates inconsistencies between sheets
@@ -282,6 +286,7 @@ the final month of the fiscal year.
 **Problem:** Need to test processes without perfect balance or access developer tools.
 
 **Solution:**
+
 - **Enable DEV_MODE** using the Help menu
 - Balance checks are bypassed with console logging
 - Allows testing of process logic without balance setup
