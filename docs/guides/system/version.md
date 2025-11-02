@@ -87,52 +87,50 @@ description: 'Current version and update information'
 ## Feature Status
 
 ### Core Features
-<CardGroup cols={2}>
-<Card title="✅ Import System" icon="file-import">
-- Bank transaction import
-- Manual entry support
-- Duplicate detection
-- Column mapping
-  </Card>
 
-<Card title="✅ Reconciliation" icon="check-double">
-- Side-by-side dashboard
-- Auto-matching
-- Split transactions
-- Bulk operations
-  </Card>
+=== "✅ Import System"
 
-<Card title="✅ Category Management" icon="tags">
-- Category hierarchy
-- Status tracking
-- Bulk operations
-- Import templates
-  </Card>
+    - Bank transaction import
+    - Manual entry support
+    - Duplicate detection
+    - Column mapping
 
-<Card title="✅ Month Processing" icon="calendar-check">
-- End of month process
-- Status tracking
-- Format management
-- Year transitions
-  </Card>
-</CardGroup>
+=== "✅ Reconciliation"
+
+    - Side-by-side dashboard
+    - Auto-matching
+    - Split transactions
+    - Bulk operations
+
+=== "✅ Category Management"
+
+    - Category hierarchy
+    - Status tracking
+    - Bulk operations
+    - Import templates
+
+=== "✅ Month Processing"
+
+    - End of month process
+    - Status tracking
+    - Format management
+    - Year transitions
 
 ### Advanced Features
-<CardGroup cols={2}>
-<Card title="✅ EOY Process" icon="calendar-year">
-- 4-step setup process
-- Automatic archiving
-- Balance verification
-- Year transitions
-  </Card>
 
-<Card title="✅ Developer Tools" icon="code">
-- Performance diagnostics
-- Debug tools
-- Testing capabilities
-- System monitoring
-  </Card>
-</CardGroup>
+=== "✅ EOY Process"
+
+    - 4-step setup process
+    - Automatic archiving
+    - Balance verification
+    - Year transitions
+
+=== "✅ Developer Tools"
+
+    - Performance diagnostics
+    - Debug tools
+    - Testing capabilities
+    - System monitoring
 
 ## Production Readiness
 
@@ -192,6 +190,5 @@ description: 'Current version and update information'
 - **Automatic Migration** - No manual migration required
 - **Feature Flags** - Gradual feature rollout
 
-<Note>
-  This is the first production release (2.0.0) marking the completion of the budget system development phase.
-</Note>
+!!! note
+    This is the first production release (2.0.0) marking the completion of the budget system development phase.

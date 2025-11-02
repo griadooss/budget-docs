@@ -61,9 +61,8 @@ When developing and testing the EOY process, you **must** follow this workflow t
    - Push changes to MASTER using `clasp push`
    - Delete test copy and create a new one for retesting
 
-<Warning>
-**Critical:** Never use old test copies. Each copy has its own script project, and using an old copy will test outdated code, leading to false results and wasted development time.
-</Warning>
+!!! warning "Critical"
+    Never use old test copies. Each copy has its own script project, and using an old copy will test outdated code, leading to false results and wasted development time.
 
 ### Month Restriction Testing
 

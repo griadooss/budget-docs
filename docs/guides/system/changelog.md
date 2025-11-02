@@ -5,9 +5,8 @@ description: 'Detailed history of documentation updates'
 
 # Changelog
 
-<Note>
-A complete history of changes and updates to the Budget System documentation.
-</Note>
+!!! note
+    A complete history of changes and updates to the Budget System documentation.
 
 ## Version History
 
@@ -15,21 +14,19 @@ A complete history of changes and updates to the Budget System documentation.
 
 **End of Year Process Documentation Overhaul**
 
-<CardGroup cols={2}>
-<Card title="EOY Process" icon="calendar-year">
-- Complete rewrite of End of Year documentation
-- Three-step process clarification
-- State-driven menu system documentation
-- Month restriction guidelines
-  </Card>
+=== "EOY Process"
 
-<Card title="Technical Updates" icon="code">
-- Updated developer guide with current implementation
-- Comprehensive testing checklist
-- Performance considerations
-- Security best practices
-  </Card>
-</CardGroup>
+    - Complete rewrite of End of Year documentation
+    - Three-step process clarification
+    - State-driven menu system documentation
+    - Month restriction guidelines
+
+=== "Technical Updates"
+
+    - Updated developer guide with current implementation
+    - Comprehensive testing checklist
+    - Performance considerations
+    - Security best practices
 
 **Added**
 - Comprehensive pre-setup verification requirements
