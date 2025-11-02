@@ -1739,38 +1739,48 @@
 <h2 id="dashboard-interface">Dashboard Interface</h2>
 <h3 id="layout">Layout</h3>
 <p>The dashboard displays two columns:</p>
-<p><CardGroup cols={2}>
-<Card title="Cash Flow (Left)" icon="list">
-- Your categorized transactions
-- Income and expense entries
-- Split transaction groups
-- Unreconciled entries
-  </Card></p>
-<p><Card title="Bank Records (Right)" icon="bank">
-- Imported bank transactions
-- Unmatched bank entries
-- Transaction details
-- Account information
-  </Card>
-</CardGroup></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cash Flow (Left)</label><label for="__tabbed_1_2">Bank Records (Right)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>Your categorized transactions</li>
+<li>Income and expense entries</li>
+<li>Split transaction groups</li>
+<li>Unreconciled entries</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Imported bank transactions</li>
+<li>Unmatched bank entries</li>
+<li>Transaction details</li>
+<li>Account information</li>
+</ul>
+</div>
+</div>
+</div>
 <h3 id="transaction-status-indicators">Transaction Status Indicators</h3>
-<p><CardGroup cols={3}>
-<Card title="Green Highlight" icon="check">
-<strong>Auto-matched transactions</strong>
-- System matched by amount and date
-- Ready for reconciliation
-  </Card></p>
-<p><Card title="Blue Highlight" icon="arrows-split">
-<strong>Split transaction groups</strong>
-- Multiple cash flow entries
-- Match to single bank transaction
-  </Card></p>
-<p><Card title="No Highlight" icon="question">
-<strong>Unmatched transactions</strong>
-- Need manual processing
-- Require categorization
-  </Card>
-</CardGroup></p>
+<div class="admonition success">
+<p class="admonition-title">Green Highlight - Auto-matched transactions</p>
+<ul>
+<li>System matched by amount and date</li>
+<li>Ready for reconciliation</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Blue Highlight - Split transaction groups</p>
+<ul>
+<li>Multiple cash flow entries</li>
+<li>Match to single bank transaction</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">No Highlight - Unmatched transactions</p>
+<ul>
+<li>Need manual processing</li>
+<li>Require categorization</li>
+</ul>
+</div>
 <h2 id="reconciliation-process">Reconciliation Process</h2>
 <h3 id="step-1-review-auto-matches">Step 1: Review Auto-Matches</h3>
 <ol>
@@ -1854,54 +1864,72 @@
 </ul>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="common-issues">Common Issues</h3>
-<p><AccordionGroup>
-  <Accordion title="Missing Transactions" icon="alert">
-    <strong>Problem:</strong> Transactions not appearing in dashboard
-    <strong>Solution:</strong>
-    - Check if transactions are already reconciled
-    - Verify import was successful
-    - Refresh the dashboard
-  </Accordion></p>
-<p><Accordion title="Wrong Matches" icon="x">
-    <strong>Problem:</strong> Incorrect auto-matches
-    <strong>Solution:</strong>
-    - Manually reconcile correct pairs
-    - Add missing transactions to cash flow
-    - Review transaction dates and amounts
-  </Accordion></p>
-<p><Accordion title="Bank Date Changes" icon="calendar">
-    <strong>Problem:</strong> Transactions appear in wrong month after delayed reconciliation
-    <strong>Solution:</strong>
-    - <strong>Immediate processing prevents this</strong> - Banks change transaction dates 2-7 days after processing
-    - Compare last few days of previous month with first few days of current month
-    - Look for identical amounts and descriptions between periods
-    - Manually adjust bank balances if historical data is affected
-    - <strong>Prevention:</strong> Always reconcile within 7 days of month/year end
-  </Accordion></p>
-<p><Accordion title="Split Transaction Issues" icon="arrows-split">
-    <strong>Problem:</strong> Split amounts don't match
-    <strong>Solution:</strong>
-    - Verify split total equals bank transaction
-    - Check for rounding errors
-    - Review individual split amounts
-  </Accordion></p>
-<p><Accordion title="Performance Issues" icon="clock">
-    <strong>Problem:</strong> Dashboard is slow
-    <strong>Solution:</strong>
-    - Run performance diagnostics
-    - Check transaction count
-    - Consider processing in smaller batches
-  </Accordion>
-</AccordionGroup></p>
+<details class="warning">
+<summary>Missing Transactions</summary>
+<p><strong>Problem:</strong> Transactions not appearing in dashboard</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Check if transactions are already reconciled</li>
+<li>Verify import was successful</li>
+<li>Refresh the dashboard</li>
+</ul>
+</details>
+<details class="danger">
+<summary>Wrong Matches</summary>
+<p><strong>Problem:</strong> Incorrect auto-matches</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Manually reconcile correct pairs</li>
+<li>Add missing transactions to cash flow</li>
+<li>Review transaction dates and amounts</li>
+</ul>
+</details>
+<details class="calendar">
+<summary>Bank Date Changes</summary>
+<p><strong>Problem:</strong> Transactions appear in wrong month after delayed reconciliation</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><strong>Immediate processing prevents this</strong> - Banks change transaction dates 2-7 days after processing</li>
+<li>Compare last few days of previous month with first few days of current month</li>
+<li>Look for identical amounts and descriptions between periods</li>
+<li>Manually adjust bank balances if historical data is affected</li>
+<li><strong>Prevention:</strong> Always reconcile within 7 days of month/year end</li>
+</ul>
+</details>
+<details class="warning">
+<summary>Split Transaction Issues</summary>
+<p><strong>Problem:</strong> Split amounts don't match</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Verify split total equals bank transaction</li>
+<li>Check for rounding errors</li>
+<li>Review individual split amounts</li>
+</ul>
+</details>
+<details class="clock">
+<summary>Performance Issues</summary>
+<p><strong>Problem:</strong> Dashboard is slow</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Run performance diagnostics</li>
+<li>Check transaction count</li>
+<li>Consider processing in smaller batches</li>
+</ul>
+</details>
 <h2 id="best-practices">Best Practices</h2>
-<p><Check><strong>Reconcile within 7 days of transactions</strong> - Critical for cross-year detection</Check>
-<Check><strong>Process End-of-Year imports immediately</strong> - Avoid bank date advancement issues</Check>
-<Check>Reconcile regularly (weekly recommended)</Check>
-<Check>Verify all auto-matches before reconciling</Check>
-<Check>Use consistent category names</Check>
-<Check>Review split transactions carefully</Check>
-<Check>Keep descriptions clear and consistent</Check>
-<Check>Refresh dashboard after major changes</Check></p>
+<div class="admonition tip inline end">
+<p class="admonition-title">Best Practices</p>
+<ul>
+<li><strong>Reconcile within 7 days of transactions</strong> - Critical for cross-year detection</li>
+<li><strong>Process End-of-Year imports immediately</strong> - Avoid bank date advancement issues</li>
+<li>Reconcile regularly (weekly recommended)</li>
+<li>Verify all auto-matches before reconciling</li>
+<li>Use consistent category names</li>
+<li>Review split transactions carefully</li>
+<li>Keep descriptions clear and consistent</li>
+<li>Refresh dashboard after major changes</li>
+</ul>
+</div>
 <h2 id="completion-checklist">Completion Checklist</h2>
 <p>Before closing the dashboard:
 - [ ] All auto-matches reviewed and reconciled
@@ -1916,9 +1944,10 @@
 2. <strong>Run month-end process</strong> - If all transactions reconciled
 3. <strong>Update categories</strong> - Add new categories if needed
 4. <strong>Archive data</strong> - Keep records for future reference</p>
-<p><Note>
-  For month-end processing instructions, see the <a href="../../monthly-tasks/end-of-month/">Monthly Tasks Guide</a>.
-</Note></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For month-end processing instructions, see the <a href="../../monthly-tasks/end-of-month/">Monthly Tasks Guide</a>.</p>
+</div>
 
 
 

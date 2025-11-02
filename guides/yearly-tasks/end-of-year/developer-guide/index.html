@@ -2034,15 +2034,15 @@
 </Warning></p>
 <h3 id="month-restriction-testing">Month Restriction Testing</h3>
 <p>The EOY process includes month validation that restricts access to June only:</p>
-<pre><code class="language-javascript">// In setupNewYearBudget() and showYearEndHelp()
-const currentMonth = getCurrentMonth();
-if (currentMonth &amp;&amp; currentMonth.month !== 6) {
-  // Block access with user-friendly message
-  ui.alert(&quot;Process Not Available&quot;,
-           &quot;The 'Start End of Year Process' is only available in June...&quot;);
-  return;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// In setupNewYearBudget() and showYearEndHelp()</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">currentMonth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getCurrentMonth</span><span class="p">();</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">currentMonth</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">currentMonth</span><span class="p">.</span><span class="nx">month</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="mf">6</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="c1">// Block access with user-friendly message</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nx">ui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Process Not Available&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">           </span><span class="s2">&quot;The &#39;Start End of Year Process&#39; is only available in June...&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</code></pre></div>
 <p><strong>Testing Considerations:</strong>
 - <strong>Production:</strong> Process only works in June
 - <strong>Development:</strong> You may need to temporarily bypass month checking for testing
@@ -2050,26 +2050,26 @@ if (currentMonth &amp;&amp; currentMonth.month !== 6) {
 <h2 id="state-management-and-menu-system">State Management and Menu System</h2>
 <h3 id="eoy-state-tracking">EOY State Tracking</h3>
 <p>The system uses script properties to track EOY progress:</p>
-<pre><code class="language-javascript">// Key properties for state management
-- IS_MASTER: &quot;true&quot;/&quot;false&quot; - Whether spreadsheet is the active master
-- EOY_SETUP_COMPLETE: &quot;true&quot;/&quot;false&quot; - Whether EOY setup is finished
-- EOY_READY_FOR_EOM: &quot;true&quot;/&quot;false&quot; - Intermediate state during setup
-- CURRENT_SPREADSHEET_ID: &quot;{id}&quot; - Current spreadsheet identifier
-- MASTER_SPREADSHEET_ID: &quot;{id}&quot; - ID of the master spreadsheet
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Key properties for state management</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">-</span><span class="w"> </span><span class="nx">IS_MASTER</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="o">/</span><span class="s2">&quot;false&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">Whether</span><span class="w"> </span><span class="nx">spreadsheet</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">active</span><span class="w"> </span><span class="nx">master</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="o">-</span><span class="w"> </span><span class="nx">EOY_SETUP_COMPLETE</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="o">/</span><span class="s2">&quot;false&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">Whether</span><span class="w"> </span><span class="nx">EOY</span><span class="w"> </span><span class="nx">setup</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">finished</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="o">-</span><span class="w"> </span><span class="nx">EOY_READY_FOR_EOM</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="o">/</span><span class="s2">&quot;false&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">Intermediate</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="nx">during</span><span class="w"> </span><span class="nx">setup</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="o">-</span><span class="w"> </span><span class="nx">CURRENT_SPREADSHEET_ID</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{id}&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">Current</span><span class="w"> </span><span class="nx">spreadsheet</span><span class="w"> </span><span class="nx">identifier</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="o">-</span><span class="w"> </span><span class="nx">MASTER_SPREADSHEET_ID</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{id}&quot;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">ID</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">master</span><span class="w"> </span><span class="nx">spreadsheet</span>
+</code></pre></div>
 <h3 id="menu-state-logic">Menu State Logic</h3>
 <p>The menu system in <code>onOpen.js</code> adapts based on these states:</p>
-<pre><code class="language-javascript">// In createBasicMenus()
-if (!isMaster &amp;&amp; !eoySetupComplete &amp;&amp; !eoyReadyForEom) {
-  // Fresh copy - show only EOY setup options
-  periodMenu.addSubMenu(
-    ui.createMenu(&quot;End of Year Setup&quot;)
-      .addItem(&quot;1. Run Initial EOY Setup&quot;, &quot;setupNewYearBudget&quot;)
-      .addItem(&quot;2. Continue EOY Setup&quot;, &quot;continueEOYSetup&quot;)
-      .addItem(&quot;3. Finalize EOY Setup&quot;, &quot;finalizeEOYSetup&quot;)
-  );
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// In createBasicMenus()</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">isMaster</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">eoySetupComplete</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">eoyReadyForEom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="c1">// Fresh copy - show only EOY setup options</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nx">periodMenu</span><span class="p">.</span><span class="nx">addSubMenu</span><span class="p">(</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nx">ui</span><span class="p">.</span><span class="nx">createMenu</span><span class="p">(</span><span class="s2">&quot;End of Year Setup&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s2">&quot;1. Run Initial EOY Setup&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;setupNewYearBudget&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s2">&quot;2. Continue EOY Setup&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;continueEOYSetup&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s2">&quot;3. Finalize EOY Setup&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;finalizeEOYSetup&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="p">);</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="state-transitions">State Transitions</h3>
 <ol>
 <li><strong>Fresh Copy Creation:</strong></li>
@@ -2096,31 +2096,31 @@ if (!isMaster &amp;&amp; !eoySetupComplete &amp;&amp; !eoyReadyForEom) {
 <h2 id="technical-implementation-details">Technical Implementation Details</h2>
 <h3 id="commitment-validation-system">Commitment Validation System</h3>
 <p>The EOY process now includes a sophisticated commitment validation system that provides user choice rather than blocking:</p>
-<pre><code class="language-javascript">// In endOfMonthProcessing() - commitment validation
-if (!isDev &amp;&amp; !eoyReadyForEom) {
-  const commitmentCheck = validateCommitments();
-
-  if (!commitmentCheck.isValid) {
-    // Show user choice dialog instead of blocking
-    const userChoice = ui.alert(
-      &quot;⚠️ Outstanding Commitments Warning&quot;,
-      `The following commitments have not been met for ${monthNames[currentMonth]} ${currentYear}:\n\n` +
-        commitmentCheck.issues.join(&quot;\n&quot;) +
-        &quot;\n\n⚠️ WARNING: These commitments are outstanding.\n\n&quot; +
-        &quot;Choose your action:\n&quot; +
-        &quot;• NO = Fix Now: Address commitments before EOM processing\n&quot; +
-        &quot;• YES = Ignore: Proceed with EOM despite outstanding commitments&quot;,
-      ui.ButtonSet.YES_NO
-    );
-
-    if (userChoice === ui.Button.NO) {
-      // User chose to fix commitments - block EOM
-      return;
-    }
-    // User chose to ignore - continue with EOM
-  }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// In endOfMonthProcessing() - commitment validation</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">isDev</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">eoyReadyForEom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">commitmentCheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">validateCommitments</span><span class="p">();</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">commitmentCheck</span><span class="p">.</span><span class="nx">isValid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="c1">// Show user choice dialog instead of blocking</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">userChoice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="s2">&quot;⚠️ Outstanding Commitments Warning&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="sb">`The following commitments have not been met for </span><span class="si">${</span><span class="nx">monthNames</span><span class="p">[</span><span class="nx">currentMonth</span><span class="p">]</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">currentYear</span><span class="si">}</span><span class="sb">:\n\n`</span><span class="w"> </span><span class="o">+</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="nx">commitmentCheck</span><span class="p">.</span><span class="nx">issues</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;\n&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="s2">&quot;\n\n⚠️ WARNING: These commitments are outstanding.\n\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="s2">&quot;Choose your action:\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="s2">&quot;• NO = Fix Now: Address commitments before EOM processing\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="s2">&quot;• YES = Ignore: Proceed with EOM despite outstanding commitments&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="nx">ui</span><span class="p">.</span><span class="nx">ButtonSet</span><span class="p">.</span><span class="nx">YES_NO</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="p">);</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">userChoice</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">Button</span><span class="p">.</span><span class="nx">NO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">      </span><span class="c1">// User chose to fix commitments - block EOM</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="c1">// User chose to ignore - continue with EOM</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="p">}</span>
+</code></pre></div>
 <p><strong>Key Features:</strong>
 - <strong>Non-blocking Design:</strong> Users can choose to proceed despite outstanding commitments
 - <strong>Clear User Interface:</strong> Intuitive button mapping (NO = Fix Now, YES = Ignore)
@@ -2128,22 +2128,22 @@ if (!isDev &amp;&amp; !eoyReadyForEom) {
 - <strong>Detailed Issue Reporting:</strong> Lists specific commitment problems for user review</p>
 <h3 id="improved-dialog-system">Improved Dialog System</h3>
 <p>All warning dialogs in the EOY process now use a draggable, user-friendly interface:</p>
-<pre><code class="language-javascript">// Example of draggable dialog implementation
-function showEOYSetupIncompleteDialog(issues) {
-  const htmlOutput = HtmlService.createHtmlOutput(`
-    &lt;div style=&quot;font-family: Arial, sans-serif; padding: 20px;&quot;&gt;
-      &lt;h3&gt;⚠️ EOY Setup Incomplete&lt;/h3&gt;
-      &lt;p&gt;The following issues must be resolved before finalization:&lt;/p&gt;
-      &lt;ul&gt;${issues.map(issue =&gt; `&lt;li&gt;${issue}&lt;/li&gt;`).join('')}&lt;/ul&gt;
-      &lt;p&gt;Please address these issues and try again.&lt;/p&gt;
-    &lt;/div&gt;
-  `)
-  .setWidth(500)
-  .setHeight(300);
-
-  SpreadsheetApp.getUi().showModelessDialog(htmlOutput, &quot;EOY Setup Incomplete&quot;);
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Example of draggable dialog implementation</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">showEOYSetupIncompleteDialog</span><span class="p">(</span><span class="nx">issues</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">htmlOutput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">HtmlService</span><span class="p">.</span><span class="nx">createHtmlOutput</span><span class="p">(</span><span class="sb">`</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="sb">    &lt;div style=&quot;font-family: Arial, sans-serif; padding: 20px;&quot;&gt;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="sb">      &lt;h3&gt;⚠️ EOY Setup Incomplete&lt;/h3&gt;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="sb">      &lt;p&gt;The following issues must be resolved before finalization:&lt;/p&gt;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="sb">      &lt;ul&gt;</span><span class="si">${</span><span class="nx">issues</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">issue</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="sb">`&lt;li&gt;</span><span class="si">${</span><span class="nx">issue</span><span class="si">}</span><span class="sb">&lt;/li&gt;`</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">&lt;/ul&gt;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="sb">      &lt;p&gt;Please address these issues and try again.&lt;/p&gt;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="sb">    &lt;/div&gt;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="sb">  `</span><span class="p">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="p">.</span><span class="nx">setWidth</span><span class="p">(</span><span class="mf">500</span><span class="p">)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="p">.</span><span class="nx">setHeight</span><span class="p">(</span><span class="mf">300</span><span class="p">);</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getUi</span><span class="p">().</span><span class="nx">showModelessDialog</span><span class="p">(</span><span class="nx">htmlOutput</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;EOY Setup Incomplete&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
+</code></pre></div>
 <p><strong>Benefits:</strong>
 - <strong>Better User Experience:</strong> Dialogs can be moved and don't block the interface
 - <strong>Consistent Design:</strong> All dialogs follow the same visual pattern
@@ -2151,31 +2151,31 @@ function showEOYSetupIncompleteDialog(issues) {
 - <strong>Non-intrusive:</strong> Users can continue working while reviewing dialog content</p>
 <h3 id="property-exportimport-system">Property Export/Import System</h3>
 <p>The property management system ensures continuity between master and copy:</p>
-<pre><code class="language-javascript">// Export from master to hidden sheet
-function exportPropertiesToSheet() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  let sheet = ss.getSheetByName(&quot;_Properties&quot;);
-
-  if (!sheet) {
-    sheet = ss.insertSheet(&quot;_Properties&quot;);
-    sheet.hideSheet();
-  }
-
-  const props = PropertiesService.getScriptProperties().getProperties();
-  // Write properties to sheet for copying
-}
-
-// Import from hidden sheet in new copy
-function importPropertiesFromSheet() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheetByName(&quot;_Properties&quot;);
-
-  if (sheet) {
-    // Read properties from sheet and set in new copy
-    // Adjust IS_MASTER to false for new copy
-  }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Export from master to hidden sheet</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">exportPropertiesToSheet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">();</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">sheet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss</span><span class="p">.</span><span class="nx">getSheetByName</span><span class="p">(</span><span class="s2">&quot;_Properties&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">sheet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nx">sheet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss</span><span class="p">.</span><span class="nx">insertSheet</span><span class="p">(</span><span class="s2">&quot;_Properties&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nx">sheet</span><span class="p">.</span><span class="nx">hideSheet</span><span class="p">();</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">PropertiesService</span><span class="p">.</span><span class="nx">getScriptProperties</span><span class="p">().</span><span class="nx">getProperties</span><span class="p">();</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="c1">// Write properties to sheet for copying</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">}</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1">// Import from hidden sheet in new copy</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="kd">function</span><span class="w"> </span><span class="nx">importPropertiesFromSheet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">();</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sheet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss</span><span class="p">.</span><span class="nx">getSheetByName</span><span class="p">(</span><span class="s2">&quot;_Properties&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">sheet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="c1">// Read properties from sheet and set in new copy</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="c1">// Adjust IS_MASTER to false for new copy</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="p">}</span>
+</code></pre></div>
 <h3 id="verification-system">Verification System</h3>
 <p>Multiple verification points ensure system integrity:</p>
 <ol>
@@ -2203,62 +2203,62 @@ function importPropertiesFromSheet() {
 <h3 id="manual-master-archiving-process">Manual Master Archiving Process</h3>
 <p>The archiving system requires <strong>user-initiated action</strong> rather than automatic archiving:</p>
 <h4 id="what-actually-happens-during-eoy-finalization">What Actually Happens During EOY Finalization</h4>
-<pre><code class="language-javascript">// In proceedWithFinalization() - NO automatic archiving occurs
-function proceedWithFinalization() {
-  // 1. Mark new copy as master
-  props.setProperty(&quot;IS_MASTER&quot;, &quot;true&quot;);
-  props.setProperty(&quot;EOY_SETUP_COMPLETE&quot;, &quot;true&quot;);
-
-  // 2. Show completion dialog with archiving instructions
-  const htmlContent = `
-    &lt;h3&gt;THEN: Archive Your Old Spreadsheet&lt;/h3&gt;
-    &lt;p&gt;&lt;strong&gt;Go to your old spreadsheet (last year's budget) and archive it:&lt;/strong&gt;&lt;/p&gt;
-    &lt;p&gt;Settings → ⚠️ Advanced → Archive This Master&lt;/p&gt;
-  `;
-
-  // 3. User must manually navigate to old master and run archiveThisMaster()
-  // NO automatic archiving happens here
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// In proceedWithFinalization() - NO automatic archiving occurs</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">proceedWithFinalization</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="c1">// 1. Mark new copy as master</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nx">props</span><span class="p">.</span><span class="nx">setProperty</span><span class="p">(</span><span class="s2">&quot;IS_MASTER&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nx">props</span><span class="p">.</span><span class="nx">setProperty</span><span class="p">(</span><span class="s2">&quot;EOY_SETUP_COMPLETE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="c1">// 2. Show completion dialog with archiving instructions</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">htmlContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="sb">    &lt;h3&gt;THEN: Archive Your Old Spreadsheet&lt;/h3&gt;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="sb">    &lt;p&gt;&lt;strong&gt;Go to your old spreadsheet (last year&#39;s budget) and archive it:&lt;/strong&gt;&lt;/p&gt;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="sb">    &lt;p&gt;Settings → ⚠️ Advanced → Archive This Master&lt;/p&gt;</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="sb">  `</span><span class="p">;</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">  </span><span class="c1">// 3. User must manually navigate to old master and run archiveThisMaster()</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">  </span><span class="c1">// NO automatic archiving happens here</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="p">}</span>
+</code></pre></div>
 <h4 id="user-initiated-archiving-function">User-Initiated Archiving Function</h4>
-<pre><code class="language-javascript">function archiveThisMaster() {
-  try {
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const ui = SpreadsheetApp.getUi();
-
-    // 1. Get fiscal year for naming
-    const fiscalYear = getFiscalYearFromSpreadsheet(ss);
-    const currentName = ss.getName();
-    const archiveName = `${currentName}_ARCHIVED_FY${fiscalYear.toString().slice(-2)}`;
-
-    // 2. Confirm with user
-    const confirmResponse = ui.alert(
-      &quot;📦 Archive This Master&quot;,
-      `This will rename to: &quot;${archiveName}&quot; and mark as archived. Continue?`,
-      ui.ButtonSet.YES_NO
-    );
-
-    if (confirmResponse !== ui.Button.YES) return false;
-
-    // 3. Create archive metadata sheet
-    const archiveSheet = ss.insertSheet(&quot;_Archive&quot;);
-    archiveSheet.hideSheet();
-
-    // 4. Update properties to mark as archived
-    props.setProperty(&quot;IS_MASTER&quot;, &quot;false&quot;);
-    props.setProperty(&quot;IS_ARCHIVED&quot;, &quot;true&quot;);
-    props.setProperty(&quot;ARCHIVED_DATE&quot;, new Date().toISOString());
-
-    // 5. Rename the spreadsheet
-    ss.rename(archiveName);
-
-    return true;
-  } catch (error) {
-    console.error(&quot;Error in archiveThisMaster:&quot;, error);
-    return false;
-  }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">archiveThisMaster</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">ss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">();</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getUi</span><span class="p">();</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="c1">// 1. Get fiscal year for naming</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fiscalYear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getFiscalYearFromSpreadsheet</span><span class="p">(</span><span class="nx">ss</span><span class="p">);</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">currentName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">archiveName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">currentName</span><span class="si">}</span><span class="sb">_ARCHIVED_FY</span><span class="si">${</span><span class="nx">fiscalYear</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">2</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="c1">// 2. Confirm with user</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">confirmResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">      </span><span class="s2">&quot;📦 Archive This Master&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">      </span><span class="sb">`This will rename to: &quot;</span><span class="si">${</span><span class="nx">archiveName</span><span class="si">}</span><span class="sb">&quot; and mark as archived. Continue?`</span><span class="p">,</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">      </span><span class="nx">ui</span><span class="p">.</span><span class="nx">ButtonSet</span><span class="p">.</span><span class="nx">YES_NO</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="p">);</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">confirmResponse</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">Button</span><span class="p">.</span><span class="nx">YES</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="c1">// 3. Create archive metadata sheet</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">archiveSheet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ss</span><span class="p">.</span><span class="nx">insertSheet</span><span class="p">(</span><span class="s2">&quot;_Archive&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">    </span><span class="nx">archiveSheet</span><span class="p">.</span><span class="nx">hideSheet</span><span class="p">();</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">    </span><span class="c1">// 4. Update properties to mark as archived</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">    </span><span class="nx">props</span><span class="p">.</span><span class="nx">setProperty</span><span class="p">(</span><span class="s2">&quot;IS_MASTER&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">    </span><span class="nx">props</span><span class="p">.</span><span class="nx">setProperty</span><span class="p">(</span><span class="s2">&quot;IS_ARCHIVED&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">    </span><span class="nx">props</span><span class="p">.</span><span class="nx">setProperty</span><span class="p">(</span><span class="s2">&quot;ARCHIVED_DATE&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">());</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">    </span><span class="c1">// 5. Rename the spreadsheet</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">    </span><span class="nx">ss</span><span class="p">.</span><span class="nx">rename</span><span class="p">(</span><span class="nx">archiveName</span><span class="p">);</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error in archiveThisMaster:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="p">}</span>
+</code></pre></div>
 <h4 id="key-technical-points">Key Technical Points</h4>
 <ul>
 <li><strong>No Automatic Archiving:</strong> The EOY finalization does NOT automatically archive the old master</li>
@@ -2288,71 +2288,71 @@ function proceedWithFinalization() {
 <h2 id="testing-and-quality-assurance">Testing and Quality Assurance</h2>
 <h3 id="comprehensive-testing-checklist">Comprehensive Testing Checklist</h3>
 <h4 id="before-testing-session">Before Testing Session</h4>
-<ul>
-<li>[ ] All changes pushed to MASTER spreadsheet</li>
-<li>[ ] Old test copies deleted</li>
-<li>[ ] Fresh copy created from MASTER</li>
-<li>[ ] Test environment prepared</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> All changes pushed to MASTER spreadsheet</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Old test copies deleted</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Fresh copy created from MASTER</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Test environment prepared</li>
 </ul>
 <h4 id="during-testing-step-1-initial-setup">During Testing - Step 1 (Initial Setup)</h4>
-<ul>
-<li>[ ] Month restriction working (if testing in non-June month)</li>
-<li>[ ] Help dialog displays correctly with documentation links</li>
-<li>[ ] Property export completes successfully</li>
-<li>[ ] New copy creation process works</li>
-<li>[ ] Menu system shows only EOY options in new copy</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Month restriction working (if testing in non-June month)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Help dialog displays correctly with documentation links</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Property export completes successfully</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> New copy creation process works</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Menu system shows only EOY options in new copy</li>
 </ul>
 <h4 id="during-testing-step-2-configuration">During Testing - Step 2 (Configuration)</h4>
-<ul>
-<li>[ ] Authorization process works smoothly</li>
-<li>[ ] Verification checks pass for valid setup</li>
-<li>[ ] Configuration dialog accepts valid inputs</li>
-<li>[ ] Manual budget update process functions</li>
-<li>[ ] Budget balance validation works</li>
-<li>[ ] Continue setup processes correctly</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Authorization process works smoothly</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Verification checks pass for valid setup</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Configuration dialog accepts valid inputs</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Manual budget update process functions</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Budget balance validation works</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Continue setup processes correctly</li>
 </ul>
 <h4 id="during-testing-step-3-finalization">During Testing - Step 3 (Finalization)</h4>
-<ul>
-<li>[ ] Final verification checks function properly</li>
-<li>[ ] Master archiving completes without errors</li>
-<li>[ ] New copy marked as master successfully</li>
-<li>[ ] Menu system updates to normal operational mode</li>
-<li>[ ] All transaction sheets properly cleared</li>
-<li>[ ] Commitment validation dialogs work correctly</li>
-<li>[ ] User choice options (Fix Now vs Ignore) function properly</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Final verification checks function properly</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Master archiving completes without errors</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> New copy marked as master successfully</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Menu system updates to normal operational mode</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> All transaction sheets properly cleared</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Commitment validation dialogs work correctly</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> User choice options (Fix Now vs Ignore) function properly</li>
 </ul>
 <h4 id="post-testing-verification">Post-Testing Verification</h4>
-<ul>
-<li>[ ] Master functionality works in new spreadsheet</li>
-<li>[ ] Archived master properly renamed and marked</li>
-<li>[ ] Historical data preserved in archived master</li>
-<li>[ ] No script errors in new master</li>
-<li>[ ] Documentation links work correctly</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Master functionality works in new spreadsheet</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Archived master properly renamed and marked</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Historical data preserved in archived master</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> No script errors in new master</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Documentation links work correctly</li>
 </ul>
 <h3 id="testing-functions">Testing Functions</h3>
 <p>Several helper functions support testing:</p>
-<pre><code class="language-javascript">// Test archiving without affecting production
-function testArchiveMaster() {
-  const currentId = SpreadsheetApp.getActiveSpreadsheet().getId();
-  return archiveLegacyMaster(currentId, true); // testMode = true
-}
-
-// Test EOY process with safety checks
-function testEOYProcess() {
-  console.log(&quot;Starting EOY test process...&quot;);
-  return setupNewYearBudget(true); // testMode = true
-}
-
-// Safe refresh function for testing
-function runRefreshSafely() {
-  try {
-    SpreadsheetApp.getActiveSpreadsheet().getSheetByName(&quot;Annual Budget&quot;);
-    // Additional safety checks
-  } catch (error) {
-    console.error(&quot;Refresh safety check failed:&quot;, error);
-  }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// Test archiving without affecting production</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">testArchiveMaster</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">currentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">().</span><span class="nx">getId</span><span class="p">();</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">archiveLegacyMaster</span><span class="p">(</span><span class="nx">currentId</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// testMode = true</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1">// Test EOY process with safety checks</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">testEOYProcess</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Starting EOY test process...&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">setupNewYearBudget</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// testMode = true</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">}</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1">// Safe refresh function for testing</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">runRefreshSafely</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">().</span><span class="nx">getSheetByName</span><span class="p">(</span><span class="s2">&quot;Annual Budget&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="c1">// Additional safety checks</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Refresh safety check failed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="performance-considerations">Performance Considerations</h2>
 <h3 id="optimization-strategies">Optimization Strategies</h3>
 <ol>
@@ -2378,25 +2378,25 @@ function runRefreshSafely() {
 <li>Provide specific error messages for quick resolution</li>
 </ol>
 <h3 id="resource-management">Resource Management</h3>
-<pre><code class="language-javascript">// Example of efficient batch operations
-function updateMonthlyHeaders() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet()
-                             .getSheetByName(&quot;Annual Budget&quot;);
-
-  // Get all headers in one operation
-  const headerRange = sheet.getRange(1, 1, 1, sheet.getLastColumn());
-  const headers = headerRange.getValues()[0];
-
-  // Process headers in memory
-  const updatedHeaders = headers.map(header =&gt; {
-    // Update logic here
-    return processHeader(header);
-  });
-
-  // Write all headers back in one operation
-  headerRange.setValues([updatedHeaders]);
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Example of efficient batch operations</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">updateMonthlyHeaders</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sheet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">()</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">                             </span><span class="p">.</span><span class="nx">getSheetByName</span><span class="p">(</span><span class="s2">&quot;Annual Budget&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="c1">// Get all headers in one operation</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">headerRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sheet</span><span class="p">.</span><span class="nx">getRange</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">sheet</span><span class="p">.</span><span class="nx">getLastColumn</span><span class="p">());</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">headerRange</span><span class="p">.</span><span class="nx">getValues</span><span class="p">()[</span><span class="mf">0</span><span class="p">];</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="c1">// Process headers in memory</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">updatedHeaders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">headers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">header</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="c1">// Update logic here</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">processHeader</span><span class="p">(</span><span class="nx">header</span><span class="p">);</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">  </span><span class="c1">// Write all headers back in one operation</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">  </span><span class="nx">headerRange</span><span class="p">.</span><span class="nx">setValues</span><span class="p">([</span><span class="nx">updatedHeaders</span><span class="p">]);</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="future-enhancement-opportunities">Future Enhancement Opportunities</h2>
 <h3 id="planned-improvements">Planned Improvements</h3>
 <ol>

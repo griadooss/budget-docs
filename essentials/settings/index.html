@@ -1100,16 +1100,16 @@ Name of your project. Used for the global title.</p>
   <Expandable title="Navigation">
     <ResponseField name="group" type="string">
     The name of the group.</p>
-<pre><code>Example: `Settings`
+<div class="highlight"><pre><span></span><code>Example: `Settings`
 
 &lt;/ResponseField&gt;
-&lt;ResponseField name="pages" type="string[]"&gt;
+&lt;ResponseField name=&quot;pages&quot; type=&quot;string[]&quot;&gt;
 The relative paths to the markdown files that will serve as pages.
 
-Example: `["customization", "page"]`
+Example: `[&quot;customization&quot;, &quot;page&quot;]`
 
 &lt;/ResponseField&gt;
-</code></pre>
+</code></pre></div>
 <p></Expandable>
 </ResponseField></p>
 <p><ResponseField name="logo" type="string or object">
@@ -1161,11 +1161,11 @@ Example: `["customization", "page"]`
   <Expandable title="TopbarLink">
     <ResponseField name="name" type="string">
     The name of the button.</p>
-<pre><code>Example: `Contact us`
+<div class="highlight"><pre><span></span><code>Example: `Contact us`
 &lt;/ResponseField&gt;
-&lt;ResponseField name="url" type="string"&gt;
+&lt;ResponseField name=&quot;url&quot; type=&quot;string&quot;&gt;
 &lt;/ResponseField&gt;
-</code></pre>
+</code></pre></div>
 <p></Expandable>
 </ResponseField></p>
 <p><ResponseField name="topbarCtaButton" type="Call to Action">
@@ -1175,12 +1175,12 @@ Example: `["customization", "page"]`
     </ResponseField>
     <ResponseField name="url" type="string">
     If <code>link</code>: What the button links to.</p>
-<pre><code>If `github`: Link to the repository to load GitHub information from.
+<div class="highlight"><pre><span></span><code>If `github`: Link to the repository to load GitHub information from.
 &lt;/ResponseField&gt;
-&lt;ResponseField name="name" type="string"&gt;
+&lt;ResponseField name=&quot;name&quot; type=&quot;string&quot;&gt;
 Text inside the button. Only required if `type` is a `link`.
 &lt;/ResponseField&gt;
-</code></pre>
+</code></pre></div>
 <p></Expandable>
 </ResponseField></p>
 <p><ResponseField name="versions" type="string[]">
@@ -1192,29 +1192,29 @@ Text inside the button. Only required if `type` is a `link`.
   <Expandable title="Anchor">
     <ResponseField name="icon" type="string">
     The <a href="https://fontawesome.com/search?q=heart">Font Awesome</a> icon used to feature the anchor.</p>
-<pre><code>Example: `comments`
+<div class="highlight"><pre><span></span><code>Example: `comments`
 &lt;/ResponseField&gt;
-&lt;ResponseField name="name" type="string"&gt;
+&lt;ResponseField name=&quot;name&quot; type=&quot;string&quot;&gt;
 The name of the anchor label.
 
 Example: `Community`
 &lt;/ResponseField&gt;
-&lt;ResponseField name="url" type="string"&gt;
+&lt;ResponseField name=&quot;url&quot; type=&quot;string&quot;&gt;
   The start of the URL that marks what pages go in the anchor. Generally, this is the name of the folder you put your pages in.
 &lt;/ResponseField&gt;
-&lt;ResponseField name="color" type="string"&gt;
+&lt;ResponseField name=&quot;color&quot; type=&quot;string&quot;&gt;
   The hex color of the anchor icon background. Can also be a gradient if you pass an object with the properties `from` and `to` that are each a hex color.
 &lt;/ResponseField&gt;
-&lt;ResponseField name="version" type="string"&gt;
+&lt;ResponseField name=&quot;version&quot; type=&quot;string&quot;&gt;
   Used if you want to hide an anchor until the correct docs version is selected.
 &lt;/ResponseField&gt;
-&lt;ResponseField name="isDefaultHidden" type="boolean" default="false"&gt;
+&lt;ResponseField name=&quot;isDefaultHidden&quot; type=&quot;boolean&quot; default=&quot;false&quot;&gt;
   Pass `true` if you want to hide the anchor until you directly link someone to docs inside it.
 &lt;/ResponseField&gt;
-&lt;ResponseField name="iconType" default="duotone" type="string"&gt;
-  One of: "brands", "duotone", "light", "sharp-solid", "solid", or "thin"
+&lt;ResponseField name=&quot;iconType&quot; default=&quot;duotone&quot; type=&quot;string&quot;&gt;
+  One of: &quot;brands&quot;, &quot;duotone&quot;, &quot;light&quot;, &quot;sharp-solid&quot;, &quot;solid&quot;, or &quot;thin&quot;
 &lt;/ResponseField&gt;
-</code></pre>
+</code></pre></div>
 <p></Expandable>
 </ResponseField></p>
 <p><ResponseField name="topAnchor" type="Object">
@@ -1250,29 +1250,29 @@ Example: `Community`
       The base url for all API endpoints. If <code>baseUrl</code> is an array, it will enable for multiple base url
       options that the user can toggle.
     </ResponseField></p>
-<pre><code>&lt;ResponseField name="auth" type="Auth"&gt;
-  &lt;Expandable title="Auth"&gt;
-    &lt;ResponseField name="method" type='"bearer" | "basic" | "key"'&gt;
+<div class="highlight"><pre><span></span><code>&lt;ResponseField name=&quot;auth&quot; type=&quot;Auth&quot;&gt;
+  &lt;Expandable title=&quot;Auth&quot;&gt;
+    &lt;ResponseField name=&quot;method&quot; type=&#39;&quot;bearer&quot; | &quot;basic&quot; | &quot;key&quot;&#39;&gt;
       The authentication strategy used for all API endpoints.
     &lt;/ResponseField&gt;
-    &lt;ResponseField name="name" type="string"&gt;
+    &lt;ResponseField name=&quot;name&quot; type=&quot;string&quot;&gt;
     The name of the authentication parameter used in the API playground.
 
     If method is `basic`, the format should be `[usernameName]:[passwordName]`
     &lt;/ResponseField&gt;
-    &lt;ResponseField name="inputPrefix" type="string"&gt;
-    The default value that's designed to be a prefix for the authentication input field.
+    &lt;ResponseField name=&quot;inputPrefix&quot; type=&quot;string&quot;&gt;
+    The default value that&#39;s designed to be a prefix for the authentication input field.
 
     E.g. If an `inputPrefix` of `AuthKey` would inherit the default input result of the authentication field as `AuthKey`.
     &lt;/ResponseField&gt;
   &lt;/Expandable&gt;
 &lt;/ResponseField&gt;
 
-&lt;ResponseField name="playground" type="Playground"&gt;
+&lt;ResponseField name=&quot;playground&quot; type=&quot;Playground&quot;&gt;
   Configurations for the API playground
 
-  &lt;Expandable title="Playground"&gt;
-    &lt;ResponseField name="mode" default="show" type='"show" | "simple" | "hide"'&gt;
+  &lt;Expandable title=&quot;Playground&quot;&gt;
+    &lt;ResponseField name=&quot;mode&quot; default=&quot;show&quot; type=&#39;&quot;show&quot; | &quot;simple&quot; | &quot;hide&quot;&#39;&gt;
       Whether the playground is showing, hidden, or only displaying the endpoint with no added user interactivity `simple`
 
       Learn more at the
@@ -1280,12 +1280,12 @@ Example: `Community`
   &lt;/Expandable&gt;
 &lt;/ResponseField&gt;
 
-&lt;ResponseField name="maintainOrder" type="boolean"&gt;
+&lt;ResponseField name=&quot;maintainOrder&quot; type=&quot;boolean&quot;&gt;
   Enabling this flag ensures that key ordering in OpenAPI pages matches the key ordering defined in the OpenAPI file.
 
   &lt;Warning&gt;This behavior will soon be enabled by default, at which point this field will be deprecated.&lt;/Warning&gt;
 &lt;/ResponseField&gt;
-</code></pre>
+</code></pre></div>
 <p></Expandable>
 </ResponseField></p>
 <p><ResponseField name="openapi" type="string | string[]">
@@ -1294,29 +1294,30 @@ Example: `Community`
 <p>Examples:
   <CodeGroup>
     <code>json Absolute
-    "openapi": "https://example.com/openapi.json"</code>
-    <code>json Relative
-    "openapi": "/openapi.json"</code>
-    <code>json Multiple
-    "openapi": ["https://example.com/openapi1.json", "/openapi2.json", "/openapi3.json"]</code>
+    "openapi": "https://example.com/openapi.json"
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>```json Relative
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&quot;openapi&quot;: &quot;/openapi.json&quot;
+</code></pre></div></code>json Multiple
+    "openapi": ["https://example.com/openapi1.json", "/openapi2.json", "/openapi3.json"]
+    ```
   </CodeGroup></p>
 <p></ResponseField></p>
 <p><ResponseField name="footerSocials" type="FooterSocials">
   An object of social media accounts where the key:property pair represents the social media platform and the account url.</p>
 <p>Example:
-  <code>json
-  {
-  }</code>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">}</span>
+</code></pre></div>
   <Expandable title="FooterSocials">
     <ResponseField name="[key]" type="string">
     One of the following values <code>website</code>, <code>facebook</code>, <code>x</code>, <code>discord</code>, <code>slack</code>, <code>github</code>, <code>linkedin</code>, <code>instagram</code>, <code>hacker-news</code></p>
-<pre><code>Example: `x`
+<div class="highlight"><pre><span></span><code>Example: `x`
 &lt;/ResponseField&gt;
-&lt;ResponseField name="property" type="string"&gt;
+&lt;ResponseField name=&quot;property&quot; type=&quot;string&quot;&gt;
 The URL to the social platform.
 
 &lt;/ResponseField&gt;
-</code></pre>
+</code></pre></div>
 <p></Expandable>
 </ResponseField></p>
 <p><ResponseField name="feedback" type="Feedback">
@@ -1339,24 +1340,24 @@ The URL to the social platform.
     </ResponseField>
     <ResponseField name="isHidden" type="boolean" default="false">
       Set to true to hide the dark/light mode toggle. You can combine <code>isHidden</code> with <code>default</code> to force your docs to only use light or dark mode. For example:</p>
-<pre><code>  &lt;CodeGroup&gt;
+<div class="highlight"><pre><span></span><code>  &lt;CodeGroup&gt;
   ```json Only Dark Mode
-  "modeToggle": {
-    "default": "dark",
-    "isHidden": true
+  &quot;modeToggle&quot;: {
+    &quot;default&quot;: &quot;dark&quot;,
+    &quot;isHidden&quot;: true
   }
   ```
 
   ```json Only Light Mode
-  "modeToggle": {
-    "default": "light",
-    "isHidden": true
+  &quot;modeToggle&quot;: {
+    &quot;default&quot;: &quot;light&quot;,
+    &quot;isHidden&quot;: true
   }
   ```
   &lt;/CodeGroup&gt;
 
 &lt;/ResponseField&gt;
-</code></pre>
+</code></pre></div>
 <p></Expandable>
 </ResponseField></p>
 <p><ResponseField name="backgroundImage" type="string">
