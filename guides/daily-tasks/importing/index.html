@@ -1743,20 +1743,26 @@
 <p>Bank transaction importing is the foundation of effective budget reconciliation. <strong>When you import matters as much as what you import</strong> - banks can change transaction processing dates, affecting your reconciliation accuracy.</p>
 <h2 id="critical-timing-guidelines">Critical Timing Guidelines</h2>
 <h3 id="timing-rules-for-success">⏰ <strong>Timing Rules for Success</strong></h3>
-<p><CardGroup cols={2}>
-<Card title="Monthly Imports" icon="calendar-days">
-<strong>Import within 7 days of month-end</strong>
-- Prevents bank date advancement issues
-- Enables cross-month duplicate detection
-- Maintains historical data integrity
-</Card></p>
-<p><Card title="End-of-Year Imports" icon="calendar-year">
-<strong>Import July within 7 days of EOY completion</strong>
-- Critical for cross-year duplicate detection
-- Prevents June→July transaction movement
-- Maintains fiscal year boundary accuracy
-</Card>
-</CardGroup></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Monthly Imports</label><label for="__tabbed_1_2">End-of-Year Imports</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Import within 7 days of month-end</strong></p>
+<ul>
+<li>Prevents bank date advancement issues</li>
+<li>Enables cross-month duplicate detection</li>
+<li>Maintains historical data integrity</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><strong>Import July within 7 days of EOY completion</strong></p>
+<ul>
+<li>Critical for cross-year duplicate detection</li>
+<li>Prevents June→July transaction movement</li>
+<li>Maintains fiscal year boundary accuracy</li>
+</ul>
+</div>
+</div>
+</div>
 <h3 id="why-timing-matters">🚨 <strong>Why Timing Matters</strong></h3>
 <p>Banks routinely advance transaction processing dates by 2-7 days after initial processing. This means:</p>
 <ul>
@@ -1774,9 +1780,10 @@
 <li><strong>Download in CSV format</strong> (preferred) or PDF if CSV unavailable</li>
 <li><strong>Save to a known location</strong> on your computer</li>
 </ol>
-<p><Note>
-<strong>File Format Priority:</strong> Most banks offer multiple export formats. Always choose CSV over PDF when available - it imports more accurately and faster.
-</Note></p>
+<div class="admonition note">
+<p class="admonition-title">File Format Priority</p>
+<p>Most banks offer multiple export formats. Always choose CSV over PDF when available - it imports more accurately and faster.</p>
+</div>
 <h3 id="step-2-access-import-function">Step 2: Access Import Function</h3>
 <ol>
 <li><strong>Open your budget spreadsheet</strong></li>
@@ -1822,20 +1829,35 @@
 - <strong>Manual selection:</strong> Choose account during import</p>
 <h2 id="best-practices">Best Practices</h2>
 <h3 id="timing-best-practices">🎯 <strong>Timing Best Practices</strong></h3>
-<p><Check><strong>Import within 7 days</strong> of transaction dates</Check>
-<Check><strong>Complete EOY imports immediately</strong> after fiscal year end</Check>
-<Check><strong>Process month-end imports promptly</strong> (within 1 week)</Check>
-<Check><strong>Monitor for bank format changes</strong> quarterly</Check></p>
+<div class="admonition tip">
+<p class="admonition-title">Timing Best Practices</p>
+<ul>
+<li><strong>Import within 7 days</strong> of transaction dates</li>
+<li><strong>Complete EOY imports immediately</strong> after fiscal year end</li>
+<li><strong>Process month-end imports promptly</strong> (within 1 week)</li>
+<li><strong>Monitor for bank format changes</strong> quarterly</li>
+</ul>
+</div>
 <h3 id="data-quality-best-practices">🎯 <strong>Data Quality Best Practices</strong></h3>
-<p><Check><strong>Verify dates before importing</strong> - Check for obvious errors</Check>
-<Check><strong>Review amounts for reasonableness</strong> - Catch decimal point errors</Check>
-<Check><strong>Check descriptions for completeness</strong> - Some banks truncate descriptions</Check>
-<Check><strong>Confirm account assignments</strong> - Ensure transactions go to correct accounts</Check></p>
+<div class="admonition tip">
+<p class="admonition-title">Data Quality</p>
+<ul>
+<li><strong>Verify dates before importing</strong> - Check for obvious errors</li>
+<li><strong>Review amounts for reasonableness</strong> - Catch decimal point errors</li>
+<li><strong>Check descriptions for completeness</strong> - Some banks truncate descriptions</li>
+<li><strong>Confirm account assignments</strong> - Ensure transactions go to correct accounts</li>
+</ul>
+</div>
 <h3 id="file-management-best-practices">🎯 <strong>File Management Best Practices</strong></h3>
-<p><Check><strong>Use consistent naming</strong> - e.g., "NAB-Checking-2025-07.csv"</Check>
-<Check><strong>Keep monthly exports organized</strong> - Separate folders by year/month</Check>
-<Check><strong>Archive import files</strong> - Keep for audit trail and re-import if needed</Check>
-<Check><strong>Delete temporary downloads</strong> - Clean up download folder regularly</Check></p>
+<div class="admonition tip">
+<p class="admonition-title">File Management</p>
+<ul>
+<li><strong>Use consistent naming</strong> - e.g., "NAB-Checking-2025-07.csv"</li>
+<li><strong>Keep monthly exports organized</strong> - Separate folders by year/month</li>
+<li><strong>Archive import files</strong> - Keep for audit trail and re-import if needed</li>
+<li><strong>Delete temporary downloads</strong> - Clean up download folder regularly</li>
+</ul>
+</div>
 <h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
 <h3 id="import-fails-or-maps-incorrectly">❌ <strong>Import Fails or Maps Incorrectly</strong></h3>
 <p><strong>Solutions:</strong>
@@ -1898,17 +1920,19 @@
 2. <strong>Process chronologically</strong> - Import older months first
 3. <strong>Reconcile between imports</strong> - Don't accumulate unreconciled transactions
 4. <strong>Monitor system performance</strong> - Large imports may take longer</p>
-<p><Warning>
-<strong>Bulk Import Limitation:</strong> Cross-year detection expects "first import" to be small. Importing 70+ transactions at once may bypass detection even within the 7-day window.
-</Warning></p>
+<div class="admonition warning">
+<p class="admonition-title">Bulk Import Limitation</p>
+<p>Cross-year detection expects "first import" to be small. Importing 70+ transactions at once may bypass detection even within the 7-day window.</p>
+</div>
 <h2 id="next-steps">Next Steps</h2>
 <p>After successful import:
 1. <strong><a href="../reconciling/">Reconcile transactions</a></strong> - Match imports to budget categories
 2. <strong><a href="../../monthly-tasks/end-of-month/">Run month-end process</a></strong> - When all transactions reconciled
 3. <strong><a href="../../system/changelog.md">Update categories</a></strong> - Add new categories if needed</p>
-<p><Note>
-Remember: <strong>Import timing affects reconciliation accuracy.</strong> The few minutes saved by delaying imports can cost hours of manual correction later.
-</Note></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember: <strong>Import timing affects reconciliation accuracy.</strong> The few minutes saved by delaying imports can cost hours of manual correction later.</p>
+</div>
 
 
 
