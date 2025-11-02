@@ -153,7 +153,9 @@ When you run the initial setup, Google will ask you to authorize the scripts. **
 
 ### ❌ "Balance Check Failed"
 **Problem:** EOY process blocked due to non-zero balances
+
 **Solution:**
+
 1. Update bank balances to June 30 accuracy
 2. Use Reconciliation Dashboard to fix transaction issues
 3. Ensure all three balance cells show $0.00
@@ -164,7 +166,9 @@ When you run the initial setup, Google will ask you to authorize the scripts. **
 
 ### ❌ Authorization Warnings
 **Problem:** Google shows scary "unsafe" warnings
+
 **Solution:**
+
 1. **Don't panic** - This is Google's standard warning for ALL custom scripts
 2. Click **"Advanced"** (bottom left of warning dialog)
 3. Click **"Go to Budget App Scripts (unsafe)"** - This is safe to do
@@ -172,6 +176,7 @@ When you run the initial setup, Google will ask you to authorize the scripts. **
 5. Click **"Allow"**
 
 **If authorization fails:**
+
 - Refresh the browser page
 - Try the authorization process again
 - Check that you're using the same Google account as your spreadsheet
@@ -182,7 +187,9 @@ When you run the initial setup, Google will ask you to authorize the scripts. **
 
 ### ❌ "Outstanding Commitments Warning"
 **Problem:** Commitment validation dialog appears during EOM processing
+
 **Solution:**
+
 - **NO = Fix Now:** Address the listed commitments before proceeding
 - **YES = Ignore:** Proceed with EOM despite outstanding commitments
 - Use the Reconciliation Dashboard to identify and fix commitment issues
