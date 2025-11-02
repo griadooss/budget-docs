@@ -18,11 +18,13 @@ The End of Month (EOM) process is a critical monthly procedure that:
 ## Prerequisites
 
 ### Before Running EOM
-<Check>All transactions reconciled</Check>
-<Check>Categories verified and assigned</Check>
-<Check>Bank balances verified</Check>
-<Check>Budget variances reviewed</Check>
-<Check>No pending transactions</Check>
+
+!!! tip "Prerequisites"
+    - All transactions reconciled
+    - Categories verified and assigned
+    - Bank balances verified
+    - Budget variances reviewed
+    - No pending transactions
 
 ### System Requirements
 - Current month properly set
@@ -43,9 +45,8 @@ The system will display:
 - **Column ranges** for current and next month
 - **Confirmation prompt** to proceed
 
-<Warning>
-  **Important:** Verify the correct month is selected before proceeding
-</Warning>
+!!! warning "Important"
+    Verify the correct month is selected before proceeding
 
 ### Balance Check
 The system performs a comprehensive balance check:
@@ -101,74 +102,77 @@ If processing June (end of fiscal year):
 
 ### Common Issues
 
-<AccordionGroup>
-  <Accordion title="Balance Check Failed" icon="alert">
+??? warning "Balance Check Failed"
     **Problem:** System shows balance issues
+
     **Solution:**
+
     - Review each balance issue
     - Reconcile missing transactions
     - Verify account mappings
     - Re-run balance check
-  </Accordion>
 
-  <Accordion title="Wrong Month Selected" icon="calendar">
+??? calendar "Wrong Month Selected"
     **Problem:** Incorrect month being processed
+
     **Solution:**
+
     - Cancel the process
     - Set correct current month
     - Initialize month statuses
     - Re-run EOM process
-  </Accordion>
 
-  <Accordion title="Formatting Issues" icon="palette">
+??? palette "Formatting Issues"
     **Problem:** Month formatting not applied correctly
+
     **Solution:**
+
     - Check template month availability
     - Verify column ranges
     - Re-run formatting manually
     - Contact support if persistent
-  </Accordion>
 
-  <Accordion title="Status Update Failed" icon="settings">
+??? settings "Status Update Failed"
     **Problem:** Month statuses not updated
+
     **Solution:**
+
     - Check system properties
     - Verify month tracking
     - Re-initialize month statuses
     - Re-run EOM process
-  </Accordion>
-</AccordionGroup>
 
 ### EOY-Specific Issues
 
-<AccordionGroup>
-  <Accordion title="Year Transition Error" icon="calendar-year">
+??? calendar-year "Year Transition Error"
     **Problem:** Year not incremented properly
+
     **Solution:**
+
     - Verify June processing
     - Check fiscal year settings
     - Review year transition logic
     - Re-run EOM process
-  </Accordion>
 
-  <Accordion title="Formula Clearing Issues" icon="code">
+??? code "Formula Clearing Issues"
     **Problem:** Formulas not cleared from old months
+
     **Solution:**
+
     - Check July setup
     - Verify formula clearing logic
     - Review month column ranges
     - Contact support
-  </Accordion>
-</AccordionGroup>
 
 ## Best Practices
 
-<Check>Always reconcile before EOM</Check>
-<Check>Verify current month before processing</Check>
-<Check>Review balance check results</Check>
-<Check>Test system after EOM completion</Check>
-<Check>Keep backup before major changes</Check>
-<Check>Document any issues encountered</Check>
+!!! tip "Best Practices"
+    - Always reconcile before EOM
+    - Verify current month before processing
+    - Review balance check results
+    - Test system after EOM completion
+    - Keep backup before major changes
+    - Document any issues encountered
 
 ## Completion Checklist
 
@@ -190,9 +194,8 @@ After successful EOM:
 3. **Monitor performance** - Track budget vs actual
 4. **Prepare for EOY** - If approaching June
 
-<Note>
-  For End of Year processing, see the [EOY Guide](../yearly-tasks/end-of-year/overview.md).
-</Note>
+!!! note
+    For End of Year processing, see the [EOY Guide](../yearly-tasks/end-of-year/overview.md).
 
 ## Advanced Features
 
