@@ -153,13 +153,13 @@ The modern EOY process is a **four-step guided workflow**:
 ## Next Steps
 
 === "Daily Tasks"
-    [Learn about importing and reconciling](guides/daily-tasks/importing)
+    [Learn about importing and reconciling](guides/daily-tasks/importing/)
 
 === "Monthly Tasks"
-    [Understand month-end processing](guides/monthly-tasks/end-of-month)
+    [Understand month-end processing](guides/monthly-tasks/end-of-month/)
 
 === "Troubleshooting"
-    [Get help with common issues](guides/troubleshooting/common-issues)
+    [Get help with common issues](guides/troubleshooting/common-issues/)
 
 ## Getting Help
 
