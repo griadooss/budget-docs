@@ -80,6 +80,7 @@ if (currentMonth && currentMonth.month !== 6) {
 ```
 
 **Testing Considerations:**
+
 - **Production:** Process only works in June
 - **Development:** You may need to temporarily bypass month checking for testing
 - **Test Mode:** Use `testMode` parameters in functions where available
@@ -167,6 +168,7 @@ if (!isDev && !eoyReadyForEom) {
 ```
 
 **Key Features:**
+
 - **Non-blocking Design:** Users can choose to proceed despite outstanding commitments
 - **Clear User Interface:** Intuitive button mapping (NO = Fix Now, YES = Ignore)
 - **Month/Year Display:** Shows correct month and year from script properties
@@ -195,6 +197,7 @@ function showEOYSetupIncompleteDialog(issues) {
 ```
 
 **Benefits:**
+
 - **Better User Experience:** Dialogs can be moved and don't block the interface
 - **Consistent Design:** All dialogs follow the same visual pattern
 - **Improved Readability:** Better formatting and layout for complex information
@@ -333,6 +336,7 @@ function archiveThisMaster() {
 **Impact:** Archived masters retain `IS_MASTER = true` in their script properties.
 
 **Mitigation Strategies:**
+
 1. **Renamed Title** - Archived spreadsheets have clear "\_ARCHIVED_FY{year}" suffix
 2. **Archive Metadata** - Hidden "\_Archive" sheet marks archival status
 3. **User Documentation** - Clear guidance to avoid using archived spreadsheets
@@ -344,11 +348,13 @@ function archiveThisMaster() {
 **Impact:** Users may be reluctant to continue authorization due to scary warning language.
 
 **User Experience Challenges:**
+
 - "Google hasn't verified this app" warning appears threatening
 - "Go to Budget App Scripts (unsafe)" button seems dangerous
 - Users may abandon the process thinking something is wrong
 
 **Mitigation Strategies:**
+
 1. **Clear Documentation** - Detailed explanation that warnings are normal
 2. **Step-by-Step Instructions** - Specific guidance through each authorization step
 3. **Reassurance** - Explicit statements that the process is safe and expected
@@ -505,6 +511,7 @@ function updateMonthlyHeaders() {
 ### Permission Requirements
 
 The EOY process requires specific permissions:
+
 - **Script execution** in both master and new copy
 - **Spreadsheet access** for reading/writing operations
 - **File creation** for making copies
