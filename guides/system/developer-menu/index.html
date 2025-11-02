@@ -1518,12 +1518,12 @@
 <li><strong>Legacy</strong> - Legacy system tools and advanced testing</li>
 </ul>
 <h2 id="dev-mode-controls">🔧 Dev Mode Controls</h2>
-<details class="info">
+<details>
 <summary>Check Dev Mode Status</summary>
 <ul>
 <li>
 <p><strong>Function:</strong> <code>checkDevMode()</code></p>
-<ul>
+</li>
 <li>
 <p><strong>Purpose:</strong> Display current developer mode status</p>
 </li>
@@ -1537,42 +1537,54 @@
 <p><strong>Dependencies:</strong> None</p>
 </li>
 </ul>
+</details>
+<details>
+<summary>Enable Dev Mode</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>enableDevMode()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Turn on developer mode</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When you need access to developer tools</p>
+</li>
+<li>
+<p><strong>Effect:</strong> Enables all developer menu functions</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Script properties access</p>
 </li>
 </ul>
 </details>
-<p>??? toggle-on "Enable Dev Mode"
-    - <strong>Function:</strong> <code>enableDevMode()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Turn on developer mode
-
-
-    - **When to Use:** When you need access to developer tools
-
-
-    - **Effect:** Enables all developer menu functions
-
-
-    - **Dependencies:** Script properties access
-</code></pre></div>
-<p>??? toggle-off "Disable Dev Mode"
-    - <strong>Function:</strong> <code>disableDevMode()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Turn off developer mode
-
-
-    - **When to Use:** After completing development work
-
-
-    - **Effect:** Disables developer menu access
-
-
-    - **Dependencies:** Script properties access
-</code></pre></div>
+<details>
+<summary>Disable Dev Mode</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>disableDevMode()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Turn off developer mode</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> After completing development work</p>
+</li>
+<li>
+<p><strong>Effect:</strong> Disables developer menu access</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Script properties access</p>
+</li>
+</ul>
+</details>
 <h2 id="system-status">📊 System Status</h2>
-<details class="info-circle">
+<details>
 <summary>Check Master Status</summary>
 <ul>
 <li>
 <p><strong>Function:</strong> <code>checkMasterStatus()</code></p>
-<ul>
+</li>
 <li>
 <p><strong>Purpose:</strong> Verify if current spreadsheet is the master</p>
 </li>
@@ -1586,28 +1598,37 @@
 <p><strong>Dependencies:</strong> Script properties access</p>
 </li>
 </ul>
+</details>
+<details>
+<summary>Set as Master Spreadsheet</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>setAsMaster()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Mark current spreadsheet as the master</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When setting up a new master spreadsheet</p>
+</li>
+<li>
+<p><strong>Effect:</strong> Sets IS_MASTER property to true</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Script properties access</p>
+</li>
+<li>
+<p><strong>Warning:</strong> Only use on the intended master spreadsheet</p>
 </li>
 </ul>
 </details>
-<p>??? crown "Set as Master Spreadsheet"
-    - <strong>Function:</strong> <code>setAsMaster()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Mark current spreadsheet as the master
-
-    - **When to Use:** When setting up a new master spreadsheet
-
-    - **Effect:** Sets IS_MASTER property to true
-
-    - **Dependencies:** Script properties access
-
-    - **Warning:** Only use on the intended master spreadsheet
-</code></pre></div>
 <h2 id="triggers">⚙️ Triggers</h2>
-<details class="plus">
+<details>
 <summary>Install onEdit Trigger</summary>
 <ul>
 <li>
 <p><strong>Function:</strong> <code>installOnEditTrigger()</code></p>
-<ul>
+</li>
 <li>
 <p><strong>Purpose:</strong> Set up automatic edit detection</p>
 </li>
@@ -1621,26 +1642,34 @@
 <p><strong>Dependencies:</strong> Trigger creation permissions</p>
 </li>
 </ul>
+</details>
+<details>
+<summary>Remove onEdit Trigger</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>removeOnEditTrigger()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Remove automatic edit detection</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When automatic processing is not needed</p>
+</li>
+<li>
+<p><strong>Effect:</strong> Deletes existing onEdit trigger</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Trigger management permissions</p>
 </li>
 </ul>
 </details>
-<p>??? minus "Remove onEdit Trigger"
-    - <strong>Function:</strong> <code>removeOnEditTrigger()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Remove automatic edit detection
-
-    - **When to Use:** When automatic processing is not needed
-
-    - **Effect:** Deletes existing onEdit trigger
-
-    - **Dependencies:** Trigger management permissions
-</code></pre></div>
 <h2 id="integrity-checker">🛡️ Integrity Checker</h2>
-<details class="shield-check">
+<details>
 <summary>Run Comprehensive Check</summary>
 <ul>
 <li>
 <p><strong>Function:</strong> <code>runComprehensiveIntegrityCheck()</code></p>
-<ul>
+</li>
 <li>
 <p><strong>Purpose:</strong> Full system validation and health check</p>
 </li>
@@ -1657,40 +1686,60 @@
 <p><strong>Duration:</strong> May take several minutes for large datasets</p>
 </li>
 </ul>
+</details>
+<details>
+<summary>Quick Integrity Check</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>quickIntegrityCheck()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Fast validation check for common issues</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> Regular system health monitoring</p>
+</li>
+<li>
+<p><strong>Output:</strong> Quick summary of critical issues</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Basic sheet access</p>
+</li>
+<li>
+<p><strong>Duration:</strong> Usually completes in under 30 seconds</p>
 </li>
 </ul>
 </details>
-<p>??? bolt "Quick Integrity Check"
-    - <strong>Function:</strong> <code>quickIntegrityCheck()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Fast validation check for common issues
-
-    - **When to Use:** Regular system health monitoring
-
-    - **Output:** Quick summary of critical issues
-
-    - **Dependencies:** Basic sheet access
-
-    - **Duration:** Usually completes in under 30 seconds
-</code></pre></div>
-<p>??? wrench "Fix Corrupted Formulas"
-    - <strong>Function:</strong> <code>fixCorruptedFormulas()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Repair broken or corrupted formulas
-
-    - **When to Use:** When formulas are not calculating correctly
-
-    - **Effect:** Attempts to repair identified formula issues
-
-    - **Dependencies:** Write access to sheets with formulas
-
-    - **Warning:** Creates backup before making changes
-</code></pre></div>
+<details>
+<summary>Fix Corrupted Formulas</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>fixCorruptedFormulas()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Repair broken or corrupted formulas</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When formulas are not calculating correctly</p>
+</li>
+<li>
+<p><strong>Effect:</strong> Attempts to repair identified formula issues</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Write access to sheets with formulas</p>
+</li>
+<li>
+<p><strong>Warning:</strong> Creates backup before making changes</p>
+</li>
+</ul>
+</details>
 <h2 id="testing-tools">🧪 Testing Tools</h2>
-<details class="refresh">
+<details>
 <summary>Reset Month Statuses</summary>
 <ul>
 <li>
 <p><strong>Function:</strong> <code>resetMonthStatuses()</code></p>
-<ul>
+</li>
 <li>
 <p><strong>Purpose:</strong> Reset month processing statuses</p>
 </li>
@@ -1707,26 +1756,34 @@
 <p><strong>Warning:</strong> May affect month processing workflow</p>
 </li>
 </ul>
+</details>
+<details>
+<summary>Validate Script Properties</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>validateScriptProperties()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Check script properties for consistency</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When system behavior is unexpected</p>
+</li>
+<li>
+<p><strong>Output:</strong> Report of script properties and their values</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Script properties access</p>
 </li>
 </ul>
 </details>
-<p>??? check-double "Validate Script Properties"
-    - <strong>Function:</strong> <code>validateScriptProperties()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Check script properties for consistency
-
-    - **When to Use:** When system behavior is unexpected
-
-    - **Output:** Report of script properties and their values
-
-    - **Dependencies:** Script properties access
-</code></pre></div>
 <h2 id="debug-tools">🐛 Debug Tools</h2>
-<details class="list">
+<details>
 <summary>Named Ranges Report</summary>
 <ul>
 <li>
 <p><strong>Function:</strong> <code>verifyNamedRanges()</code></p>
-<ul>
+</li>
 <li>
 <p><strong>Purpose:</strong> Check spreadsheet named ranges</p>
 </li>
@@ -1740,58 +1797,96 @@
 <p><strong>Dependencies:</strong> Named ranges access</p>
 </li>
 </ul>
+</details>
+<details>
+<summary>View Stored Mappings</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>viewStoredMappings()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Check stored bank configurations</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When import mappings are not working</p>
+</li>
+<li>
+<p><strong>Output:</strong> Display of all stored bank import mappings</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Stored mappings access</p>
 </li>
 </ul>
 </details>
-<p>??? eye "View Stored Mappings"
-    - <strong>Function:</strong> <code>viewStoredMappings()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Check stored bank configurations
-
-    - **When to Use:** When import mappings are not working
-
-    - **Output:** Display of all stored bank import mappings
-
-    - **Dependencies:** Stored mappings access
-</code></pre></div>
-<p>??? history "Import History"
-    - <strong>Function:</strong> <code>showImportHistory()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** View transaction import history
-
-    - **When to Use:** When investigating import issues
-
-    - **Output:** List of recent imports with timestamps and details
-
-    - **Dependencies:** Import history data access
-</code></pre></div>
-<p>??? sync "Re-sync ACTIVE Flags"
-    - <strong>Function:</strong> <code>cleanupActiveFlagInconsistencies()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Manually sync category active status
-
-    - **When to Use:** When ACTIVE flags are out of sync
-
-    - **Effect:** Synchronizes ACTIVE flags across all categories
-
-    - **Dependencies:** Category data access
-</code></pre></div>
-<p>??? chart-line "Debug Income Budget Status"
-    - <strong>Function:</strong> <code>debugIncomeBudgetStatus()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Debug income budget calculations
-
-    - **When to Use:** When income budget calculations are incorrect
-
-    - **Output:** Detailed analysis of income budget status
-
-    - **Dependencies:** Income budget data access
-</code></pre></div>
+<details>
+<summary>Import History</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>showImportHistory()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> View transaction import history</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When investigating import issues</p>
+</li>
+<li>
+<p><strong>Output:</strong> List of recent imports with timestamps and details</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Import history data access</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>Re-sync ACTIVE Flags</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>cleanupActiveFlagInconsistencies()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Manually sync category active status</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When ACTIVE flags are out of sync</p>
+</li>
+<li>
+<p><strong>Effect:</strong> Synchronizes ACTIVE flags across all categories</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Category data access</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>Debug Income Budget Status</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>debugIncomeBudgetStatus()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Debug income budget calculations</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When income budget calculations are incorrect</p>
+</li>
+<li>
+<p><strong>Output:</strong> Detailed analysis of income budget status</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Income budget data access</p>
+</li>
+</ul>
+</details>
 <h2 id="legacy-menu">🏛️ Legacy Menu</h2>
 <p>The Legacy menu contains advanced developer tools and legacy system functions organized into specialized submenus.</p>
 <h3 id="legacy-system-cleanup">Legacy System Cleanup</h3>
-<details class="search">
+<details>
 <summary>Find Legacy Named Ranges</summary>
 <ul>
 <li>
 <p><strong>Function:</strong> <code>findLegacyNamedRanges()</code></p>
-<ul>
+</li>
 <li>
 <p><strong>Purpose:</strong> Identify legacy named ranges from old system</p>
 </li>
@@ -1805,26 +1900,34 @@
 <p><strong>Dependencies:</strong> Named ranges access</p>
 </li>
 </ul>
+</details>
+<details>
+<summary>Get Cleanup Instructions</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>getLegacyCleanupInstructions()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get step-by-step cleanup instructions</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When removing legacy system components</p>
+</li>
+<li>
+<p><strong>Output:</strong> Detailed instructions for legacy system removal</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> None</p>
 </li>
 </ul>
 </details>
-<p>??? list-alt "Get Cleanup Instructions"
-    - <strong>Function:</strong> <code>getLegacyCleanupInstructions()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Get step-by-step cleanup instructions
-
-    - **When to Use:** When removing legacy system components
-
-    - **Output:** Detailed instructions for legacy system removal
-
-    - **Dependencies:** None
-</code></pre></div>
 <h3 id="cross-year-detection">Cross-Year Detection</h3>
-<details class="flask">
+<details>
 <summary>Test Cross-Year Detection</summary>
 <ul>
 <li>
 <p><strong>Function:</strong> <code>testCrossYearDetection()</code></p>
-<ul>
+</li>
 <li>
 <p><strong>Purpose:</strong> Test cross-year duplicate detection system</p>
 </li>
@@ -1838,56 +1941,94 @@
 <p><strong>Dependencies:</strong> Cross-year detection system</p>
 </li>
 </ul>
+</details>
+<details>
+<summary>Quick Diagnose Cross-Year</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>quickDiagnoseCrossYearIssue()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Quick diagnostic for cross-year issues</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When cross-year detection is not working</p>
+</li>
+<li>
+<p><strong>Output:</strong> Quick diagnosis of cross-year detection problems</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Cross-year detection system</p>
 </li>
 </ul>
 </details>
-<p>??? stethoscope "Quick Diagnose Cross-Year"
-    - <strong>Function:</strong> <code>quickDiagnoseCrossYearIssue()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Quick diagnostic for cross-year issues
-
-    - **When to Use:** When cross-year detection is not working
-
-    - **Output:** Quick diagnosis of cross-year detection problems
-
-    - **Dependencies:** Cross-year detection system
-</code></pre></div>
-<p>??? info "Show Cross-Year Info"
-    - <strong>Function:</strong> <code>showCrossYearDetectionInfo()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Display cross-year detection information
-
-    - **When to Use:** When understanding cross-year system status
-
-    - **Output:** Information about cross-year detection configuration
-
-    - **Dependencies:** Cross-year detection system
-</code></pre></div>
-<p>??? search-plus "Debug Archive Detection"
-    - <strong>Function:</strong> <code>debugArchiveFileDetection()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Debug archive file detection
-
-    - **When to Use:** When archive file detection is failing
-
-    - **Output:** Debug information about archive file detection
-
-    - **Dependencies:** Archive system access
-</code></pre></div>
-<p>??? wrench "Create Missing Named Ranges"
-    - <strong>Function:</strong> <code>createMissingNamedRanges()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Create missing named ranges required by the system
-
-    - **When to Use:** When functions fail due to missing named ranges
-
-    - **Output:** Creates BudgetStartDate and other critical named ranges
-
-    - **Dependencies:** Maintain Budget sheet access
-</code></pre></div>
+<details>
+<summary>Show Cross-Year Info</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>showCrossYearDetectionInfo()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Display cross-year detection information</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When understanding cross-year system status</p>
+</li>
+<li>
+<p><strong>Output:</strong> Information about cross-year detection configuration</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Cross-year detection system</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>Debug Archive Detection</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>debugArchiveFileDetection()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Debug archive file detection</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When archive file detection is failing</p>
+</li>
+<li>
+<p><strong>Output:</strong> Debug information about archive file detection</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Archive system access</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>Create Missing Named Ranges</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>createMissingNamedRanges()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Create missing named ranges required by the system</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When functions fail due to missing named ranges</p>
+</li>
+<li>
+<p><strong>Output:</strong> Creates BudgetStartDate and other critical named ranges</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Maintain Budget sheet access</p>
+</li>
+</ul>
+</details>
 <h3 id="advanced-testing">Advanced Testing</h3>
-<details class="flask">
+<details>
 <summary>Test Integrity Checker</summary>
 <ul>
 <li>
 <p><strong>Function:</strong> <code>testIntegrityChecker()</code></p>
-<ul>
+</li>
 <li>
 <p><strong>Purpose:</strong> Test integrity checker functionality</p>
 </li>
@@ -1901,26 +2042,34 @@
 <p><strong>Dependencies:</strong> Integrity checker system access</p>
 </li>
 </ul>
+</details>
+<details>
+<summary>Test Commitment Validation</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>testCommitmentValidation()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Test commitment validation system</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When testing commitment validation</p>
+</li>
+<li>
+<p><strong>Output:</strong> Test results for commitment validation</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Commitment system access</p>
 </li>
 </ul>
 </details>
-<p>??? flask "Test Commitment Validation"
-    - <strong>Function:</strong> <code>testCommitmentValidation()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Test commitment validation system
-
-    - **When to Use:** When testing commitment validation
-
-    - **Output:** Test results for commitment validation
-
-    - **Dependencies:** Commitment system access
-</code></pre></div>
 <h3 id="debug-diagnostics">Debug &amp; Diagnostics</h3>
-<details class="bug">
+<details>
 <summary>Debug Template Check</summary>
 <ul>
 <li>
 <p><strong>Function:</strong> <code>debugTemplateCheck()</code></p>
-<ul>
+</li>
 <li>
 <p><strong>Purpose:</strong> Debug template checking functionality</p>
 </li>
@@ -1934,46 +2083,74 @@
 <p><strong>Dependencies:</strong> Template system access</p>
 </li>
 </ul>
+</details>
+<details>
+<summary>Debug Template Comprehensive</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>debugTemplateComprehensive()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Comprehensive template debugging</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When detailed template debugging is needed</p>
+</li>
+<li>
+<p><strong>Output:</strong> Comprehensive debug information about templates</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Template system access</p>
 </li>
 </ul>
 </details>
-<p>??? bug "Debug Template Comprehensive"
-    - <strong>Function:</strong> <code>debugTemplateComprehensive()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Comprehensive template debugging
-
-    - **When to Use:** When detailed template debugging is needed
-
-    - **Output:** Comprehensive debug information about templates
-
-    - **Dependencies:** Template system access
-</code></pre></div>
-<p>??? bug "Debug Accounts"
-    - <strong>Function:</strong> <code>debugAccounts()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Debug account mapping functionality
-
-    - **When to Use:** When account mapping is not working
-
-    - **Output:** Debug information about account mapping
-
-    - **Dependencies:** Account mapping system access
-</code></pre></div>
-<p>??? bug "Debug Annual Budget Categories"
-    - <strong>Function:</strong> <code>debugAnnualBudgetCategories()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Debug Annual Budget categories
-
-    - **When to Use:** When Annual Budget categories have issues
-
-    - **Output:** Debug information about Annual Budget categories
-
-    - **Dependencies:** Annual Budget access
-</code></pre></div>
+<details>
+<summary>Debug Accounts</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>debugAccounts()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Debug account mapping functionality</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When account mapping is not working</p>
+</li>
+<li>
+<p><strong>Output:</strong> Debug information about account mapping</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Account mapping system access</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>Debug Annual Budget Categories</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>debugAnnualBudgetCategories()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Debug Annual Budget categories</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When Annual Budget categories have issues</p>
+</li>
+<li>
+<p><strong>Output:</strong> Debug information about Annual Budget categories</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Annual Budget access</p>
+</li>
+</ul>
+</details>
 <h3 id="performance-testing">Performance Testing</h3>
-<details class="tachometer">
+<details>
 <summary>Test Sheet Access Performance</summary>
 <ul>
 <li>
 <p><strong>Function:</strong> <code>testSheetAccessPerformance()</code></p>
-<ul>
+</li>
 <li>
 <p><strong>Purpose:</strong> Test sheet access performance and identify bottlenecks</p>
 </li>
@@ -1988,7 +2165,7 @@
 </li>
 <li>
 <p><strong>Example Output:</strong>
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Get spreadsheet: 1ms
+      <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Get spreadsheet: 1ms
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Get Cash Flow sheet: 457ms
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Get Cash Flow data range: 200ms
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Get Cash Flow values: 105ms
@@ -1996,39 +2173,67 @@
 </code></pre></div></p>
 </li>
 </ul>
+</details>
+<details>
+<summary>Test Reconciliation Updates</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>testReconciliationDateUpdateDetailed()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Test reconciliation date update performance</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When reconciliation updates are slow</p>
+</li>
+<li>
+<p><strong>Output:</strong> Performance metrics for reconciliation updates</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Reconciliation system access</p>
 </li>
 </ul>
 </details>
-<p>??? tachometer "Test Reconciliation Updates"
-    - <strong>Function:</strong> <code>testReconciliationDateUpdateDetailed()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Test reconciliation date update performance
-
-    - **When to Use:** When reconciliation updates are slow
-
-    - **Output:** Performance metrics for reconciliation updates
-
-    - **Dependencies:** Reconciliation system access
-</code></pre></div>
-<p>??? tachometer "Test Loan Participants"
-    - <strong>Function:</strong> <code>testLoanParticipants()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Test loan participants loading performance
-
-    - **When to Use:** When loan participant loading is slow
-
-    - **Output:** Performance metrics for loan participant loading
-
-    - **Dependencies:** Loan system access
-</code></pre></div>
-<p>??? tachometer "Test Loan Categories"
-    - <strong>Function:</strong> <code>testLoanCategories()</code></p>
-<div class="highlight"><pre><span></span><code>    - **Purpose:** Test loan category handling performance
-
-    - **When to Use:** When loan category operations are slow
-
-    - **Output:** Performance metrics for loan category operations
-
-    - **Dependencies:** Loan system access
-</code></pre></div>
+<details>
+<summary>Test Loan Participants</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>testLoanParticipants()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Test loan participants loading performance</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When loan participant loading is slow</p>
+</li>
+<li>
+<p><strong>Output:</strong> Performance metrics for loan participant loading</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Loan system access</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>Test Loan Categories</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>testLoanCategories()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Test loan category handling performance</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> When loan category operations are slow</p>
+</li>
+<li>
+<p><strong>Output:</strong> Performance metrics for loan category operations</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Loan system access</p>
+</li>
+</ul>
+</details>
 <h2 id="important-notes">🚨 Important Notes</h2>
 <h3 id="developer-mode-safety">Developer Mode Safety</h3>
 <div class="admonition warning">
