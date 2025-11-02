@@ -30,53 +30,40 @@ The dashboard displays two columns:
 
 <CardGroup cols={2}>
 <Card title="Cash Flow (Left)" icon="list">
-
 - Your categorized transactions
 - Income and expense entries
 - Split transaction groups
 - Unreconciled entries
-
-</Card>
+  </Card>
 
 <Card title="Bank Records (Right)" icon="bank">
-
 - Imported bank transactions
 - Unmatched bank entries
 - Transaction details
 - Account information
-
-</Card>
+  </Card>
 </CardGroup>
 
 ### Transaction Status Indicators
 
 <CardGroup cols={3}>
 <Card title="Green Highlight" icon="check">
-
 **Auto-matched transactions**
-
 - System matched by amount and date
 - Ready for reconciliation
-
-</Card>
+  </Card>
 
 <Card title="Blue Highlight" icon="arrows-split">
-
 **Split transaction groups**
-
 - Multiple cash flow entries
 - Match to single bank transaction
-
-</Card>
+  </Card>
 
 <Card title="No Highlight" icon="question">
-
 **Unmatched transactions**
-
 - Need manual processing
 - Require categorization
-
-</Card>
+  </Card>
 </CardGroup>
 
 ## Reconciliation Process
@@ -158,65 +145,45 @@ The dashboard displays two columns:
 
 <AccordionGroup>
   <Accordion title="Missing Transactions" icon="alert">
-
     **Problem:** Transactions not appearing in dashboard
-
     **Solution:**
-
     - Check if transactions are already reconciled
     - Verify import was successful
     - Refresh the dashboard
-
   </Accordion>
 
   <Accordion title="Wrong Matches" icon="x">
-
     **Problem:** Incorrect auto-matches
-
     **Solution:**
-
     - Manually reconcile correct pairs
     - Add missing transactions to cash flow
     - Review transaction dates and amounts
-
   </Accordion>
 
   <Accordion title="Bank Date Changes" icon="calendar">
-
     **Problem:** Transactions appear in wrong month after delayed reconciliation
-
     **Solution:**
-
     - **Immediate processing prevents this** - Banks change transaction dates 2-7 days after processing
     - Compare last few days of previous month with first few days of current month
     - Look for identical amounts and descriptions between periods
     - Manually adjust bank balances if historical data is affected
     - **Prevention:** Always reconcile within 7 days of month/year end
-
   </Accordion>
 
   <Accordion title="Split Transaction Issues" icon="arrows-split">
-
     **Problem:** Split amounts don't match
-
     **Solution:**
-
     - Verify split total equals bank transaction
     - Check for rounding errors
     - Review individual split amounts
-
   </Accordion>
 
   <Accordion title="Performance Issues" icon="clock">
-
     **Problem:** Dashboard is slow
-
     **Solution:**
-
     - Run performance diagnostics
     - Check transaction count
     - Consider processing in smaller batches
-
   </Accordion>
 </AccordionGroup>
 
