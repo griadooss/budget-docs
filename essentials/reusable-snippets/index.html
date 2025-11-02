@@ -1137,25 +1137,23 @@
 <p>```mdx snippets/my-snippet.mdx
 Hello world! This is my content I want to reuse across pages. My keyword of the
 day is {word}.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&lt;Warning&gt;
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  The content that you want to reuse must be inside the `snippets` directory in
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  order for the import to work.
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>&lt;/Warning&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>!!! warning
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    The content that you want to reuse must be inside the `snippets` directory in order for the import to work.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2. Import the snippet into your destination file.
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>2. Import the snippet into your destination file.
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>```mdx destination-file.mdx
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>---
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>title: My title
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>description: My Description
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>---
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>```mdx destination-file.mdx
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>---
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>title: My title
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>description: My Description
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>---
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>## Header
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>## Header
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>Lorem impsum dolor sit amet.
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>Lorem impsum dolor sit amet.
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>&lt;MySnippet word=&quot;bananas&quot; /&gt;
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>&lt;MySnippet word=&quot;bananas&quot; /&gt;
 </code></pre></div></p>
 <h3 id="reusable-variables">Reusable variables</h3>
 <ol>
@@ -1188,23 +1186,21 @@ export const MyComponent = ({ title }) =&gt; (
     <p>... snippet content ...</p>
   </div></p>
 <p>);
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&lt;Warning&gt;
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  MDX does not compile inside the body of an arrow function. Stick to HTML
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  syntax when you can or use a default export if you need to use MDX.
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>&lt;/Warning&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>!!! warning
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    MDX does not compile inside the body of an arrow function. Stick to HTML syntax when you can or use a default export if you need to use MDX.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>2. Import the snippet into your destination file and pass in the props
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>2. Import the snippet into your destination file and pass in the props
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>```mdx destination-file.mdx
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>---
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>title: My title
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>description: My Description
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>---
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>```mdx destination-file.mdx
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>---
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>title: My title
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>description: My Description
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>---
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>Lorem ipsum dolor sit amet.
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>Lorem ipsum dolor sit amet.
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>&lt;MyComponent title={&#39;Custom title&#39;} /&gt;
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>&lt;MyComponent title={&#39;Custom title&#39;} /&gt;
 </code></pre></div></p>
 
 
