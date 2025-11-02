@@ -28,43 +28,33 @@ Reconciliation is the process of matching transactions from your bank statements
 ### Layout
 The dashboard displays two columns:
 
-<CardGroup cols={2}>
-<Card title="Cash Flow (Left)" icon="list">
-- Your categorized transactions
-- Income and expense entries
-- Split transaction groups
-- Unreconciled entries
-  </Card>
+=== "Cash Flow (Left)"
 
-<Card title="Bank Records (Right)" icon="bank">
-- Imported bank transactions
-- Unmatched bank entries
-- Transaction details
-- Account information
-  </Card>
-</CardGroup>
+    - Your categorized transactions
+    - Income and expense entries
+    - Split transaction groups
+    - Unreconciled entries
+
+=== "Bank Records (Right)"
+
+    - Imported bank transactions
+    - Unmatched bank entries
+    - Transaction details
+    - Account information
 
 ### Transaction Status Indicators
 
-<CardGroup cols={3}>
-<Card title="Green Highlight" icon="check">
-**Auto-matched transactions**
-- System matched by amount and date
-- Ready for reconciliation
-  </Card>
+!!! success "Green Highlight - Auto-matched transactions"
+    - System matched by amount and date
+    - Ready for reconciliation
 
-<Card title="Blue Highlight" icon="arrows-split">
-**Split transaction groups**
-- Multiple cash flow entries
-- Match to single bank transaction
-  </Card>
+!!! info "Blue Highlight - Split transaction groups"
+    - Multiple cash flow entries
+    - Match to single bank transaction
 
-<Card title="No Highlight" icon="question">
-**Unmatched transactions**
-- Need manual processing
-- Require categorization
-  </Card>
-</CardGroup>
+!!! warning "No Highlight - Unmatched transactions"
+    - Need manual processing
+    - Require categorization
 
 ## Reconciliation Process
 
@@ -143,60 +133,64 @@ The dashboard displays two columns:
 
 ### Common Issues
 
-<AccordionGroup>
-  <Accordion title="Missing Transactions" icon="alert">
+??? warning "Missing Transactions"
     **Problem:** Transactions not appearing in dashboard
+
     **Solution:**
+    
     - Check if transactions are already reconciled
     - Verify import was successful
     - Refresh the dashboard
-  </Accordion>
 
-  <Accordion title="Wrong Matches" icon="x">
+??? danger "Wrong Matches"
     **Problem:** Incorrect auto-matches
+
     **Solution:**
+    
     - Manually reconcile correct pairs
     - Add missing transactions to cash flow
     - Review transaction dates and amounts
-  </Accordion>
 
-  <Accordion title="Bank Date Changes" icon="calendar">
+??? calendar "Bank Date Changes"
     **Problem:** Transactions appear in wrong month after delayed reconciliation
+
     **Solution:**
+    
     - **Immediate processing prevents this** - Banks change transaction dates 2-7 days after processing
     - Compare last few days of previous month with first few days of current month
     - Look for identical amounts and descriptions between periods
     - Manually adjust bank balances if historical data is affected
     - **Prevention:** Always reconcile within 7 days of month/year end
-  </Accordion>
 
-  <Accordion title="Split Transaction Issues" icon="arrows-split">
+??? warning "Split Transaction Issues"
     **Problem:** Split amounts don't match
+
     **Solution:**
+    
     - Verify split total equals bank transaction
     - Check for rounding errors
     - Review individual split amounts
-  </Accordion>
 
-  <Accordion title="Performance Issues" icon="clock">
+??? clock "Performance Issues"
     **Problem:** Dashboard is slow
+
     **Solution:**
+    
     - Run performance diagnostics
     - Check transaction count
     - Consider processing in smaller batches
-  </Accordion>
-</AccordionGroup>
 
 ## Best Practices
 
-<Check>**Reconcile within 7 days of transactions** - Critical for cross-year detection</Check>
-<Check>**Process End-of-Year imports immediately** - Avoid bank date advancement issues</Check>
-<Check>Reconcile regularly (weekly recommended)</Check>
-<Check>Verify all auto-matches before reconciling</Check>
-<Check>Use consistent category names</Check>
-<Check>Review split transactions carefully</Check>
-<Check>Keep descriptions clear and consistent</Check>
-<Check>Refresh dashboard after major changes</Check>
+!!! tip inline end "Best Practices"
+    - **Reconcile within 7 days of transactions** - Critical for cross-year detection
+    - **Process End-of-Year imports immediately** - Avoid bank date advancement issues
+    - Reconcile regularly (weekly recommended)
+    - Verify all auto-matches before reconciling
+    - Use consistent category names
+    - Review split transactions carefully
+    - Keep descriptions clear and consistent
+    - Refresh dashboard after major changes
 
 ## Completion Checklist
 
@@ -216,6 +210,5 @@ After reconciliation:
 3. **Update categories** - Add new categories if needed
 4. **Archive data** - Keep records for future reference
 
-<Note>
-  For month-end processing instructions, see the [Monthly Tasks Guide](../monthly-tasks/end-of-month.md).
-</Note>
+!!! note
+    For month-end processing instructions, see the [Monthly Tasks Guide](../monthly-tasks/end-of-month.md).

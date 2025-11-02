@@ -6,7 +6,15 @@ theme:
   name: material
 
 markdown_extensions:
-  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
 
 nav:
   - Home: introduction.md
