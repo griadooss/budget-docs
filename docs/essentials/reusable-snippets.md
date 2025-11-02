@@ -25,10 +25,8 @@ Hello world! This is my content I want to reuse across pages. My keyword of the
 day is {word}.
 ```
 
-<Warning>
-  The content that you want to reuse must be inside the `snippets` directory in
-  order for the import to work.
-</Warning>
+!!! warning
+    The content that you want to reuse must be inside the `snippets` directory in order for the import to work.
 
 2. Import the snippet into your destination file.
 
@@ -82,10 +80,8 @@ export const MyComponent = ({ title }) => (
 );
 ```
 
-<Warning>
-  MDX does not compile inside the body of an arrow function. Stick to HTML
-  syntax when you can or use a default export if you need to use MDX.
-</Warning>
+!!! warning
+    MDX does not compile inside the body of an arrow function. Stick to HTML syntax when you can or use a default export if you need to use MDX.
 
 2. Import the snippet into your destination file and pass in the props
 
