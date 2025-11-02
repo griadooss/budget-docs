@@ -1650,9 +1650,10 @@
 <li><strong>Validate system</strong> - Click ⚙️ Settings &gt; Sheet Settings &gt; Validate ACTIVE Flags</li>
 </ol>
 <h2 id="end-of-year-process">End of Year Process</h2>
-<p><Warning>
-<strong>Important Annual Process:</strong> The End of Year (EOY) process is a critical annual procedure that must be completed in June to transition to the new fiscal year.
-</Warning></p>
+<div class="admonition warning">
+<p class="admonition-title">Important Annual Process</p>
+<p>The End of Year (EOY) process is a critical annual procedure that must be completed in June to transition to the new fiscal year.</p>
+</div>
 <h3 id="when-you-need-eoy-setup">When You Need EOY Setup</h3>
 <p>The EOY process is required when:
 - <strong>It's June</strong> (final month of fiscal year) - System only allows access during June
@@ -1666,77 +1667,97 @@
 <li><strong>Month Processing</strong> (in new copy) - Run EOM to transition from June to July</li>
 <li><strong>Finalization</strong> (in new copy) - Complete setup and archive previous master</li>
 </ol>
-<p><CardGroup cols={2}>
-<Card title="EOY Overview" icon="calendar-year" href="/guides/yearly-tasks/end-of-year/overview">
-Learn about the End of Year process
-  </Card>
-<Card title="EOY Setup" icon="settings" href="/guides/yearly-tasks/end-of-year/setup">
-Step-by-step EOY setup instructions
-  </Card>
-</CardGroup></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">EOY Overview</label><label for="__tabbed_1_2">EOY Setup</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a href="/guides/yearly-tasks/end-of-year/overview">Learn about the End of Year process</a></p>
+</div>
+<div class="tabbed-block">
+<p><a href="/guides/yearly-tasks/end-of-year/setup">Step-by-step EOY setup instructions</a></p>
+</div>
+</div>
+</div>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="common-issues">Common Issues</h3>
-<p><AccordionGroup>
-  <Accordion title="Menus Not Loading" icon="menu">
-    <strong>Problem:</strong> Custom menus not appearing
-    <strong>Solution:</strong>
-    - Refresh the page (Ctrl+F5)
-    - Check script authorization
-    - Verify spreadsheet access
-  </Accordion></p>
-<p><Accordion title="Import Errors" icon="file-import">
-    <strong>Problem:</strong> Can't import transactions
-    <strong>Solution:</strong>
-    - Check bank format selection
-    - Verify column mapping
-    - Review data format
-    - Try manual entry method
-  </Accordion></p>
-<p><Accordion title="Reconciliation Issues" icon="check-double">
-    <strong>Problem:</strong> Dashboard not working
-    <strong>Solution:</strong>
-    - Refresh the dashboard
-    - Check transaction data
-    - Verify sheet access
-    - Run performance diagnostics
-  </Accordion></p>
-<p><Accordion title="EOM Process Errors" icon="calendar-check">
-    <strong>Problem:</strong> End of month process fails
-    <strong>Solution:</strong>
-    - Verify all transactions reconciled
-    - Check current month setting
-    - Review balance issues
-    - Initialize month statuses
-  </Accordion>
-</AccordionGroup></p>
+<details class="warning">
+<summary>Menus Not Loading</summary>
+<p><strong>Problem:</strong> Custom menus not appearing</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Refresh the page (Ctrl+F5)</li>
+<li>Check script authorization</li>
+<li>Verify spreadsheet access</li>
+</ul>
+</details>
+<details class="danger">
+<summary>Import Errors</summary>
+<p><strong>Problem:</strong> Can't import transactions</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Check bank format selection</li>
+<li>Verify column mapping</li>
+<li>Review data format</li>
+<li>Try manual entry method</li>
+</ul>
+</details>
+<details class="warning">
+<summary>Reconciliation Issues</summary>
+<p><strong>Problem:</strong> Dashboard not working</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Refresh the dashboard</li>
+<li>Check transaction data</li>
+<li>Verify sheet access</li>
+<li>Run performance diagnostics</li>
+</ul>
+</details>
+<details class="calendar-check">
+<summary>EOM Process Errors</summary>
+<p><strong>Problem:</strong> End of month process fails</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Verify all transactions reconciled</li>
+<li>Check current month setting</li>
+<li>Review balance issues</li>
+<li>Initialize month statuses</li>
+</ul>
+</details>
 <h2 id="best-practices">Best Practices</h2>
-<p><Check>Import transactions weekly</Check>
-<Check>Reconcile before month-end</Check>
-<Check>Use consistent category names</Check>
-<Check>Keep backup copies</Check>
-<Check>Review balances regularly</Check>
-<Check>Document any issues</Check></p>
+<div class="admonition tip">
+<p class="admonition-title">Best Practices</p>
+<ul>
+<li>Import transactions weekly</li>
+<li>Reconcile before month-end</li>
+<li>Use consistent category names</li>
+<li>Keep backup copies</li>
+<li>Review balances regularly</li>
+<li>Document any issues</li>
+</ul>
+</div>
 <h2 id="next-steps">Next Steps</h2>
-<p><CardGroup cols={3}>
-<Card title="Daily Tasks" icon="calendar" href="/guides/daily-tasks/importing">
-Learn about importing and reconciling
-  </Card>
-<Card title="Monthly Tasks" icon="calendar-check" href="/guides/monthly-tasks/end-of-month">
-Understand month-end processing
-  </Card>
-<Card title="Troubleshooting" icon="help" href="/guides/troubleshooting/common-issues">
-Get help with common issues
-  </Card>
-</CardGroup></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Daily Tasks</label><label for="__tabbed_2_2">Monthly Tasks</label><label for="__tabbed_2_3">Troubleshooting</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a href="/guides/daily-tasks/importing">Learn about importing and reconciling</a></p>
+</div>
+<div class="tabbed-block">
+<p><a href="/guides/monthly-tasks/end-of-month">Understand month-end processing</a></p>
+</div>
+<div class="tabbed-block">
+<p><a href="/guides/troubleshooting/common-issues">Get help with common issues</a></p>
+</div>
+</div>
+</div>
 <h2 id="getting-help">Getting Help</h2>
 <ul>
 <li><strong>Online Documentation:</strong> Click ℹ️ Help &gt; Online Documentation</li>
 <li><strong>Version Info:</strong> Click ℹ️ Help &gt; About (Version Info)</li>
 <li><strong>Developer Mode:</strong> Click ℹ️ Help &gt; Toggle Developer Mode (for advanced users)</li>
 </ul>
-<p><Note>
-  For detailed instructions on any process, refer to the specific guides in the documentation.
-</Note></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For detailed instructions on any process, refer to the specific guides in the documentation.</p>
+</div>
 
 
 
