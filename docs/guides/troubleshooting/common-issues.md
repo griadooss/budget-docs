@@ -182,22 +182,26 @@ the final month of the fiscal year.
 **Root Cause:** Banks advance transaction processing dates by 2-7 days, moving transactions from one period to another.
 
 **Why Cross-Year Detection Fails:**
+
 - **7-day time window exceeded:** Detection only works within 7 days of fiscal year start
 - **Too many existing transactions:** System assumes it's not the "first" import anymore
 - **Delayed reconciliation:** August imports are too late to catch June→July transaction movements
 
 **Impact:**
+
 - **Balance reconciliation fails:** Historical bank balances become incorrect
 - **Manual corrections required:** Must visually compare end/start of periods
 - **Zero balance disrupted:** Cannot achieve accurate zero balance retrospectively
 
 **Prevention (CRITICAL):**
+
 1. **Complete EOY process immediately** after June 30
 2. **Import July transactions within 7 days** of fiscal year start
 3. **Reconcile monthly within 1 week** of month end
 4. **Update bank balances immediately** before month/year-end processing
 
 **Recovery Solutions:**
+
 1. **Visual comparison:** Compare last 7 days of previous period with first 7 days of current period
 2. **Look for identical amounts and descriptions** between periods
 3. **Manually adjust historical bank balances** to restore zero balance
@@ -211,11 +215,13 @@ the final month of the fiscal year.
 **Problem:** Cannot import bank transactions or import maps incorrectly.
 
 **Common Causes:**
+
 - Changed bank file format
 - Missing column mappings
 - Incorrect file type (CSV vs PDF)
 
 **Solutions:**
+
 1. **Check File Format:**
    - Ensure using correct file type for your bank
    - Most banks require CSV format
@@ -235,6 +241,7 @@ the final month of the fiscal year.
 **Problem:** Transactions not appearing or reconciliation not working.
 
 **Solutions:**
+
 1. **Refresh Data:**
    - Close and reopen Reconciliation Dashboard
    - Reload spreadsheet if needed
@@ -254,6 +261,7 @@ the final month of the fiscal year.
 **Problem:** EOY or EOM processes take a long time or seem stuck.
 
 **Solutions:**
+
 1. **Be Patient:**
    - EOY process involves copying large amounts of data
    - Large spreadsheets take longer to process
