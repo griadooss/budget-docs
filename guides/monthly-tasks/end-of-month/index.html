@@ -1681,11 +1681,16 @@
 - Prevents duplicate processing</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <h3 id="before-running-eom">Before Running EOM</h3>
-<p><Check>All transactions reconciled</Check>
-<Check>Categories verified and assigned</Check>
-<Check>Bank balances verified</Check>
-<Check>Budget variances reviewed</Check>
-<Check>No pending transactions</Check></p>
+<div class="admonition tip">
+<p class="admonition-title">Prerequisites</p>
+<ul>
+<li>All transactions reconciled</li>
+<li>Categories verified and assigned</li>
+<li>Bank balances verified</li>
+<li>Budget variances reviewed</li>
+<li>No pending transactions</li>
+</ul>
+</div>
 <h3 id="system-requirements">System Requirements</h3>
 <ul>
 <li>Current month properly set</li>
@@ -1705,9 +1710,10 @@
 - <strong>Current month</strong> being processed
 - <strong>Column ranges</strong> for current and next month
 - <strong>Confirmation prompt</strong> to proceed</p>
-<p><Warning>
-  <strong>Important:</strong> Verify the correct month is selected before proceeding
-</Warning></p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Verify the correct month is selected before proceeding</p>
+</div>
 <h3 id="balance-check">Balance Check</h3>
 <p>The system performs a comprehensive balance check:
 - <strong>Bank balances</strong> - Verify account balances
@@ -1760,66 +1766,85 @@
 </ul>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="common-issues">Common Issues</h3>
-<p><AccordionGroup>
-  <Accordion title="Balance Check Failed" icon="alert">
-    <strong>Problem:</strong> System shows balance issues
-    <strong>Solution:</strong>
-    - Review each balance issue
-    - Reconcile missing transactions
-    - Verify account mappings
-    - Re-run balance check
-  </Accordion></p>
-<p><Accordion title="Wrong Month Selected" icon="calendar">
-    <strong>Problem:</strong> Incorrect month being processed
-    <strong>Solution:</strong>
-    - Cancel the process
-    - Set correct current month
-    - Initialize month statuses
-    - Re-run EOM process
-  </Accordion></p>
-<p><Accordion title="Formatting Issues" icon="palette">
-    <strong>Problem:</strong> Month formatting not applied correctly
-    <strong>Solution:</strong>
-    - Check template month availability
-    - Verify column ranges
-    - Re-run formatting manually
-    - Contact support if persistent
-  </Accordion></p>
-<p><Accordion title="Status Update Failed" icon="settings">
-    <strong>Problem:</strong> Month statuses not updated
-    <strong>Solution:</strong>
-    - Check system properties
-    - Verify month tracking
-    - Re-initialize month statuses
-    - Re-run EOM process
-  </Accordion>
-</AccordionGroup></p>
+<details class="warning">
+<summary>Balance Check Failed</summary>
+<p><strong>Problem:</strong> System shows balance issues</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Review each balance issue</li>
+<li>Reconcile missing transactions</li>
+<li>Verify account mappings</li>
+<li>Re-run balance check</li>
+</ul>
+</details>
+<details class="calendar">
+<summary>Wrong Month Selected</summary>
+<p><strong>Problem:</strong> Incorrect month being processed</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Cancel the process</li>
+<li>Set correct current month</li>
+<li>Initialize month statuses</li>
+<li>Re-run EOM process</li>
+</ul>
+</details>
+<details class="palette">
+<summary>Formatting Issues</summary>
+<p><strong>Problem:</strong> Month formatting not applied correctly</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Check template month availability</li>
+<li>Verify column ranges</li>
+<li>Re-run formatting manually</li>
+<li>Contact support if persistent</li>
+</ul>
+</details>
+<details class="settings">
+<summary>Status Update Failed</summary>
+<p><strong>Problem:</strong> Month statuses not updated</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Check system properties</li>
+<li>Verify month tracking</li>
+<li>Re-initialize month statuses</li>
+<li>Re-run EOM process</li>
+</ul>
+</details>
 <h3 id="eoy-specific-issues">EOY-Specific Issues</h3>
-<p><AccordionGroup>
-  <Accordion title="Year Transition Error" icon="calendar-year">
-    <strong>Problem:</strong> Year not incremented properly
-    <strong>Solution:</strong>
-    - Verify June processing
-    - Check fiscal year settings
-    - Review year transition logic
-    - Re-run EOM process
-  </Accordion></p>
-<p><Accordion title="Formula Clearing Issues" icon="code">
-    <strong>Problem:</strong> Formulas not cleared from old months
-    <strong>Solution:</strong>
-    - Check July setup
-    - Verify formula clearing logic
-    - Review month column ranges
-    - Contact support
-  </Accordion>
-</AccordionGroup></p>
+<details class="calendar-year">
+<summary>Year Transition Error</summary>
+<p><strong>Problem:</strong> Year not incremented properly</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Verify June processing</li>
+<li>Check fiscal year settings</li>
+<li>Review year transition logic</li>
+<li>Re-run EOM process</li>
+</ul>
+</details>
+<details class="code">
+<summary>Formula Clearing Issues</summary>
+<p><strong>Problem:</strong> Formulas not cleared from old months</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Check July setup</li>
+<li>Verify formula clearing logic</li>
+<li>Review month column ranges</li>
+<li>Contact support</li>
+</ul>
+</details>
 <h2 id="best-practices">Best Practices</h2>
-<p><Check>Always reconcile before EOM</Check>
-<Check>Verify current month before processing</Check>
-<Check>Review balance check results</Check>
-<Check>Test system after EOM completion</Check>
-<Check>Keep backup before major changes</Check>
-<Check>Document any issues encountered</Check></p>
+<div class="admonition tip">
+<p class="admonition-title">Best Practices</p>
+<ul>
+<li>Always reconcile before EOM</li>
+<li>Verify current month before processing</li>
+<li>Review balance check results</li>
+<li>Test system after EOM completion</li>
+<li>Keep backup before major changes</li>
+<li>Document any issues encountered</li>
+</ul>
+</div>
 <h2 id="completion-checklist">Completion Checklist</h2>
 <p>After EOM processing:
 - [ ] Actual values copied to next month
@@ -1836,9 +1861,10 @@
 2. <strong>Update budget</strong> - Adjust budget for next month
 3. <strong>Monitor performance</strong> - Track budget vs actual
 4. <strong>Prepare for EOY</strong> - If approaching June</p>
-<p><Note>
-  For End of Year processing, see the <a href="../../yearly-tasks/end-of-year/overview/">EOY Guide</a>.
-</Note></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For End of Year processing, see the <a href="../../yearly-tasks/end-of-year/overview/">EOY Guide</a>.</p>
+</div>
 <h2 id="advanced-features">Advanced Features</h2>
 <h3 id="performance-monitoring">Performance Monitoring</h3>
 <ul>
