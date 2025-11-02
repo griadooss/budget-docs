@@ -7,9 +7,8 @@ description: 'Simple step-by-step guide for the End of Year budget setup process
 
 This guide provides simple, direct instructions for completing the End of Year (EOY) process to set up your new fiscal year budget.
 
-<Warning>
-**Timing:** The EOY process can only be started during June (the final month of the fiscal year). The system will block access during other months.
-</Warning>
+!!! warning "Timing"
+    The EOY process can only be started during June (the final month of the fiscal year). The system will block access during other months.
 
 ## Before You Start
 
@@ -21,9 +20,8 @@ This guide provides simple, direct instructions for completing the End of Year (
    - **Annual Budget sheet:** "BUDGET BALANCED" indicator = $0.00
    - **Maintain Budget sheet:** Balance indicator = $0.00
 
-<Warning>
-**Critical:** If any balance is not zero, the EOY process will be blocked. Fix balance issues using the Reconciliation Dashboard before starting EOY.
-</Warning>
+!!! warning "Critical"
+    If any balance is not zero, the EOY process will be blocked. Fix balance issues using the Reconciliation Dashboard before starting EOY.
 
 ## Step 1: Start EOY Process (Master Spreadsheet)
 
@@ -74,13 +72,11 @@ When you run the initial setup, Google will ask you to authorize the scripts. **
    - You'll see a success message
    - The setup process will continue automatically
 
-<Warning>
-**About the "Unsafe" Warning:** Google shows this warning for ALL custom spreadsheet scripts, not because there's actually a problem. The budget system is safe to authorize - it only accesses your budget spreadsheet data and nothing else.
-</Warning>
+!!! warning "About the \"Unsafe\" Warning"
+    Google shows this warning for ALL custom spreadsheet scripts, not because there's actually a problem. The budget system is safe to authorize - it only accesses your budget spreadsheet data and nothing else.
 
-<Tip>
-If authorization fails, refresh the page and try again. The system includes retry logic for common authorization issues.
-</Tip>
+!!! tip
+    If authorization fails, refresh the page and try again. The system includes retry logic for common authorization issues.
 
 ### 2.2 Configure New Year
 1. **Budget Start Date:** Enter July 1, 2025
@@ -211,6 +207,5 @@ If authorization fails, refresh the page and try again. The system includes retr
 - **New Year Start:** July 1, 2025
 - **Fiscal Year:** July 2025 - June 2026
 
-<Note>
-The EOY process is designed to be completed in one session, but you can pause between steps if needed. The menu system will guide you to the next appropriate step.
-</Note>
+!!! note
+    The EOY process is designed to be completed in one session, but you can pause between steps if needed. The menu system will guide you to the next appropriate step.

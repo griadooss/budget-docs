@@ -15,15 +15,13 @@ The EOY process should be initiated when:
 - All transactions for the current year have been reconciled
 - You're ready to start planning for the next financial year (July-June)
 
-<Warning>
-**⏰ CRITICAL TIMING:** Complete the EOY process **immediately** after your fiscal year ends (June 30). Then import July transactions **within 7 days** to enable cross-year duplicate detection.
+!!! warning "⏰ CRITICAL TIMING"
+    Complete the EOY process **immediately** after your fiscal year ends (June 30). Then import July transactions **within 7 days** to enable cross-year duplicate detection.
 
-**Why This Matters:** Banks often advance transaction processing dates by 2-7 days, moving late June transactions into July. Delayed reconciliation prevents the system from catching these duplicates automatically.
-</Warning>
+    **Why This Matters:** Banks often advance transaction processing dates by 2-7 days, moving late June transactions into July. Delayed reconciliation prevents the system from catching these duplicates automatically.
 
-<Note>
-**Important:** The EOY process can only be started during June. If you try to access it in other months, the system will display a restriction message and block the process.
-</Note>
+!!! note "Important"
+    The EOY process can only be started during June. If you try to access it in other months, the system will display a restriction message and block the process.
 
 ## Process Summary
 
@@ -70,9 +68,8 @@ The EOY process uses an intelligent menu system that adapts based on your progre
   - **Run End of Month Process** - Normal monthly operations
   - **Start End of Year Process** - For next year's EOY
 
-<Note>
-The menu system automatically adapts based on your EOY completion status, ensuring you always see the appropriate options for your current stage.
-</Note>
+!!! note
+    The menu system automatically adapts based on your EOY completion status, ensuring you always see the appropriate options for your current stage.
 
 ## Pre-EOY Requirements
 
@@ -91,18 +88,18 @@ Before beginning the EOY process, ensure these conditions are met:
 - **Annual Budget sheet:** "BUDGET BALANCED" indicator must show $0.00
 - **Maintain Budget sheet:** Balance indicator must show $0.00
 
-<Warning>
-**🚨 CRITICAL REQUIREMENT:** The system now **strictly enforces** balance checking and will **block the EOY process** if any sheet is unbalanced.
+!!! warning "🚨 CRITICAL REQUIREMENT"
+    The system now **strictly enforces** balance checking and will **block the EOY process** if any sheet is unbalanced.
 
-**Why This Matters:** The EOY process copies current bank balances to become opening balances for the new fiscal year. If these are incorrect, your entire new year will start with wrong foundation data.
+    **Why This Matters:** The EOY process copies current bank balances to become opening balances for the new fiscal year. If these are incorrect, your entire new year will start with wrong foundation data.
 
-**❌ No Override Available:** Unlike End of Month processing, there is no "proceed anyway" option for EOY to prevent catastrophic data issues.
+    **❌ No Override Available:** Unlike End of Month processing, there is no "proceed anyway" option for EOY to prevent catastrophic data issues.
 
-**💡 Solution:**
-1. **First** - Update ALL bank balances to be accurate as at June 30 (banks often apply monthly interest as final transaction)
-2. **Second** - Use 'Reconciliation Dashboard' to resolve any Cash Flow transaction issues (missing, extra, or unreconciled transactions)
-3. **Third** - Ensure all three balance indicators show $0.00 before starting EOY process
-</Warning>
+    **💡 Solution:**
+
+    1. **First** - Update ALL bank balances to be accurate as at June 30 (banks often apply monthly interest as final transaction)
+    2. **Second** - Use 'Reconciliation Dashboard' to resolve any Cash Flow transaction issues (missing, extra, or unreconciled transactions)
+    3. **Third** - Ensure all three balance indicators show $0.00 before starting EOY process
 
 ### 4. **Commitment Validation** (User Choice)
 - System checks for outstanding commitments during End of Month processing
@@ -156,13 +153,11 @@ When working with a new copy, you'll need to authorize the scripts. **Don't worr
    - Click **"Allow"**
 5. **Verification** - System automatically validates setup
 
-<Warning>
-**About the "Unsafe" Warning:** Google shows this warning for ALL custom spreadsheet scripts, not because there's actually a problem. The budget system is safe to authorize - it only accesses your budget spreadsheet data and nothing else.
-</Warning>
+!!! warning "About the \"Unsafe\" Warning"
+    Google shows this warning for ALL custom spreadsheet scripts, not because there's actually a problem. The budget system is safe to authorize - it only accesses your budget spreadsheet data and nothing else.
 
-<Tip>
-If authorization fails, refresh the page and try again. The system includes retry logic for common authorization issues.
-</Tip>
+!!! tip
+    If authorization fails, refresh the page and try again. The system includes retry logic for common authorization issues.
 
 ## Getting Started
 
@@ -184,6 +179,5 @@ If authorization fails, refresh the page and try again. The system includes retr
 - **Technical details:** [Developer Guide](developer-guide.md)
 - **Troubleshooting:** [Common Issues](../../troubleshooting/common-issues.md)
 
-<Note>
-The complete documentation is accessible at any time during the EOY process through menu links and help dialogs. You don't need to complete the process in one session - you can refer back to the documentation as needed.
-</Note>
+!!! note
+    The complete documentation is accessible at any time during the EOY process through menu links and help dialogs. You don't need to complete the process in one session - you can refer back to the documentation as needed.
