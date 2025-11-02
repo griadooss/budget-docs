@@ -1740,36 +1740,46 @@
 <h3 id="layout">Layout</h3>
 <p>The dashboard displays two columns:</p>
 <p><CardGroup cols={2}>
-<Card title="Cash Flow (Left)" icon="list">
-- Your categorized transactions
-- Income and expense entries
-- Split transaction groups
-- Unreconciled entries
-  </Card></p>
-<p><Card title="Bank Records (Right)" icon="bank">
-- Imported bank transactions
-- Unmatched bank entries
-- Transaction details
-- Account information
-  </Card>
+<Card title="Cash Flow (Left)" icon="list"></p>
+<ul>
+<li>Your categorized transactions</li>
+<li>Income and expense entries</li>
+<li>Split transaction groups</li>
+<li>Unreconciled entries</li>
+</ul>
+<p></Card></p>
+<p><Card title="Bank Records (Right)" icon="bank"></p>
+<ul>
+<li>Imported bank transactions</li>
+<li>Unmatched bank entries</li>
+<li>Transaction details</li>
+<li>Account information</li>
+</ul>
+<p></Card>
 </CardGroup></p>
 <h3 id="transaction-status-indicators">Transaction Status Indicators</h3>
 <p><CardGroup cols={3}>
-<Card title="Green Highlight" icon="check">
-<strong>Auto-matched transactions</strong>
-- System matched by amount and date
-- Ready for reconciliation
-  </Card></p>
-<p><Card title="Blue Highlight" icon="arrows-split">
-<strong>Split transaction groups</strong>
-- Multiple cash flow entries
-- Match to single bank transaction
-  </Card></p>
-<p><Card title="No Highlight" icon="question">
-<strong>Unmatched transactions</strong>
-- Need manual processing
-- Require categorization
-  </Card>
+<Card title="Green Highlight" icon="check"></p>
+<p><strong>Auto-matched transactions</strong></p>
+<ul>
+<li>System matched by amount and date</li>
+<li>Ready for reconciliation</li>
+</ul>
+<p></Card></p>
+<p><Card title="Blue Highlight" icon="arrows-split"></p>
+<p><strong>Split transaction groups</strong></p>
+<ul>
+<li>Multiple cash flow entries</li>
+<li>Match to single bank transaction</li>
+</ul>
+<p></Card></p>
+<p><Card title="No Highlight" icon="question"></p>
+<p><strong>Unmatched transactions</strong></p>
+<ul>
+<li>Need manual processing</li>
+<li>Require categorization</li>
+</ul>
+<p></Card>
 </CardGroup></p>
 <h2 id="reconciliation-process">Reconciliation Process</h2>
 <h3 id="step-1-review-auto-matches">Step 1: Review Auto-Matches</h3>
@@ -1855,43 +1865,58 @@
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="common-issues">Common Issues</h3>
 <p><AccordionGroup>
-  <Accordion title="Missing Transactions" icon="alert">
-    <strong>Problem:</strong> Transactions not appearing in dashboard
-    <strong>Solution:</strong>
-    - Check if transactions are already reconciled
-    - Verify import was successful
-    - Refresh the dashboard
-  </Accordion></p>
-<p><Accordion title="Wrong Matches" icon="x">
-    <strong>Problem:</strong> Incorrect auto-matches
-    <strong>Solution:</strong>
-    - Manually reconcile correct pairs
-    - Add missing transactions to cash flow
-    - Review transaction dates and amounts
-  </Accordion></p>
-<p><Accordion title="Bank Date Changes" icon="calendar">
-    <strong>Problem:</strong> Transactions appear in wrong month after delayed reconciliation
-    <strong>Solution:</strong>
-    - <strong>Immediate processing prevents this</strong> - Banks change transaction dates 2-7 days after processing
-    - Compare last few days of previous month with first few days of current month
-    - Look for identical amounts and descriptions between periods
-    - Manually adjust bank balances if historical data is affected
-    - <strong>Prevention:</strong> Always reconcile within 7 days of month/year end
-  </Accordion></p>
-<p><Accordion title="Split Transaction Issues" icon="arrows-split">
-    <strong>Problem:</strong> Split amounts don't match
-    <strong>Solution:</strong>
-    - Verify split total equals bank transaction
-    - Check for rounding errors
-    - Review individual split amounts
-  </Accordion></p>
-<p><Accordion title="Performance Issues" icon="clock">
-    <strong>Problem:</strong> Dashboard is slow
-    <strong>Solution:</strong>
-    - Run performance diagnostics
-    - Check transaction count
-    - Consider processing in smaller batches
-  </Accordion>
+  <Accordion title="Missing Transactions" icon="alert"></p>
+<div class="highlight"><pre><span></span><code>**Problem:** Transactions not appearing in dashboard
+
+**Solution:**
+
+- Check if transactions are already reconciled
+- Verify import was successful
+- Refresh the dashboard
+</code></pre></div>
+<p></Accordion></p>
+<p><Accordion title="Wrong Matches" icon="x"></p>
+<div class="highlight"><pre><span></span><code>**Problem:** Incorrect auto-matches
+
+**Solution:**
+
+- Manually reconcile correct pairs
+- Add missing transactions to cash flow
+- Review transaction dates and amounts
+</code></pre></div>
+<p></Accordion></p>
+<p><Accordion title="Bank Date Changes" icon="calendar"></p>
+<div class="highlight"><pre><span></span><code>**Problem:** Transactions appear in wrong month after delayed reconciliation
+
+**Solution:**
+
+- **Immediate processing prevents this** - Banks change transaction dates 2-7 days after processing
+- Compare last few days of previous month with first few days of current month
+- Look for identical amounts and descriptions between periods
+- Manually adjust bank balances if historical data is affected
+- **Prevention:** Always reconcile within 7 days of month/year end
+</code></pre></div>
+<p></Accordion></p>
+<p><Accordion title="Split Transaction Issues" icon="arrows-split"></p>
+<div class="highlight"><pre><span></span><code>**Problem:** Split amounts don&#39;t match
+
+**Solution:**
+
+- Verify split total equals bank transaction
+- Check for rounding errors
+- Review individual split amounts
+</code></pre></div>
+<p></Accordion></p>
+<p><Accordion title="Performance Issues" icon="clock"></p>
+<div class="highlight"><pre><span></span><code>**Problem:** Dashboard is slow
+
+**Solution:**
+
+- Run performance diagnostics
+- Check transaction count
+- Consider processing in smaller batches
+</code></pre></div>
+<p></Accordion>
 </AccordionGroup></p>
 <h2 id="best-practices">Best Practices</h2>
 <p><Check><strong>Reconcile within 7 days of transactions</strong> - Critical for cross-year detection</Check>
