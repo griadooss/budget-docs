@@ -16,35 +16,31 @@ Categorization is the process of assigning transactions to specific income or ex
 ### Structure
 The category system uses a two-level hierarchy:
 
-<CardGroup cols={2}>
-<Card title="Main Categories" icon="folder">
-- High-level classifications
-- Income vs Expense types
-- Examples: Food, Transport, Salary
-  </Card>
+=== "Main Categories"
 
-<Card title="Subcategories" icon="folder-open">
-- Detailed breakdowns
-- More specific classifications
-- Examples: Groceries, Fuel, Wages
-  </Card>
-</CardGroup>
+    - High-level classifications
+    - Income vs Expense types
+    - Examples: Food, Transport, Salary
+
+=== "Subcategories"
+
+    - Detailed breakdowns
+    - More specific classifications
+    - Examples: Groceries, Fuel, Wages
 
 ### Category Types
 
-<CardGroup cols={2}>
-<Card title="Income Categories" icon="arrow-up">
-- **INC prefix** - Income categories
-- **Green color coding** - Visual identification
-- **Examples:** Salary, Gifts, Investment Income
-  </Card>
+=== "Income Categories"
 
-<Card title="Expense Categories" icon="arrow-down">
-- **EXP prefix** - Expense categories
-- **Red color coding** - Visual identification
-- **Examples:** Food, Transport, Utilities
-  </Card>
-</CardGroup>
+    - **INC prefix** - Income categories
+    - **Green color coding** - Visual identification
+    - **Examples:** Salary, Gifts, Investment Income
+
+=== "Expense Categories"
+
+    - **EXP prefix** - Expense categories
+    - **Red color coding** - Visual identification
+    - **Examples:** Food, Transport, Utilities
 
 ## Managing Categories
 
@@ -55,12 +51,10 @@ The category system uses a two-level hierarchy:
 
 ### Adding New Categories
 
-<Steps>
-  1. **Click "Add Category"** - In the Category Manager
-  2. **Enter category name** - Use clear, descriptive names
-  3. **Select category type** - Income or Expense
-  4. **Click "Save"** - Category is added to the system
-</Steps>
+1. **Click "Add Category"** - In the Category Manager
+2. **Enter category name** - Use clear, descriptive names
+3. **Select category type** - Income or Expense
+4. **Click "Save"** - Category is added to the system
 
 ### Editing Categories
 1. **Select category** - Click on the category in the list
@@ -122,23 +116,21 @@ The category system uses a two-level hierarchy:
 
 ### Common Categories
 
-<CardGroup cols={2}>
-<Card title="Income Categories" icon="arrow-up">
-- **Salary/Wages** - Regular employment income
-- **Investment Income** - Dividends, interest
-- **Gifts** - Cash gifts, presents
-- **Other Income** - Miscellaneous income
-  </Card>
+=== "Income Categories"
 
-<Card title="Expense Categories" icon="arrow-down">
-- **Food & Dining** - Groceries, restaurants
-- **Transport** - Fuel, public transport
-- **Utilities** - Electricity, water, gas
-- **Entertainment** - Movies, hobbies
-- **Shopping** - Clothing, household items
-- **Healthcare** - Medical expenses
-  </Card>
-</CardGroup>
+    - **Salary/Wages** - Regular employment income
+    - **Investment Income** - Dividends, interest
+    - **Gifts** - Cash gifts, presents
+    - **Other Income** - Miscellaneous income
+
+=== "Expense Categories"
+
+    - **Food & Dining** - Groceries, restaurants
+    - **Transport** - Fuel, public transport
+    - **Utilities** - Electricity, water, gas
+    - **Entertainment** - Movies, hobbies
+    - **Shopping** - Clothing, household items
+    - **Healthcare** - Medical expenses
 
 ## Category Management
 
@@ -163,39 +155,41 @@ The category system uses a two-level hierarchy:
 
 ### Common Issues
 
-<AccordionGroup>
-  <Accordion title="Category Not Found" icon="search">
+??? warning "Category Not Found"
     **Problem:** Category not in dropdown
+
     **Solution:**
+
     - Check if category is active
     - Verify category type (Income/Expense)
     - Refresh the dropdown
-  </Accordion>
 
-  <Accordion title="Wrong Category Type" icon="alert">
+??? warning "Wrong Category Type"
     **Problem:** Income category for expense transaction
+
     **Solution:**
+
     - Select correct category type
     - Check transaction type setting
     - Verify category assignment
-  </Accordion>
 
-  <Accordion title="Missing Subcategories" icon="folder">
+??? warning "Missing Subcategories"
     **Problem:** No subcategories available
+
     **Solution:**
+
     - Add subcategories to main category
     - Check if main category is active
     - Verify subcategory status
-  </Accordion>
 
-  <Accordion title="Category Manager Issues" icon="settings">
+??? warning "Category Manager Issues"
     **Problem:** Can't access category manager
+
     **Solution:**
+
     - Check menu permissions
     - Verify spreadsheet access
     - Try refreshing the page
-  </Accordion>
-</AccordionGroup>
 
 ## Advanced Features
 
@@ -217,12 +211,13 @@ The category system uses a two-level hierarchy:
 
 ## Best Practices
 
-<Check>Use consistent category names</Check>
-<Check>Create meaningful subcategories</Check>
-<Check>Regularly review and clean up categories</Check>
-<Check>Use active categories only</Check>
-<Check>Maintain category hierarchy</Check>
-<Check>Document category purposes</Check>
+!!! tip "Best Practices"
+    - Use consistent category names
+    - Create meaningful subcategories
+    - Regularly review and clean up categories
+    - Use active categories only
+    - Maintain category hierarchy
+    - Document category purposes
 
 ## Next Steps
 
@@ -232,6 +227,5 @@ After categorizing:
 3. **Generate reports** - Analyze spending patterns
 4. **Adjust budget** - Update budget based on categories
 
-<Note>
-  For detailed budget management, see the [Budget Management Guide](../user-manual/basic-operations.md).
-</Note>
+!!! note
+    For detailed budget management, see the [Budget Management Guide](../user-manual/basic-operations.md).
