@@ -1594,44 +1594,38 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>💡 Tip: Use &#39;Reconciliation Dashboard&#39; to fix balance issues.
 </code></pre></div></p>
 <p><strong>Why This Happens:</strong></p>
+<p>The system detected that one or more of your balance sheets are not at zero:</p>
 <ul>
-<li>The system detected that one or more of your balance sheets are not at zero</li>
 <li><strong>Banks sheet</strong> (named range: <code>banksBalance</code>) is not balanced</li>
 <li><strong>Annual Budget sheet</strong> (named range: <code>'Annual Budget'!budgetBalance</code>) is not balanced</li>
 <li><strong>Maintain Budget sheet</strong> (named range: <code>'Maintain Budget'!maintainBudgetBalance</code>) is not balanced</li>
 </ul>
 <p><strong>Solution:</strong></p>
+<p><strong>First: Update Bank Balances (Critical for EOY)</strong></p>
 <ul>
-<li><strong>First: Update Bank Balances (Critical for EOY):</strong></li>
 <li>Go to <strong>Banks</strong> sheet and update ALL bank account balances</li>
 <li>Ensure balances are <strong>accurate as at end of financial year (June 30)</strong></li>
 <li><strong>Important:</strong> Banks often apply monthly interest as a final transaction</li>
 <li>Download final statements and enter any end-of-year transactions</li>
-<li>
-<p>Bank balances MUST reflect the true position at fiscal year end</p>
-</li>
-<li>
-<p><strong>Second: Use Reconciliation Dashboard:</strong></p>
-</li>
+<li>Bank balances MUST reflect the true position at fiscal year end</li>
+</ul>
+<p><strong>Second: Use Reconciliation Dashboard</strong></p>
+<ul>
 <li>If bank balances are current but system still unbalanced, the issue is Cash Flow transactions</li>
 <li>Go to <strong>Budget</strong> → <strong>Reconciliation Dashboard</strong></li>
 <li><strong>Missing transactions:</strong> Import any transactions not yet in the system</li>
 <li><strong>Extra transactions:</strong> Remove duplicate or incorrect entries</li>
 <li><strong>Unreconciled transactions:</strong> Match transactions to budget categories</li>
-<li>
-<p>Work through all unreconciled items until dashboard is clear</p>
-</li>
-<li>
-<p><strong>Verify All Balance Cells:</strong></p>
-</li>
+<li>Work through all unreconciled items until dashboard is clear</li>
+</ul>
+<p><strong>Verify All Balance Cells</strong></p>
+<ul>
 <li><strong>Banks sheet</strong> (<code>banksBalance</code>): Should show $0.00 when bank balances match Cash Flow</li>
 <li><strong>Annual Budget sheet</strong> (<code>'Annual Budget'!budgetBalance</code>): Should show $0.00 when budget is balanced</li>
-<li>
-<p><strong>Maintain Budget sheet</strong> (<code>'Maintain Budget'!maintainBudgetBalance</code>): Should show $0.00 when income equals expenses</p>
-</li>
-<li>
-<p><strong>Retry EOY Process:</strong></p>
-</li>
+<li><strong>Maintain Budget sheet</strong> (<code>'Maintain Budget'!maintainBudgetBalance</code>): Should show $0.00 when income equals expenses</li>
+</ul>
+<p><strong>Retry EOY Process</strong></p>
+<ul>
 <li>Once all three balance cells show $0.00, retry the EOY process</li>
 <li>The system will allow you to proceed</li>
 </ul>
@@ -1676,15 +1670,13 @@
 <p><strong>Problem:</strong> System warns about balance issues during End of Month processing.</p>
 <p><strong>Key Difference:</strong> End of Month processing allows you to "proceed anyway" because monthly imbalances can be corrected later.</p>
 <p><strong>Solution Options:</strong></p>
+<p><strong>Fix Balances First (Recommended)</strong></p>
 <ul>
-<li><strong>Fix Balances First (Recommended):</strong></li>
 <li>Use Reconciliation Dashboard to resolve issues</li>
-<li>
-<p>Ensures clean monthly processing</p>
-</li>
-<li>
-<p><strong>Proceed Anyway:</strong></p>
-</li>
+<li>Ensures clean monthly processing</li>
+</ul>
+<p><strong>Proceed Anyway</strong></p>
+<ul>
 <li>Click "Yes" to continue despite warnings</li>
 <li>Fix balance issues in subsequent reconciliation</li>
 <li>Monthly processing is more forgiving than EOY</li>
@@ -1699,23 +1691,19 @@
 <li>System synchronization issues</li>
 </ul>
 <p><strong>Solution:</strong></p>
+<p><strong>Use Developer Menu (if available)</strong></p>
 <ul>
-<li><strong>Use Developer Menu (if available):</strong></li>
 <li>Go to <strong>🛠️ Developer &gt; Debug Tools &gt; 🔄 Re-sync ACTIVE Flags</strong></li>
-<li>
-<p>This will synchronize all category statuses</p>
-</li>
-<li>
-<p><strong>Manual Check:</strong></p>
-</li>
+<li>This will synchronize all category statuses</li>
+</ul>
+<p><strong>Manual Check</strong></p>
+<ul>
 <li>Verify items exist in both Maintain Budget and Annual Budget sheets</li>
 <li>Ensure budget amounts are greater than zero</li>
-<li>
-<p>Check that "Distributed" checkbox is checked</p>
-</li>
-<li>
-<p><strong>Prevention:</strong></p>
-</li>
+<li>Check that "Distributed" checkbox is checked</li>
+</ul>
+<p><strong>Prevention</strong></p>
+<ul>
 <li>Always use menu functions for category management</li>
 <li>Don't manually edit the LookUps sheet</li>
 <li>Use "Delete Category/Subcategory" from Maintain Budget menu</li>
@@ -1733,22 +1721,18 @@
 - Items exist in one sheet but not the other
 - ACTIVE flags don't match budget status</p>
 <p><strong>Solution:</strong></p>
+<p><strong>Restore the Deleted Item</strong></p>
 <ul>
-<li><strong>Restore the Deleted Item:</strong></li>
 <li>Manually add the item back to the appropriate sheet</li>
-<li>
-<p>Use the same category/subcategory name</p>
-</li>
-<li>
-<p><strong>Use Proper Deletion Process:</strong></p>
-</li>
+<li>Use the same category/subcategory name</li>
+</ul>
+<p><strong>Use Proper Deletion Process</strong></p>
+<ul>
 <li>Go to <strong>🏦 Budget &gt; Maintain Budget &gt; 🗑️ Delete Category/Subcategory</strong></li>
-<li>
-<p>This ensures proper cleanup across all sheets</p>
-</li>
-<li>
-<p><strong>Prevention:</strong></p>
-</li>
+<li>This ensures proper cleanup across all sheets</li>
+</ul>
+<p><strong>Prevention</strong></p>
+<ul>
 <li><strong>Never manually delete rows</strong> from Annual Budget or Maintain Budget sheets</li>
 <li>Always use the menu functions for category management</li>
 <li>The system provides safety checks and proper cleanup</li>
@@ -1774,19 +1758,19 @@
 <li><strong>Zero balance disrupted:</strong> Cannot achieve accurate zero balance retrospectively</li>
 </ul>
 <p><strong>Prevention (CRITICAL):</strong></p>
-<ol>
+<ul>
 <li><strong>Complete EOY process immediately</strong> after June 30</li>
 <li><strong>Import July transactions within 7 days</strong> of fiscal year start</li>
 <li><strong>Reconcile monthly within 1 week</strong> of month end</li>
 <li><strong>Update bank balances immediately</strong> before month/year-end processing</li>
-</ol>
+</ul>
 <p><strong>Recovery Solutions:</strong></p>
-<ol>
+<ul>
 <li><strong>Visual comparison:</strong> Compare last 7 days of previous period with first 7 days of current period</li>
 <li><strong>Look for identical amounts and descriptions</strong> between periods</li>
 <li><strong>Manually adjust historical bank balances</strong> to restore zero balance</li>
 <li><strong>Use calculated "must have been" balances</strong> rather than relying on historical records</li>
-</ol>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">There is no automated fix for delayed reconciliation</p>
 <p>Bank date changes invalidate historical data integrity. Prevention through timely processing is the only reliable solution.</p>
@@ -1800,73 +1784,61 @@
 <li>Incorrect file type (CSV vs PDF)</li>
 </ul>
 <p><strong>Solutions:</strong></p>
-<ol>
-<li><strong>Check File Format:</strong></li>
+<p><strong>Check File Format</strong></p>
+<ul>
 <li>Ensure using correct file type for your bank</li>
 <li>Most banks require CSV format</li>
-<li>
-<p>Some banks only provide PDF (requires manual entry)</p>
-</li>
-<li>
-<p><strong>Update Column Mappings:</strong></p>
-</li>
+<li>Some banks only provide PDF (requires manual entry)</li>
+</ul>
+<p><strong>Update Column Mappings</strong></p>
+<ul>
 <li>Go to import settings</li>
 <li>Verify column mappings match your bank's format</li>
-<li>
-<p>Update mappings if bank changed their export format</p>
-</li>
-<li>
-<p><strong>Clear Previous Mappings:</strong></p>
-</li>
+<li>Update mappings if bank changed their export format</li>
+</ul>
+<p><strong>Clear Previous Mappings</strong></p>
+<ul>
 <li>Use "Clear Stored Mappings" in debug menu</li>
 <li>Re-configure mappings from scratch</li>
-</ol>
+</ul>
 <h3 id="reconciliation-dashboard-issues">❌ Reconciliation Dashboard Issues</h3>
 <p><strong>Problem:</strong> Transactions not appearing or reconciliation not working.</p>
 <p><strong>Solutions:</strong></p>
-<ol>
-<li><strong>Refresh Data:</strong></li>
+<p><strong>Refresh Data</strong></p>
+<ul>
 <li>Close and reopen Reconciliation Dashboard</li>
-<li>
-<p>Reload spreadsheet if needed</p>
-</li>
-<li>
-<p><strong>Check Transaction Dates:</strong></p>
-</li>
+<li>Reload spreadsheet if needed</li>
+</ul>
+<p><strong>Check Transaction Dates</strong></p>
+<ul>
 <li>Ensure transactions are in correct date range</li>
-<li>
-<p>Verify date format is correct</p>
-</li>
-<li>
-<p><strong>Verify Categories:</strong></p>
-</li>
+<li>Verify date format is correct</li>
+</ul>
+<p><strong>Verify Categories</strong></p>
+<ul>
 <li>Ensure budget categories exist</li>
 <li>Check for typos in category names</li>
-</ol>
+</ul>
 <h2 id="performance-issues">Performance Issues</h2>
 <h3 id="slow-processing">🐌 Slow Processing</h3>
 <p><strong>Problem:</strong> EOY or EOM processes take a long time or seem stuck.</p>
 <p><strong>Solutions:</strong></p>
-<ol>
-<li><strong>Be Patient:</strong></li>
+<p><strong>Be Patient</strong></p>
+<ul>
 <li>EOY process involves copying large amounts of data</li>
-<li>
-<p>Large spreadsheets take longer to process</p>
-</li>
-<li>
-<p><strong>Check Script Execution:</strong></p>
-</li>
+<li>Large spreadsheets take longer to process</li>
+</ul>
+<p><strong>Check Script Execution</strong></p>
+<ul>
 <li>Look for "Running script" indicator</li>
-<li>
-<p>Don't close browser during processing</p>
-</li>
-<li>
-<p><strong>Restart if Stuck:</strong></p>
-</li>
+<li>Don't close browser during processing</li>
+</ul>
+<p><strong>Restart if Stuck</strong></p>
+<ul>
 <li>If truly stuck (no progress for 10+ minutes)</li>
 <li>Refresh browser and try again</li>
 <li>Process is designed to be resumable</li>
-</ol>
+</ul>
 <h2 id="developer-mode">Developer Mode</h2>
 <h3 id="testing-and-development">🔧 Testing and Development</h3>
 <p><strong>Problem:</strong> Need to test processes without perfect balance or access developer tools.</p>
@@ -1877,17 +1849,19 @@
 <li>Allows testing of process logic without balance setup</li>
 <li>Enables access to Developer menu tools</li>
 </ul>
-<p><strong>How to Enable:</strong>
-1. <strong>Method 1 (Recommended):</strong> Use the Help menu
-   - Go to <strong>ℹ️ Help &gt; Toggle Developer Mode</strong>
-   - This enables/disables developer mode</p>
-<ol>
-<li><strong>Method 2 (Manual):</strong> Script properties</li>
+<p><strong>How to Enable:</strong></p>
+<p><strong>Method 1 (Recommended): Use the Help menu</strong></p>
+<ul>
+<li>Go to <strong>ℹ️ Help &gt; Toggle Developer Mode</strong></li>
+<li>This enables/disables developer mode</li>
+</ul>
+<p><strong>Method 2 (Manual): Script properties</strong></p>
+<ul>
 <li>Go to <strong>Extensions</strong> → <strong>Apps Script</strong></li>
 <li>Go to <strong>Settings</strong> → <strong>Script Properties</strong></li>
 <li>Add property: <code>DEV_MODE</code> = <code>true</code></li>
 <li>Save and refresh spreadsheet</li>
-</ol>
+</ul>
 <p><strong>Developer Tools Available:</strong>
 - <strong>Integrity Checker:</strong> Validate system integrity
 - <strong>Debug Tools:</strong> Diagnostic utilities
@@ -1900,36 +1874,32 @@
 <h2 id="getting-help">Getting Help</h2>
 <h3 id="when-to-contact-support">When to Contact Support</h3>
 <p>If you encounter issues not covered here:</p>
-<ol>
-<li><strong>Document the Problem:</strong></li>
+<p><strong>Document the Problem</strong></p>
+<ul>
 <li>Screenshot error messages</li>
 <li>Note what you were trying to do</li>
-<li>
-<p>Record any console errors (F12 in browser)</p>
-</li>
-<li>
-<p><strong>Check Recent Changes:</strong></p>
-</li>
+<li>Record any console errors (F12 in browser)</li>
+</ul>
+<p><strong>Check Recent Changes</strong></p>
+<ul>
 <li>Did you modify the spreadsheet structure?</li>
 <li>Were there recent Google Sheets updates?</li>
-<li>
-<p>Did you change any formulas?</p>
-</li>
-<li>
-<p><strong>Try Basic Troubleshooting:</strong></p>
-</li>
+<li>Did you change any formulas?</li>
+</ul>
+<p><strong>Try Basic Troubleshooting</strong></p>
+<ul>
 <li>Refresh the browser</li>
 <li>Close and reopen the spreadsheet</li>
 <li>Clear browser cache if needed</li>
-</ol>
+</ul>
 <h3 id="emergency-recovery">Emergency Recovery</h3>
 <p><strong>If Your Budget System Breaks:</strong></p>
-<ol>
+<ul>
 <li><strong>Don't Panic</strong> - Your data is preserved</li>
 <li><strong>Use Archived Copies</strong> - Previous versions are automatically saved</li>
 <li><strong>Check Version History</strong> - Google Sheets maintains automatic backups</li>
 <li><strong>Contact Support</strong> - With specific error details</li>
-</ol>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The budget system is designed with multiple safety mechanisms. In most cases, issues can be resolved without data loss.</p>
