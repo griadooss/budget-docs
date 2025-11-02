@@ -40,7 +40,9 @@ The End of Month (EOM) process is a critical monthly procedure that:
 3. The system will verify prerequisites and show confirmation
 
 ### Confirmation Dialog
+
 The system will display:
+
 - **Current month** being processed
 - **Column ranges** for current and next month
 - **Confirmation prompt** to proceed
@@ -49,12 +51,15 @@ The system will display:
     Verify the correct month is selected before proceeding
 
 ### Balance Check
+
 The system performs a comprehensive balance check:
+
 - **Bank balances** - Verify account balances
 - **Budget balances** - Check budget vs actual
 - **Transaction reconciliation** - Ensure all transactions reconciled
 
 If issues are found:
+
 - **Review warnings** - Check each issue
 - **Fix problems** - Resolve before proceeding
 - **Re-run check** - Verify fixes before EOM
@@ -79,7 +84,9 @@ If issues are found:
 - **Hide EOM option:** Prevent duplicate processing
 
 ### Step 4: EOY Transition (June Only)
+
 If processing June (end of fiscal year):
+
 - **Increment year:** Update to next fiscal year
 - **Clear formulas:** Remove formulas from all months except July
 - **Update headers:** Set up new fiscal year headers
@@ -177,6 +184,7 @@ If processing June (end of fiscal year):
 ## Completion Checklist
 
 After EOM processing:
+
 - [ ] Actual values copied to next month
 - [ ] Current month formatted as historical
 - [ ] Next month formatted as current
@@ -189,6 +197,7 @@ After EOM processing:
 ## Next Steps
 
 After successful EOM:
+
 1. **Begin next month** - Start importing new transactions
 2. **Update budget** - Adjust budget for next month
 3. **Monitor performance** - Track budget vs actual
