@@ -1138,9 +1138,10 @@
 <h2 id="folders">Folders</h2>
 <p>Simply put your MDX files in folders and update the paths in <code>mint.json</code>.</p>
 <p>For example, to have a page at <code>https://yoursite.com/your-folder/your-page</code> you would make a folder called <code>your-folder</code> containing an MDX file called <code>your-page.mdx</code>.</p>
-<p><Warning></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>You cannot use <code>api</code> for the name of a folder unless you nest it inside another folder. Mintlify uses Next.js which reserves the top-level <code>api</code> folder for internal server calls. A folder name such as <code>api-reference</code> would be accepted.</p>
-<p></Warning></p>
+</div>
 <p><code>json Navigation With Folder
 "navigation": [
     {
