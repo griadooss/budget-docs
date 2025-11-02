@@ -408,6 +408,7 @@ The Legacy menu contains advanced developer tools and legacy system functions or
           Get Cash Flow values: 105ms
           Total Sheet Access Time: 1223ms
           ```
+
 ??? "Test Reconciliation Updates"
     - **Function:** `testReconciliationDateUpdateDetailed()`
 
