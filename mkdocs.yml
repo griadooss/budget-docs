@@ -44,4 +44,5 @@ nav:
           - Developer Menu: guides/system/developer-menu.md
       - Troubleshooting:
           - Common Issues: guides/troubleshooting/common-issues.md
+          - Version Recovery: guides/troubleshooting/version-recovery.md
           - Using AI Help: guides/troubleshooting/using-ai-help.md
