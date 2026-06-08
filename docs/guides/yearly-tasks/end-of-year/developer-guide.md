@@ -14,7 +14,7 @@ The EOY process has been significantly improved from the original design and now
 ### Key Architectural Features
 - **Month-Restricted Access** - Process only available in June (final fiscal month)
 - **State-Driven Menu System** - Menus adapt based on EOY completion status
-- **Three-Step Progressive Workflow** - Clear progression through setup phases
+- **Three-Step Setup Workflow** - The three numbered menu steps (`1. Run Initial EOY Setup` → `2. Continue EOY Setup` → `3. Finalize EOY Setup`) that follow the initial **Start EOY Process**. The [user-facing overview](overview.md) describes the whole journey as four phases by counting *Start EOY Process* as phase 1.
 - **Guided Master Archiving** - User manually archives previous master with system guidance
 - **Comprehensive Verification** - Multiple validation checkpoints throughout process
 - **User Choice Dialogs** - Commitment validation with Fix Now vs Ignore options

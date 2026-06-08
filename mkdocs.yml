@@ -37,7 +37,7 @@ nav:
           - Overview: guides/user-manual/basic-overview.md
           - Operations: guides/user-manual/basic-operations.md
           - Starting: guides/user-manual/getting-started.md
-          - Menu: guides/user-manual/menu-reference
+          - Menu: guides/user-manual/menu-reference.md
       - System:
           - Version: guides/system/version.md
           - Changelog: guides/system/changelog.md
