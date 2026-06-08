@@ -136,19 +136,6 @@ The Developer menu provides access to advanced system tools, debugging utilities
 
     - **Duration:** Usually completes in under 30 seconds
 
-??? "Fix Corrupted Formulas"
-    - **Function:** `fixCorruptedFormulas()`
-
-    - **Purpose:** Repair broken or corrupted formulas
-
-    - **When to Use:** When formulas are not calculating correctly
-
-    - **Effect:** Attempts to repair identified formula issues
-
-    - **Dependencies:** Write access to sheets with formulas
-
-    - **Warning:** Creates backup before making changes
-
 ## 🧪 Testing Tools
 
 ??? "Reset Month Statuses"
