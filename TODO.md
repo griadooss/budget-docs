@@ -15,8 +15,9 @@ these are optional improvements to pick up when time allows.
   **How to do it:**
   1. Capture the EOY dialogs from the live spreadsheet as PNGs.
   2. Drop them in `docs/images/` (e.g. `eoy-step1.png`, `eoy-step2.png`).
-  3. Embed them in the relevant pages under
-     `docs/guides/yearly-tasks/end-of-year/` with descriptive captions.
+  3. Embed them in `overview.md` and `setup.md` under
+     `docs/guides/yearly-tasks/end-of-year/` with descriptive captions
+     (`developer-guide.md` is for developers and likely doesn't need shots).
 
   *Note: capturing the screenshots must be done by hand from the Google Sheet —
   it can't be automated from this repo.*
