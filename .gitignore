@@ -50,3 +50,12 @@ docs_OP/
 # Lock Files
 # package-lock.json
 # yarn.lock
+
+# Python virtualenv (regenerable — see VENV_NOTE.md)
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# MkDocs build output
+site/
