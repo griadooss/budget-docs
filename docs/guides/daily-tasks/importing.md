@@ -238,7 +238,7 @@ After successful import:
 
 1. **[Reconcile transactions](reconciling.md)** - Match imports to budget categories
 2. **[Run month-end process](../monthly-tasks/end-of-month.md)** - When all transactions reconciled
-3. **[Update categories](../system/changelog.md)** - Add new categories if needed
+3. **[Update categories](categorizing.md)** - Add new categories if needed
 
 !!! note
     Remember: **Import timing affects reconciliation accuracy.** The few minutes saved by delaying imports can cost hours of manual correction later.
