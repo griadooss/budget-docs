@@ -38,6 +38,7 @@ nav:
           - Operations: guides/user-manual/basic-operations.md
           - Starting: guides/user-manual/getting-started.md
           - Menu: guides/user-manual/menu-reference.md
+          - Loans & Commitments: guides/user-manual/loans-and-commitments.md
       - System:
           - Version: guides/system/version.md
           - Changelog: guides/system/changelog.md
