@@ -92,10 +92,10 @@ The modern EOY process is a **four-step guided workflow**:
 4. **Finalization** (in new copy) - Complete setup and archive previous master
 
 === "EOY Overview"
-    [Learn about the End of Year process](/guides/yearly-tasks/end-of-year/overview)
+    [Learn about the End of Year process](guides/yearly-tasks/end-of-year/overview.md)
 
 === "EOY Setup"
-    [Step-by-step EOY setup instructions](/guides/yearly-tasks/end-of-year/setup)
+    [Step-by-step EOY setup instructions](guides/yearly-tasks/end-of-year/setup.md)
 
 ## Troubleshooting
 
@@ -153,13 +153,13 @@ The modern EOY process is a **four-step guided workflow**:
 ## Next Steps
 
 === "Daily Tasks"
-    [Learn about importing and reconciling](guides/daily-tasks/importing/)
+    [Learn about importing and reconciling](guides/daily-tasks/importing.md)
 
 === "Monthly Tasks"
-    [Understand month-end processing](guides/monthly-tasks/end-of-month/)
+    [Understand month-end processing](guides/monthly-tasks/end-of-month.md)
 
 === "Troubleshooting"
-    [Get help with common issues](guides/troubleshooting/common-issues/)
+    [Get help with common issues](guides/troubleshooting/common-issues.md)
 
 ## Getting Help
 
