@@ -1143,6 +1143,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#210-2026-06-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.0 (2026-06-22)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#200-2024-06-30" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1399,6 +1410,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#210-2026-06-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.0 (2026-06-22)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#200-2024-06-30" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1451,9 +1473,37 @@
 <p>A complete history of changes and updates to the Budget System documentation.</p>
 </div>
 <h2 id="version-history">Version History</h2>
+<h3 id="210-2026-06-22">2.1.0 (2026-06-22)</h3>
+<p><strong>Distribution: Start Month + Checkbox Trigger</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Distribution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>New <strong>Start Mth</strong> column (Maintain Budget Col J) — choose the month a
+  non‑monthly item's spread begins (e.g. Freq 3 / Aug → Aug, Dec, Apr)</li>
+<li>Blank Start Mth = July (unchanged behaviour for untouched rows)</li>
+<li>Month dropdown is frequency‑filtered and rebuilds when Freq changes</li>
+<li>Column‑H trigger is now a <strong>checkbox</strong> ("Tick to Dist Single Items"),
+  replacing the old "Distribute" dropdown</li>
+<li>Row flags <strong>red → green</strong> as in‑progress feedback during distribution</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Added</strong>
+- Developer → <strong>Distribution Setup</strong> submenu: <em>Setup Distribute Checkboxes (Col H)</em>
+  and <em>Setup Start‑Mth Column (Col J)</em>
+- Documented the previously‑undocumented <em>Audit / Fix Annual Budget Formulas</em>
+  tools under Integrity Checker</p>
+<p><strong>Fixed</strong>
+- The "stuck Distribute dropdown" bug — a checkbox tick is always a change, so the
+  trigger can never fail to fire</p>
+<p><strong>Notes</strong>
+- Re‑run both Distribution Setup items (and <em>Fix Annual Budget Formulas</em>) after the
+  final Version History restore — content reverts, code persists</p>
 <h3 id="200-2024-06-30">2.0.0 (2024-06-30)</h3>
 <p><strong>End of Year Process Documentation Overhaul</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">EOY Process</label><label for="__tabbed_1_2">Technical Updates</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">EOY Process</label><label for="__tabbed_2_2">Technical Updates</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1495,7 +1545,7 @@
 - Lack of comprehensive testing guidance</p>
 <h3 id="100-2024-02-22">1.0.0 (2024-02-22)</h3>
 <p><strong>Initial Release</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Documentation</label><label for="__tabbed_2_2">Features</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Documentation</label><label for="__tabbed_3_2">Features</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>

@@ -1214,6 +1214,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#distribution-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📅 Distribution Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#testing-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1624,6 +1635,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#distribution-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📅 Distribution Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#testing-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1825,6 +1847,7 @@
 <li><strong>System Status</strong> - System configuration management  </li>
 <li><strong>Triggers</strong> - Google Apps Script trigger management</li>
 <li><strong>Integrity Checker</strong> - System validation and repair tools</li>
+<li><strong>Distribution Setup</strong> - (Re)build the distribute checkboxes and Start‑Mth column</li>
 <li><strong>Testing Tools</strong> - Development testing utilities</li>
 <li><strong>Debug Tools</strong> - Diagnostic and debugging functions</li>
 <li><strong>Legacy</strong> - Legacy system tools and advanced testing</li>
@@ -2019,6 +2042,103 @@
 </li>
 <li>
 <p><strong>Duration:</strong> Usually completes in under 30 seconds</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>🔎 Audit Annual Budget Formulas</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>auditAnnualBudgetFormulas()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Report‑only check of every per‑row monthly "Actual" formula on the
+  Annual Budget sheet (and the two section grand totals) against the canonical
+  form — catches wrong <code>$B$</code> category anchors and missing category filters</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> After bulk edits, restores, or before an EOY run</p>
+</li>
+<li>
+<p><strong>Output:</strong> Writes a "Formula Audit" sheet listing each mismatch (expected vs found)</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Annual Budget sheet</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>🛠️ Fix Annual Budget Formulas</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>fixAnnualBudgetFormulas()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Rewrites only the mismatched formula cells to the canonical form
+  (never touches budget <em>values</em>)</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> After an audit reports issues — and <strong>after the final Version
+  History restore</strong> (content reverts, so the fix must be re‑applied)</p>
+</li>
+<li>
+<p><strong>Output:</strong> Confirmation of how many cells were corrected; re‑audit should read 0</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Annual Budget sheet</p>
+</li>
+</ul>
+</details>
+<h2 id="distribution-setup">📅 Distribution Setup</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One‑time setup utilities. A copy made from the current master already includes the
+checkboxes and Start‑Mth column, so you normally only need these after a <strong>Version
+History restore to a pre‑feature baseline</strong>, or when first deploying the feature.
+Both are <strong>idempotent</strong> (safe to re‑run).</p>
+</div>
+<details>
+<summary>☑️ Setup Distribute Checkboxes (Col H)</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>setupDistributeButtons()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Lays down a distribute <strong>checkbox</strong> on every Maintain Budget item
+  row and labels the header "Tick to Dist Single Items"</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> If Column‑H checkboxes are missing (fresh deploy / post‑restore)</p>
+</li>
+<li>
+<p><strong>Effect:</strong> Replaces any legacy "Distribute" dropdown; a tick triggers
+  distribution then auto‑resets</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Maintain Budget sheet</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>📅 Setup Start‑Mth Column (Col J)</summary>
+<ul>
+<li>
+<p><strong>Function:</strong> <code>setupStartMonthColumn()</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Adds the "Start Mth" header and a frequency‑filtered month dropdown
+  to each item row (greyed "—" for Freq 12 / 26 / 52)</p>
+</li>
+<li>
+<p><strong>When to Use:</strong> If Column‑J is missing its header/dropdowns (fresh deploy /
+  post‑restore)</p>
+</li>
+<li>
+<p><strong>Effect:</strong> Lets each non‑monthly item choose the month its spread begins
+  (blank = July)</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Maintain Budget sheet</p>
 </li>
 </ul>
 </details>

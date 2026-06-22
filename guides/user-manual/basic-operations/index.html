@@ -1621,29 +1621,42 @@
 <p>Always use menu functions for category management. Manual sheet editing can cause serious balance inconsistencies.</p>
 </div>
 <h2 id="budget-distribution">Budget Distribution</h2>
+<p>Distribution spreads each <strong>Maintain Budget</strong> item across the months of the
+financial year on the <strong>Annual Budget</strong> sheet.</p>
 <details class="arrow-right">
 <summary>Individual Distribution</summary>
 <ol>
-<li>Go to Maintain Budget sheet</li>
-<li>Set budget amount for item</li>
-<li>Click "Distribute" button</li>
-<li>System validates budget balance</li>
-<li>ACTIVE flags updated automatically</li>
+<li>Go to the <strong>Maintain Budget</strong> sheet</li>
+<li>Set the item's <strong>Budget</strong> (Col E) and <strong>Freq</strong> (Col F — how many times a year)</li>
+<li><em>(Optional)</em> set the <strong>Start Mth</strong> (Col J — the month the first payment falls)</li>
+<li><strong>Tick the Column‑H checkbox</strong> ("Tick to Dist Single Items")</li>
+<li>The row flags <strong>red</strong> while it posts, then <strong>green</strong> when done</li>
+<li>System validates budget balance; ACTIVE flags update automatically</li>
 </ol>
 </details>
 <details class="arrows-right">
 <summary>Bulk Distribution</summary>
 <ol>
-<li>Use "⚙️ Settings &gt; Sheet Settings &gt; Bulk Distribute Items"</li>
-<li>System filters items with budget &gt; 0</li>
-<li>Validates overall budget balance</li>
-<li>Distributes all eligible items</li>
-<li>ACTIVE flags synchronized</li>
+<li>Press the <strong>"Press to Dist ALL"</strong> button (Column I header)</li>
+<li>Confirm the prompt — it distributes every eligible item in one pass</li>
+<li>A progress toast shows where it's up to</li>
+<li>A summary reports distributed / created / skipped counts; ACTIVE flags sync</li>
 </ol>
 </details>
+<div class="admonition tip">
+<p class="admonition-title">Start Month (Col J)</p>
+<p>For non‑monthly items you can choose when the spread begins — e.g. a quarterly
+item (<strong>Freq 3</strong>) starting <strong>August</strong> lands on <strong>Aug, Dec, Apr</strong>. Leave it
+<strong>blank for July</strong> (the default, unchanged behaviour). The dropdown only offers
+the months that make a difference for that frequency; <strong>monthly (Freq 12)</strong> and
+<strong>weekly/fortnightly (26/52)</strong> rows show <strong>"—"</strong> because there's no per‑row choice
+(26/52 are driven by the "Budget Start Dates" config table). Changing a Start Mth
+re‑flags the item for re‑distribution.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Balance Validation</p>
-<p>Distribution requires balanced budget (income = expenses). System will warn if unbalanced but allows override for individual distribution.</p>
+<p>Distribution requires a balanced budget (income = expenses). The system warns if
+unbalanced but allows an override for individual distribution.</p>
 </div>
 <h2 id="next-steps">Next Steps</h2>
 <div class="admonition tip">
