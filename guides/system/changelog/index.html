@@ -1480,26 +1480,28 @@
 <div class="tabbed-block">
 <ul>
 <li>New <strong>Start Mth</strong> column (Maintain Budget Col J) — choose the month a
-  non‑monthly item's spread begins (e.g. Freq 3 / Aug → Aug, Dec, Apr)</li>
+  non-monthly item's spread begins (e.g. Freq 3 / Aug → Aug, Dec, Apr)</li>
 <li>Blank Start Mth = July (unchanged behaviour for untouched rows)</li>
-<li>Month dropdown is frequency‑filtered and rebuilds when Freq changes</li>
-<li>Column‑H trigger is now a <strong>checkbox</strong> ("Tick to Dist Single Items"),
+<li>Month dropdown is frequency-filtered and rebuilds when Freq changes</li>
+<li>Column-H trigger is now a <strong>checkbox</strong> ("Tick to Dist Single Items"),
   replacing the old "Distribute" dropdown</li>
-<li>Row flags <strong>red → green</strong> as in‑progress feedback during distribution</li>
+<li>Row flags <strong>red → green</strong> as in-progress feedback during distribution</li>
 </ul>
 </div>
 </div>
 </div>
 <p><strong>Added</strong>
 - Developer → <strong>Distribution Setup</strong> submenu: <em>Setup Distribute Checkboxes (Col H)</em>
-  and <em>Setup Start‑Mth Column (Col J)</em>
-- Documented the previously‑undocumented <em>Audit / Fix Annual Budget Formulas</em>
+  and <em>Setup Start-Mth Column (Col J)</em>
+- Documented the previously-undocumented <em>Audit / Fix Annual Budget Formulas</em>
   tools under Integrity Checker</p>
 <p><strong>Fixed</strong>
 - The "stuck Distribute dropdown" bug — a checkbox tick is always a change, so the
-  trigger can never fail to fire</p>
+  trigger can never fail to fire
+- Normalised non-breaking hyphens to plain hyphens across the updated docs
+  (Developer Menu, Basic Operations, and this changelog)</p>
 <p><strong>Notes</strong>
-- Re‑run both Distribution Setup items (and <em>Fix Annual Budget Formulas</em>) after the
+- Re-run both Distribution Setup items (and <em>Fix Annual Budget Formulas</em>) after the
   final Version History restore — content reverts, code persists</p>
 <h3 id="200-2024-06-30">2.0.0 (2024-06-30)</h3>
 <p><strong>End of Year Process Documentation Overhaul</strong></p>
