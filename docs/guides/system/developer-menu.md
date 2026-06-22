@@ -19,6 +19,7 @@ The Developer menu provides access to advanced system tools, debugging utilities
 - **System Status** - System configuration management  
 - **Triggers** - Google Apps Script trigger management
 - **Integrity Checker** - System validation and repair tools
+- **Distribution Setup** - (Re)build the distribute checkboxes and Start‑Mth column
 - **Testing Tools** - Development testing utilities
 - **Debug Tools** - Diagnostic and debugging functions
 - **Legacy** - Legacy system tools and advanced testing
@@ -135,6 +136,67 @@ The Developer menu provides access to advanced system tools, debugging utilities
     - **Dependencies:** Basic sheet access
 
     - **Duration:** Usually completes in under 30 seconds
+
+??? "🔎 Audit Annual Budget Formulas"
+    - **Function:** `auditAnnualBudgetFormulas()`
+
+    - **Purpose:** Report‑only check of every per‑row monthly "Actual" formula on the
+      Annual Budget sheet (and the two section grand totals) against the canonical
+      form — catches wrong `$B$` category anchors and missing category filters
+
+    - **When to Use:** After bulk edits, restores, or before an EOY run
+
+    - **Output:** Writes a "Formula Audit" sheet listing each mismatch (expected vs found)
+
+    - **Dependencies:** Annual Budget sheet
+
+??? "🛠️ Fix Annual Budget Formulas"
+    - **Function:** `fixAnnualBudgetFormulas()`
+
+    - **Purpose:** Rewrites only the mismatched formula cells to the canonical form
+      (never touches budget *values*)
+
+    - **When to Use:** After an audit reports issues — and **after the final Version
+      History restore** (content reverts, so the fix must be re‑applied)
+
+    - **Output:** Confirmation of how many cells were corrected; re‑audit should read 0
+
+    - **Dependencies:** Annual Budget sheet
+
+## 📅 Distribution Setup
+
+!!! note
+    One‑time setup utilities. A copy made from the current master already includes the
+    checkboxes and Start‑Mth column, so you normally only need these after a **Version
+    History restore to a pre‑feature baseline**, or when first deploying the feature.
+    Both are **idempotent** (safe to re‑run).
+
+??? "☑️ Setup Distribute Checkboxes (Col H)"
+    - **Function:** `setupDistributeButtons()`
+
+    - **Purpose:** Lays down a distribute **checkbox** on every Maintain Budget item
+      row and labels the header "Tick to Dist Single Items"
+
+    - **When to Use:** If Column‑H checkboxes are missing (fresh deploy / post‑restore)
+
+    - **Effect:** Replaces any legacy "Distribute" dropdown; a tick triggers
+      distribution then auto‑resets
+
+    - **Dependencies:** Maintain Budget sheet
+
+??? "📅 Setup Start‑Mth Column (Col J)"
+    - **Function:** `setupStartMonthColumn()`
+
+    - **Purpose:** Adds the "Start Mth" header and a frequency‑filtered month dropdown
+      to each item row (greyed "—" for Freq 12 / 26 / 52)
+
+    - **When to Use:** If Column‑J is missing its header/dropdowns (fresh deploy /
+      post‑restore)
+
+    - **Effect:** Lets each non‑monthly item choose the month its spread begins
+      (blank = July)
+
+    - **Dependencies:** Maintain Budget sheet
 
 ## 🧪 Testing Tools
 

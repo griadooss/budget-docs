@@ -108,22 +108,35 @@ description: 'Core processes and daily tasks in the Budget System'
 
 ## Budget Distribution
 
+Distribution spreads each **Maintain Budget** item across the months of the
+financial year on the **Annual Budget** sheet.
+
 ??? arrow-right "Individual Distribution"
-    1. Go to Maintain Budget sheet
-    2. Set budget amount for item
-    3. Click "Distribute" button
-    4. System validates budget balance
-    5. ACTIVE flags updated automatically
+    1. Go to the **Maintain Budget** sheet
+    2. Set the item's **Budget** (Col E) and **Freq** (Col F — how many times a year)
+    3. *(Optional)* set the **Start Mth** (Col J — the month the first payment falls)
+    4. **Tick the Column‑H checkbox** ("Tick to Dist Single Items")
+    5. The row flags **red** while it posts, then **green** when done
+    6. System validates budget balance; ACTIVE flags update automatically
 
 ??? arrows-right "Bulk Distribution"
-    1. Use "⚙️ Settings > Sheet Settings > Bulk Distribute Items"
-    2. System filters items with budget > 0
-    3. Validates overall budget balance
-    4. Distributes all eligible items
-    5. ACTIVE flags synchronized
+    1. Press the **"Press to Dist ALL"** button (Column I header)
+    2. Confirm the prompt — it distributes every eligible item in one pass
+    3. A progress toast shows where it's up to
+    4. A summary reports distributed / created / skipped counts; ACTIVE flags sync
+
+!!! tip "Start Month (Col J)"
+    For non‑monthly items you can choose when the spread begins — e.g. a quarterly
+    item (**Freq 3**) starting **August** lands on **Aug, Dec, Apr**. Leave it
+    **blank for July** (the default, unchanged behaviour). The dropdown only offers
+    the months that make a difference for that frequency; **monthly (Freq 12)** and
+    **weekly/fortnightly (26/52)** rows show **"—"** because there's no per‑row choice
+    (26/52 are driven by the "Budget Start Dates" config table). Changing a Start Mth
+    re‑flags the item for re‑distribution.
 
 !!! note "Balance Validation"
-    Distribution requires balanced budget (income = expenses). System will warn if unbalanced but allows override for individual distribution.
+    Distribution requires a balanced budget (income = expenses). The system warns if
+    unbalanced but allows an override for individual distribution.
 
 ## Next Steps
 
