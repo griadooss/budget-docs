@@ -115,7 +115,7 @@ financial year on the **Annual Budget** sheet.
     1. Go to the **Maintain Budget** sheet
     2. Set the item's **Budget** (Col E) and **Freq** (Col F — how many times a year)
     3. *(Optional)* set the **Start Mth** (Col J — the month the first payment falls)
-    4. **Tick the Column‑H checkbox** ("Tick to Dist Single Items")
+    4. **Tick the Column-H checkbox** ("Tick to Dist Single Items")
     5. The row flags **red** while it posts, then **green** when done
     6. System validates budget balance; ACTIVE flags update automatically
 
@@ -126,13 +126,13 @@ financial year on the **Annual Budget** sheet.
     4. A summary reports distributed / created / skipped counts; ACTIVE flags sync
 
 !!! tip "Start Month (Col J)"
-    For non‑monthly items you can choose when the spread begins — e.g. a quarterly
+    For non-monthly items you can choose when the spread begins — e.g. a quarterly
     item (**Freq 3**) starting **August** lands on **Aug, Dec, Apr**. Leave it
     **blank for July** (the default, unchanged behaviour). The dropdown only offers
     the months that make a difference for that frequency; **monthly (Freq 12)** and
-    **weekly/fortnightly (26/52)** rows show **"—"** because there's no per‑row choice
+    **weekly/fortnightly (26/52)** rows show **"—"** because there's no per-row choice
     (26/52 are driven by the "Budget Start Dates" config table). Changing a Start Mth
-    re‑flags the item for re‑distribution.
+    re-flags the item for re-distribution.
 
 !!! note "Balance Validation"
     Distribution requires a balanced budget (income = expenses). The system warns if

@@ -17,25 +17,27 @@ description: 'Detailed history of documentation updates'
 === "Distribution"
 
     - New **Start Mth** column (Maintain Budget Col J) — choose the month a
-      non‑monthly item's spread begins (e.g. Freq 3 / Aug → Aug, Dec, Apr)
+      non-monthly item's spread begins (e.g. Freq 3 / Aug → Aug, Dec, Apr)
     - Blank Start Mth = July (unchanged behaviour for untouched rows)
-    - Month dropdown is frequency‑filtered and rebuilds when Freq changes
-    - Column‑H trigger is now a **checkbox** ("Tick to Dist Single Items"),
+    - Month dropdown is frequency-filtered and rebuilds when Freq changes
+    - Column-H trigger is now a **checkbox** ("Tick to Dist Single Items"),
       replacing the old "Distribute" dropdown
-    - Row flags **red → green** as in‑progress feedback during distribution
+    - Row flags **red → green** as in-progress feedback during distribution
 
 **Added**
 - Developer → **Distribution Setup** submenu: *Setup Distribute Checkboxes (Col H)*
-  and *Setup Start‑Mth Column (Col J)*
-- Documented the previously‑undocumented *Audit / Fix Annual Budget Formulas*
+  and *Setup Start-Mth Column (Col J)*
+- Documented the previously-undocumented *Audit / Fix Annual Budget Formulas*
   tools under Integrity Checker
 
 **Fixed**
 - The "stuck Distribute dropdown" bug — a checkbox tick is always a change, so the
   trigger can never fail to fire
+- Normalised non-breaking hyphens to plain hyphens across the updated docs
+  (Developer Menu, Basic Operations, and this changelog)
 
 **Notes**
-- Re‑run both Distribution Setup items (and *Fix Annual Budget Formulas*) after the
+- Re-run both Distribution Setup items (and *Fix Annual Budget Formulas*) after the
   final Version History restore — content reverts, code persists
 
 ### 2.0.0 (2024-06-30)
