@@ -124,7 +124,7 @@ description: 'Complete guide to all menu functions in the Budget System'
     - 🔧 Install onEdit Trigger / ❌ Remove onEdit Trigger
 
 ??? shield-check "Integrity Checker"
-    - Run Comprehensive Check / Quick Integrity Check
+    - Run Comprehensive Check
     - 🔎 Audit Annual Budget Formulas / 🛠️ Fix Annual Budget Formulas
     - ⚖️ Check Annual Budget Balance (also on 🏦 Budget > Maintain Budget)
 

@@ -124,18 +124,7 @@ The Developer menu provides access to advanced system tools, debugging utilities
 
     - **Duration:** May take several minutes for large datasets
 
-??? "Quick Integrity Check"
-    - **Function:** `quickIntegrityCheck()`
-
-    - **Purpose:** Fast validation check for common issues
-
-    - **When to Use:** Regular system health monitoring
-
-    - **Output:** Quick summary of critical issues
-
-    - **Dependencies:** Basic sheet access
-
-    - **Duration:** Usually completes in under 30 seconds
+    - **Note:** Formula auditing is handled separately by *Audit Annual Budget Formulas* (below); this check now focuses on Annual Budget vs Cash Flow reconciliation.
 
 ??? "🔎 Audit Annual Budget Formulas"
     - **Function:** `auditAnnualBudgetFormulas()`
