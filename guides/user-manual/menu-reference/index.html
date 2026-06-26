@@ -1603,18 +1603,19 @@
 <summary>Maintain Budget Submenu</summary>
 <ul>
 <li><strong>Access:</strong> Click "🏦 Budget &gt; Maintain Budget"</li>
-<li><strong>Purpose:</strong> Manage budget categories, commitments, loans and transactions</li>
+<li><strong>Purpose:</strong> Manage budget categories, check balance, and handle commitments, loans and transactions</li>
 <li><strong>Functions:</strong></li>
-<li><strong>📋 Guide</strong> (sub-submenu) — three reference dialogs:<ul>
+<li><strong>Maintain Categories</strong> (sub-submenu) — everything for category structure plus the guides:<ul>
+<li><strong>➕ Add Category/Subcategory:</strong> Add new budget items with proper setup</li>
+<li><strong>🗑️ Delete Category/Subcategory:</strong> Safely remove items with cleanup</li>
+<li><strong>🏷️ Manage Category Lookups:</strong> Open the Category Management dialog (the LookUps editor) to add/edit the category and subcategory lists that drive transaction dropdowns</li>
 <li><strong>📋 Step-by-Step Instructions</strong> — the workflow for adding/removing budget items</li>
 <li><strong>⚠️ Safety Warnings &amp; Tips</strong> — what to avoid when maintaining the budget</li>
 <li><strong>🤖 Automation Details</strong> — how the system reacts to your changes</li>
 </ul>
 </li>
-<li><strong>➕ Add Category/Subcategory:</strong> Add new budget items with proper setup</li>
-<li><strong>🗑️ Delete Category/Subcategory:</strong> Safely remove items with cleanup</li>
+<li><strong>⚖️ Check Annual Budget Balance:</strong> Find where the Annual Budget is off zero — it lists the exact category/item and the dollar amount, and for non-monthly items names a mis-placed payment month. Read-only; it changes nothing.</li>
 <li><strong>📋 Commitment Management:</strong> Review and manage outstanding commitments</li>
-<li><strong>🧹 Clear Pending Transactions:</strong> Remove pending (unconfirmed) transactions</li>
 <li><strong>💰 Loan Transactions:</strong> Record and track loan transactions by participant</li>
 <li><strong>✏️ Edit Transaction:</strong> Modify the currently selected transaction</li>
 </ul>
@@ -1673,16 +1674,16 @@
 </ul>
 </details>
 <details class="table">
-<summary>Sheet Settings</summary>
+<summary>LookUps Sheet</summary>
 <ul>
-<li><strong>Access:</strong> Click "⚙️ Settings &gt; Sheet Settings"</li>
-<li><strong>Purpose:</strong> Manage categories, ACTIVE flags and the LookUps sheet</li>
+<li><strong>Access:</strong> Click "⚙️ Settings &gt; LookUps Sheet"</li>
+<li><strong>Purpose:</strong> Manage ACTIVE flags and the visibility of the LookUps sheet</li>
 <li><strong>Functions:</strong></li>
-<li><strong>Manage Categories:</strong> Add/edit income and expense categories (LookUps manager)</li>
 <li><strong>🔄 Sync ACTIVE Flags:</strong> Synchronise category active status from budgeted items</li>
-<li><strong>✅ Validate ACTIVE Flags:</strong> Check category status consistency</li>
+<li><strong>✅ Validate ACTIVE Flags:</strong> Check category status consistency (lists any mismatched items)</li>
 <li><strong>🔒 Hide LookUps Sheet:</strong> Hide the LookUps sheet from view</li>
 <li><strong>👁️ Show LookUps Sheet:</strong> Reveal the LookUps sheet when you need to inspect it</li>
+<li><strong>Note:</strong> The category list editor that used to live here ("Manage Categories") has moved to <strong>🏦 Budget &gt; Maintain Budget &gt; Maintain Categories &gt; 🏷️ Manage Category Lookups</strong>. This submenu was previously named "Sheet Settings".</li>
 </ul>
 </details>
 <details class="warning">
@@ -1722,6 +1723,8 @@
 <summary>Integrity Checker</summary>
 <ul>
 <li>Run Comprehensive Check / Quick Integrity Check</li>
+<li>🔎 Audit Annual Budget Formulas / 🛠️ Fix Annual Budget Formulas</li>
+<li>⚖️ Check Annual Budget Balance (also on 🏦 Budget &gt; Maintain Budget)</li>
 </ul>
 </details>
 <details class="bug">
@@ -1819,7 +1822,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">ACTIVE Flag System</p>
-<p>Category active status is managed automatically (and re-synced on startup in Developer Mode). If you suspect it is out of step, use <strong>Sync ACTIVE Flags</strong> / <strong>Validate ACTIVE Flags</strong> under Settings &gt; Sheet Settings, or <strong>🔄 Re-sync ACTIVE Flags</strong> under the Developer menu's Debug Tools.</p>
+<p>Category active status is managed automatically and re-synced every time the spreadsheet opens. An item is ACTIVE (selectable in transaction dropdowns) only when it is <strong>budgeted in Maintain Budget (amount &gt; 0 and distributed) AND present in the Annual Budget</strong>. So an item you zero out for the year drops out of the dropdowns, while the category itself stays in LookUps ready to re-budget in a future year. If you suspect the flags are out of step, use <strong>Sync ACTIVE Flags</strong> / <strong>Validate ACTIVE Flags</strong> under Settings &gt; LookUps Sheet (Validate now lists any mismatched items), or <strong>🔄 Re-sync ACTIVE Flags</strong> under the Developer menu's Debug Tools.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Balance Checking</p>
@@ -1829,8 +1832,8 @@
 <div class="admonition tip">
 <p class="admonition-title">Best Practices</p>
 <ul>
-<li>Always use <strong>Delete Category/Subcategory</strong> from the Maintain Budget menu</li>
-<li>Use <strong>Add Category/Subcategory</strong> for proper setup</li>
+<li>Always use <strong>Add / Delete Category/Subcategory</strong> from Maintain Budget &gt; Maintain Categories</li>
+<li>Run <strong>Check Annual Budget Balance</strong> if the Annual Budget ever shows a non-zero balance</li>
 <li>Check balance indicators before running EOY processes</li>
 <li>Review warning messages carefully</li>
 <li>Use Developer menu tools only when troubleshooting</li>

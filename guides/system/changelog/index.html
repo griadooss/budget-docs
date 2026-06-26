@@ -1143,6 +1143,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#220-2026-06-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.0 (2026-06-26)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#210-2026-06-22" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1410,6 +1421,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#220-2026-06-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.0 (2026-06-26)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#210-2026-06-22" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1473,9 +1495,48 @@
 <p>A complete history of changes and updates to the Budget System documentation.</p>
 </div>
 <h2 id="version-history">Version History</h2>
+<h3 id="220-2026-06-26">2.2.0 (2026-06-26)</h3>
+<p><strong>Balance locator, ACTIVE-flag fix, and menu tidy-up</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Balance</label><label for="__tabbed_1_2">ACTIVE flags</label><label for="__tabbed_1_3">Menus</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>New <strong>⚖️ Check Annual Budget Balance</strong> tool (Budget &gt; Maintain Budget, and
+  Developer &gt; Integrity Checker) — read-only locator that points to the exact
+  category/item behind an out-of-balance Annual Budget, with the dollar amount,
+  and names a mis-placed payment month for non-monthly items</li>
+<li>Confirmed and documented: a <strong>\$0 budget item can be distributed</strong> (only negative
+  is blocked) and keeps a \$0 row in the Annual Budget; such items are now made
+  inactive automatically</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong>Fixed</strong> a persistent "active but not budgeted" validation failure that a
+  reload could never clear. An item is now ACTIVE only when it is <strong>budgeted in
+  Maintain Budget (amount &gt; 0 and distributed) AND present in the Annual Budget</strong> —
+  previously the sync judged purely on Annual Budget presence while the validator
+  used the budget rule, so the two could never agree</li>
+<li>The Validate dialog now <strong>lists the offending items</strong> (not just counts) and drops
+  a duplicated line</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>New <strong>Maintain Categories</strong> group under Budget &gt; Maintain Budget (Add/Delete plus
+  the guides)</li>
+<li>The lookup editor moved here as <strong>🏷️ Manage Category Lookups</strong> (was Settings &gt;
+  Sheet Settings &gt; "Manage Categories")</li>
+<li><strong>Settings &gt; Sheet Settings</strong> renamed <strong>LookUps Sheet</strong></li>
+<li>Removed the vestigial <strong>Clear Pending Transactions</strong> item; retired the unused
+  function-registry tooling</li>
+</ul>
+</div>
+</div>
+</div>
 <h3 id="210-2026-06-22">2.1.0 (2026-06-22)</h3>
 <p><strong>Distribution: Start Month + Checkbox Trigger</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Distribution</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Distribution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1505,7 +1566,7 @@
   final Version History restore — content reverts, code persists</p>
 <h3 id="200-2024-06-30">2.0.0 (2024-06-30)</h3>
 <p><strong>End of Year Process Documentation Overhaul</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">EOY Process</label><label for="__tabbed_2_2">Technical Updates</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">EOY Process</label><label for="__tabbed_3_2">Technical Updates</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -1547,7 +1608,7 @@
 - Lack of comprehensive testing guidance</p>
 <h3 id="100-2024-02-22">1.0.0 (2024-02-22)</h3>
 <p><strong>Initial Release</strong></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Documentation</label><label for="__tabbed_3_2">Features</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Documentation</label><label for="__tabbed_4_2">Features</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>

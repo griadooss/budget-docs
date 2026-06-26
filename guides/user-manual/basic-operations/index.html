@@ -988,6 +988,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Budget Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-an-out-of-balance-annual-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding an out-of-balance Annual Budget
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1466,6 +1483,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Budget Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-an-out-of-balance-annual-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding an out-of-balance Annual Budget
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1588,7 +1622,7 @@
 <div class="tabbed-block">
 <p><strong>Use the proper workflow:</strong></p>
 <ol>
-<li>Go to "🏦 Budget &gt; Maintain Budget &gt; ➕ Add Category/Subcategory"</li>
+<li>Go to "🏦 Budget &gt; Maintain Budget &gt; Maintain Categories &gt; ➕ Add Category/Subcategory"</li>
 <li>Follow the guided workflow</li>
 <li>System will properly set up the item across all sheets</li>
 <li>ACTIVE flags will be automatically managed</li>
@@ -1598,7 +1632,7 @@
 <div class="tabbed-block">
 <p><strong>Critical - Use proper deletion process:</strong></p>
 <ol>
-<li>Go to "🏦 Budget &gt; Maintain Budget &gt; 🗑️ Delete Category/Subcategory"</li>
+<li>Go to "🏦 Budget &gt; Maintain Budget &gt; Maintain Categories &gt; 🗑️ Delete Category/Subcategory"</li>
 <li>System will run safety checks</li>
 <li>Proper cleanup across all sheets</li>
 <li>ACTIVE flags updated automatically</li>
@@ -1608,9 +1642,10 @@
 <div class="tabbed-block">
 <p><strong>ACTIVE Flag System:</strong></p>
 <ul>
-<li>Categories are automatically marked ACTIVE when budgeted</li>
-<li>Status is synchronized across all sheets</li>
-<li>Use "🔄 Re-sync ACTIVE Flags" in Developer menu if needed</li>
+<li>An item is marked ACTIVE (and so appears in transaction dropdowns) only when it is <strong>budgeted in Maintain Budget (amount &gt; 0 and distributed) AND present in the Annual Budget</strong></li>
+<li>Zeroing an item's budget for the year therefore makes it inactive — it leaves the dropdowns but the category stays in LookUps, ready to re-budget any year</li>
+<li>Status is synchronised automatically and re-synced every time the spreadsheet opens</li>
+<li>To check or force it, use <strong>Sync ACTIVE Flags</strong> / <strong>Validate ACTIVE Flags</strong> under Settings &gt; LookUps Sheet</li>
 <li>System prevents deletion of items with reconciled transactions</li>
 </ul>
 </div>
@@ -1658,6 +1693,28 @@ re-flags the item for re-distribution.</p>
 <p>Distribution requires a balanced budget (income = expenses). The system warns if
 unbalanced but allows an override for individual distribution.</p>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Zero-budget items</p>
+<p>You <strong>can</strong> distribute an item whose budget is <strong>\$0</strong> (only a negative budget is
+blocked). It simply spreads zeros, so the item keeps a row in the Annual Budget with
+a <strong>\$0</strong> total — handy for a category you're not funding this year but want to keep in
+place. A \$0 item does not unbalance anything (0 = 0), and it is automatically made
+<strong>inactive</strong> (it leaves the transaction dropdowns) until you give it a budget again.</p>
+</div>
+<h3 id="finding-an-out-of-balance-annual-budget">Finding an out-of-balance Annual Budget</h3>
+<p>If the <strong>Annual Budget</strong> ever shows a non-zero balance — most often after you've
+hand-edited a monthly figure to match an uneven real-world payment and slipped — use
+<strong>🏦 Budget &gt; Maintain Budget &gt; ⚖️ Check Annual Budget Balance</strong>.</p>
+<p>It's <strong>read-only</strong> and pinpoints the problem instead of making you hunt:</p>
+<ul>
+<li>It lists every item whose distributed total (Annual Budget) doesn't match its budget
+  (Maintain Budget), with the exact <strong>dollar amount it's off by</strong>.</li>
+<li>For non-monthly items it also names a <strong>mis-placed payment month</strong> — a value sitting in
+  a month that should be empty, or a month that should hold a payment but is blank.</li>
+<li>An intentional <strong>unequal</strong> spread that still adds up correctly is never flagged.</li>
+</ul>
+<p>From there you can correct the cell by eye, re-tick the row's checkbox to re-distribute
+just that item, or — only as a last resort — re-distribute everything.</p>
 <h2 id="next-steps">Next Steps</h2>
 <div class="admonition tip">
 <p class="admonition-title">Next Steps</p>
