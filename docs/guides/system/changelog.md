@@ -10,6 +10,40 @@ description: 'Detailed history of documentation updates'
 
 ## Version History
 
+### 2.2.0 (2026-06-26)
+
+**Balance locator, ACTIVE-flag fix, and menu tidy-up**
+
+=== "Balance"
+
+    - New **⚖️ Check Annual Budget Balance** tool (Budget > Maintain Budget, and
+      Developer > Integrity Checker) — read-only locator that points to the exact
+      category/item behind an out-of-balance Annual Budget, with the dollar amount,
+      and names a mis-placed payment month for non-monthly items
+    - Confirmed and documented: a **\$0 budget item can be distributed** (only negative
+      is blocked) and keeps a \$0 row in the Annual Budget; such items are now made
+      inactive automatically
+
+=== "ACTIVE flags"
+
+    - **Fixed** a persistent "active but not budgeted" validation failure that a
+      reload could never clear. An item is now ACTIVE only when it is **budgeted in
+      Maintain Budget (amount > 0 and distributed) AND present in the Annual Budget** —
+      previously the sync judged purely on Annual Budget presence while the validator
+      used the budget rule, so the two could never agree
+    - The Validate dialog now **lists the offending items** (not just counts) and drops
+      a duplicated line
+
+=== "Menus"
+
+    - New **Maintain Categories** group under Budget > Maintain Budget (Add/Delete plus
+      the guides)
+    - The lookup editor moved here as **🏷️ Manage Category Lookups** (was Settings >
+      Sheet Settings > "Manage Categories")
+    - **Settings > Sheet Settings** renamed **LookUps Sheet**
+    - Removed the vestigial **Clear Pending Transactions** item; retired the unused
+      function-registry tooling
+
 ### 2.1.0 (2026-06-22)
 
 **Distribution: Start Month + Checkbox Trigger**

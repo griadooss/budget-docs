@@ -163,6 +163,23 @@ The Developer menu provides access to advanced system tools, debugging utilities
 
     - **Dependencies:** Annual Budget sheet
 
+??? "⚖️ Check Annual Budget Balance"
+    - **Function:** `runAnnualBudgetBalanceCheck()`
+
+    - **Purpose:** Read-only locator for an out-of-balance Annual Budget — compares each
+      item's distributed total (Annual Budget col D) against its budget (Maintain Budget
+      col E) and lists the mismatches with the dollar amount each is off by; for simple
+      frequencies it also names a mis-placed payment month
+
+    - **When to Use:** Whenever the BUDGET BALANCED cell is not zero (typically after a
+      hand-edit to a monthly figure)
+
+    - **Output:** A modeless dialog listing the culprit category/item rows (changes nothing)
+
+    - **Note:** Also available to users at **🏦 Budget > Maintain Budget**
+
+    - **Dependencies:** Annual Budget and Maintain Budget sheets
+
 ## 📅 Distribution Setup
 
 !!! note

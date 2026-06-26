@@ -76,7 +76,7 @@ description: 'Core processes and daily tasks in the Budget System'
 
     **Use the proper workflow:**
 
-    1. Go to "🏦 Budget > Maintain Budget > ➕ Add Category/Subcategory"
+    1. Go to "🏦 Budget > Maintain Budget > Maintain Categories > ➕ Add Category/Subcategory"
     2. Follow the guided workflow
     3. System will properly set up the item across all sheets
     4. ACTIVE flags will be automatically managed
@@ -87,7 +87,7 @@ description: 'Core processes and daily tasks in the Budget System'
 
     **Critical - Use proper deletion process:**
 
-    1. Go to "🏦 Budget > Maintain Budget > 🗑️ Delete Category/Subcategory"
+    1. Go to "🏦 Budget > Maintain Budget > Maintain Categories > 🗑️ Delete Category/Subcategory"
     2. System will run safety checks
     3. Proper cleanup across all sheets
     4. ACTIVE flags updated automatically
@@ -98,9 +98,10 @@ description: 'Core processes and daily tasks in the Budget System'
 
     **ACTIVE Flag System:**
 
-    - Categories are automatically marked ACTIVE when budgeted
-    - Status is synchronized across all sheets
-    - Use "🔄 Re-sync ACTIVE Flags" in Developer menu if needed
+    - An item is marked ACTIVE (and so appears in transaction dropdowns) only when it is **budgeted in Maintain Budget (amount > 0 and distributed) AND present in the Annual Budget**
+    - Zeroing an item's budget for the year therefore makes it inactive — it leaves the dropdowns but the category stays in LookUps, ready to re-budget any year
+    - Status is synchronised automatically and re-synced every time the spreadsheet opens
+    - To check or force it, use **Sync ACTIVE Flags** / **Validate ACTIVE Flags** under Settings > LookUps Sheet
     - System prevents deletion of items with reconciled transactions
 
 !!! warning "Critical"
@@ -137,6 +138,30 @@ financial year on the **Annual Budget** sheet.
 !!! note "Balance Validation"
     Distribution requires a balanced budget (income = expenses). The system warns if
     unbalanced but allows an override for individual distribution.
+
+!!! info "Zero-budget items"
+    You **can** distribute an item whose budget is **\$0** (only a negative budget is
+    blocked). It simply spreads zeros, so the item keeps a row in the Annual Budget with
+    a **\$0** total — handy for a category you're not funding this year but want to keep in
+    place. A \$0 item does not unbalance anything (0 = 0), and it is automatically made
+    **inactive** (it leaves the transaction dropdowns) until you give it a budget again.
+
+### Finding an out-of-balance Annual Budget
+
+If the **Annual Budget** ever shows a non-zero balance — most often after you've
+hand-edited a monthly figure to match an uneven real-world payment and slipped — use
+**🏦 Budget > Maintain Budget > ⚖️ Check Annual Budget Balance**.
+
+It's **read-only** and pinpoints the problem instead of making you hunt:
+
+- It lists every item whose distributed total (Annual Budget) doesn't match its budget
+  (Maintain Budget), with the exact **dollar amount it's off by**.
+- For non-monthly items it also names a **mis-placed payment month** — a value sitting in
+  a month that should be empty, or a month that should hold a payment but is blank.
+- An intentional **unequal** spread that still adds up correctly is never flagged.
+
+From there you can correct the cell by eye, re-tick the row's checkbox to re-distribute
+just that item, or — only as a last resort — re-distribute everything.
 
 ## Next Steps
 
