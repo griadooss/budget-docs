@@ -1143,10 +1143,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#during-testing-step-2-configuration" class="md-nav__link">
+  <a href="#during-testing-step-2-initial-setup-budget-build" class="md-nav__link">
     <span class="md-ellipsis">
       
-        During Testing - Step 2 (Configuration)
+        During Testing - Step 2 (Initial Setup &amp; Budget Build)
       
     </span>
   </a>
@@ -2169,10 +2169,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#during-testing-step-2-configuration" class="md-nav__link">
+  <a href="#during-testing-step-2-initial-setup-budget-build" class="md-nav__link">
     <span class="md-ellipsis">
       
-        During Testing - Step 2 (Configuration)
+        During Testing - Step 2 (Initial Setup &amp; Budget Build)
       
     </span>
   </a>
@@ -2370,7 +2370,8 @@
 <li><strong>Three-Step Setup Workflow</strong> - The three numbered menu steps (<code>1. Run Initial EOY Setup</code> → <code>2. Continue EOY Setup</code> → <code>3. Finalize EOY Setup</code>) that follow the initial <strong>Start EOY Process</strong>. The <a href="../overview/">user-facing overview</a> describes the whole journey as four phases by counting <em>Start EOY Process</em> as phase 1.</li>
 <li><strong>Guided Master Archiving</strong> - User manually archives previous master with system guidance</li>
 <li><strong>Comprehensive Verification</strong> - Multiple validation checkpoints throughout process</li>
-<li><strong>User Choice Dialogs</strong> - Commitment validation with Fix Now vs Ignore options</li>
+<li><strong>User Choice Dialogs</strong> - Commitment validation with Fix Now vs Ignore options (this fires during a <em>normal</em> End of Month run; inside the EOY flow loans/commitments are surfaced up-front via the EOY Warnings dialog instead — see <a href="#commitment-validation-system">Commitment Validation System</a>)</li>
+<li><strong>Category Tools During Build</strong> - While the new-year budget is being built, Maintain Categories is surfaced under Period Processing, then removed once Continue EOY Setup runs</li>
 <li><strong>Draggable Warning Dialogs</strong> - Improved user experience for all warning dialogs</li>
 </ul>
 <h3 id="core-functions-and-files">Core Functions and Files</h3>
@@ -2378,8 +2379,8 @@
 <ul>
 <li><strong>Main Entry Points:</strong></li>
 <li><code>showYearEndHelp()</code> - Initial help dialog in master spreadsheet</li>
-<li><code>setupNewYearBudget()</code> - Step 1: Initial EOY setup</li>
-<li><code>continueEOYSetup()</code> - Step 2: Continue configuration and budget update</li>
+<li><code>setupNewYearBudget()</code> - Step 1: Initial EOY setup (then the user builds the budget manually)</li>
+<li><code>continueEOYSetup()</code> - Step 2: copy bank balances, clear transaction sheets, update headers</li>
 <li>
 <p><code>finalizeEOYSetup()</code> - Step 3: Finalization and master archiving</p>
 </li>
@@ -2425,6 +2426,11 @@
 <p class="admonition-title">Critical</p>
 <p>Never use old test copies. Each copy has its own script project, and using an old copy will test outdated code, leading to false results and wasted development time.</p>
 </div>
+<div class="admonition danger">
+<p class="admonition-title">Clean up copies to avoid orphan script projects</p>
+<p>Every <em>Make a copy</em> duplicates the container-bound script into a new project. Deleting a copy only <em>trashes</em> it — the spreadsheet <strong>and its bound script</strong> linger in Drive Trash (≈30 days) until purged. Left unchecked these accumulate and have, in the past, contributed to Google throttling the account.</p>
+<p>After each test cycle, <strong>empty Drive Trash</strong> (<a href="https://drive.google.com/drive/trash">https://drive.google.com/drive/trash</a>) and verify the Apps Script dashboard (<a href="https://script.google.com/home/projects">https://script.google.com/home/projects</a>) — never removing the live master script. Better still, <strong>reuse a single persistent test copy</strong> (reset its data/properties between runs) rather than creating and deleting a new one each cycle, so no extra script projects are spawned.</p>
+</div>
 <h3 id="month-restriction-testing">Month Restriction Testing</h3>
 <p>The EOY process includes month validation that restricts access to June only:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// In setupNewYearBudget() and showYearEndHelp()</span>
@@ -2456,15 +2462,20 @@
 <p>The menu system in <code>onOpen.js</code> adapts based on these states:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// In createBasicMenus()</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">isMaster</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">eoySetupComplete</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">eoyReadyForEom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="c1">// Fresh copy - show only EOY setup options</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nx">periodMenu</span><span class="p">.</span><span class="nx">addSubMenu</span><span class="p">(</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nx">ui</span><span class="p">.</span><span class="nx">createMenu</span><span class="p">(</span><span class="s2">&quot;End of Year Setup&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s2">&quot;1. Run Initial EOY Setup&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;setupNewYearBudget&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s2">&quot;2. Continue EOY Setup&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;continueEOYSetup&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s2">&quot;3. Finalize EOY Setup&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;finalizeEOYSetup&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="p">);</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="c1">// Fresh copy, pre-Continue: show the EOY setup steps plus the category</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="c1">// tools needed to build the new-year budget (the full 🏦 Budget menu is</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="c1">// not built in this state).</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nx">periodMenu</span><span class="p">.</span><span class="nx">addSubMenu</span><span class="p">(</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nx">ui</span><span class="p">.</span><span class="nx">createMenu</span><span class="p">(</span><span class="s2">&quot;End of Year Setup&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s2">&quot;1. Run Initial EOY Setup&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;setupNewYearBudget&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s2">&quot;2. Continue EOY Setup&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;continueEOYSetup&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="p">.</span><span class="nx">addItem</span><span class="p">(</span><span class="s2">&quot;3. Finalize EOY Setup&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;finalizeEOYSetup&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="p">);</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="nx">periodMenu</span><span class="p">.</span><span class="nx">addSeparator</span><span class="p">();</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="nx">periodMenu</span><span class="p">.</span><span class="nx">addSubMenu</span><span class="p">(</span><span class="nx">buildEOYMaintainCategoriesMenu</span><span class="p">(</span><span class="nx">ui</span><span class="p">));</span><span class="w"> </span><span class="c1">// Maintain Budget ▸ Maintain Categories</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
 </code></pre></div>
+<p><code>buildEOYMaintainCategoriesMenu()</code> returns the same Maintain Categories submenu used in normal mode (add / delete / manage lookups + the Step-by-Step, Safety and Automation guides). It is added <strong>only</strong> in this pre-Continue state. When the user runs <code>continueEOYSetup()</code>, that function sets <code>EOY_READY_FOR_EOM = true</code> and calls a <code>forceMenuRefresh</code> into the <code>eoyReadyForEom</code> menu state — which omits the submenu — so the category tools disappear at Continue, mirroring how the End of Month item appears only in the pre-Finalize window.</p>
 <h3 id="state-transitions">State Transitions</h3>
 <ol>
 <li><strong>Fresh Copy Creation:</strong></li>
@@ -2490,7 +2501,7 @@
 </ol>
 <h2 id="technical-implementation-details">Technical Implementation Details</h2>
 <h3 id="commitment-validation-system">Commitment Validation System</h3>
-<p>The EOY process now includes a sophisticated commitment validation system that provides user choice rather than blocking:</p>
+<p><code>endOfMonthProcessing()</code> includes a commitment validation system that offers user choice rather than blocking. Note the <code>!eoyReadyForEom</code> guard: during the EOY flow this check is <strong>skipped</strong> — <code>continueEOYSetup()</code> sets <code>EOY_READY_FOR_EOM = true</code>, so by the time the EOM step runs inside EOY, commitments have already been surfaced up-front by the EOY Warnings dialog in <code>showYearEndHelp()</code> / <code>checkAllBalances()</code>. The Fix Now / Ignore dialog below therefore only appears during a <em>normal</em> monthly End of Month run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// In endOfMonthProcessing() - commitment validation</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">isDev</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">eoyReadyForEom</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">commitmentCheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">validateCommitments</span><span class="p">();</span>
@@ -2681,7 +2692,7 @@
 <p><strong>User Experience Challenges:</strong></p>
 <ul>
 <li>"Google hasn't verified this app" warning appears threatening</li>
-<li>"Go to Budget App Scripts (unsafe)" button seems dangerous</li>
+<li>"Go to Budget-YYYY-Scripts (unsafe)" link seems dangerous (the script name matches the copy's name, e.g. <code>Budget-2026-Scripts</code>)</li>
 <li>Users may abandon the process thinking something is wrong</li>
 </ul>
 <p><strong>Mitigation Strategies:</strong></p>
@@ -2707,14 +2718,14 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> New copy creation process works</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Menu system shows only EOY options in new copy</li>
 </ul>
-<h4 id="during-testing-step-2-configuration">During Testing - Step 2 (Configuration)</h4>
+<h4 id="during-testing-step-2-initial-setup-budget-build">During Testing - Step 2 (Initial Setup &amp; Budget Build)</h4>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Authorization process works smoothly</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Verification checks pass for valid setup</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Configuration dialog accepts valid inputs</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Manual budget update process functions</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Authorization works (OK → Advanced → Go to Budget-YYYY-Scripts → Select all → Continue)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Verification, Timezone, and "New Year Budget Setup" dialogs complete</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Maintain Budget ▸ Maintain Categories is available during the build window (incl. 📋 Step-by-Step Instructions)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Manual budget build works (start dates Col F, amount + frequency, Distribute to Annual Budget)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Budget balance validation works</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Continue setup processes correctly</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Continue setup runs; start-date guard blocks if dates are unset; Maintain Categories disappears after Continue</li>
 </ul>
 <h4 id="during-testing-step-3-finalization">During Testing - Step 3 (Finalization)</h4>
 <ul class="task-list">
