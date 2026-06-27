@@ -17,7 +17,8 @@ The EOY process has been significantly improved from the original design and now
 - **Three-Step Setup Workflow** - The three numbered menu steps (`1. Run Initial EOY Setup` → `2. Continue EOY Setup` → `3. Finalize EOY Setup`) that follow the initial **Start EOY Process**. The [user-facing overview](overview.md) describes the whole journey as four phases by counting *Start EOY Process* as phase 1.
 - **Guided Master Archiving** - User manually archives previous master with system guidance
 - **Comprehensive Verification** - Multiple validation checkpoints throughout process
-- **User Choice Dialogs** - Commitment validation with Fix Now vs Ignore options
+- **User Choice Dialogs** - Commitment validation with Fix Now vs Ignore options (this fires during a *normal* End of Month run; inside the EOY flow loans/commitments are surfaced up-front via the EOY Warnings dialog instead — see [Commitment Validation System](#commitment-validation-system))
+- **Category Tools During Build** - While the new-year budget is being built, Maintain Categories is surfaced under Period Processing, then removed once Continue EOY Setup runs
 - **Draggable Warning Dialogs** - Improved user experience for all warning dialogs
 
 ### Core Functions and Files
@@ -25,8 +26,8 @@ The EOY implementation is primarily contained in `src/utility/yearEndBudget.js`:
 
 - **Main Entry Points:**
   - `showYearEndHelp()` - Initial help dialog in master spreadsheet
-  - `setupNewYearBudget()` - Step 1: Initial EOY setup
-  - `continueEOYSetup()` - Step 2: Continue configuration and budget update
+  - `setupNewYearBudget()` - Step 1: Initial EOY setup (then the user builds the budget manually)
+  - `continueEOYSetup()` - Step 2: copy bank balances, clear transaction sheets, update headers
   - `finalizeEOYSetup()` - Step 3: Finalization and master archiving
 
 - **Supporting Functions:**
@@ -63,6 +64,11 @@ When developing and testing the EOY process, you **must** follow this workflow t
 
 !!! warning "Critical"
     Never use old test copies. Each copy has its own script project, and using an old copy will test outdated code, leading to false results and wasted development time.
+
+!!! danger "Clean up copies to avoid orphan script projects"
+    Every *Make a copy* duplicates the container-bound script into a new project. Deleting a copy only *trashes* it — the spreadsheet **and its bound script** linger in Drive Trash (≈30 days) until purged. Left unchecked these accumulate and have, in the past, contributed to Google throttling the account.
+
+    After each test cycle, **empty Drive Trash** (<https://drive.google.com/drive/trash>) and verify the Apps Script dashboard (<https://script.google.com/home/projects>) — never removing the live master script. Better still, **reuse a single persistent test copy** (reset its data/properties between runs) rather than creating and deleting a new one each cycle, so no extra script projects are spawned.
 
 ### Month Restriction Testing
 
@@ -107,15 +113,21 @@ The menu system in `onOpen.js` adapts based on these states:
 ```javascript
 // In createBasicMenus()
 if (!isMaster && !eoySetupComplete && !eoyReadyForEom) {
-  // Fresh copy - show only EOY setup options
+  // Fresh copy, pre-Continue: show the EOY setup steps plus the category
+  // tools needed to build the new-year budget (the full 🏦 Budget menu is
+  // not built in this state).
   periodMenu.addSubMenu(
     ui.createMenu("End of Year Setup")
       .addItem("1. Run Initial EOY Setup", "setupNewYearBudget")
       .addItem("2. Continue EOY Setup", "continueEOYSetup")
       .addItem("3. Finalize EOY Setup", "finalizeEOYSetup")
   );
+  periodMenu.addSeparator();
+  periodMenu.addSubMenu(buildEOYMaintainCategoriesMenu(ui)); // Maintain Budget ▸ Maintain Categories
 }
 ```
+
+`buildEOYMaintainCategoriesMenu()` returns the same Maintain Categories submenu used in normal mode (add / delete / manage lookups + the Step-by-Step, Safety and Automation guides). It is added **only** in this pre-Continue state. When the user runs `continueEOYSetup()`, that function sets `EOY_READY_FOR_EOM = true` and calls a `forceMenuRefresh` into the `eoyReadyForEom` menu state — which omits the submenu — so the category tools disappear at Continue, mirroring how the End of Month item appears only in the pre-Finalize window.
 
 ### State Transitions
 
@@ -138,7 +150,7 @@ if (!isMaster && !eoySetupComplete && !eoyReadyForEom) {
 
 ### Commitment Validation System
 
-The EOY process now includes a sophisticated commitment validation system that provides user choice rather than blocking:
+`endOfMonthProcessing()` includes a commitment validation system that offers user choice rather than blocking. Note the `!eoyReadyForEom` guard: during the EOY flow this check is **skipped** — `continueEOYSetup()` sets `EOY_READY_FOR_EOM = true`, so by the time the EOM step runs inside EOY, commitments have already been surfaced up-front by the EOY Warnings dialog in `showYearEndHelp()` / `checkAllBalances()`. The Fix Now / Ignore dialog below therefore only appears during a *normal* monthly End of Month run:
 
 ```javascript
 // In endOfMonthProcessing() - commitment validation
@@ -350,7 +362,7 @@ function archiveThisMaster() {
 **User Experience Challenges:**
 
 - "Google hasn't verified this app" warning appears threatening
-- "Go to Budget App Scripts (unsafe)" button seems dangerous
+- "Go to Budget-YYYY-Scripts (unsafe)" link seems dangerous (the script name matches the copy's name, e.g. `Budget-2026-Scripts`)
 - Users may abandon the process thinking something is wrong
 
 **Mitigation Strategies:**
@@ -376,13 +388,13 @@ function archiveThisMaster() {
 - [ ] New copy creation process works
 - [ ] Menu system shows only EOY options in new copy
 
-#### During Testing - Step 2 (Configuration)
-- [ ] Authorization process works smoothly
-- [ ] Verification checks pass for valid setup
-- [ ] Configuration dialog accepts valid inputs
-- [ ] Manual budget update process functions
+#### During Testing - Step 2 (Initial Setup & Budget Build)
+- [ ] Authorization works (OK → Advanced → Go to Budget-YYYY-Scripts → Select all → Continue)
+- [ ] Verification, Timezone, and "New Year Budget Setup" dialogs complete
+- [ ] Maintain Budget ▸ Maintain Categories is available during the build window (incl. 📋 Step-by-Step Instructions)
+- [ ] Manual budget build works (start dates Col F, amount + frequency, Distribute to Annual Budget)
 - [ ] Budget balance validation works
-- [ ] Continue setup processes correctly
+- [ ] Continue setup runs; start-date guard blocks if dates are unset; Maintain Categories disappears after Continue
 
 #### During Testing - Step 3 (Finalization)
 - [ ] Final verification checks function properly
