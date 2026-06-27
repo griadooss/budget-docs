@@ -41,6 +41,9 @@ The EOY implementation is primarily contained in `src/utility/yearEndBudget.js`:
 
 ## Development and Testing Workflow
 
+!!! info "See also: EOY-TESTING.md (budget-app repo)"
+    For the copy-hygiene and deploy mechanics behind this workflow — why `clasp push` never reaches an existing copy, the orphan-script cleanup checklist, the protected master Script IDs, and the reuse-one-copy approach — see [`EOY-TESTING.md`](https://github.com/griadooss/GS-Budget-App/blob/main/EOY-TESTING.md) in the budget-app repository.
+
 ### Critical Development Process
 
 When developing and testing the EOY process, you **must** follow this workflow to ensure you're testing the latest code:
