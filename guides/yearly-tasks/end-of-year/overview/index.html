@@ -797,10 +797,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-initial-setup-in-new-copy" class="md-nav__link">
+  <a href="#2-initial-setup-budget-build-in-new-copy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Initial Setup (in New Copy)
+        2. Initial Setup &amp; Budget Build (in New Copy)
       
     </span>
   </a>
@@ -858,10 +858,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#in-fresh-copy-before-setup" class="md-nav__link">
+  <a href="#in-fresh-copy-during-eoy-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        In Fresh Copy (Before Setup)
+        In Fresh Copy (During EOY Setup)
       
     </span>
   </a>
@@ -930,10 +930,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-commitment-validation-user-choice" class="md-nav__link">
+  <a href="#4-outstanding-loans-commitments-warning-not-a-blocker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Commitment Validation (User Choice)
+        4. Outstanding Loans &amp; Commitments (Warning, not a blocker)
       
     </span>
   </a>
@@ -1678,10 +1678,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-initial-setup-in-new-copy" class="md-nav__link">
+  <a href="#2-initial-setup-budget-build-in-new-copy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Initial Setup (in New Copy)
+        2. Initial Setup &amp; Budget Build (in New Copy)
       
     </span>
   </a>
@@ -1739,10 +1739,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#in-fresh-copy-before-setup" class="md-nav__link">
+  <a href="#in-fresh-copy-during-eoy-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        In Fresh Copy (Before Setup)
+        In Fresh Copy (During EOY Setup)
       
     </span>
   </a>
@@ -1811,10 +1811,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-commitment-validation-user-choice" class="md-nav__link">
+  <a href="#4-outstanding-loans-commitments-warning-not-a-blocker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Commitment Validation (User Choice)
+        4. Outstanding Loans &amp; Commitments (Warning, not a blocker)
       
     </span>
   </a>
@@ -1979,49 +1979,50 @@
 <p>The EOY process consists of <strong>four main steps</strong> with clear menu-driven progression:</p>
 <h3 id="1-start-eoy-process-in-master-spreadsheet">1. <strong>Start EOY Process</strong> (in Master Spreadsheet)</h3>
 <ul>
-<li><strong>Menu Item:</strong> "Start End of Year Process"</li>
-<li>Export critical properties to ensure smooth transition</li>
+<li><strong>Menu:</strong> Period Processing → End of Year → <strong>Start End of Year Process</strong></li>
+<li>Acknowledge the <strong>⚠️ EOY Warnings</strong> dialog if outstanding loans/commitments are found</li>
+<li>Export critical properties to ensure a smooth transition</li>
 <li>Create a copy of your current budget spreadsheet</li>
 <li>The master spreadsheet remains unchanged during this phase</li>
 </ul>
-<h3 id="2-initial-setup-in-new-copy">2. <strong>Initial Setup</strong> (in New Copy)</h3>
+<h3 id="2-initial-setup-budget-build-in-new-copy">2. <strong>Initial Setup &amp; Budget Build</strong> (in New Copy)</h3>
 <ul>
-<li><strong>Menu Item:</strong> "1. Run Initial EOY Setup"</li>
-<li>Authorize scripts in the new copy</li>
-<li>Configure new year settings (dates, payment schedules)</li>
-<li><strong>Manual budget update</strong> - Review and update all income and expense amounts</li>
+<li><strong>Menu:</strong> Period Processing → End of Year Setup → <strong>1. Run Initial EOY Setup</strong></li>
+<li>Authorise scripts in the new copy</li>
+<li>The system imports settings and sets the budget period and payment dates</li>
+<li><strong>Build the new-year budget on the Maintain Budget sheet</strong> — set start dates (Column F, Budget Start Date first), then each category's amount + frequency, and Distribute to Annual Budget. Do this <strong>before</strong> Continue. (Category tools are under Period Processing → Maintain Budget → Maintain Categories during this window.)</li>
 </ul>
 <h3 id="3-continue-setup-in-new-copy">3. <strong>Continue Setup</strong> (in New Copy)</h3>
 <ul>
-<li><strong>Menu Item:</strong> "2. Continue EOY Setup" - Copy bank balances and clear transaction sheets</li>
-<li><strong>Menu Item:</strong> "Run End of Month Process" - Complete final month processing for fiscal year</li>
-<li><strong>Commitment Validation</strong> - System checks for outstanding commitments with user choice (Fix Now vs Ignore)</li>
+<li><strong>Menu:</strong> Period Processing → End of Year Setup → <strong>2. Continue EOY Setup</strong> — copies bank balances and clears the transaction sheets</li>
+<li><strong>Menu:</strong> Period Processing → <strong>Run End of Month Process</strong> — completes the final month and moves June → July</li>
 </ul>
 <h3 id="4-finalization-in-new-copy">4. <strong>Finalization</strong> (in New Copy)</h3>
 <ul>
-<li><strong>Menu Item:</strong> "3. Finalize EOY Setup"</li>
+<li><strong>Menu:</strong> Period Processing → End of Year Setup → <strong>3. Finalize EOY Setup</strong></li>
 <li>Verify all completion criteria are met</li>
 <li>Register the new copy as the active master spreadsheet</li>
-<li><strong>Archive the previous master</strong> with "_ARCHIVED_FY{year}" suffix</li>
+<li><strong>Archive the previous master</strong> with an <code>_ARCHIVED_FY{year}</code> suffix (a manual step on the old master)</li>
 </ul>
 <h2 id="state-driven-menu-system">State-Driven Menu System</h2>
 <p>The EOY process uses an intelligent menu system that adapts based on your progress:</p>
 <h3 id="in-master-spreadsheet-june-only">In Master Spreadsheet (June only)</h3>
 <ul>
-<li><strong>Period Processing</strong> → <strong>Start End of Year Process</strong> - Begin the EOY workflow</li>
+<li><strong>Period Processing → End of Year → Start End of Year Process</strong> — begin the EOY workflow</li>
 </ul>
-<h3 id="in-fresh-copy-before-setup">In Fresh Copy (Before Setup)</h3>
+<h3 id="in-fresh-copy-during-eoy-setup">In Fresh Copy (During EOY Setup)</h3>
 <ul>
-<li><strong>Period Processing</strong> shows only EOY Setup options:</li>
-<li><strong>1. Run Initial EOY Setup</strong> - Start configuration</li>
-<li><strong>2. Continue EOY Setup</strong> - Available after initial setup</li>
-<li><strong>3. Finalize EOY Setup</strong> - Available after continuation</li>
+<li><strong>Period Processing → End of Year Setup</strong> shows the EOY steps:</li>
+<li><strong>1. Run Initial EOY Setup</strong></li>
+<li><strong>2. Continue EOY Setup</strong></li>
+<li><strong>3. Finalize EOY Setup</strong></li>
+<li><strong>Period Processing → Maintain Budget → Maintain Categories</strong> is also available while you build the new-year budget — it is removed automatically once you run Continue EOY Setup.</li>
 </ul>
 <h3 id="in-fresh-copy-after-setup-complete">In Fresh Copy (After Setup Complete)</h3>
 <ul>
-<li><strong>Period Processing</strong> shows normal menu:</li>
-<li><strong>Run End of Month Process</strong> - Normal monthly operations</li>
-<li><strong>Start End of Year Process</strong> - For next year's EOY</li>
+<li><strong>Period Processing</strong> shows the normal menu:</li>
+<li><strong>Run End of Month Process</strong> — normal monthly operations</li>
+<li><strong>End of Year → Start End of Year Process</strong> — for next year's EOY</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2057,12 +2058,13 @@
 <li><strong>Third</strong> - Ensure all three balance indicators show $0.00 before starting EOY process</li>
 </ol>
 </div>
-<h3 id="4-commitment-validation-user-choice">4. <strong>Commitment Validation</strong> (User Choice)</h3>
+<h3 id="4-outstanding-loans-commitments-warning-not-a-blocker">4. <strong>Outstanding Loans &amp; Commitments</strong> (Warning, not a blocker)</h3>
 <ul>
-<li>System checks for outstanding commitments during End of Month processing</li>
-<li><strong>User Choice Dialog:</strong> Choose between "Fix Now" (NO) or "Ignore" (YES)</li>
-<li><strong>Fix Now (NO):</strong> Address commitments before proceeding with EOM</li>
-<li><strong>Ignore (YES):</strong> Proceed with EOM despite outstanding commitments</li>
+<li>When you <strong>Start End of Year Process</strong>, the system checks for outstanding informal loans (a negative LOANS REGISTER balance) and missed budgeted repayments (commitments).</li>
+<li>If any are found, an <strong>⚠️ EOY Warnings</strong> dialog appears with two choices:</li>
+<li><strong>Continue with EOY</strong> — acknowledge the warnings and proceed</li>
+<li><strong>Cancel &amp; Address Issues</strong> — stop and fix them first</li>
+<li>Because commitments are checked here at the start, they are <strong>not</strong> re-checked during the End of Month step inside the EOY flow.</li>
 </ul>
 <h2 id="master-archiving-process">Master Archiving Process</h2>
 <p>The EOY process includes a <strong>guided archiving system</strong> for your previous master spreadsheet:</p>
@@ -2095,18 +2097,18 @@
 <h2 id="authorization-process">Authorization Process</h2>
 <p>When working with a new copy, you'll need to authorize the scripts. <strong>Don't worry - this is normal and safe:</strong></p>
 <ol>
-<li><strong>Initial Prompt</strong> - "Authorization Required" dialog appears</li>
-<li><strong>Google Authorization</strong> - Select your account</li>
-<li><strong>Security Warning</strong> - Google will show a warning that looks scary but is normal:</li>
-<li>You'll see "Google hasn't verified this app"</li>
-<li>You'll see "The app is requesting access to sensitive info"</li>
-<li><strong>This is expected</strong> - Google shows this for all custom spreadsheet scripts</li>
-<li><strong>Continue Despite Warning:</strong></li>
-<li>Click <strong>"Advanced"</strong> (bottom left of the dialog)</li>
-<li>Click <strong>"Go to Budget App Scripts (unsafe)"</strong> - <em>this is safe, just Google's standard warning</em></li>
-<li><strong>Check "Select all"</strong> to grant required permissions</li>
-<li>Click <strong>"Allow"</strong></li>
-<li><strong>Verification</strong> - System automatically validates setup</li>
+<li><strong>"Authorization required" dialog</strong> appears — click <strong>OK</strong></li>
+<li><strong>Choose your Google account</strong> (the same one you use for the spreadsheet)</li>
+<li><strong>Security warning</strong> — Google shows a warning that looks alarming but is normal:</li>
+<li>"Google hasn't verified this app"</li>
+<li>"The app is requesting access to sensitive info"</li>
+<li><strong>This is expected</strong> — Google shows this for all custom spreadsheet scripts</li>
+<li><strong>Continue despite the warning:</strong></li>
+<li>Click <strong>Advanced</strong> (bottom left of the dialog)</li>
+<li>Click <strong>Go to Budget-YYYY-Scripts (unsafe)</strong> — the script name matches your copy's name; despite the label it is <strong>not</strong> unsafe</li>
+<li>Tick <strong>Select all</strong> to grant the required permissions</li>
+<li>Click <strong>Continue</strong></li>
+<li><strong>Verification</strong> — the system automatically validates the setup</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">About the \"Unsafe\" Warning</p>
@@ -2119,17 +2121,17 @@
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="from-master-spreadsheet-june-only">From Master Spreadsheet (June only)</h3>
 <ol>
-<li>Navigate to <strong>Period Processing</strong> → <strong>Start End of Year Process</strong></li>
-<li>Follow the guided instructions in the help dialog</li>
+<li>Navigate to <strong>Period Processing → End of Year → Start End of Year Process</strong></li>
+<li>Follow the guided instructions in the help dialog (you can <strong>Print Instructions</strong>)</li>
 <li>Export properties when prompted</li>
 <li>Create a copy of your spreadsheet</li>
 </ol>
 <h3 id="from-new-copy">From New Copy</h3>
 <ol>
 <li>Open the new copy</li>
-<li>Navigate to <strong>Period Processing</strong> → <strong>1. Run Initial EOY Setup</strong></li>
-<li><strong>Complete authorization when prompted</strong> - Google will show scary warnings but this is normal and safe</li>
-<li>Follow the four-step process through to finalization</li>
+<li>Navigate to <strong>Period Processing → End of Year Setup → 1. Run Initial EOY Setup</strong></li>
+<li><strong>Complete authorisation when prompted</strong> — Google shows alarming-looking warnings but this is normal and safe</li>
+<li>Build your new-year budget, then follow the steps through to finalisation</li>
 </ol>
 <h2 id="documentation-and-support">Documentation and Support</h2>
 <ul>
