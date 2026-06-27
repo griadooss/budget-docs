@@ -28,45 +28,46 @@ The EOY process should be initiated when:
 The EOY process consists of **four main steps** with clear menu-driven progression:
 
 ### 1. **Start EOY Process** (in Master Spreadsheet)
-   - **Menu Item:** "Start End of Year Process"
-   - Export critical properties to ensure smooth transition
+   - **Menu:** Period Processing → End of Year → **Start End of Year Process**
+   - Acknowledge the **⚠️ EOY Warnings** dialog if outstanding loans/commitments are found
+   - Export critical properties to ensure a smooth transition
    - Create a copy of your current budget spreadsheet
    - The master spreadsheet remains unchanged during this phase
 
-### 2. **Initial Setup** (in New Copy)
-   - **Menu Item:** "1. Run Initial EOY Setup"
-   - Authorize scripts in the new copy
-   - Configure new year settings (dates, payment schedules)
-   - **Manual budget update** - Review and update all income and expense amounts
+### 2. **Initial Setup & Budget Build** (in New Copy)
+   - **Menu:** Period Processing → End of Year Setup → **1. Run Initial EOY Setup**
+   - Authorise scripts in the new copy
+   - The system imports settings and sets the budget period and payment dates
+   - **Build the new-year budget on the Maintain Budget sheet** — set start dates (Column F, Budget Start Date first), then each category's amount + frequency, and Distribute to Annual Budget. Do this **before** Continue. (Category tools are under Period Processing → Maintain Budget → Maintain Categories during this window.)
 
 ### 3. **Continue Setup** (in New Copy)
-   - **Menu Item:** "2. Continue EOY Setup" - Copy bank balances and clear transaction sheets
-   - **Menu Item:** "Run End of Month Process" - Complete final month processing for fiscal year
-   - **Commitment Validation** - System checks for outstanding commitments with user choice (Fix Now vs Ignore)
+   - **Menu:** Period Processing → End of Year Setup → **2. Continue EOY Setup** — copies bank balances and clears the transaction sheets
+   - **Menu:** Period Processing → **Run End of Month Process** — completes the final month and moves June → July
 
 ### 4. **Finalization** (in New Copy)
-   - **Menu Item:** "3. Finalize EOY Setup"
+   - **Menu:** Period Processing → End of Year Setup → **3. Finalize EOY Setup**
    - Verify all completion criteria are met
    - Register the new copy as the active master spreadsheet
-   - **Archive the previous master** with "_ARCHIVED_FY{year}" suffix
+   - **Archive the previous master** with an `_ARCHIVED_FY{year}` suffix (a manual step on the old master)
 
 ## State-Driven Menu System
 
 The EOY process uses an intelligent menu system that adapts based on your progress:
 
 ### In Master Spreadsheet (June only)
-- **Period Processing** → **Start End of Year Process** - Begin the EOY workflow
+- **Period Processing → End of Year → Start End of Year Process** — begin the EOY workflow
 
-### In Fresh Copy (Before Setup)
-- **Period Processing** shows only EOY Setup options:
-  - **1. Run Initial EOY Setup** - Start configuration
-  - **2. Continue EOY Setup** - Available after initial setup
-  - **3. Finalize EOY Setup** - Available after continuation
+### In Fresh Copy (During EOY Setup)
+- **Period Processing → End of Year Setup** shows the EOY steps:
+  - **1. Run Initial EOY Setup**
+  - **2. Continue EOY Setup**
+  - **3. Finalize EOY Setup**
+- **Period Processing → Maintain Budget → Maintain Categories** is also available while you build the new-year budget — it is removed automatically once you run Continue EOY Setup.
 
 ### In Fresh Copy (After Setup Complete)
-- **Period Processing** shows normal menu:
-  - **Run End of Month Process** - Normal monthly operations
-  - **Start End of Year Process** - For next year's EOY
+- **Period Processing** shows the normal menu:
+  - **Run End of Month Process** — normal monthly operations
+  - **End of Year → Start End of Year Process** — for next year's EOY
 
 !!! note
     The menu system automatically adapts based on your EOY completion status, ensuring you always see the appropriate options for your current stage.
@@ -101,11 +102,12 @@ Before beginning the EOY process, ensure these conditions are met:
     2. **Second** - Use 'Reconciliation Dashboard' to resolve any Cash Flow transaction issues (missing, extra, or unreconciled transactions)
     3. **Third** - Ensure all three balance indicators show $0.00 before starting EOY process
 
-### 4. **Commitment Validation** (User Choice)
-- System checks for outstanding commitments during End of Month processing
-- **User Choice Dialog:** Choose between "Fix Now" (NO) or "Ignore" (YES)
-- **Fix Now (NO):** Address commitments before proceeding with EOM
-- **Ignore (YES):** Proceed with EOM despite outstanding commitments
+### 4. **Outstanding Loans & Commitments** (Warning, not a blocker)
+- When you **Start End of Year Process**, the system checks for outstanding informal loans (a negative LOANS REGISTER balance) and missed budgeted repayments (commitments).
+- If any are found, an **⚠️ EOY Warnings** dialog appears with two choices:
+  - **Continue with EOY** — acknowledge the warnings and proceed
+  - **Cancel & Address Issues** — stop and fix them first
+- Because commitments are checked here at the start, they are **not** re-checked during the End of Month step inside the EOY flow.
 
 ## Master Archiving Process
 
@@ -140,18 +142,18 @@ After EOY finalization, you must manually archive the old master:
 
 When working with a new copy, you'll need to authorize the scripts. **Don't worry - this is normal and safe:**
 
-1. **Initial Prompt** - "Authorization Required" dialog appears
-2. **Google Authorization** - Select your account
-3. **Security Warning** - Google will show a warning that looks scary but is normal:
-   - You'll see "Google hasn't verified this app"
-   - You'll see "The app is requesting access to sensitive info"
-   - **This is expected** - Google shows this for all custom spreadsheet scripts
-4. **Continue Despite Warning:**
-   - Click **"Advanced"** (bottom left of the dialog)
-   - Click **"Go to Budget App Scripts (unsafe)"** - *this is safe, just Google's standard warning*
-   - **Check "Select all"** to grant required permissions
-   - Click **"Allow"**
-5. **Verification** - System automatically validates setup
+1. **"Authorization required" dialog** appears — click **OK**
+2. **Choose your Google account** (the same one you use for the spreadsheet)
+3. **Security warning** — Google shows a warning that looks alarming but is normal:
+   - "Google hasn't verified this app"
+   - "The app is requesting access to sensitive info"
+   - **This is expected** — Google shows this for all custom spreadsheet scripts
+4. **Continue despite the warning:**
+   - Click **Advanced** (bottom left of the dialog)
+   - Click **Go to Budget-YYYY-Scripts (unsafe)** — the script name matches your copy's name; despite the label it is **not** unsafe
+   - Tick **Select all** to grant the required permissions
+   - Click **Continue**
+5. **Verification** — the system automatically validates the setup
 
 !!! warning "About the \"Unsafe\" Warning"
     Google shows this warning for ALL custom spreadsheet scripts, not because there's actually a problem. The budget system is safe to authorize - it only accesses your budget spreadsheet data and nothing else.
@@ -162,16 +164,16 @@ When working with a new copy, you'll need to authorize the scripts. **Don't worr
 ## Getting Started
 
 ### From Master Spreadsheet (June only)
-1. Navigate to **Period Processing** → **Start End of Year Process**
-2. Follow the guided instructions in the help dialog
+1. Navigate to **Period Processing → End of Year → Start End of Year Process**
+2. Follow the guided instructions in the help dialog (you can **Print Instructions**)
 3. Export properties when prompted
 4. Create a copy of your spreadsheet
 
 ### From New Copy
 1. Open the new copy
-2. Navigate to **Period Processing** → **1. Run Initial EOY Setup**
-3. **Complete authorization when prompted** - Google will show scary warnings but this is normal and safe
-4. Follow the four-step process through to finalization
+2. Navigate to **Period Processing → End of Year Setup → 1. Run Initial EOY Setup**
+3. **Complete authorisation when prompted** — Google shows alarming-looking warnings but this is normal and safe
+4. Build your new-year budget, then follow the steps through to finalisation
 
 ## Documentation and Support
 
