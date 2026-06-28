@@ -53,7 +53,7 @@ This guide gives direct, step-by-step instructions for completing the End of Yea
    - **Folder** defaults to **My Drive** — leave it there or choose another destination.
    - Tick **Share it with the same people** and **Copy comments** so nothing is lost in the new copy.
 3. Click **Make a copy**.
-4. **Open the new copy** — and make sure you are now working in the *new* spreadsheet, not the old master, for every step that follows.
+4. **The new copy opens itself automatically** (in a new browser tab). Make sure you are now working in the *new* spreadsheet, not the old master, for every step that follows.
 
 ## Step 2: Initial Setup (New Copy)
 
@@ -77,11 +77,10 @@ After authorising, the setup runs through several dialogs:
 When you first run the setup, Google walks you through authorisation. **Don't worry — this is normal and safe.**
 
 1. **"Authorization required"** dialog appears — click **OK**.
-2. **Choose your Google account** — the same one you use for the spreadsheet.
-3. **"Google hasn't verified this app"** warning appears (this is expected for all custom spreadsheet scripts):
+2. **"Google hasn't verified this app"** warning appears (this is expected for all custom spreadsheet scripts):
    - Click **Advanced** (bottom left).
    - Click **Go to Budget-YYYY-Scripts (unsafe)** — the script name matches your copy's name.
-4. On the permissions screen, tick **Select all**, then click **Continue**.
+3. On the permissions screen, tick **Select all**, then click **Continue**.
 
 !!! warning "About the \"unsafe\" wording"
     Despite the label, the app is **not** unsafe. Google shows this warning for every custom spreadsheet script that it hasn't formally verified — it isn't a sign of a problem. The budget system only accesses your own budget spreadsheet.
@@ -109,6 +108,29 @@ On the **Maintain Budget** sheet:
 
 !!! note "The Maintain Categories tools only appear during this window"
     During EOY setup the full **🏦 Budget** menu is hidden, so these category tools live under **Period Processing → Maintain Budget** instead. They are available from when the copy opens until you run **Continue EOY Setup**, after which they are removed automatically.
+
+### Managing the Start Dates
+
+The **Budget Start Dates** table (Column E = labels, Column F = dates) is the one genuinely delicate part of the whole EOY process — everything else is done for you by the script. Take a moment to understand it before you change anything.
+
+!!! info "What the start dates are actually for"
+    A start date only matters for an item paid **more often than monthly** — i.e. **fortnightly (26/year) or weekly (52/year)**. For those, the system needs the **first pay-date** so it can count how many pay-days fall in each month and spread the money correctly.
+
+    Items paid **monthly or less often** (frequency 1, 2, 3, 4, 6 or 12) **do not use these dates at all** — they are spread evenly using the per-row **Start Mth (Column J)**.
+
+The rules to follow:
+
+1. **Always set the Budget Start Date first** (it is used by every other calculation).
+2. **Never remove these three rows:** **Budget**, **Budget Period (months)**, and **Shopping Day** (Groceries depends on Shopping Day).
+3. **Removing an income source is safe** — *provided* you no longer have a fortnightly/weekly category with that exact name. If you have stopped receiving Pension or FTB and have also removed those categories, removing their start dates is correct and harmless.
+4. **The label must match the category name exactly.** When you *add* a new fortnightly/weekly source, add a row whose Column E label matches the subcategory name **character for character** (spelling, spacing and capitalisation), and put its **first pay-date** (within the new budget period) in Column F.
+5. When removing a source, **delete the whole table row** so the table closes up cleanly — don't just clear the date and leave an orphaned label behind.
+
+!!! warning "If you get the start dates wrong"
+    If a fortnightly/weekly category has no matching start date when you Distribute it, the system **stops with a clear message** ("Start date not configured for …") rather than producing a wrong budget — so you will know. Fix the table and Distribute again.
+
+!!! danger "Safety net — you cannot harm your master"
+    Throughout EOY you are working in a **copy**, never the master. If the copy ever becomes a mess — wrong start dates, a tangled budget, anything — the simplest and safest fix is to **delete the copy and start the EOY process again from your MASTER spreadsheet**. Nothing is lost: your master is untouched until the very last step (Finalize), so you can always begin again from a clean copy.
 
 ## Step 4: Continue Setup (New Copy)
 
@@ -140,7 +162,12 @@ On the **Maintain Budget** sheet:
     !!! warning "End of Month must be done first"
         If you haven't run End of Month yet, finalisation is blocked with **"⚠️ End of Month Processing Required"** (the current month must be July). Run Step 5 first.
 
-2. Click **Yes** to finalise. The system verifies all completion criteria and then marks this copy as the new **master** spreadsheet (`IS_MASTER = true`).
+2. The **Finalize End of Year Setup** dialog opens and runs the completion checks. When they pass it shows **✅ All verification checks have passed!** and explains that completing setup will:
+   - Register this spreadsheet as your current budget master
+   - Enable full budget functionality for the new fiscal year
+   - Prepare the system for regular monthly operations
+
+    Click **Complete Setup**. (Behind the scenes this marks the copy as the new **master** spreadsheet — `IS_MASTER = true`.)
 3. A completion dialog appears with your next step — archiving the old master (Step 7).
 
 ## Step 7: Archive the Old Master (Manual Step)
@@ -213,6 +240,24 @@ On the **Maintain Budget** sheet:
 ### ❌ "End of Month Processing Required"
 **Problem:** Finalisation is blocked.
 **Solution:** Run **Period Processing → Run End of Month Process** first to transition from June to July.
+
+### ❌ "Start date not configured for …"
+**Problem:** Distributing a fortnightly/weekly category fails because its start date is missing or the label doesn't match.
+**Solution:** Open the **Budget Start Dates** table and make sure there is a row whose **Column E label matches the category name exactly**, with its first pay-date in **Column F**. See [Managing the Start Dates](#managing-the-start-dates). Then Distribute again.
+
+### ❌ The copy has become a mess — start over
+**Problem:** The new copy is in a confused state (wrong start dates, tangled budget, steps run out of order) and you're not sure how to recover.
+**Solution:** Don't try to untangle it. **Delete the copy and start the EOY process again from your MASTER** (Step 1). You are always working in a copy, so the master is untouched until Finalize — beginning again from a fresh copy is the safest fix and loses nothing.
+
+### ❌ "Print Instructions" does nothing
+**Problem:** The print button shows the print preview (or nothing) but doesn't actually print.
+**Solution:** This is **your PC's print queue, not the budget app** — the same button prints fine on a healthy system. It is a known local issue (a stuck print spooler or browser print process) that builds up during a session.
+
+1. The simple fix: **reboot the PC** and try again.
+2. Quick test: press **Ctrl+P** on any ordinary web page and print. If that *also* fails, it's your printer/print queue (not Sheets); if only Sheets fails, fully quit and reopen your browser.
+3. Advanced users can clear the print queue instead of rebooting — see the [EOY Developer Guide](developer-guide.md#print-buttons-and-the-local-print-subsystem) for the exact commands.
+
+It never affects your budget data or the EOY process — only the convenience print-out.
 
 ## Quick Reference
 

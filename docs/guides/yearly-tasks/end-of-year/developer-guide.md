@@ -268,6 +268,27 @@ Multiple verification points ensure system integrity:
    - Annual Budget: "BUDGET BALANCED" indicator = 0
    - Maintain Budget: Balance indicator = 0
 
+### Start Dates and Distribution Logic
+
+The **Budget Start Dates** table the user edits in Step 3 is the named range **`IncomeStartDatesConfig`** on Maintain Budget — Column E holds the labels, Column F the values. It is read by **label lookup**, not fixed cell addresses, via `findConfigTableCell(label, "startDate")` (defined in `config/namedRanges.js`). This is why the table can grow or shrink: lookups scan the range for a matching label.
+
+!!! warning "User-facing fragility"
+    This is the one delicate, fully-manual step in EOY — everything else is scripted. The [Managing the Start Dates](setup.md#managing-the-start-dates) section of the user guide and the in-product *Create New Budget* dialog both warn novices about it. Keep those three places (dialog, setup guide, this section) in sync if the logic changes.
+
+**How a row's distribution path is chosen** (`distributeBudget.js`, `distributeValuesFromRow()`):
+
+- **Frequency ≤ 12** (1, 2, 3, 4, 6, 12) → `distributeWithSimpleMath()`. Even spread, offset by the per-row **Start Mth (Column J)**. **These never read the start-date table.**
+- **Frequency > 12** (fortnightly = 26, weekly = 52) → `distributeWithDynamicCalculation()` → `getStartDateForItem(subcategoryName)`. This matches the **subcategory name exactly** against a Column E label (`getStartDateFromConfigTable()`) to find the real first pay-date, then `calculateMonthlyDistributions()` counts pay-days per month.
+
+**Consequences of editing the table:**
+
+- **Removing a row** is harmless unless a fortnightly/weekly category with that exact name is still distributed — in which case `getStartDateForItem()` returns `null` and `distributeWithDynamicCalculation()` throws `"Start date not configured for {name}"` (a clean stop, never a silent wrong result).
+- **Adding a source** requires a Column E label matching the subcategory name character-for-character, plus a first pay-date within the budget period.
+- **`Budget`, `Budget Period (months)`, and `Shopping Day` must remain** — `Budget` feeds every calculation; `Shopping Day` drives Groceries via `calculateFirstShoppingDate()`. EOY's start-date config dialog reads these defensively (`range ? value : default`), so missing optional rows degrade gracefully rather than crashing.
+
+!!! note "Legacy date files"
+    `src/utility/dates/pensionDays.js`, `ftbDays.js` and `flexPayDays.js` are **fully commented-out legacy**. They wrote to the old "Fortnightly Payments mapped to Monthly" table and were superseded by the dynamic distribution above. Don't reintroduce them.
+
 ### Manual Master Archiving Process
 
 The archiving system requires **user-initiated action** rather than automatic archiving:
@@ -343,6 +364,40 @@ function archiveThisMaster() {
 - **Reversible:** `restoreFromArchive()` function can undo the archiving
 
 ## Known Technical Limitations
+
+### Print Buttons and the Local Print Subsystem
+
+**Issue:** The "Print Instructions" buttons in the EOY dialogs sometimes do nothing — either the browser print preview never appears, or it appears but pressing **Print** sends nothing to the printer.
+
+**This is NOT a budget-app / Apps Script bug.** It was chased at length during UAT and conclusively ruled out:
+
+- The *same* GAS/HTML code prints fine immediately after a PC reboot and fails later in the same session.
+- The button that ultimately fails ("Print" in the screenshot) is **Chrome's own native print dialog** — entirely outside our HTML. By the time that preview is showing, `window.print()` has already done its whole job; everything after is **Chrome → the OS print spooler (CUPS) → the printer driver**.
+- The failure is *stateful*: it accumulates during a session and is cleared by a reboot (which restarts both `cupsd` and Chrome). That is the classic signature of a **stuck CUPS print queue**, or less commonly a hung Chrome print-backend process.
+
+**Impact:** Cosmetic/UX only, and **outside the realm of normal user involvement** — a user just needs to know "if Print does nothing, it's your PC's print queue, not the budget; reboot (or restart the print service) and try again." It does not affect any budget data or the EOY process itself.
+
+**Related code (leave as-is):** the `setupNewYearBudget()` dialog carries an `@media print` rule so that *when* it does print, the fixed-height/scrolling layout flows onto one clean page with the footer buttons stripped. That fix is unrelated to the spooler problem but worth keeping.
+
+**Diagnosis & recovery (Manjaro / CUPS):**
+
+```bash
+# Healthy baseline looks like: cups active, printer "idle" + "enabled", empty queue
+systemctl is-active cups
+lpstat -p <PRINTER>     # printer state (e.g. MFC7360N)
+lpstat -o               # queued jobs (empty = none stuck)
+
+# Recovery without a full reboot:
+cancel -a               # clear stuck jobs
+cupsenable <PRINTER>    # re-enable if paused/stopped
+cupsaccept <PRINTER>
+sudo systemctl restart cups   # restart just the spooler
+
+# Discriminator — is it CUPS or Chrome?
+# Press Ctrl+P on any ordinary web page and print to the same printer:
+#   - also fails  -> CUPS / printer (use the commands above)
+#   - only Sheets fails -> Chrome print process (fully quit & reopen Chrome)
+```
 
 ### Script Property Isolation
 
