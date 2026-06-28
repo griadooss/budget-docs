@@ -905,6 +905,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 3: Build Your New-Year Budget (New Copy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#managing-the-start-dates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing the Start Dates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1107,6 +1124,39 @@
     <span class="md-ellipsis">
       
         ❌ "End of Month Processing Required"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-date-not-configured-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "Start date not configured for …"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-copy-has-become-a-mess-start-over" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ The copy has become a mess — start over
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-instructions-does-nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "Print Instructions" does nothing
       
     </span>
   </a>
@@ -1842,6 +1892,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 3: Build Your New-Year Budget (New Copy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#managing-the-start-dates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing the Start Dates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2050,6 +2117,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#start-date-not-configured-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "Start date not configured for …"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-copy-has-become-a-mess-start-over" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ The copy has become a mess — start over
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-instructions-does-nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ "Print Instructions" does nothing
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2178,7 +2278,7 @@
 <li><strong>Folder</strong> defaults to <strong>My Drive</strong> — leave it there or choose another destination.</li>
 <li>Tick <strong>Share it with the same people</strong> and <strong>Copy comments</strong> so nothing is lost in the new copy.</li>
 <li>Click <strong>Make a copy</strong>.</li>
-<li><strong>Open the new copy</strong> — and make sure you are now working in the <em>new</em> spreadsheet, not the old master, for every step that follows.</li>
+<li><strong>The new copy opens itself automatically</strong> (in a new browser tab). Make sure you are now working in the <em>new</em> spreadsheet, not the old master, for every step that follows.</li>
 </ol>
 <h2 id="step-2-initial-setup-new-copy">Step 2: Initial Setup (New Copy)</h2>
 <h3 id="21-run-initial-eoy-setup">2.1 Run Initial EOY Setup</h3>
@@ -2197,7 +2297,6 @@
 <p>When you first run the setup, Google walks you through authorisation. <strong>Don't worry — this is normal and safe.</strong></p>
 <ol>
 <li><strong>"Authorization required"</strong> dialog appears — click <strong>OK</strong>.</li>
-<li><strong>Choose your Google account</strong> — the same one you use for the spreadsheet.</li>
 <li><strong>"Google hasn't verified this app"</strong> warning appears (this is expected for all custom spreadsheet scripts):</li>
 <li>Click <strong>Advanced</strong> (bottom left).</li>
 <li>Click <strong>Go to Budget-YYYY-Scripts (unsafe)</strong> — the script name matches your copy's name.</li>
@@ -2231,6 +2330,29 @@
 <div class="admonition note">
 <p class="admonition-title">The Maintain Categories tools only appear during this window</p>
 <p>During EOY setup the full <strong>🏦 Budget</strong> menu is hidden, so these category tools live under <strong>Period Processing → Maintain Budget</strong> instead. They are available from when the copy opens until you run <strong>Continue EOY Setup</strong>, after which they are removed automatically.</p>
+</div>
+<h3 id="managing-the-start-dates">Managing the Start Dates</h3>
+<p>The <strong>Budget Start Dates</strong> table (Column E = labels, Column F = dates) is the one genuinely delicate part of the whole EOY process — everything else is done for you by the script. Take a moment to understand it before you change anything.</p>
+<div class="admonition info">
+<p class="admonition-title">What the start dates are actually for</p>
+<p>A start date only matters for an item paid <strong>more often than monthly</strong> — i.e. <strong>fortnightly (26/year) or weekly (52/year)</strong>. For those, the system needs the <strong>first pay-date</strong> so it can count how many pay-days fall in each month and spread the money correctly.</p>
+<p>Items paid <strong>monthly or less often</strong> (frequency 1, 2, 3, 4, 6 or 12) <strong>do not use these dates at all</strong> — they are spread evenly using the per-row <strong>Start Mth (Column J)</strong>.</p>
+</div>
+<p>The rules to follow:</p>
+<ol>
+<li><strong>Always set the Budget Start Date first</strong> (it is used by every other calculation).</li>
+<li><strong>Never remove these three rows:</strong> <strong>Budget</strong>, <strong>Budget Period (months)</strong>, and <strong>Shopping Day</strong> (Groceries depends on Shopping Day).</li>
+<li><strong>Removing an income source is safe</strong> — <em>provided</em> you no longer have a fortnightly/weekly category with that exact name. If you have stopped receiving Pension or FTB and have also removed those categories, removing their start dates is correct and harmless.</li>
+<li><strong>The label must match the category name exactly.</strong> When you <em>add</em> a new fortnightly/weekly source, add a row whose Column E label matches the subcategory name <strong>character for character</strong> (spelling, spacing and capitalisation), and put its <strong>first pay-date</strong> (within the new budget period) in Column F.</li>
+<li>When removing a source, <strong>delete the whole table row</strong> so the table closes up cleanly — don't just clear the date and leave an orphaned label behind.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">If you get the start dates wrong</p>
+<p>If a fortnightly/weekly category has no matching start date when you Distribute it, the system <strong>stops with a clear message</strong> ("Start date not configured for …") rather than producing a wrong budget — so you will know. Fix the table and Distribute again.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Safety net — you cannot harm your master</p>
+<p>Throughout EOY you are working in a <strong>copy</strong>, never the master. If the copy ever becomes a mess — wrong start dates, a tangled budget, anything — the simplest and safest fix is to <strong>delete the copy and start the EOY process again from your MASTER spreadsheet</strong>. Nothing is lost: your master is untouched until the very last step (Finalize), so you can always begin again from a clean copy.</p>
 </div>
 <h2 id="step-4-continue-setup-new-copy">Step 4: Continue Setup (New Copy)</h2>
 <h3 id="41-copy-balances-and-clear-data">4.1 Copy Balances and Clear Data</h3>
@@ -2269,9 +2391,15 @@
 </div>
 </li>
 <li>
-<p>Click <strong>Yes</strong> to finalise. The system verifies all completion criteria and then marks this copy as the new <strong>master</strong> spreadsheet (<code>IS_MASTER = true</code>).</p>
+<p>The <strong>Finalize End of Year Setup</strong> dialog opens and runs the completion checks. When they pass it shows <strong>✅ All verification checks have passed!</strong> and explains that completing setup will:</p>
 </li>
-<li>A completion dialog appears with your next step — archiving the old master (Step 7).</li>
+<li>Register this spreadsheet as your current budget master</li>
+<li>Enable full budget functionality for the new fiscal year</li>
+<li>
+<p>Prepare the system for regular monthly operations</p>
+<p>Click <strong>Complete Setup</strong>. (Behind the scenes this marks the copy as the new <strong>master</strong> spreadsheet — <code>IS_MASTER = true</code>.)
+3. A completion dialog appears with your next step — archiving the old master (Step 7).</p>
+</li>
 </ol>
 <h2 id="step-7-archive-the-old-master-manual-step">Step 7: Archive the Old Master (Manual Step)</h2>
 <ol>
@@ -2335,6 +2463,21 @@
 <h3 id="end-of-month-processing-required">❌ "End of Month Processing Required"</h3>
 <p><strong>Problem:</strong> Finalisation is blocked.
 <strong>Solution:</strong> Run <strong>Period Processing → Run End of Month Process</strong> first to transition from June to July.</p>
+<h3 id="start-date-not-configured-for">❌ "Start date not configured for …"</h3>
+<p><strong>Problem:</strong> Distributing a fortnightly/weekly category fails because its start date is missing or the label doesn't match.
+<strong>Solution:</strong> Open the <strong>Budget Start Dates</strong> table and make sure there is a row whose <strong>Column E label matches the category name exactly</strong>, with its first pay-date in <strong>Column F</strong>. See <a href="#managing-the-start-dates">Managing the Start Dates</a>. Then Distribute again.</p>
+<h3 id="the-copy-has-become-a-mess-start-over">❌ The copy has become a mess — start over</h3>
+<p><strong>Problem:</strong> The new copy is in a confused state (wrong start dates, tangled budget, steps run out of order) and you're not sure how to recover.
+<strong>Solution:</strong> Don't try to untangle it. <strong>Delete the copy and start the EOY process again from your MASTER</strong> (Step 1). You are always working in a copy, so the master is untouched until Finalize — beginning again from a fresh copy is the safest fix and loses nothing.</p>
+<h3 id="print-instructions-does-nothing">❌ "Print Instructions" does nothing</h3>
+<p><strong>Problem:</strong> The print button shows the print preview (or nothing) but doesn't actually print.
+<strong>Solution:</strong> This is <strong>your PC's print queue, not the budget app</strong> — the same button prints fine on a healthy system. It is a known local issue (a stuck print spooler or browser print process) that builds up during a session.</p>
+<ol>
+<li>The simple fix: <strong>reboot the PC</strong> and try again.</li>
+<li>Quick test: press <strong>Ctrl+P</strong> on any ordinary web page and print. If that <em>also</em> fails, it's your printer/print queue (not Sheets); if only Sheets fails, fully quit and reopen your browser.</li>
+<li>Advanced users can clear the print queue instead of rebooting — see the <a href="../developer-guide/#print-buttons-and-the-local-print-subsystem">EOY Developer Guide</a> for the exact commands.</li>
+</ol>
+<p>It never affects your budget data or the EOY process — only the convenience print-out.</p>
 <h2 id="quick-reference">Quick Reference</h2>
 <h3 id="menu-flow">Menu Flow</h3>
 <ol>

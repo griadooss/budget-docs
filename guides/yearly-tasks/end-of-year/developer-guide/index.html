@@ -1003,6 +1003,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#start-dates-and-distribution-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start Dates and Distribution Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#manual-master-archiving-process" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1068,6 +1079,17 @@
   
     <nav class="md-nav" aria-label="Known Technical Limitations">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#print-buttons-and-the-local-print-subsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print Buttons and the Local Print Subsystem
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#script-property-isolation" class="md-nav__link">
@@ -2029,6 +2051,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#start-dates-and-distribution-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start Dates and Distribution Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#manual-master-archiving-process" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2094,6 +2127,17 @@
   
     <nav class="md-nav" aria-label="Known Technical Limitations">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#print-buttons-and-the-local-print-subsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print Buttons and the Local Print Subsystem
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#script-property-isolation" class="md-nav__link">
@@ -2614,6 +2658,27 @@
 <li>Annual Budget: "BUDGET BALANCED" indicator = 0</li>
 <li>Maintain Budget: Balance indicator = 0</li>
 </ol>
+<h3 id="start-dates-and-distribution-logic">Start Dates and Distribution Logic</h3>
+<p>The <strong>Budget Start Dates</strong> table the user edits in Step 3 is the named range <strong><code>IncomeStartDatesConfig</code></strong> on Maintain Budget — Column E holds the labels, Column F the values. It is read by <strong>label lookup</strong>, not fixed cell addresses, via <code>findConfigTableCell(label, "startDate")</code> (defined in <code>config/namedRanges.js</code>). This is why the table can grow or shrink: lookups scan the range for a matching label.</p>
+<div class="admonition warning">
+<p class="admonition-title">User-facing fragility</p>
+<p>This is the one delicate, fully-manual step in EOY — everything else is scripted. The <a href="../setup/#managing-the-start-dates">Managing the Start Dates</a> section of the user guide and the in-product <em>Create New Budget</em> dialog both warn novices about it. Keep those three places (dialog, setup guide, this section) in sync if the logic changes.</p>
+</div>
+<p><strong>How a row's distribution path is chosen</strong> (<code>distributeBudget.js</code>, <code>distributeValuesFromRow()</code>):</p>
+<ul>
+<li><strong>Frequency ≤ 12</strong> (1, 2, 3, 4, 6, 12) → <code>distributeWithSimpleMath()</code>. Even spread, offset by the per-row <strong>Start Mth (Column J)</strong>. <strong>These never read the start-date table.</strong></li>
+<li><strong>Frequency &gt; 12</strong> (fortnightly = 26, weekly = 52) → <code>distributeWithDynamicCalculation()</code> → <code>getStartDateForItem(subcategoryName)</code>. This matches the <strong>subcategory name exactly</strong> against a Column E label (<code>getStartDateFromConfigTable()</code>) to find the real first pay-date, then <code>calculateMonthlyDistributions()</code> counts pay-days per month.</li>
+</ul>
+<p><strong>Consequences of editing the table:</strong></p>
+<ul>
+<li><strong>Removing a row</strong> is harmless unless a fortnightly/weekly category with that exact name is still distributed — in which case <code>getStartDateForItem()</code> returns <code>null</code> and <code>distributeWithDynamicCalculation()</code> throws <code>"Start date not configured for {name}"</code> (a clean stop, never a silent wrong result).</li>
+<li><strong>Adding a source</strong> requires a Column E label matching the subcategory name character-for-character, plus a first pay-date within the budget period.</li>
+<li><strong><code>Budget</code>, <code>Budget Period (months)</code>, and <code>Shopping Day</code> must remain</strong> — <code>Budget</code> feeds every calculation; <code>Shopping Day</code> drives Groceries via <code>calculateFirstShoppingDate()</code>. EOY's start-date config dialog reads these defensively (<code>range ? value : default</code>), so missing optional rows degrade gracefully rather than crashing.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Legacy date files</p>
+<p><code>src/utility/dates/pensionDays.js</code>, <code>ftbDays.js</code> and <code>flexPayDays.js</code> are <strong>fully commented-out legacy</strong>. They wrote to the old "Fortnightly Payments mapped to Monthly" table and were superseded by the dynamic distribution above. Don't reintroduce them.</p>
+</div>
 <h3 id="manual-master-archiving-process">Manual Master Archiving Process</h3>
 <p>The archiving system requires <strong>user-initiated action</strong> rather than automatic archiving:</p>
 <h4 id="what-actually-happens-during-eoy-finalization">What Actually Happens During EOY Finalization</h4>
@@ -2681,6 +2746,33 @@
 <li><strong>Reversible:</strong> <code>restoreFromArchive()</code> function can undo the archiving</li>
 </ul>
 <h2 id="known-technical-limitations">Known Technical Limitations</h2>
+<h3 id="print-buttons-and-the-local-print-subsystem">Print Buttons and the Local Print Subsystem</h3>
+<p><strong>Issue:</strong> The "Print Instructions" buttons in the EOY dialogs sometimes do nothing — either the browser print preview never appears, or it appears but pressing <strong>Print</strong> sends nothing to the printer.</p>
+<p><strong>This is NOT a budget-app / Apps Script bug.</strong> It was chased at length during UAT and conclusively ruled out:</p>
+<ul>
+<li>The <em>same</em> GAS/HTML code prints fine immediately after a PC reboot and fails later in the same session.</li>
+<li>The button that ultimately fails ("Print" in the screenshot) is <strong>Chrome's own native print dialog</strong> — entirely outside our HTML. By the time that preview is showing, <code>window.print()</code> has already done its whole job; everything after is <strong>Chrome → the OS print spooler (CUPS) → the printer driver</strong>.</li>
+<li>The failure is <em>stateful</em>: it accumulates during a session and is cleared by a reboot (which restarts both <code>cupsd</code> and Chrome). That is the classic signature of a <strong>stuck CUPS print queue</strong>, or less commonly a hung Chrome print-backend process.</li>
+</ul>
+<p><strong>Impact:</strong> Cosmetic/UX only, and <strong>outside the realm of normal user involvement</strong> — a user just needs to know "if Print does nothing, it's your PC's print queue, not the budget; reboot (or restart the print service) and try again." It does not affect any budget data or the EOY process itself.</p>
+<p><strong>Related code (leave as-is):</strong> the <code>setupNewYearBudget()</code> dialog carries an <code>@media print</code> rule so that <em>when</em> it does print, the fixed-height/scrolling layout flows onto one clean page with the footer buttons stripped. That fix is unrelated to the spooler problem but worth keeping.</p>
+<p><strong>Diagnosis &amp; recovery (Manjaro / CUPS):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Healthy baseline looks like: cups active, printer &quot;idle&quot; + &quot;enabled&quot;, empty queue</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>systemctl<span class="w"> </span>is-active<span class="w"> </span>cups
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>lpstat<span class="w"> </span>-p<span class="w"> </span>&lt;PRINTER&gt;<span class="w">     </span><span class="c1"># printer state (e.g. MFC7360N)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>lpstat<span class="w"> </span>-o<span class="w">               </span><span class="c1"># queued jobs (empty = none stuck)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># Recovery without a full reboot:</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>cancel<span class="w"> </span>-a<span class="w">               </span><span class="c1"># clear stuck jobs</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>cupsenable<span class="w"> </span>&lt;PRINTER&gt;<span class="w">    </span><span class="c1"># re-enable if paused/stopped</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>cupsaccept<span class="w"> </span>&lt;PRINTER&gt;
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>cups<span class="w">   </span><span class="c1"># restart just the spooler</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="c1"># Discriminator — is it CUPS or Chrome?</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1"># Press Ctrl+P on any ordinary web page and print to the same printer:</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="c1">#   - also fails  -&gt; CUPS / printer (use the commands above)</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c1">#   - only Sheets fails -&gt; Chrome print process (fully quit &amp; reopen Chrome)</span>
+</code></pre></div>
 <h3 id="script-property-isolation">Script Property Isolation</h3>
 <p><strong>Issue:</strong> Google Apps Script security model prevents modifying script properties of other spreadsheets.</p>
 <p><strong>Impact:</strong> Archived masters retain <code>IS_MASTER = true</code> in their script properties.</p>
@@ -2751,27 +2843,27 @@
 </ul>
 <h3 id="testing-functions">Testing Functions</h3>
 <p>Several helper functions support testing:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// Test archiving without affecting production</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">testArchiveMaster</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">currentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">().</span><span class="nx">getId</span><span class="p">();</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">archiveLegacyMaster</span><span class="p">(</span><span class="nx">currentId</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// testMode = true</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1">// Test EOY process with safety checks</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">testEOYProcess</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Starting EOY test process...&quot;</span><span class="p">);</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">setupNewYearBudget</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// testMode = true</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">}</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1">// Safe refresh function for testing</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">runRefreshSafely</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">().</span><span class="nx">getSheetByName</span><span class="p">(</span><span class="s2">&quot;Annual Budget&quot;</span><span class="p">);</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="c1">// Additional safety checks</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Refresh safety check failed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Test archiving without affecting production</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">testArchiveMaster</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">currentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">().</span><span class="nx">getId</span><span class="p">();</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">archiveLegacyMaster</span><span class="p">(</span><span class="nx">currentId</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// testMode = true</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">}</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1">// Test EOY process with safety checks</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">testEOYProcess</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Starting EOY test process...&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">setupNewYearBudget</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// testMode = true</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">}</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="c1">// Safe refresh function for testing</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">runRefreshSafely</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">().</span><span class="nx">getSheetByName</span><span class="p">(</span><span class="s2">&quot;Annual Budget&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="c1">// Additional safety checks</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Refresh safety check failed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="performance-considerations">Performance Considerations</h2>
 <h3 id="optimization-strategies">Optimization Strategies</h3>
@@ -2798,24 +2890,24 @@
 <li>Provide specific error messages for quick resolution</li>
 </ol>
 <h3 id="resource-management">Resource Management</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Example of efficient batch operations</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">updateMonthlyHeaders</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sheet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">()</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">                             </span><span class="p">.</span><span class="nx">getSheetByName</span><span class="p">(</span><span class="s2">&quot;Annual Budget&quot;</span><span class="p">);</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="c1">// Get all headers in one operation</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">headerRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sheet</span><span class="p">.</span><span class="nx">getRange</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">sheet</span><span class="p">.</span><span class="nx">getLastColumn</span><span class="p">());</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">headerRange</span><span class="p">.</span><span class="nx">getValues</span><span class="p">()[</span><span class="mf">0</span><span class="p">];</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="c1">// Process headers in memory</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">updatedHeaders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">headers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">header</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="c1">// Update logic here</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">processHeader</span><span class="p">(</span><span class="nx">header</span><span class="p">);</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">  </span><span class="p">});</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">  </span><span class="c1">// Write all headers back in one operation</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">  </span><span class="nx">headerRange</span><span class="p">.</span><span class="nx">setValues</span><span class="p">([</span><span class="nx">updatedHeaders</span><span class="p">]);</span>
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// Example of efficient batch operations</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">updateMonthlyHeaders</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sheet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSpreadsheet</span><span class="p">()</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">                             </span><span class="p">.</span><span class="nx">getSheetByName</span><span class="p">(</span><span class="s2">&quot;Annual Budget&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="c1">// Get all headers in one operation</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">headerRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sheet</span><span class="p">.</span><span class="nx">getRange</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">sheet</span><span class="p">.</span><span class="nx">getLastColumn</span><span class="p">());</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">headerRange</span><span class="p">.</span><span class="nx">getValues</span><span class="p">()[</span><span class="mf">0</span><span class="p">];</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">  </span><span class="c1">// Process headers in memory</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">updatedHeaders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">headers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">header</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="c1">// Update logic here</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">processHeader</span><span class="p">(</span><span class="nx">header</span><span class="p">);</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">  </span><span class="c1">// Write all headers back in one operation</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">  </span><span class="nx">headerRange</span><span class="p">.</span><span class="nx">setValues</span><span class="p">([</span><span class="nx">updatedHeaders</span><span class="p">]);</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="future-enhancement-opportunities">Future Enhancement Opportunities</h2>
 <h3 id="planned-improvements">Planned Improvements</h3>
