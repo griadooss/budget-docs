@@ -289,6 +289,25 @@ The **Budget Start Dates** table the user edits in Step 3 is the named range **`
 !!! note "Legacy date files"
     `src/utility/dates/pensionDays.js`, `ftbDays.js` and `flexPayDays.js` are **fully commented-out legacy**. They wrote to the old "Fortnightly Payments mapped to Monthly" table and were superseded by the dynamic distribution above. Don't reintroduce them.
 
+#### Fortnightly / weekly distribution mechanics (`calculateMonthlyDistributions`)
+
+Three rules govern how a fortnightly (26) or weekly (52) item is spread across the 12 fiscal-month buckets. All three were the subject of bug fixes — be careful changing them.
+
+1. **The pay-day interval is fixed by cadence, not derived from the frequency number.** Use 14 days for the fortnightly band (24–28) and 7 days for the weekly band (50–54). **Do not** use `Math.floor(364 / frequency)` for these. The actual pay-day count (26 *or* 27 — see below) is written back into the FREQ cell; if the interval were derived from that corrected number (e.g. `floor(364/27) = 13`), the interval would shrink, inflate the count, get written back larger, and never converge — the original "needs 27 → 29 → 31 …" runaway.
+
+2. **The schedule is anchored on the item's own start date** (the `startDate` argument), which is the configured first pay-date for income sources, or the first Shopping Day for Groceries (already resolved by `getStartDateForItem()`). It must **not** re-derive the Shopping Day here — doing so made every fortnightly item share the grocery cadence and ignored per-income start dates.
+
+3. **The budget period ends on the last day of the final fiscal month**, computed as `new Date(year, startMonth + budgetPeriod, 0)` — **not** `start + N months − 1 day`. The old formula overshot whenever the Budget Start Date wasn't the 1st: a `06/07` start ran the window to `05/07` next year (five days into the next FY), pulling an extra fortnight into the period, mis-bucketing it into the first month, and setting up a cross-year double-count (that pay-day becomes next year's start date).
+
+!!! note "The 27-pay year is real, not a bug"
+    A fortnightly schedule lands on **26 or 27** pay-days in a fiscal year (weekly: 52 or 53), depending on calendar alignment — a well-known payroll effect. 27 is correct **as long as** next year's start date is set to the genuine next pay-day, so nothing is recounted. This is why the user guide stresses that the start date must be an *actual* pay-date.
+
+!!! warning "Budget Start Date must be the 1st of the month"
+    `continueEOYSetup()` shows a **warn-only** confirm (not a block) if the Budget Start Date isn't the 1st — it should be the first day of the new financial year. It is warn-only on purpose, to leave room for a future non-standard period (different start month, shorter run). It checks day-of-month only, never a specific month.
+
+!!! info "Known gap — income start-date validation is window-wide, not interval-tight"
+    `checkNewYearStartDatesReady()` only verifies each income start date falls **within the 12-month budget window**, not within **one pay-interval** of the Budget Start. So a fortnightly source could legally start months in and silently miss early-year payments. The legacy code enforced "within 13 days"; tightening this back is a noted future hardening.
+
 ### Manual Master Archiving Process
 
 The archiving system requires **user-initiated action** rather than automatic archiving:
