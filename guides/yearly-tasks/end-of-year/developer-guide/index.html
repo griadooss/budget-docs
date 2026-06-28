@@ -1011,6 +1011,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Start Dates and Distribution Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fortnightly-weekly-distribution-mechanics-calculatemonthlydistributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fortnightly / weekly distribution mechanics (calculateMonthlyDistributions)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2059,6 +2076,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Start Dates and Distribution Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fortnightly-weekly-distribution-mechanics-calculatemonthlydistributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fortnightly / weekly distribution mechanics (calculateMonthlyDistributions)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2678,6 +2712,31 @@
 <div class="admonition note">
 <p class="admonition-title">Legacy date files</p>
 <p><code>src/utility/dates/pensionDays.js</code>, <code>ftbDays.js</code> and <code>flexPayDays.js</code> are <strong>fully commented-out legacy</strong>. They wrote to the old "Fortnightly Payments mapped to Monthly" table and were superseded by the dynamic distribution above. Don't reintroduce them.</p>
+</div>
+<h4 id="fortnightly-weekly-distribution-mechanics-calculatemonthlydistributions">Fortnightly / weekly distribution mechanics (<code>calculateMonthlyDistributions</code>)</h4>
+<p>Three rules govern how a fortnightly (26) or weekly (52) item is spread across the 12 fiscal-month buckets. All three were the subject of bug fixes — be careful changing them.</p>
+<ol>
+<li>
+<p><strong>The pay-day interval is fixed by cadence, not derived from the frequency number.</strong> Use 14 days for the fortnightly band (24–28) and 7 days for the weekly band (50–54). <strong>Do not</strong> use <code>Math.floor(364 / frequency)</code> for these. The actual pay-day count (26 <em>or</em> 27 — see below) is written back into the FREQ cell; if the interval were derived from that corrected number (e.g. <code>floor(364/27) = 13</code>), the interval would shrink, inflate the count, get written back larger, and never converge — the original "needs 27 → 29 → 31 …" runaway.</p>
+</li>
+<li>
+<p><strong>The schedule is anchored on the item's own start date</strong> (the <code>startDate</code> argument), which is the configured first pay-date for income sources, or the first Shopping Day for Groceries (already resolved by <code>getStartDateForItem()</code>). It must <strong>not</strong> re-derive the Shopping Day here — doing so made every fortnightly item share the grocery cadence and ignored per-income start dates.</p>
+</li>
+<li>
+<p><strong>The budget period ends on the last day of the final fiscal month</strong>, computed as <code>new Date(year, startMonth + budgetPeriod, 0)</code> — <strong>not</strong> <code>start + N months − 1 day</code>. The old formula overshot whenever the Budget Start Date wasn't the 1st: a <code>06/07</code> start ran the window to <code>05/07</code> next year (five days into the next FY), pulling an extra fortnight into the period, mis-bucketing it into the first month, and setting up a cross-year double-count (that pay-day becomes next year's start date).</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">The 27-pay year is real, not a bug</p>
+<p>A fortnightly schedule lands on <strong>26 or 27</strong> pay-days in a fiscal year (weekly: 52 or 53), depending on calendar alignment — a well-known payroll effect. 27 is correct <strong>as long as</strong> next year's start date is set to the genuine next pay-day, so nothing is recounted. This is why the user guide stresses that the start date must be an <em>actual</em> pay-date.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Budget Start Date must be the 1st of the month</p>
+<p><code>continueEOYSetup()</code> shows a <strong>warn-only</strong> confirm (not a block) if the Budget Start Date isn't the 1st — it should be the first day of the new financial year. It is warn-only on purpose, to leave room for a future non-standard period (different start month, shorter run). It checks day-of-month only, never a specific month.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Known gap — income start-date validation is window-wide, not interval-tight</p>
+<p><code>checkNewYearStartDatesReady()</code> only verifies each income start date falls <strong>within the 12-month budget window</strong>, not within <strong>one pay-interval</strong> of the Budget Start. So a fortnightly source could legally start months in and silently miss early-year payments. The legacy code enforced "within 13 days"; tightening this back is a noted future hardening.</p>
 </div>
 <h3 id="manual-master-archiving-process">Manual Master Archiving Process</h3>
 <p>The archiving system requires <strong>user-initiated action</strong> rather than automatic archiving:</p>
