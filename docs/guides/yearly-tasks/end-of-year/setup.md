@@ -97,7 +97,7 @@ This is the manual heart of the process, done on the **Maintain Budget** sheet *
 
 On the **Maintain Budget** sheet:
 
-1. In the **Budget Start Dates** table, set the new year's start dates in **Column F** — set the **Budget Start Date first**.
+1. In the **Budget Start Dates** table (Column F): the **Budget Start Date** has been **advanced for you automatically** to the new financial year — just **confirm it is correct**. Then set each fortnightly/weekly source (Pension, Wages, etc.) to its **first actual pay-date** of the new year.
 2. For each category, set its new **amount** and **frequency**, then **Distribute to Annual Budget** (tick the *Distribute* checkbox in Column H — *Press to Dist ALL* distributes everything).
 3. To **add, delete, or re-map categories** for the new year, use **Period Processing → Maintain Budget → Maintain Categories**:
    - ➕ Add Category/Subcategory
@@ -120,14 +120,17 @@ The **Budget Start Dates** table (Column E = labels, Column F = dates) is the on
 
 The rules to follow:
 
-1. **Always set the Budget Start Date first** (it is used by every other calculation).
+1. **The Budget Start Date is set for you automatically** — advanced to the new financial year (last year + 1 year). Just **check it is correct**. It anchors every other calculation, so only change it deliberately.
 2. **Never remove these three rows:** **Budget**, **Budget Period (months)**, and **Shopping Day** (Groceries depends on Shopping Day).
 3. **Removing an income source is safe** — *provided* you no longer have a fortnightly/weekly category with that exact name. If you have stopped receiving Pension or FTB and have also removed those categories, removing their start dates is correct and harmless.
-4. **The label must match the category name exactly.** When you *add* a new fortnightly/weekly source, add a row whose Column E label matches the subcategory name **character for character** (spelling, spacing and capitalisation), and put its **first pay-date** (within the new budget period) in Column F.
+4. **The label must match the category name exactly.** When you *add* a new fortnightly/weekly source, add a row whose Column E label matches the subcategory name **character for character** (spelling, spacing and capitalisation), and put its **first actual pay-date of the new year** in Column F — it must fall **within one pay-interval of the Budget Start Date** (within **14 days** for fortnightly, **7 days** for weekly).
 5. When removing a source, **delete the whole table row** so the table closes up cleanly — don't just clear the date and leave an orphaned label behind.
 
 !!! warning "If you get the start dates wrong"
-    If a fortnightly/weekly category has no matching start date when you Distribute it, the system **stops with a clear message** ("Start date not configured for …") rather than producing a wrong budget — so you will know. Fix the table and Distribute again.
+    Two safeguards catch mistakes before they can corrupt the new year:
+
+    - **At Continue EOY Setup**, the process **refuses to proceed** if any fortnightly/weekly start date is missing, left over from last year, or set too far into the year. It tells you the exact valid range — e.g. *"Wages start date 06/07/2025 should be its first pay-date of the new year — set it between 01/07/2026 and 14/07/2026 (within 14 days of the Budget Start Date)."* Fix the dates and run Continue again.
+    - **At Distribute**, if a fortnightly/weekly category has no matching start date at all, the system stops with *"Start date not configured for …"* rather than producing a wrong budget. Fix the table and Distribute again.
 
 !!! danger "Safety net — you cannot harm your master"
     Throughout EOY you are working in a **copy**, never the master. If the copy ever becomes a mess — wrong start dates, a tangled budget, anything — the simplest and safest fix is to **delete the copy and start the EOY process again from your MASTER spreadsheet**. Nothing is lost: your master is untouched until the very last step (Finalize), so you can always begin again from a clean copy.
@@ -138,8 +141,8 @@ The rules to follow:
 
 1. Go to **Period Processing → End of Year Setup → 2. Continue EOY Setup**.
 
-    !!! warning "Start dates must be set first"
-        If you haven't set the new year's start dates, this step is blocked with **"🛑 Set the New-Year Start Dates First"**. Set them on Maintain Budget (Step 3) and run Continue again.
+    !!! warning "Start dates must be valid first"
+        This step is blocked with **"🛑 Set the New-Year Start Dates First"** if any fortnightly/weekly start date is missing, **left over from last year**, or **set too far into the year** (it must be the first pay-date, within one pay-interval of the Budget Start Date). The message names each offending date and its valid range. Fix them on Maintain Budget (Step 3) and run Continue again.
 
 2. At the **"🔄 Continue End of Year Setup"** confirmation — *"Ready to complete the EOY setup?"* — click **Yes**. The system then:
    - Copies current bank balances to opening positions
@@ -222,8 +225,8 @@ The rules to follow:
 **Solution:** Wait until June — EOY only works in the final fiscal month.
 
 ### ❌ "🛑 Set the New-Year Start Dates First"
-**Problem:** Continue EOY Setup is blocked.
-**Solution:** On the Maintain Budget sheet, set the new year's start dates in Column F (Budget Start Date first), then run **2. Continue EOY Setup** again.
+**Problem:** Continue EOY Setup is blocked — a fortnightly/weekly start date is missing, left over from last year, or set too far into the year.
+**Solution:** The message names each offending date and its valid range (its first pay-date, within one pay-interval of the Budget Start Date). On the Maintain Budget sheet, fix those dates in Column F, then run **2. Continue EOY Setup** again. (The Budget Start Date itself is advanced for you automatically — just confirm it.)
 
 ### ❌ Authorisation warning ("Google hasn't verified this app")
 **Problem:** Google shows the "unsafe" warning.

@@ -312,11 +312,13 @@ Three rules govern how a fortnightly (26) or weekly (52) item is spread across t
 
     27 is correct **as long as** next year's start date is set to the genuine next pay-day, so nothing is recounted. This is why the user guide stresses that the start date must be an *actual* pay-date.
 
-!!! warning "Budget Start Date must be the 1st of the month"
-    `continueEOYSetup()` shows a **warn-only** confirm (not a block) if the Budget Start Date isn't the 1st — it should be the first day of the new financial year. It is warn-only on purpose, to leave room for a future non-standard period (different start month, shorter run). It checks day-of-month only, never a specific month.
+!!! success "Budget Start Date is auto-advanced (then verified)"
+    `setupNewYearBudget()` calls `autoAdvanceBudgetStartDate()` to set the new Budget Start Date to **closing year + 1 year** — the household FY always starts on the same day, so it is deterministic. This closes the date-typo class (the `06/07` mistake that started the fortnightly investigation); the user only **verifies** the pre-filled value. It is anchored on the `PRE_EOY_BUDGET_START` snapshot, making it **idempotent** (re-running Step 1 won't double-advance) and **override-safe** (if the date already differs from the closing-year value it is left alone). Non-destructive on any uncertainty, and **gated to copies only** so it can never touch the live master's current-year date.
 
-!!! info "Known gap — income start-date validation is window-wide, not interval-tight"
-    `checkNewYearStartDatesReady()` only verifies each income start date falls **within the 12-month budget window**, not within **one pay-interval** of the Budget Start. So a fortnightly source could legally start months in and silently miss early-year payments. The legacy code enforced "within 13 days"; tightening this back is a noted future hardening.
+    The warn-only "not the 1st" confirm in `continueEOYSetup()` remains as a backstop for a deliberate non-standard period; since auto-advance keeps the same day-of-month, a clean `01/07` baseline stays clean.
+
+!!! success "Closed — income start-date validation is now interval-tight"
+    `checkNewYearStartDatesReady()` previously only checked each income start date fell **within the 12-month window**, so a fortnightly source could legally start months in and silently miss early-year payments. It now requires, for **fortnightly/weekly** items, that the first pay-date land **within one pay-interval** of the Budget Start Date (14 / 7 days — cadence read from Maintain Budget Col F; non-cadence items keep the window check). The `continueEOYSetup()` gate already **hard-blocks** (non-dev) on any issue, and the message states the exact valid range. This catches the three real errors: a left-over last-year date, a typo, and a date set too far in.
 
 ### Manual Master Archiving Process
 
