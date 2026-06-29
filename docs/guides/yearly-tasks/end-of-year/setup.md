@@ -97,7 +97,7 @@ This is the manual heart of the process, done on the **Maintain Budget** sheet *
 
 On the **Maintain Budget** sheet:
 
-1. In the **Budget Start Dates** table (Column F): the **Budget Start Date** has been **advanced for you automatically** to the new financial year — just **confirm it is correct**. Then set each fortnightly/weekly source (Pension, Wages, etc.) to its **first actual pay-date** of the new year.
+1. In the **Budget Start Dates** table (Column F): the **Budget Start Date** has been **advanced for you automatically** to the new financial year, and each fortnightly/weekly source (Pension, Wages, etc.) has been **pre-filled with a suggested first pay-date**. **Check each against your latest bank statement** and adjust if needed. A valid date shows **green**; one that's out of range turns **red** — fix any red ones (see *Managing the Start Dates* below).
 2. For each category, set its new **amount** and **frequency**, then **Distribute to Annual Budget** (tick the *Distribute* checkbox in Column H — *Press to Dist ALL* distributes everything).
 3. To **add, delete, or re-map categories** for the new year, use **Period Processing → Maintain Budget → Maintain Categories**:
    - ➕ Add Category/Subcategory
@@ -117,6 +117,9 @@ The **Budget Start Dates** table (Column E = labels, Column F = dates) is the on
     A start date only matters for an item paid **more often than monthly** — i.e. **fortnightly (26/year) or weekly (52/year)**. For those, the system needs the **first pay-date** so it can count how many pay-days fall in each month and spread the money correctly.
 
     Items paid **monthly or less often** (frequency 1, 2, 3, 4, 6 or 12) **do not use these dates at all** — they are spread evenly using the per-row **Start Mth (Column J)**.
+
+!!! tip "Green means good — your at-a-glance check"
+    Each fortnightly/weekly start date is **pre-filled with a suggestion** and **colour-coded live**: **green** = valid (its first pay-date falls within one pay-interval of the Budget Start Date), **red** = out of range or missing. Type a wrong date and the cell turns **red on the spot**, so typos are caught immediately. A "verify against your statement" note sits on each cell until you've addressed it (edit the date, or run Continue, and the note clears). **Aim for all green** before *Continue EOY Setup*.
 
 The rules to follow:
 

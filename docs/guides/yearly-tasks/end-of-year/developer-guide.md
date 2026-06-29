@@ -320,6 +320,15 @@ Three rules govern how a fortnightly (26) or weekly (52) item is spread across t
 !!! success "Closed — income start-date validation is now interval-tight"
     `checkNewYearStartDatesReady()` previously only checked each income start date fell **within the 12-month window**, so a fortnightly source could legally start months in and silently miss early-year payments. It now requires, for **fortnightly/weekly** items, that the first pay-date land **within one pay-interval** of the Budget Start Date (14 / 7 days — cadence read from Maintain Budget Col F; non-cadence items keep the window check). The `continueEOYSetup()` gate already **hard-blocks** (non-dev) on any issue, and the message states the exact valid range. This catches the three real errors: a left-over last-year date, a typo, and a date set too far in.
 
+    The live green/red highlight (`refreshStartDateValidityHighlights()`) uses the **same** interval rule, so what shows green is exactly what the gate will pass.
+
+!!! warning "Known limitations — start-date validation (deferred, not bugs)"
+    Both deliberately deferred (see EOY rehearsal 2026 / one-day-to-live freeze). The **gate remains the safety backstop in every case**; these affect only the convenience layer:
+
+    1. **Mid-year item introductions are not supported by the interval rule.** The "first pay-date within one pay-interval of the Budget Start Date" assumption holds only for items present from the *start* of the budget year. An item genuinely introduced **mid-year** (e.g. a car loan bought in month 5 — you don't budget the months already passed) legitimately has a start date months in, which the interval check would flag **red** / the gate would **block**. Because `refreshStartDateValidityHighlights()` runs on *every* config-table edit year-round (not just during EOY), a mid-year addition would also show a misleading red. A proper fix needs a notion of "introduced part-way through the year" (e.g. an effective-from month) — a real rabbit hole, future work.
+
+    2. **Orphan config rows are not highlighted.** The highlight colours a row only when it finds a matching fortnightly/weekly item in Maintain Budget (to read the cadence). A config start-date row with **no matching item** (or a non-cadence one) is left uncoloured — it is *not* turned red. The validation gate is **not** fooled: for such rows it falls back to the 12-month window check, so a year-early orphan date (e.g. `01/08/2025`) still **blocks** at Continue EOY Setup. Only the visual cue has the gap.
+
 ### Manual Master Archiving Process
 
 The archiving system requires **user-initiated action** rather than automatic archiving:
