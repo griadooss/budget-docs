@@ -2318,7 +2318,7 @@
 </div>
 <p>On the <strong>Maintain Budget</strong> sheet:</p>
 <ol>
-<li>In the <strong>Budget Start Dates</strong> table, set the new year's start dates in <strong>Column F</strong> — set the <strong>Budget Start Date first</strong>.</li>
+<li>In the <strong>Budget Start Dates</strong> table (Column F): the <strong>Budget Start Date</strong> has been <strong>advanced for you automatically</strong> to the new financial year — just <strong>confirm it is correct</strong>. Then set each fortnightly/weekly source (Pension, Wages, etc.) to its <strong>first actual pay-date</strong> of the new year.</li>
 <li>For each category, set its new <strong>amount</strong> and <strong>frequency</strong>, then <strong>Distribute to Annual Budget</strong> (tick the <em>Distribute</em> checkbox in Column H — <em>Press to Dist ALL</em> distributes everything).</li>
 <li>To <strong>add, delete, or re-map categories</strong> for the new year, use <strong>Period Processing → Maintain Budget → Maintain Categories</strong>:</li>
 <li>➕ Add Category/Subcategory</li>
@@ -2340,15 +2340,19 @@
 </div>
 <p>The rules to follow:</p>
 <ol>
-<li><strong>Always set the Budget Start Date first</strong> (it is used by every other calculation).</li>
+<li><strong>The Budget Start Date is set for you automatically</strong> — advanced to the new financial year (last year + 1 year). Just <strong>check it is correct</strong>. It anchors every other calculation, so only change it deliberately.</li>
 <li><strong>Never remove these three rows:</strong> <strong>Budget</strong>, <strong>Budget Period (months)</strong>, and <strong>Shopping Day</strong> (Groceries depends on Shopping Day).</li>
 <li><strong>Removing an income source is safe</strong> — <em>provided</em> you no longer have a fortnightly/weekly category with that exact name. If you have stopped receiving Pension or FTB and have also removed those categories, removing their start dates is correct and harmless.</li>
-<li><strong>The label must match the category name exactly.</strong> When you <em>add</em> a new fortnightly/weekly source, add a row whose Column E label matches the subcategory name <strong>character for character</strong> (spelling, spacing and capitalisation), and put its <strong>first pay-date</strong> (within the new budget period) in Column F.</li>
+<li><strong>The label must match the category name exactly.</strong> When you <em>add</em> a new fortnightly/weekly source, add a row whose Column E label matches the subcategory name <strong>character for character</strong> (spelling, spacing and capitalisation), and put its <strong>first actual pay-date of the new year</strong> in Column F — it must fall <strong>within one pay-interval of the Budget Start Date</strong> (within <strong>14 days</strong> for fortnightly, <strong>7 days</strong> for weekly).</li>
 <li>When removing a source, <strong>delete the whole table row</strong> so the table closes up cleanly — don't just clear the date and leave an orphaned label behind.</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">If you get the start dates wrong</p>
-<p>If a fortnightly/weekly category has no matching start date when you Distribute it, the system <strong>stops with a clear message</strong> ("Start date not configured for …") rather than producing a wrong budget — so you will know. Fix the table and Distribute again.</p>
+<p>Two safeguards catch mistakes before they can corrupt the new year:</p>
+<ul>
+<li><strong>At Continue EOY Setup</strong>, the process <strong>refuses to proceed</strong> if any fortnightly/weekly start date is missing, left over from last year, or set too far into the year. It tells you the exact valid range — e.g. <em>"Wages start date 06/07/2025 should be its first pay-date of the new year — set it between 01/07/2026 and 14/07/2026 (within 14 days of the Budget Start Date)."</em> Fix the dates and run Continue again.</li>
+<li><strong>At Distribute</strong>, if a fortnightly/weekly category has no matching start date at all, the system stops with <em>"Start date not configured for …"</em> rather than producing a wrong budget. Fix the table and Distribute again.</li>
+</ul>
 </div>
 <div class="admonition danger">
 <p class="admonition-title">Safety net — you cannot harm your master</p>
@@ -2360,8 +2364,8 @@
 <li>
 <p>Go to <strong>Period Processing → End of Year Setup → 2. Continue EOY Setup</strong>.</p>
 <div class="admonition warning">
-<p class="admonition-title">Start dates must be set first</p>
-<p>If you haven't set the new year's start dates, this step is blocked with <strong>"🛑 Set the New-Year Start Dates First"</strong>. Set them on Maintain Budget (Step 3) and run Continue again.</p>
+<p class="admonition-title">Start dates must be valid first</p>
+<p>This step is blocked with <strong>"🛑 Set the New-Year Start Dates First"</strong> if any fortnightly/weekly start date is missing, <strong>left over from last year</strong>, or <strong>set too far into the year</strong> (it must be the first pay-date, within one pay-interval of the Budget Start Date). The message names each offending date and its valid range. Fix them on Maintain Budget (Step 3) and run Continue again.</p>
 </div>
 </li>
 <li>
@@ -2448,8 +2452,8 @@
 <p><strong>Problem:</strong> The EOY menu option isn't available.
 <strong>Solution:</strong> Wait until June — EOY only works in the final fiscal month.</p>
 <h3 id="set-the-new-year-start-dates-first">❌ "🛑 Set the New-Year Start Dates First"</h3>
-<p><strong>Problem:</strong> Continue EOY Setup is blocked.
-<strong>Solution:</strong> On the Maintain Budget sheet, set the new year's start dates in Column F (Budget Start Date first), then run <strong>2. Continue EOY Setup</strong> again.</p>
+<p><strong>Problem:</strong> Continue EOY Setup is blocked — a fortnightly/weekly start date is missing, left over from last year, or set too far into the year.
+<strong>Solution:</strong> The message names each offending date and its valid range (its first pay-date, within one pay-interval of the Budget Start Date). On the Maintain Budget sheet, fix those dates in Column F, then run <strong>2. Continue EOY Setup</strong> again. (The Budget Start Date itself is advanced for you automatically — just confirm it.)</p>
 <h3 id="authorisation-warning-google-hasnt-verified-this-app">❌ Authorisation warning ("Google hasn't verified this app")</h3>
 <p><strong>Problem:</strong> Google shows the "unsafe" warning.</p>
 <p><strong>Solution:</strong></p>
