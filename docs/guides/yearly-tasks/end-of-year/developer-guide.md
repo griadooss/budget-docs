@@ -286,6 +286,12 @@ The **Budget Start Dates** table the user edits in Step 3 is the named range **`
 - **Adding a source** requires a Column E label matching the subcategory name character-for-character, plus a first pay-date within the budget period.
 - **`Budget`, `Budget Period (months)`, and `Shopping Day` must remain** — `Budget` feeds every calculation; `Shopping Day` drives Groceries via `calculateFirstShoppingDate()`. EOY's start-date config dialog reads these defensively (`range ? value : default`), so missing optional rows degrade gracefully rather than crashing.
 
+!!! info "Editing a per-item start date auto-flags the item for re-distribution"
+    The config table is an `onEdit` exclusion zone (it returns before the normal auto-routines). But before bowing out, `handleMaintainBudgetEdit()` now calls `unDistributeForConfigStartDateChange()`: editing the date of a **per-item** row (`Pension`, `Wages`, `FTB`, or `Shopping Day` → Groceries) un-checks and reds that item's distributed flag (Column I) via `clearDistributionCheck()` — the same treatment a Budget/Freq/Start-Mth change gets — so a stale spread can't survive a date change. The mapping is `label === subcategory` (with `Shopping Day` → Groceries); the global rows below are skipped on purpose.
+
+!!! info "Global anchors are warning-only protected"
+    `Budget` (Budget Start Date) and `Budget Period` are **global** — every item's distribution depends on them — so changing one should only happen during EOY. `protectGlobalStartDateCells()` applies **warning-only** Google Sheets protection to those two cells: a manual edit pops "You're editing a protected cell — continue?" (a deterrent) but never hard-blocks, so EOY and any deliberate override still work, and script-driven `setValue` is unaffected. It runs automatically as the last step of `continueEOYSetup()` (so new yearly copies inherit it), is idempotent, and can be re-run by hand. A hard lock was deliberately rejected — it tends to bite on unforeseen edge cases. This is also why per-item un-distribute leaves the global rows alone.
+
 !!! note "Legacy date files"
     `src/utility/dates/pensionDays.js`, `ftbDays.js` and `flexPayDays.js` are **fully commented-out legacy**. They wrote to the old "Fortnightly Payments mapped to Monthly" table and were superseded by the dynamic distribution above. Don't reintroduce them.
 
@@ -293,14 +299,18 @@ The **Budget Start Dates** table the user edits in Step 3 is the named range **`
 
 Three rules govern how a fortnightly (26) or weekly (52) item is spread across the 12 fiscal-month buckets. All three were the subject of bug fixes — be careful changing them.
 
-1. **The pay-day interval is fixed by cadence, not derived from the frequency number.** Use 14 days for the fortnightly band (24–28) and 7 days for the weekly band (50–54). **Do not** use `Math.floor(364 / frequency)` for these. The actual pay-day count (26 *or* 27 — see below) is written back into the FREQ cell; if the interval were derived from that corrected number (e.g. `floor(364/27) = 13`), the interval would shrink, inflate the count, get written back larger, and never converge — the original "needs 27 → 29 → 31 …" runaway.
+1. **The pay-day interval is fixed by cadence, not derived from the frequency number.** Use 14 days for the fortnightly band (24–28) and 7 days for the weekly band (50–54). **Do not** use `Math.floor(364 / frequency)` for these. The actual pay-day count (26 *or* 27 — see below) is **no longer** written back into the FREQ cell — it once was, which jammed an out-of-range value into the dropdown and, by feeding the corrected number into the next run with a derived interval (`floor(364/27) = 13`), shrank the interval, inflated the count and never converged: the original "needs 27 → 29 → 31 …" runaway. With FREQ never overwritten, that runaway is now structurally impossible.
 
 2. **The schedule is anchored on the item's own start date** (the `startDate` argument), which is the configured first pay-date for income sources, or the first Shopping Day for Groceries (already resolved by `getStartDateForItem()`). It must **not** re-derive the Shopping Day here — doing so made every fortnightly item share the grocery cadence and ignored per-income start dates.
 
 3. **The budget period ends on the last day of the final fiscal month**, computed as `new Date(year, startMonth + budgetPeriod, 0)` — **not** `start + N months − 1 day`. The old formula overshot whenever the Budget Start Date wasn't the 1st: a `06/07` start ran the window to `05/07` next year (five days into the next FY), pulling an extra fortnight into the period, mis-bucketing it into the first month, and setting up a cross-year double-count (that pay-day becomes next year's start date).
 
-!!! note "The 27-pay year is real, not a bug"
-    A fortnightly schedule lands on **26 or 27** pay-days in a fiscal year (weekly: 52 or 53), depending on calendar alignment — a well-known payroll effect. 27 is correct **as long as** next year's start date is set to the genuine next pay-day, so nothing is recounted. This is why the user guide stresses that the start date must be an *actual* pay-date.
+!!! note "The 27-pay year is real, and handled informationally"
+    A fortnightly schedule lands on **26 or 27** pay-days in a fiscal year (weekly: 52 or 53), depending on calendar alignment — a well-known payroll effect (e.g. a fortnightly income whose first pay-date is exactly 1 July gets 27 pay-days, since `26 × 14 = 364` and the 27th lands on 30 June inclusive).
+
+    When the actual count differs from the nominal cadence, `distributeWithDynamicCalculation()` **changes nothing on the sheet**. It treats the Maintain Budget row as read-only: `F` (cadence) stays the user's valid dropdown choice, `G`/`E` stay as edit-time normalization (`normalizeRow`) settled them, and `D` keeps its reconciliation formula. The settled annual budget is simply spread across all the real pay-days, and any few-cent rounding residue is reconciled by the user at the **Missing** balance (E84) — exactly as for any other normalization. A `notifyExtraPaymentPeriod()` info dialog ("Extra Payment This Year") tells the user; the old `updateMaintainBudgetForActualPayments()` writeback is retained only as a documented deprecated no-op.
+
+    27 is correct **as long as** next year's start date is set to the genuine next pay-day, so nothing is recounted. This is why the user guide stresses that the start date must be an *actual* pay-date.
 
 !!! warning "Budget Start Date must be the 1st of the month"
     `continueEOYSetup()` shows a **warn-only** confirm (not a block) if the Budget Start Date isn't the 1st — it should be the first day of the new financial year. It is warn-only on purpose, to leave room for a future non-standard period (different start month, shorter run). It checks day-of-month only, never a specific month.
