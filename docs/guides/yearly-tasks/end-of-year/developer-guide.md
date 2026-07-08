@@ -403,6 +403,42 @@ function archiveThisMaster() {
 - **Two-Step Process:** EOY finalization + Manual archiving = Complete EOY process
 - **Reversible:** `restoreFromArchive()` function can undo the archiving
 
+#### After Finalization: Re-point CLASP and Rename the Script Project
+
+Once the copy has become the new master, two **once-a-year developer housekeeping steps** are needed before you resume development. Neither happens automatically.
+
+**1. Re-point CLASP to the new master's Script ID**
+
+Because the script is *container-bound*, *File → Make a copy* cloned it into a brand-new, independent Script ID. `clasp push` only ever targets the Script ID in `.clasp.json`, so until you update it you are still pushing to **last year's (now archived) master**.
+
+- In the new spreadsheet: **Extensions → Apps Script → ⚙ Project Settings** → copy the **Script ID** (or lift it from the editor URL, between `/projects/` and `/edit`).
+- Back up the current config, then swap the ID in `.clasp.json`:
+
+```bash
+# From the budget-app repo root
+cp .clasp.json ".clasp.json.archived-$(date +%Y%m%d)"   # keeps last year's ID for reference (gitignored)
+# then edit .clasp.json and replace "scriptId" with the new master's ID
+```
+
+- Verify the link before trusting it — pull into a temp dir and diff against local `src/`:
+
+```bash
+rm -rf /tmp/gas-verify && mkdir -p /tmp/gas-verify && cp .clasp.json /tmp/gas-verify/
+( cd /tmp/gas-verify && clasp pull )
+diff -rq src/ /tmp/gas-verify/src/     # business-logic files should be identical
+```
+
+  A cosmetic `appsscript.json` difference is expected (Google reformats the manifest on pull — the OAuth scopes and runtime are unchanged). All `.js` business-logic files should report identical.
+
+**2. Rename the Apps Script project**
+
+The copy inherited **last year's project title**, so the active master and the archived one look identical in the editor — a real footgun. `clasp` has no rename command and the title is not stored in any synced file, so this is a **manual editor step**: open the project, click the title (top-left), and rename it to encode the current budget year, e.g.:
+
+- Active master: `GS Budget App — FY2026-27`
+- Archived master: `GS Budget App — FY2025-26 (Archived)`
+
+Encoding the year is deliberate: because the title carries forward on every copy, next year's fresh copy will *still* read `FY2026-27`, which immediately flags it as "rename me to the new year." That turns renaming the copy into a natural, self-reminding annual step, and no two active projects ever share a name.
+
 ## Known Technical Limitations
 
 ### Print Buttons and the Local Print Subsystem
