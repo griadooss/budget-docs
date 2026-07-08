@@ -112,7 +112,7 @@ description: 'Complete guide to all menu functions in the Budget System'
 ## 🛠️ Developer Menu (Dev Mode Only)
 
 !!! note
-    The Developer menu only appears when Developer Mode is enabled (**ℹ️ Help > Toggle Developer Mode**). The submenus below are a summary — for the full list of every tool, including the large **Legacy** group, see the [Developer Menu Reference](../system/developer-menu.md).
+    The Developer menu only appears when Developer Mode is enabled (**ℹ️ Help > Toggle Developer Mode**). The submenus below are a summary — for the full list of every tool, including the large **Legacy** group, see the [Developer Menu Reference](../../developer/developer-menu.md).
 
 ??? code "Dev Mode"
     - Check Dev Mode Status / Enable Dev Mode / Disable Dev Mode
@@ -139,7 +139,7 @@ description: 'Complete guide to all menu functions in the Budget System'
     - 🔍 Debug Income Budget Status
 
 ??? cog "Legacy"
-    - A grouped set of legacy and diagnostic tools (Legacy System Cleanup, Cross-Year Detection, Advanced Testing, Debug & Diagnostics, Performance Testing). See the [Developer Menu Reference](../system/developer-menu.md) for details.
+    - A grouped set of legacy and diagnostic tools (Legacy System Cleanup, Cross-Year Detection, Advanced Testing, Debug & Diagnostics, Performance Testing). See the [Developer Menu Reference](../../developer/developer-menu.md) for details.
 
 ## ℹ️ Help Menu
 

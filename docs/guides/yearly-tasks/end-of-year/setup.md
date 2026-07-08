@@ -261,7 +261,7 @@ The rules to follow:
 
 1. The simple fix: **reboot the PC** and try again.
 2. Quick test: press **Ctrl+P** on any ordinary web page and print. If that *also* fails, it's your printer/print queue (not Sheets); if only Sheets fails, fully quit and reopen your browser.
-3. Advanced users can clear the print queue instead of rebooting — see the [EOY Developer Guide](developer-guide.md#print-buttons-and-the-local-print-subsystem) for the exact commands.
+3. Advanced users can clear the print queue instead of rebooting — see the [EOY Developer Guide](../../../developer/developer-guide.md#print-buttons-and-the-local-print-subsystem) for the exact commands.
 
 It never affects your budget data or the EOY process — only the convenience print-out.
 

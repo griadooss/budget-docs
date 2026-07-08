@@ -32,7 +32,6 @@ nav:
           - End of Year:
               - Overview: guides/yearly-tasks/end-of-year/overview.md
               - Setup: guides/yearly-tasks/end-of-year/setup.md
-              - Developer Guide: guides/yearly-tasks/end-of-year/developer-guide.md
       - User Manual:
           - Overview: guides/user-manual/basic-overview.md
           - Operations: guides/user-manual/basic-operations.md
@@ -42,8 +41,11 @@ nav:
       - System:
           - Version: guides/system/version.md
           - Changelog: guides/system/changelog.md
-          - Developer Menu: guides/system/developer-menu.md
       - Troubleshooting:
           - Common Issues: guides/troubleshooting/common-issues.md
           - Version Recovery: guides/troubleshooting/version-recovery.md
           - Using AI Help: guides/troubleshooting/using-ai-help.md
+  - For Developers:
+      - Overview: developer/index.md
+      - EOY Developer Guide: developer/developer-guide.md
+      - Developer Menu: developer/developer-menu.md

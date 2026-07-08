@@ -178,7 +178,7 @@ When working with a new copy, you'll need to authorize the scripts. **Don't worr
 ## Documentation and Support
 
 - **Step-by-step instructions:** [EOY Budget Setup](setup.md)
-- **Technical details:** [Developer Guide](developer-guide.md)
+- **Technical details:** [Developer Guide](../../../developer/developer-guide.md)
 - **Troubleshooting:** [Common Issues](../../troubleshooting/common-issues.md)
 
 !!! note

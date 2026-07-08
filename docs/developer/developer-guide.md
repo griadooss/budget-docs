@@ -5,7 +5,10 @@ description: 'Technical information for developers working on the End of Year pr
 
 # EOY Process Developer Guide
 
-This guide contains technical information for developers who are maintaining or enhancing the End of Year (EOY) process. End users should refer to the [End of Year Process Overview](overview.md) and [EOY Budget Setup](setup.md) guides instead.
+!!! danger "Developers only — not part of normal budgeting"
+    This page documents the app's internal code, CLASP sync, and Script IDs for whoever maintains the software. **You do not need anything here to run your budget or to complete End of Year** — follow the [EOY Setup](../guides/yearly-tasks/end-of-year/setup.md) guide instead. Acting on these instructions without understanding the code can damage the live spreadsheet.
+
+This guide contains technical information for developers who are maintaining or enhancing the End of Year (EOY) process. End users should refer to the [End of Year Process Overview](../guides/yearly-tasks/end-of-year/overview.md) and [EOY Budget Setup](../guides/yearly-tasks/end-of-year/setup.md) guides instead.
 
 ## Current Implementation Overview
 
@@ -14,7 +17,7 @@ The EOY process has been significantly improved from the original design and now
 ### Key Architectural Features
 - **Month-Restricted Access** - Process only available in June (final fiscal month)
 - **State-Driven Menu System** - Menus adapt based on EOY completion status
-- **Three-Step Setup Workflow** - The three numbered menu steps (`1. Run Initial EOY Setup` → `2. Continue EOY Setup` → `3. Finalize EOY Setup`) that follow the initial **Start EOY Process**. The [user-facing overview](overview.md) describes the whole journey as four phases by counting *Start EOY Process* as phase 1.
+- **Three-Step Setup Workflow** - The three numbered menu steps (`1. Run Initial EOY Setup` → `2. Continue EOY Setup` → `3. Finalize EOY Setup`) that follow the initial **Start EOY Process**. The [user-facing overview](../guides/yearly-tasks/end-of-year/overview.md) describes the whole journey as four phases by counting *Start EOY Process* as phase 1.
 - **Guided Master Archiving** - User manually archives previous master with system guidance
 - **Comprehensive Verification** - Multiple validation checkpoints throughout process
 - **User Choice Dialogs** - Commitment validation with Fix Now vs Ignore options (this fires during a *normal* End of Month run; inside the EOY flow loans/commitments are surfaced up-front via the EOY Warnings dialog instead — see [Commitment Validation System](#commitment-validation-system))
@@ -273,7 +276,7 @@ Multiple verification points ensure system integrity:
 The **Budget Start Dates** table the user edits in Step 3 is the named range **`IncomeStartDatesConfig`** on Maintain Budget — Column E holds the labels, Column F the values. It is read by **label lookup**, not fixed cell addresses, via `findConfigTableCell(label, "startDate")` (defined in `config/namedRanges.js`). This is why the table can grow or shrink: lookups scan the range for a matching label.
 
 !!! warning "User-facing fragility"
-    This is the one delicate, fully-manual step in EOY — everything else is scripted. The [Managing the Start Dates](setup.md#managing-the-start-dates) section of the user guide and the in-product *Create New Budget* dialog both warn novices about it. Keep those three places (dialog, setup guide, this section) in sync if the logic changes.
+    This is the one delicate, fully-manual step in EOY — everything else is scripted. The [Managing the Start Dates](../guides/yearly-tasks/end-of-year/setup.md#managing-the-start-dates) section of the user guide and the in-product *Create New Budget* dialog both warn novices about it. Keep those three places (dialog, setup guide, this section) in sync if the logic changes.
 
 **How a row's distribution path is chosen** (`distributeBudget.js`, `distributeValuesFromRow()`):
 
